@@ -568,6 +568,114 @@ body {
     margin: 10px 0;
 }
 
+/* CONTACTO */
+.contacto form {
+    margin-top: 30px;
+}
+
+.contacto input[type=text],
+.contacto input[type=email],
+.contacto textarea {
+    width: 100%;
+    border: 1px solid #aaaaaa;
+    color: #9c9c9c;
+    outline: none!important;
+    margin-bottom: 20px;
+    min-height: 40px;
+    padding-left: 15px;
+    transition: box-shadow 120ms ease;
+}
+
+.contacto input[type=text]:focus,
+.contacto input[type=email]:focus,
+.contacto textarea:focus {
+    box-shadow: 3px 3px 3px rgba(0,0,0,.3);
+}
+
+.contacto textarea {
+    padding-top: 10px;
+    height: 100px;
+}
+
+.contacto input[type=submit] {
+    background-color: #00498e;
+    color: #fff;
+    border: 0;
+    padding: 10px 25px;
+    font-size: 16px;
+}
+
+/* FOOTER */
+footer {
+    position: relative;
+}
+
+footer .container {
+    position: relative;
+}
+
+footer .footer-top {
+    padding: 100px 0;
+}
+
+footer .footer-top .social {
+    position: absolute;
+    float: right;
+    top: 30px;
+    right: 0;
+}
+
+footer .footer-top .social i {
+    font-size: 25px;
+    padding-top: 6px;
+    height: 38px;
+    width: 38px;
+    display: inline-block;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0 3px;
+}
+
+footer ul {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    bottom: 60px;
+    width: 100%;
+    text-align: center;
+}
+
+footer ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+footer ul li a {
+    color: #fff;
+}
+
+footer ul li a::after {
+    content: '|';
+    padding-left: 15px;
+}
+
+footer ul li:nth-last-of-type(1) a::after {
+    content: '';
+    padding: 0;
+}
+
+footer .footer-bottom p {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: rgba(0,0,0,.85);
+}
+
 @media (max-width: 992px) {
     .navbar .top-header .col .social,
     .navbar .top-header .col .links {

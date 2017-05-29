@@ -300,6 +300,20 @@
                 </p>
             </div>
         </div>
+        <form>
+            <div class="row no-margin">
+                <div class="col-sm-6">
+                    <input type="text" placeholder="NOMBRE">
+                    <input type="email" placeholder="EMAIL">
+                </div>
+                <div class="col-sm-6">
+                    <textarea cols="30" rows="10" placeholder="MENSAJE"></textarea>
+                    <div class="text-right">
+                        <input type="submit" value="ENVIAR">
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 @include('layouts.footer')
