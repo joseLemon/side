@@ -377,13 +377,17 @@ body {
     background-color: #343438;
     opacity: .6;
     border: 1px solid #343438;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    transition: background-color 300ms ease, border 300ms ease;
 }
 
 .banner .carousel .carousel-indicators li.active {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    background-color: #ffd400;
+    border: 1px solid #ffd400;
+    opacity: 1;
 }
 
 /* NOSOTROS */
@@ -519,25 +523,25 @@ body {
 }
 
 /* BLOG */
-.blog .img-bg {
+.blog .blog-feed .img-bg {
     height: 400px;
 }
 
-.blog h4 {
+.blog .blog-feed h4 {
     font-size: 16x;
     margin: 20px 0;
 }
 
-.blog h5 {
+.blog .blog-feed h5 {
     color: #767d7f;
     margin: 0 0 15px 0;
 }
 
-.blog p {
+.blog .blog-feed p {
     margin-bottom: 15px;
 }
 
-.blog a {
+.blog .blog-feed a {
     color: #004875;
     text-decoration: none!important;
     display: inline-block;
@@ -546,16 +550,45 @@ body {
     transition: background 300ms ease;
 }
 
-.blog a:hover,
-.blog a:focus {
+.blog .blog-feed a:hover,
+.blog .blog-feed a:focus {
     color: #fff;
     background-color: #004875;
 }
 
-.blog a:focus {
+.blog .blog-feed a:focus {
     -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,.4);
     -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,.4);
     box-shadow:         inset 0 0 10px rgba(0,0,0,.4);
+}
+
+.blog .blog-nav {
+    margin-top: 30px;
+}
+
+.blog .blog-nav a i {
+    font-weight: 100;
+    font-size: 40px;
+    border-radius: 50%;
+    border: 2px solid #7f7f7f;
+    color: #7f7f7f;
+    position: relative;
+    height: 38px;
+    width: 38px;
+}
+
+.blog .blog-nav a i::before {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+.blog .blog-nav a i.fa-angle-left::before {
+    left: 7px;
+}
+
+.blog .blog-nav a i.fa-angle-right::before {
+    right: 7px;
 }
 
 /* REGISTRO */
@@ -615,11 +648,14 @@ footer .container {
 }
 
 footer .footer-top {
-    padding: 100px 0;
+    padding: 30px 0;
+}
+
+footer .footer-top div[class*=col-] {
+    padding: 0;
 }
 
 footer .footer-top .social {
-    position: absolute;
     float: right;
     top: 30px;
     right: 0;
@@ -638,14 +674,17 @@ footer .footer-top .social i {
     margin: 0 3px;
 }
 
+footer .center-img {
+    margin: 30px 0 50px 0;
+}
+
 footer ul {
     display: block;
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
     padding: 0;
-    bottom: 60px;
     width: 100%;
     text-align: center;
 }
@@ -757,6 +796,11 @@ footer .footer-bottom p {
     }
     .navbar .navbar-nav .dropdown .dropdown-menu li a {
         font-size: 11px;
+    }
+    footer .footer-top .social {
+        float: none;
+        text-align: center;
+        margin-top: 20px;
     }
 }
 

@@ -208,7 +208,7 @@
 <!-- ================================== -->
 <div class="aventura" id="aventura">
     <div class="parallax">
-        <div class="parallax-element" data-parallax="{{ asset('img/index/aventura.jpg') }}"></div>
+        <div class="parallax-element" data-parallax="{{ asset('img/index/aventura.jpg') }}" data-positionx="right"></div>
     </div>
     <div class="container text-center">
         <img src="{{ asset('img/index/barrancas.png') }}" alt="Barrancas del Cobre">
@@ -223,7 +223,7 @@
 <div class="blog spacing" id="blog">
     <div class="container">
         <h1 class="heading heading-right text-right">BLOG DE <span>NOTCIAS</span></h1>
-        <div class="row no-margin text-center">
+        <div class="row no-margin text-center blog-feed">
             <div class="col-sm-4">
                 <div class="img-bg" style="background: url({{ asset('img/index/blog/1.jpg') }})"></div>
                 <h4 class="bold">Arranca Programa de Capacitación</h4>
@@ -254,6 +254,10 @@
                 </p>
                 <a href="#">LEER MÁS</a>
             </div>
+        </div>
+        <div class="blog-nav text-center">
+            <a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
         </div>
     </div>
 </div>

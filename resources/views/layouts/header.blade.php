@@ -52,21 +52,16 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿POR QUÉ CHIHUAHUA?</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿QUIÉNES SOMOS?</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">MENSAJE DEL GOBERNADOR</a></li>
-                            <li><a href="#">CALIDAD DE VIDA</a></li>
-                            <li><a href="#">CENTROS DE I Y D</a></li>
-                            <li><a href="#">TALENTO HUMANO</a></li>
-                            <li><a href="#">INFRAESTRUCTURA</a></li>
-                            <li><a href="#">GENERALES</a></li>
-                            <li><a href="#">UBICACIÓN ESTRATÉGICA</a></li>
+                            <li><a href="#">MISIÓN</a></li>
+                            <li><a href="#">VISIÓN</a></li>
+                            <li><a href="#">VALORES</a></li>
+                            <li><a href="#">ESTRUCTURA</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">CENTRO DE INFORMACIÓN</a></li>
-                    <li><a href="#">APOYA A TU NEGOCIO</a></li>
-                    <li><a href="#">EMPRENDEDORES</a></li>
-                    <li><a href="#">VISÍTANOS</a></li>
+                    <li><a href="#">CONTACTO</a></li>
+                    <li><a href="#">TRANSPARENCIA</a></li>
                 </ul>
             </div>
         </div>

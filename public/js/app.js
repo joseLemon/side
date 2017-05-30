@@ -35,7 +35,8 @@ $(document).ready(function () {
         var parallaxEl = $(this);
         var height = '100vh';
         var heightAttr = parallaxEl.data('height');
-        var positionAttr = parallaxEl.data('position');
+        var positionAttrY = 'center';
+        var positionAttrX = 'center';
 
         if( heightAttr != null) {
             if(heightAttr == 'parent') {
@@ -45,20 +46,18 @@ $(document).ready(function () {
             }
         }
 
-        console.log(positionAttr);
-
-        switch (positionAttr) {
-            case 'top':
-                parallaxEl.css('top','0');
-                break;
-            case 'bottom':
-                parallaxEl.css('bottom','0');
-                break;
+        if( parallaxEl.data('positionx') != null ) {
+            positionAttrX = parallaxEl.data('positionx');
         }
+        if( parallaxEl.data('positiony') != null ) {
+            positionAttrY = parallaxEl.data('positiony');
+        }
+
+        console.log(positionAttrY + ' ' + positionAttrX);
 
         parallaxEl.css('background-image', 'url("' + parallaxEl.data('parallax') + '")');
         parallaxEl.css('background-repeat', 'no-repeat');
-        parallaxEl.css('background-position', 'center center');
+        parallaxEl.css('background-position', positionAttrY + ' ' + positionAttrX);
         parallaxEl.css('height', height);
     });
 });
