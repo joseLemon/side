@@ -1,0 +1,76 @@
+@import url(inputs.css);
+
+hr {
+    margin: 15px 0;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* NAVBAR */
+.main-menu {
+    width: 300px;
+    float: left;
+    height: 100vh;
+}
+
+.navbar {
+    margin: 0;
+    border: 0;
+    height: 100%;
+}
+
+.navbar-brand {
+    display: block;
+    float: none;
+}
+
+.navbar-nav {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+}
+
+.navbar-nav>li {
+    display: list-item;
+    float: none;
+}
+
+/* CONTENT */
+.content-wrapper {
+    width: calc(100% - 302px);
+    float: left;
+    padding: 30px;
+    background-color: #eee;
+    height: 100vh;
+}
+
+.medium-container {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* BLOG */
+.blog-container {
+
+}
+
+.blog-content {
+    width: calc(100% - 220px);
+    float: left;
+    padding: 0 10px;
+}
+
+.blog-sidebar {
+    width: 220px;
+    float: left;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.mce-tinymce {
+    border: 1px solid #d3d3d3!important;
+    width: calc(100% - 2px)!important;
+}

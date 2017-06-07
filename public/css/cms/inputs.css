@@ -1,0 +1,17 @@
+.input-cms {
+    width: 100%;
+    border: 1px solid #d3d3d3;
+    min-height: 30px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.input-file-cms {
+    cursor: pointer;
+    font-weight: 100;
+    text-decoration: underline;
+}
+
+.input-file-cms input {
+    display: none;
+}

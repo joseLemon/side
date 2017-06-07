@@ -137,6 +137,25 @@
 </div>
 <!-- ================================== -->
 
+<!-- ///////////  ¿CÓMO INNOVAS?  \\\\\\\\\\\ -->
+
+<!-- ================================== -->
+<div class="innovas" id="innovas">
+    <div class="parallax">
+        <div class="parallax-element" data-parallax="{{ asset('img/index/innovas.jpg') }}"></div>
+    </div>
+    <div class="container">
+        <div class="question-box">
+            <h2 class="white text-center">¿CÓMO INNOVAS <span class="bold">CHIHUAHUA?</span></h2>
+            <div class="input-group">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input class="form-control" type="text">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ================================== -->
+
 <!-- ///////////  INDUSTRIAS CLAVE  \\\\\\\\\\\ -->
 
 <!-- ================================== -->
@@ -144,60 +163,82 @@
     <div class="container">
         <h1 class="heading heading-left"><span>INDUSTRIAS</span> CLAVE</h1>
     </div>
-    <div class="grid">
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/1.jpg') }}') no-repeat center center"></div>
+    <div class="grid row no-margin">
+        <div class="grid-panel red">
+            <div><h3>PROMOCIÓN</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/2.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel light-red">
+            <div class="logo-text">
+                <img class="img-responsive center-block" src="{{ asset('img/index/industrias/icatech.png') }}" alt="ICATECH">
+            </div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/3.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel pink-red">
+            <div class="logo-text">
+                <h5>
+                    <img class="img-responsive center-block" src="{{ asset('img/index/industrias/codech.png') }}" alt="CODECH">
+                </h5>
+            </div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/4.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel pink">
+            <div><h3>FODARCH</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/5.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel brown">
+            <div><h3>MINERÍA</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/6.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel orange">
+            <div><h3>INDUSTRIA</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/7.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel yellow">
+            <div><h3>TURISMO</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/8.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel light-green">
+            <div><h3>AGROINDUSTRIA</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/9.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel green">
+            <div><h3>ENERGÍA</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/10.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel dark-green">
+            <div><h3>BARRANCAS DEL COBRE</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/11.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel gray-blue">
+            <div class="logo-text">
+                <h5>
+                    <img class="img-responsive center-block" src="{{ asset('img/index/industrias/asach.png') }}" alt="ASACH">
+                </h5>
+            </div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/12.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel cyan">
+            <div><h3>GESTIÓN ESTRATÉGICA Y EFICACIA</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/13.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel blue">
+            <div><h3>COMERCIO</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/14.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel dark-blue">
+            <div class="logo-text">
+                <h5>
+                    <img class="img-responsive center-block" src="{{ asset('img/index/industrias/fideapech.png') }}" alt="FIDEAPECH">
+                </h5>
+            </div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/15.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel purple">
+            <div class="logo-text">
+                <h5>
+                    <img class="img-responsive center-block" src="{{ asset('img/index/industrias/inadet.png') }}" alt="INADET">
+                </h5>
+            </div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/16.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel magenta">
+            <div><h3>INNOVACIÓN Y COMPETITIVIDAD</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/17.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel light-magenta">
+            <div><h3>¡AY CHIHUAHUA!</h3></div>
         </div>
-        <div class="grid-panel">
-            <div class="img-bg" style="background: url('{{ asset('img/index/industrias/18.jpg') }}') no-repeat center center"></div>
+        <div class="grid-panel gray">
+            <div class="logo-text">
+                <h5>
+                    <img class="img-responsive center-block" src="{{ asset('img/index/industrias/pich.png') }}" alt="PROMOTORA">
+                </h5>
+            </div>
         </div>
     </div>
 </div>

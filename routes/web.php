@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('index');
 });
+
+require __DIR__.'/blog.php';
