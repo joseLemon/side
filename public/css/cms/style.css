@@ -10,7 +10,7 @@ hr {
 
 /* NAVBAR */
 .main-menu {
-    width: 300px;
+    width: 250px;
     float: left;
     height: 100vh;
 }
@@ -19,6 +19,10 @@ hr {
     margin: 0;
     border: 0;
     height: 100%;
+}
+
+.navbar-collapse {
+    padding: 0;
 }
 
 .navbar-brand {
@@ -37,9 +41,23 @@ hr {
     float: none;
 }
 
+.navbar-nav .dropdown-menu {
+    position: relative;
+    float: none;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    border: 0;
+    background-color: #e3e3e3;
+}
+
+.navbar-nav .dropdown-menu>li>a {
+    background: transparent!important;
+}
+
 /* CONTENT */
 .content-wrapper {
-    width: calc(100% - 302px);
+    width: calc(100% - 252px);
     float: left;
     padding: 30px;
     background-color: #eee;

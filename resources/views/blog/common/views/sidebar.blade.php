@@ -5,7 +5,7 @@
     <label for="post_img">Imagen Destacada</label>
     <div class="img-container preview @isset($post_img){{ 'active' }}@endisset">
         <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
-        <img src="{{ asset('uploads/blog/' . $post->post_id . '/' . $post_img) }}" alt="Imagen del Post" id="preview" class="center-block img-responsive">
+        <img src="@isset($post_img){{ asset('uploads/blog/' . $post->post_id . '/' . $post_img) }}@endisset" alt="Imagen del Post" id="preview" class="center-block img-responsive">
     </div>
     <label for="post_img" class="input-file-cms">
         Elegir imagen

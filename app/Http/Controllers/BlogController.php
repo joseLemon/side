@@ -6,7 +6,11 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller {
-    public  function create() {
+    public function show() {
+        return view('blog.show.show');
+    }
+
+    public function create() {
         return view('blog.create.create');
     }
 
