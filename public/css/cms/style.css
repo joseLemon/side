@@ -63,6 +63,11 @@ hr {
     padding: 0 10px;
 }
 
+.mce-tinymce {
+    border: 1px solid #d3d3d3!important;
+    width: calc(100% - 2px)!important;
+}
+
 .blog-sidebar {
     width: 220px;
     float: left;
@@ -70,7 +75,58 @@ hr {
     background-color: #fff;
 }
 
-.mce-tinymce {
-    border: 1px solid #d3d3d3!important;
-    width: calc(100% - 2px)!important;
+.blog-sidebar .img-container.active {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background-image:
+            -moz-linear-gradient(45deg, #e3e3e3 25%, transparent 25%),
+            -moz-linear-gradient(-45deg, #e3e3e3 25%, transparent 25%),
+            -moz-linear-gradient(45deg, transparent 75%, #e3e3e3 75%),
+            -moz-linear-gradient(-45deg, transparent 75%, #e3e3e3 75%);
+    background-image:
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #e3e3e3), color-stop(.25, transparent)),
+            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #e3e3e3), color-stop(.25, transparent)),
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #e3e3e3)),
+            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #e3e3e3));
+
+    -moz-background-size:50px 50px;
+    background-size:50px 50px;
+    -webkit-background-size:50px 51px; /* override value for shitty webkit */
+
+    background-position:0 0, 25px 0, 25px -25px, 0px 25px;
+}
+
+.blog-sidebar .img-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.blog-sidebar .img-container .remove-img {
+    display: none;
+    padding: 0;
+    border: 0;
+    background: none;
+    float: right;
+    position: relative;
+    top: 1px;
+    right: 5px;
+    outline: none;
+    opacity: .4;
+    color: #d44950;
+}
+
+.blog-sidebar .img-container.active .remove-img {
+    display: block;
+}
+
+.blog-sidebar .img-container.active .remove-img:hover {
+    opacity: .8;
 }
