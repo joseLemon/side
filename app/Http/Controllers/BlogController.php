@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller {
     public function show() {
@@ -57,5 +58,31 @@ class BlogController extends Controller {
 
     public function update($id) {
         return;
+    }
+
+    public function getPosts(Request $request) {
+        $search = $request->input('search','');
+        $date = date('Y-m-d', strtotime(str_replace('/', '-', $search)));
+
+        $posts = Blog::select([
+            DB::raw('DATE_FORMAT(post_date, \'%d-%m-%Y\') AS post_date'),
+            'post_id',
+            'post_title'
+        ])
+            ->orderBy('post_id');
+
+        if($request->input('get_posts_by') != 'all') {
+            $posts->whereRaw(
+                "(
+                post_title LIKE \"%$search%\"
+                OR post_id LIKE \"%$search%\"
+                OR post_date LIKE \"%$date%\"
+                )"
+            );
+        }
+
+        $query = $posts->paginate(1);
+
+        return $query;
     }
 }
