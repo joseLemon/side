@@ -2,13 +2,22 @@
 namespace App\Http\Controllers;
 
 class ImgUploadController extends Controller {
-    public static function fileUpload($target_dir, $input_name) {
+    public static function fileUpload($target_dir, $input_name, $delete) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
         }
         if ($_FILES[$input_name]["size"] > 25000000) {
             return 'failed';
+        }
+
+        if($delete) {
+            //  Delete files if they exist
+            $files = glob($target_dir.'/*'); // get all file names
+            foreach($files as $file){ // iterate files
+                if(is_file($file))
+                    unlink($file); // delete file
+            }
         }
 
         if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . 'temp.tmp')) {

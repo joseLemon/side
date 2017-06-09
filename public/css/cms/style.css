@@ -139,6 +139,7 @@ hr {
     outline: none;
     opacity: .4;
     color: #d44950;
+    z-index: 15;
 }
 
 .blog-sidebar .img-container.active .remove-img {

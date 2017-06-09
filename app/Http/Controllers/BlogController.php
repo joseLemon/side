@@ -24,14 +24,14 @@ class BlogController extends Controller {
         $post->post_date = $post_date;
         $post->save();
 
-        if($request->input('post_img') != '') {
+        if($_FILES['post_img']['size'] > 0) {
             ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img');
         }
 
         \Session::flash('alertMessage','Nueva entrada creada.');
         \Session::flash('alert-class','alert-success');
 
-        return view('blog.show.show');
+        return redirect()->route('blog.show');
     }
 
     public function edit($id)
@@ -43,7 +43,10 @@ class BlogController extends Controller {
         }
 
         $imgArray = scandir(public_path() . '\uploads\blog\\' . $id . '\\');
-        $post_img = $imgArray[2];
+        $post_img = null;;
+        if(array_key_exists(2,$imgArray)) {
+            $post_img = $imgArray[2];
+        }
 
         $params = [
             'post'  => $post,
@@ -62,14 +65,21 @@ class BlogController extends Controller {
         $post->post_date = $post_date;
         $post->save();
 
-        if($request->input('post_img') != '') {
-            ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img');
+        if($_FILES['post_img']['size'] > 0) {
+            ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img',true);
+        } else {
+            //  Delete files if they exist
+            $files = glob(public_path().'\uploads\blog\\'.$post->post_id.'\\'.'/*'); // get all file names
+            foreach($files as $file){ // iterate files
+                if(is_file($file))
+                    unlink($file); // delete file
+            }
         }
 
         \Session::flash('alertMessage','Entrada editada correctamente.');
         \Session::flash('alert-class','alert-success');
 
-        return view('blog.show.show');
+        return redirect()->route('blog.show');
     }
 
     public function getPosts(Request $request) {
