@@ -50,12 +50,15 @@
                             '<td>' + post.post_id + '</td>' +
                             '<td>' + post.post_date + '</td>' +
                             '<td>' + post.post_title + '</td>' +
+                            '<td>' + RemoveHTMLTags(post.post_excerpt) + '</td>' +
                             '<td>' +
                             '<a href="#" class="delete preventDef"><i class="fa fa-times" aria-hidden="true"></i></a>' +
                             '</td>' +
                             '</tr>'
                         );
                     });
+
+                    console.log(table.find('td:nth-of-type(4)'));
 
                     var paginator = $('#pagination');
                     paginator.empty();
@@ -66,7 +69,18 @@
                         '</a>' +
                         '</li>'
                     );
-                    for(i = 1; i <= posts.last_page; i++) {
+
+                    var start = posts.current_page - 1;
+                    if(start < 1) {
+                        start = 1;
+                    }
+
+                    var end = posts.current_page + 1;
+                    if(end > posts.last_page) {
+                        end = posts.last_page
+                    }
+
+                    for(i = start; i <= end; i++) {
                         paginator.append('<li><a href="#" class="preventDef" onclick="fillPostsTable(\''+$get_posts_by+'\','+i+')">' + i + '</a></li>')
                     }
                     paginator.append(
@@ -152,7 +166,8 @@
                 <table class="table table-stripped" id="postsTable">
                     <colgroup>
                         <col style="width: 5%">
-                        <col style="width: 35%">
+                        <col style="width: 15%">
+                        <col style="width: 30%">
                         <col style="width: 45%">
                         <col style="width: 5%">
                     </colgroup>
@@ -161,6 +176,7 @@
                         <th>#</th>
                         <th>Fecha</th>
                         <th>Título</th>
+                        <th>Contenido</th>
                         <th></th>
                     </tr>
                     </thead>

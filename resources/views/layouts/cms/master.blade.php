@@ -27,6 +27,12 @@
                 $(this).find('.dropdown-menu').first().stop(true, true).slideUp('fast');
             });
         });
+
+        // GLOBAL FUNCTIONS
+        function RemoveHTMLTags($text) {
+            var regX = /(<([^>]+)>)/ig;
+            return $text.replace(regX, "");
+        }
     </script>
     @yield('scripts')
 </head>

@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', ['as' => 'site.index', 'uses' => 'IndexController@index']);
 
 require __DIR__.'/blog.php';

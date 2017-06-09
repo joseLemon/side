@@ -82,12 +82,17 @@ class BlogController extends Controller {
         return redirect()->route('blog.show');
     }
 
-    public function getPosts(Request $request) {
+    public static function getPosts(Request $request) {
         $search = $request->input('search','');
+        $paginate = $request->input('paginate',10);
         $date = date('Y-m-d', strtotime(str_replace('/', '-', $search)));
+        if($date == '1970-01-01') {
+            $date = $search;
+        }
 
         $posts = Blog::select([
             DB::raw('DATE_FORMAT(post_date, \'%d-%m-%Y\') AS post_date'),
+            DB::raw('IF (CHAR_LENGTH(post_content) > 150, CONCAT(RTRIM(REVERSE(SUBSTRING(REVERSE(LEFT(post_content, 150)),LOCATE(" ",REVERSE(LEFT(post_content, 150)))))), \' ...\'), post_content) AS post_excerpt'),
             'post_id',
             'post_title'
         ])
@@ -99,11 +104,12 @@ class BlogController extends Controller {
                 post_title LIKE \"%$search%\"
                 OR post_id LIKE \"%$search%\"
                 OR post_date LIKE \"%$date%\"
+                OR post_date LIKE \"%$search%\"
                 )"
             );
         }
 
-        $query = $posts->paginate(10);
+        $query = $posts->paginate($paginate);
 
         return $query;
     }
