@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cms/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/modules/jquery-confirm/css/jquery-confirm.css') }}">
     @yield('head')
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/modules/jquery-confirm/js/jquery-confirm.js') }}"></script>
     <script>
         $(document).ready(function () {
             // Add slideDown animation to Bootstrap dropdown when expanding.

@@ -24,17 +24,14 @@ class BlogController extends Controller {
         $post->post_date = $post_date;
         $post->save();
 
-        ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img');
+        if($request->input('post_img') != '') {
+            ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img');
+        }
 
-        $jsonData = array(
-            'success'   => true,
-            'msg'       => 'Post creado existosamente.'
-        );
-
-        \Session::flash('alertMessage','Nueva post creado.');
+        \Session::flash('alertMessage','Nueva entrada creada.');
         \Session::flash('alert-class','alert-success');
 
-        return response()->json($jsonData);
+        return view('blog.show.show');
     }
 
     public function edit($id)
@@ -56,8 +53,23 @@ class BlogController extends Controller {
         return view('blog.edit.edit',$params);
     }
 
-    public function update($id) {
-        return;
+    public function update($id, Request $request) {
+        $post = Blog::find($id);
+
+        $post->post_title = $request->input('post_title');
+        $post->post_content = $request->input('post_content');
+        $post_date = date('Y-m-d',strtotime($request->input('post_date')));
+        $post->post_date = $post_date;
+        $post->save();
+
+        if($request->input('post_img') != '') {
+            ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img');
+        }
+
+        \Session::flash('alertMessage','Entrada editada correctamente.');
+        \Session::flash('alert-class','alert-success');
+
+        return view('blog.show.show');
     }
 
     public function getPosts(Request $request) {
@@ -71,7 +83,7 @@ class BlogController extends Controller {
         ])
             ->orderBy('post_id');
 
-        if($request->input('get_posts_by') != 'all') {
+        if($request->input('get_posts_by') == 'search') {
             $posts->whereRaw(
                 "(
                 post_title LIKE \"%$search%\"
@@ -81,8 +93,20 @@ class BlogController extends Controller {
             );
         }
 
-        $query = $posts->paginate(1);
+        $query = $posts->paginate(10);
 
         return $query;
+    }
+
+    public function delete(Request $request) {
+        $post = Blog::find($request->input('post_id'));
+        $post->delete();
+
+        $jsonResponse = [
+            'alert_class' => 'alert-success',
+            'msg'   => 'Entrada eliminada correctamente'
+        ];
+
+        return response()->json($jsonResponse);
     }
 }
