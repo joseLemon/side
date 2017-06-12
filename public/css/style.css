@@ -723,7 +723,7 @@ body {
 }
 
 .blog .blog-feed h4 {
-    font-size: 16x;
+    font-size: 16px;
     margin: 20px 0;
 }
 
@@ -761,6 +761,10 @@ body {
     margin-top: 30px;
 }
 
+.blog .blog-nav {
+    text-decoration: none!important;
+}
+
 .blog .blog-nav a i {
     font-weight: 100;
     font-size: 40px;
@@ -784,6 +788,10 @@ body {
 
 .blog .blog-nav a i.fa-angle-right::before {
     right: 7px;
+}
+
+.blog .carousel-control {
+    background-image: none!important;
 }
 
 /* REGISTRO */

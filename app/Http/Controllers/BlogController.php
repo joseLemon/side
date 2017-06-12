@@ -43,7 +43,7 @@ class BlogController extends Controller {
         }
 
         $imgArray = scandir(public_path() . '\uploads\blog\\' . $id . '\\');
-        $post_img = null;;
+        $post_img = null;
         if(array_key_exists(2,$imgArray)) {
             $post_img = $imgArray[2];
         }
