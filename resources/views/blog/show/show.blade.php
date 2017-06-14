@@ -58,8 +58,6 @@
                         );
                     });
 
-                    console.log(table.find('td:nth-of-type(4)'));
-
                     var paginator = $('#pagination');
                     paginator.empty();
                     paginator.append(
@@ -146,50 +144,53 @@
     </script>
 @stop
 @section('content')
-    <div class="big-container blog-container">
+    <div class="big-container">
+        <div class="dash-object">
 
-        <div class="dash-head">
-            <div class="search-bar">
-                <div class="input-group">
-                    {!! Form::text('search',null,['class'=>'form-control','id'=>'search-input']) !!}
-                    <span class="input-group-btn">
+            <div class="dash-head">
+                <div class="search-bar">
+                    <div class="input-group">
+                        {!! Form::text('search',null,['class'=>'form-control','id'=>'search-input']) !!}
+                        <span class="input-group-btn">
                     <button class="btn btn-default" type="button">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="dash-body">
-            <div class="table-responsive">
-                <table class="table table-stripped" id="postsTable">
-                    <colgroup>
-                        <col style="width: 5%">
-                        <col style="width: 15%">
-                        <col style="width: 30%">
-                        <col style="width: 45%">
-                        <col style="width: 5%">
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Fecha</th>
-                        <th>Título</th>
-                        <th>Contenido</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div class="dash-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-cms" id="postsTable">
+                        <colgroup>
+                            <col style="width: 5%">
+                            <col style="width: 15%">
+                            <col style="width: 30%">
+                            <col style="width: 45%">
+                            <col style="width: 5%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Fecha</th>
+                            <th>Título</th>
+                            <th>Contenido</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <div class="dash-footer">
-            <nav aria-label="Page navigation" class="text-right">
-                <ul class="pagination" id="pagination">
-                </ul>
-            </nav>
+            <div class="dash-footer">
+                <nav aria-label="Page navigation" class="text-right">
+                    <ul class="pagination" id="pagination">
+                    </ul>
+                </nav>
+            </div>
+
         </div>
 
     </div>

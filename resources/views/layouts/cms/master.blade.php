@@ -18,7 +18,6 @@
         $(document).ready(function () {
             // Add slideDown animation to Bootstrap dropdown when expanding.
             $('.dropdown').on('show.bs.dropdown', function() {
-                console.log('show');
                 $(this).find('.dropdown-menu').first().stop(true, true).slideDown('fast');
             });
 
@@ -26,6 +25,14 @@
             $('.dropdown').on('hide.bs.dropdown', function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideUp('fast');
             });
+
+            $('.navbar-collapse').on('show.bs.collapse', function () {
+                $('.main-menu').addClass('active');
+            })
+
+            $('.navbar-collapse').on('hide.bs.collapse', function () {
+                $('.main-menu').removeClass('active');
+            })
         });
 
         // GLOBAL FUNCTIONS
@@ -41,26 +48,23 @@
     <nav class="navbar navbar-default">
 
         <div class="navbar-header">
+            <!--<a class="navbar-brand" href="#">Brand</a>-->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
         </div>
 
         <div class="collapse navbar-collapse" id="nav-collapse">
-            <a class="navbar-brand" href="#">Brand</a>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BLOG <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil menu-icon" aria-hidden="true"></i> BLOG <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('blog.create') }}">NUEVO</a></li>
                         <li><a href="{{ route('blog.show') }}">VER</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PÁGINAS <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> PÁGINAS <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">NUEVO</a></li>
                         <li><a href="#">VER</a></li>
