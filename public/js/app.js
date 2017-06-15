@@ -53,8 +53,6 @@ $(document).ready(function () {
             positionAttrY = parallaxEl.data('positiony');
         }
 
-        console.log(positionAttrY + ' ' + positionAttrX);
-
         parallaxEl.css('background-image', 'url("' + parallaxEl.data('parallax') + '")');
         parallaxEl.css('background-repeat', 'no-repeat');
         parallaxEl.css('background-position', positionAttrY + ' ' + positionAttrX);

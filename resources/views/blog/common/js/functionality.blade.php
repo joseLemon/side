@@ -17,6 +17,7 @@
         $('.blog-sidebar .img-container .remove-img').click(function () {
             $('.preview').removeClass('active').find('img').attr('src','');
             $('#post_img').val('');
+            $('#state_check').val('removed');
         });
     });
 

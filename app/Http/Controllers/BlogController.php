@@ -42,15 +42,8 @@ class BlogController extends Controller {
             return abort('404');
         }
 
-        $imgArray = scandir(public_path() . '\uploads\blog\\' . $id . '\\');
-        $post_img = null;
-        if(array_key_exists(2,$imgArray)) {
-            $post_img = $imgArray[2];
-        }
-
         $params = [
-            'post'  => $post,
-            'post_img'   => $post_img
+            'post'  => $post
         ];
 
         return view('blog.edit.edit',$params);
@@ -67,7 +60,10 @@ class BlogController extends Controller {
 
         if($_FILES['post_img']['size'] > 0) {
             ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img',true);
-        } else {
+
+            $post->post_img = $_FILES['post_img']['name'];
+            $post->save();
+        } else if($request->input('state_check') == 'removed') {
             //  Delete files if they exist
             $files = glob(public_path().'\uploads\blog\\'.$post->post_id.'\\'.'/*'); // get all file names
             foreach($files as $file){ // iterate files
@@ -94,7 +90,8 @@ class BlogController extends Controller {
             DB::raw('DATE_FORMAT(post_date, \'%d-%m-%Y\') AS post_date'),
             DB::raw('IF (CHAR_LENGTH(post_content) > 150, CONCAT(RTRIM(REVERSE(SUBSTRING(REVERSE(LEFT(post_content, 150)),LOCATE(" ",REVERSE(LEFT(post_content, 150)))))), \' ...\'), post_content) AS post_excerpt'),
             'post_id',
-            'post_title'
+            'post_title',
+            'post_img'
         ])
             ->orderBy('post_id');
 

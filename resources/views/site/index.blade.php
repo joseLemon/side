@@ -357,9 +357,10 @@
                 success: function (posts) {
                     $('.blog-feed').empty();
                     $(posts.data).each(function (i, post) {
+                        var img_url = '{{ asset('uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
                         $('.blog-feed').append(
                             '<div class="col-sm-4">' +
-                                '<div class="img-bg" style="background: url({{ asset('img/index/blog/1.jpg') }})"></div>' +
+                                '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +
                                 '<h4 class="bold">' + post.post_title + '</h4>' +
                                 '<h5>' + post.post_date + '</h5>' +
                                 '<p>' + RemoveHTMLTags(post.post_excerpt) + '</p>' +

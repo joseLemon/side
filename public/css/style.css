@@ -718,6 +718,10 @@ body {
 }
 
 /* BLOG */
+.blog .blog-feed .col-sm-4 {
+    padding: 15px;
+}
+
 .blog .blog-feed .img-bg {
     height: 400px;
 }
