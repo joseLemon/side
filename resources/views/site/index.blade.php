@@ -5,55 +5,10 @@
     <!-- ///////////  BANNER  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="banner" id="banner">
-        <div class="parallax">
-            <div class="parallax-element" data-parallax="{{ asset('img/index/banner.jpg') }}"></div>
-        </div>
+    <div class="banner" id="banner" style="background: url('{{ asset('img/index/banners/1.jpg') }}') no-repeat center center">
         <div class="container">
-            <div id="bannerCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#bannerCarousel" data-slide-to="1"></li>
-                    <li data-target="#bannerCarousel" data-slide-to="2"></li>
-                </ol>
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-
-                    <div class="item active">
-                        <div class="vertical-align">
-                            <h3>Chihuahua capital:</h3>
-                            <h2>
-                                Será sede del Congreso Nacional<br>
-                                AMEREF 2019
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="vertical-align">
-                            <h3>Chihuahua capital:</h3>
-                            <h2>
-                                Será sede del Congreso Nacional<br>
-                                AMEREF 2019
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="vertical-align">
-                            <h3>Chihuahua capital:</h3>
-                            <h2>
-                                Será sede del Congreso Nacional<br>
-                                AMEREF 2019
-                            </h2>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
         </div>
-    </div>
     </div>
     <!-- ================================== -->
 
@@ -360,11 +315,11 @@
                         var img_url = '{{ asset('uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
                         $('.blog-feed').append(
                             '<div class="col-sm-4">' +
-                                '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +
-                                '<h4 class="bold">' + post.post_title + '</h4>' +
-                                '<h5>' + post.post_date + '</h5>' +
-                                '<p>' + RemoveHTMLTags(post.post_excerpt) + '</p>' +
-                                '<a href="#">LEER MÁS</a>' +
+                            '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +
+                            '<h4 class="bold">' + post.post_title + '</h4>' +
+                            '<h5>' + post.post_date + '</h5>' +
+                            '<p>' + RemoveHTMLTags(post.post_excerpt) + '</p>' +
+                            '<a href="#">LEER MÁS</a>' +
                             '</div>'
                         );
                     });

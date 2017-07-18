@@ -19,51 +19,30 @@
 <nav class="navbar navbar-default">
     <div class="container">
 
-        <div class="row no-margin top-header">
-            <div class="col-xs">
-                <div class="col">
-                    <img class="img-responsive center-block" src="{{ asset('img/index/logo.png') }}" alt="SIDE">
+        <div class="top-header">
+            <div class="row no-margin top-header">
+                <div class="col-xs">
+                    <div class="col">
+                        <img class="img-responsive center-block" src="{{ asset('img/index/amanece.png') }}" alt="Amanece">
+                    </div>
+                    <div class="col">
+                        <img class="img-responsive center-block" src="{{ asset('img/index/logo.png') }}" alt="SIDE">
+                    </div>
                 </div>
-                <div class="col">
-                    <img class="img-responsive center-block" src="{{ asset('img/index/amanece.png') }}" alt="Amanece">
+                <div class="col col-xs text-center">
+                <span class="links">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">CONTACTO</a> | <a href="#">INGLÉS</a>
+                </span>
                 </div>
             </div>
-            <div class="col col-xs">
+
+            <div class="text-center divider divider-top">
                 <span class="social">
                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
                 </span>
-                <span class="links">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">CONTACTO</a> | <a href="#">INGLÉS</a>
-                </span>
-            </div>
-        </div>
-
-        <div class="collapse-container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿QUIÉNES SOMOS?</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">MISIÓN</a></li>
-                            <li><a href="#">VISIÓN</a></li>
-                            <li><a href="#">VALORES</a></li>
-                            <li><a href="#">ESTRUCTURA</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">CONTACTO</a></li>
-                    <li><a href="#">TRANSPARENCIA</a></li>
-                </ul>
+                <input type="text">
             </div>
         </div>
 
