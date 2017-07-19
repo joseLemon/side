@@ -39,8 +39,46 @@
     <!-- ================================== -->
     <div class="direcciones spacing" id="direcciones">
         <div class="container">
-            <h1 class="heading bold">DIRECCIONES</h1>
-            <p>Visita todas nuestras plataformas y conoce más de nuestro trabajo.</p>
+            <h1 class="big-heading bold">DIRECCIONES</h1>
+            <p class="text">Visita todas nuestras plataformas y conoce más de nuestro trabajo.</p>
+            <div class="row no-margin">
+                <div class="col-sm-4 col-xs-6 red">
+                    <span class="circle-hover"></span>
+                    <div class="img-container">
+                        <img src="{{ asset('img/index/direcciones/1.png') }}">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6 light-red">
+                    <span class="circle-hover"></span>
+                    <div class="img-container">
+                        <img src="{{ asset('img/index/direcciones/2.png') }}">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6 pink">
+                    <span class="circle-hover"></span>
+                    <div class="img-container">
+                        <img src="{{ asset('img/index/direcciones/3.png') }}">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6 salmon">
+                    <span class="circle-hover"></span>
+                    <div class="img-container">
+                        <img src="{{ asset('img/index/direcciones/4.png') }}">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6 gray">
+                    <span class="circle-hover"></span>
+                    <div class="img-container">
+                        <img src="{{ asset('img/index/direcciones/5.png') }}">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6 green">
+                    <span class="circle-hover"></span>
+                    <div class="img-container">
+                        <img src="{{ asset('img/index/direcciones/6.png') }}">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ================================== -->
@@ -72,7 +110,7 @@
             </div>
             <div class="tab-content blue">
                 <div id="tab-1" class="tab-pane fade in active">
-                    <p>
+                    <p class="text">
                         Generar una economía vigorosa de mayor valor a través de la generación
                         de estrategias, políticas y programas que mejoren el entorno económico
                         y fomenten la innovación en el estado, con el fin de impulsar la movilidad
@@ -80,12 +118,12 @@
                     </p>
                 </div>
                 <div id="tab-2" class="tab-pane fade">
-                    <p>
+                    <p class="text">
                         Texto 2
                     </p>
                 </div>
                 <div id="tab-3" class="tab-pane fade">
-                    <p>
+                    <p class="text">
                         Texto 3
                     </p>
                 </div>
@@ -336,7 +374,7 @@
                             '<div class="post-summary">' +
                             '<h5>' + post.post_date + '</h5>' +
                             '<h4 class="bold">' + post.post_title + '</h4>' +
-                            '<p>' + RemoveHTMLTags(post.post_excerpt) + '</p>' +
+                            '<p class="text">' + RemoveHTMLTags(post.post_excerpt) + '</p>' +
                             '<a href="#">Leer más</a>' +
                             '</div>' +
                             '</div>'
