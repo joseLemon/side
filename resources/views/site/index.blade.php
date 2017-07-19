@@ -12,27 +12,67 @@
     </div>
     <!-- ================================== -->
 
+    <!-- ///////////  AYUDA  \\\\\\\\\\\ -->
+
+    <!-- ================================== -->
+    <div class="ayuda" id="ayuda">
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="{{ asset('img/index/innovas.jpg') }}">
+            </div>
+            <div class="container">
+                <div class="question-box">
+                    <h3 class="white">¿CÓMO TE PODEMOS</h3>
+                    <h2 class="white">AYUDAR?</h2>
+                    <div class="input-group">
+                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================================== -->
+
+    <!-- ///////////  DIRECCIONES  \\\\\\\\\\\ -->
+
+    <!-- ================================== -->
+    <div class="direcciones spacing" id="direcciones">
+        <div class="container">
+            <h1 class="heading bold">DIRECCIONES</h1>
+            <p>Visita todas nuestras plataformas y conoce más de nuestro trabajo.</p>
+        </div>
+    </div>
+    <!-- ================================== -->
+
     <!-- ///////////  ACERCA DE  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
     <div class="nosotros spacing" id="nosotros">
         <div class="container">
-            <h1 class="heading heading-right text-right">ACERCA DE <span>LA SECRETARÍA</span></h1>
             <div class="row no-margin nav-tab-menu">
                 <div class="col-sm-4 img-container">
-                    <a href="#tab-1" data-toggle="tab"><div class="img-bg" style="background: url('{{ asset('img/index/nosotros/1.jpg') }}')no-repeat center center"></div></a>
+                    <a href="#tab-1" data-toggle="tab">
+                        <img src="{{ asset('img/index/nosotros/1.png') }}">
+                        <h3>Misión</h3>
+                    </a>
                 </div>
                 <div class="col-sm-4 img-container">
-                    <a href="#tab-2" data-toggle="tab"><div class="img-bg" style="background: url('{{ asset('img/index/nosotros/2.jpg') }}')no-repeat center center"></div></a>
+                    <a href="#tab-2" data-toggle="tab">
+                        <img src="{{ asset('img/index/nosotros/2.png') }}">
+                        <h3>Visión</h3>
+                    </a>
                 </div>
                 <div class="col-sm-4 img-container">
-                    <a href="#tab-3" data-toggle="tab"><div class="img-bg" style="background: url('{{ asset('img/index/nosotros/3.jpg') }}')no-repeat center center"></div></a>
+                    <a href="#tab-3" data-toggle="tab">
+                        <img src="{{ asset('img/index/nosotros/3.png') }}">
+                        <h3>Valores</h3>
+                    </a>
                 </div>
             </div>
             <div class="tab-content blue">
                 <div id="tab-1" class="tab-pane fade in active">
-                    <h3>MISIÓN</h3>
-                    <p class="text">
+                    <p>
                         Generar una economía vigorosa de mayor valor a través de la generación
                         de estrategias, políticas y programas que mejoren el entorno económico
                         y fomenten la innovación en el estado, con el fin de impulsar la movilidad
@@ -40,14 +80,12 @@
                     </p>
                 </div>
                 <div id="tab-2" class="tab-pane fade">
-                    <h3>Ejemplo 2</h3>
-                    <p class="text">
+                    <p>
                         Texto 2
                     </p>
                 </div>
                 <div id="tab-3" class="tab-pane fade">
-                    <h3>Ejemplo 3</h3>
-                    <p class="text">
+                    <p>
                         Texto 3
                     </p>
                 </div>
@@ -93,31 +131,12 @@
     </div>
     <!-- ================================== -->
 
-    <!-- ///////////  ¿CÓMO INNOVAS?  \\\\\\\\\\\ -->
-
-    <!-- ================================== -->
-    <div class="innovas" id="innovas">
-        <div class="parallax">
-            <div class="parallax-element" data-parallax="{{ asset('img/index/innovas.jpg') }}"></div>
-        </div>
-        <div class="container">
-            <div class="question-box">
-                <h2 class="white text-center">¿CÓMO INNOVAS <span class="bold">CHIHUAHUA?</span></h2>
-                <div class="input-group">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <input class="form-control" type="text">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ================================== -->
-
     <!-- ///////////  INDUSTRIAS CLAVE  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
     <div class="industrias spacing" id="industrias">
         <div class="container">
-            <h1 class="heading heading-left"><span>INDUSTRIAS</span> CLAVE</h1>
+            <h1 class="heading text-center"><span class="bold">Industrias</span> Clave</h1>
         </div>
         <div class="grid row no-margin">
             <div class="grid-panel red">
@@ -220,10 +239,8 @@
     <div class="blog spacing" id="blog">
 
         <div class="container">
-            <h1 class="heading heading-right text-right">BLOG DE <span>NOTCIAS</span></h1>
-            <div class="row no-margin text-center blog-feed">
-
-            </div>
+            <h1 class="heading text-center">Blog de <span class="bold">Noticias</span></h1>
+            <div class="row no-margin blog-feed"></div>
 
             <div class="blog-nav text-center">
                 <a href="#" data-slide="prev">
@@ -256,7 +273,7 @@
     <!-- ================================== -->
     <div class="contacto spacing" id="contacto">
         <div class="container">
-            <h1 class="heading heading-left"><span>¿DUDAS?</span> CONTÁCTANOS</h1>
+            <h1 class="heading text-center"><span class="bold">¿Dudas?</span> Contáctanos</h1>
             <div class="row no-margin text-center">
                 <div class="hidden-xs" style="float: left; width: 12.5%; min-height: 1px"></div>
                 <div class="col-sm-3">
@@ -316,10 +333,12 @@
                         $('.blog-feed').append(
                             '<div class="col-sm-4">' +
                             '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +
-                            '<h4 class="bold">' + post.post_title + '</h4>' +
+                            '<div class="post-summary">' +
                             '<h5>' + post.post_date + '</h5>' +
+                            '<h4 class="bold">' + post.post_title + '</h4>' +
                             '<p>' + RemoveHTMLTags(post.post_excerpt) + '</p>' +
-                            '<a href="#">LEER MÁS</a>' +
+                            '<a href="#">Leer más</a>' +
+                            '</div>' +
                             '</div>'
                         );
                     });

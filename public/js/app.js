@@ -1,7 +1,7 @@
 /**
  * Created by José Angel Lujan Villaseñor on 23/05/2017.
  */
-$(window).scroll(function() {
+/*$(window).scroll(function() {
     var $nav = $('.navbar .collapse-container');
     var $navHeight = $('.navbar').height();
     var scrollTop = $(this).scrollTop();
@@ -12,7 +12,7 @@ $(window).scroll(function() {
     if(scrollTop < $navHeight) {
         $nav.removeClass('scrolling');
     }
-});
+});*/
 
 $(document).ready(function () {
     $('.nav-tab-menu a').click(function () {
@@ -30,7 +30,7 @@ $(document).ready(function () {
 });
 
 /* PARALLAX PLUGIN */
-$(document).ready(function () {
+/*$(document).ready(function () {
     $('.parallax-element').each(function () {
         var parallaxEl = $(this);
         var height = '100vh';
@@ -58,4 +58,4 @@ $(document).ready(function () {
         parallaxEl.css('background-position', positionAttrY + ' ' + positionAttrX);
         parallaxEl.css('height', height);
     });
-});
+});*/

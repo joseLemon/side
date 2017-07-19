@@ -49,7 +49,7 @@ body {
     transform: translateY(-50%);
 }
 
-.parallax {
+/*.parallax {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -70,15 +70,15 @@ body {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-}
+}*/
 
 .heading {
-    color: #00498e;
-    font-size: 28px;
-    position: relative;
+    color: #000;
+    font-size: 36px;
     margin: 0 0 50px 0;
 }
 
+/*
 .heading span {
     color: #fff;
     position: relative;
@@ -104,7 +104,7 @@ body {
 
 .heading.heading-left span::before {
     right: -5px;
-}
+}*/
 
 .white {
     color: white;
@@ -131,7 +131,7 @@ body {
 }
 
 .bold {
-    font-weight: bold;
+    font-family: 'GothamBold', sans-serif;
 }
 
 .divider {
@@ -416,47 +416,9 @@ body {
 
 /* NOSOTROS */
 .nosotros .img-container {
-    padding: 5px;
+    padding: 10px;
     overflow: hidden;
-    position: relative;
-}
-
-.nosotros .img-container::before,
-.nosotros .img-container::after {
-    content: '';
-    position: absolute;
-    transition: all 300ms ease;
-    pointer-events: none;
-}
-
-.nosotros .img-container::before {
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid #fff;
-    bottom: 5px;
-    left: 100%;
-    opacity: 0;
-    z-index: 10;
-}
-
-.nosotros .img-container.active::before,
-.nosotros .img-container:hover::before {
-    opacity: 1;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-}
-
-.nosotros .img-container.active::after,
-.nosotros .img-container:hover::after {
-    background-color: #00498e;
-    mix-blend-mode: multiply;
-    left: 5px;
-    top: 5px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    text-align: center;
 }
 
 .nosotros .img-container .img-bg {
@@ -464,8 +426,84 @@ body {
     background-size: cover!important;
 }
 
+.nosotros .img-container a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #0054a6;
+    color: #fff!important;
+    text-decoration: none!important;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.nosotros .img-container a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00438a;
+    transform: skew(-62deg) translateY(-50%);
+}
+
+.nosotros .img-container a h3 {
+    margin: 8px 0 0 0;
+}
+
+.nosotros .img-container a h3,
+.nosotros .img-container a img {
+    position: relative;
+}
+
 .nosotros .tab-content {
-    padding: 5px;
+    padding: 0 10px;
+}
+
+.nosotros .tab-pane {
+    padding: 15px;
+    position: relative;
+    background-color: #e1e1e1;
+    margin-top: 15px;
+}
+
+.nosotros .tab-pane::before {
+    content: '';
+    position: absolute;
+    transition: all 300ms ease;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #e1e1e1;
+    top: -20px;
+    z-index: 10;
+    opacity: 1;
+}
+
+.nosotros .tab-pane:nth-of-type(1)::before {
+    left: 25px;
+}
+
+.nosotros .tab-pane:nth-of-type(2)::before {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.nosotros .tab-pane:nth-of-type(3)::before {
+    right: 25px;
+}
+
+.nosotros .tab-pane p {
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .nosotros h3 {
@@ -489,37 +527,56 @@ body {
     color: #fff;
 }
 
-/* INNOVAS */
-.innovas {
+/* AYUDA */
+.ayuda {
     position: relative;
-    padding: 100px 0;
-    margin-top: 100px;
+    padding: 100px 0 0 0;
 }
 
-.innovas h2 {
-    margin: 0 0 15px 0;
+.ayuda h2, .ayuda h3 {
+    margin: 0;
 }
 
-.innovas .question-box {
-    padding: 80px;
-    background-color: rgba(0,0,0,.6);
+.ayuda h3 {
+    padding-left: 10%;
 }
 
-.innovas .input-group {
+.ayuda h2 {
+    text-align: right;
+    padding-right: 15%;
+    font-size: 35px;
+    margin-bottom: 15px;
+    font-family: 'GothamBold', sans-serif;
+}
+
+.ayuda .question-box {
+    padding: 80px 0;
+    /*background-color: rgba(0,0,0,.6);*/
+    max-width: 380px;
+    margin-left: auto;
+}
+
+.ayuda .input-group {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.innovas .question-box i {
+.ayuda .question-box i {
     position: absolute;
     color: #fff;
     font-size: 30px;
     top: 8px;
-    left: 10px;
+    right: 0;
+    z-index: 10;
+    padding: 0 10px;
 }
 
-.innovas .question-box input {
+.ayuda .question-box i:hover {
+    cursor: pointer;
+}
+
+.ayuda .question-box input {
     background-color: transparent;
     border: 2px solid #fff;
     width: 100%;
@@ -528,7 +585,7 @@ body {
     box-shadow: none!important;
     color: #fff;
     font-size: 20px;
-    padding-left: 45px;
+    padding-right: 45px;
 }
 
 /* INDUSTRIAS */
@@ -743,40 +800,46 @@ body {
 
 /* BLOG */
 .blog .blog-feed .col-sm-4 {
-    padding: 15px;
+    padding: 15px 0;
 }
 
 .blog .blog-feed .img-bg {
-    height: 400px;
+    height: 380px;
+    transform: skew(-6deg);
+}
+
+.blog .post-summary {
+    padding: 0 5px;
+}
+
+.blog .blog-feed h4::first-line {
+    font-size: 15px;
 }
 
 .blog .blog-feed h4 {
-    font-size: 16px;
-    margin: 20px 0;
+    font-size: 18px;
+    margin: 5px 0;
+    font-family: 'GothamBold', sans-serif;
 }
 
 .blog .blog-feed h5 {
     color: #767d7f;
-    margin: 0 0 15px 0;
-}
-
-.blog .blog-feed p {
-    margin-bottom: 15px;
+    margin: 15px 0 10px 0;
 }
 
 .blog .blog-feed a {
-    color: #004875;
+    color: #000;
     text-decoration: none!important;
     display: inline-block;
-    padding: 5px 20px;
-    border: 1px solid #004875;
+    padding: 5px 15px;
     transition: background 300ms ease;
+    background-color: #ffd400;
+    border-radius: 8px;
 }
 
 .blog .blog-feed a:hover,
 .blog .blog-feed a:focus {
-    color: #fff;
-    background-color: #004875;
+    background-color: #e0ba00;
 }
 
 .blog .blog-feed a:focus {
@@ -946,6 +1009,34 @@ footer .footer-bottom p {
     background-color: rgba(0,0,0,.85);
 }
 
+/***** Parallax CSS *****/
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    padding: 100px 0;
+}
+
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.parallax img {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    min-width: 1920px;
+    min-height: 100%;
+    width: 100%;
+    background-position: center;
+}
+
+
 @media (max-width: 992px) {
     .navbar .top-header .col .social,
     .navbar .top-header .col .links {
@@ -1030,6 +1121,13 @@ footer .footer-bottom p {
     }
     .industrias .grid .grid-panel {
         width: 50%;
+    }
+    .blog .blog-feed {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .blog .blog-feed .img-bg {
+        transform: none;
     }
     footer .footer-top .social {
         float: none;
