@@ -160,6 +160,16 @@ body {
     border-top: 1px solid #aaa;
 }
 
+.fancy-box {
+    padding: 180px 0;
+    margin: 0 100px;
+    border: 2px solid #e4e3e4;
+}
+
+.bg-cover {
+    background-size: cover!important;
+}
+
 /* NAVBAR */
 .navbar {
     background-color: #fff;
@@ -507,6 +517,37 @@ body {
     background-color: #49eb76;
 }
 
+.direcciones .circle-hover p {
+    padding: 10px;
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    display: block;
+    width: calc(100% - 30px);
+}
+
+.direcciones .circle-hover .more {
+    display: block;
+    opacity: 0;
+    height: 0;
+    font-size: 16px;
+    transition: all 300ms ease;
+}
+
+.direcciones .col-sm-4:hover .more {
+    height: auto;
+    opacity: 1;
+}
+
+.direcciones .circle-hover .more::before {
+    content: '\f055\00a0';
+    font: normal normal normal 20px/1 FontAwesome;
+}
+
 .direcciones .col-sm-4 .circle-hover::after {
     content: '';
     position: absolute;
@@ -576,6 +617,28 @@ body {
 }
 .direcciones .lime .circle-hover::after {
     border: 2px solid #49eb76;
+}
+
+/* OPPORTUNITIES */
+.opportunities .fancy-box a {
+    background-color: #0072bc;
+    display: inline-block;
+    padding: 20px 50px;
+    position: relative;
+    margin: 0 auto;
+    font-size: 30px;
+    text-decoration: none!important;
+    color: #fff!important;
+}
+
+.opportunities .fancy-box a:hover {
+    background-color: #0064a5;
+}
+
+/* CHIHUAHUA */
+.chihuahua img {
+    width: 90%;
+    max-width: 700px;
 }
 
 /* NOSOTROS */
@@ -1060,8 +1123,29 @@ body {
 }
 
 /* CONTACTO */
+.contacto {
+    background-color: #007cc2;
+    color: #fff;
+}
+
 .contacto form {
     margin-top: 30px;
+}
+
+.contacto img {
+    position: absolute;
+    width: 30px;
+    top: -4px;
+    margin-left: -38px;
+}
+
+.contacto p {
+    padding-left: 35px;
+    position: relative;
+}
+
+.contacto p:nth-of-type(3) {
+    word-break: break-all;
 }
 
 .contacto input[type=text],
@@ -1069,12 +1153,13 @@ body {
 .contacto textarea {
     width: 100%;
     border: 1px solid #aaaaaa;
-    color: #9c9c9c;
+    color: #fff!important;
     outline: none!important;
     margin-bottom: 20px;
     min-height: 40px;
     padding-left: 15px;
     transition: box-shadow 120ms ease;
+    background-color: transparent;
 }
 
 .contacto input[type=text]:focus,
@@ -1089,15 +1174,38 @@ body {
 }
 
 .contacto input[type=submit] {
-    background-color: #00498e;
-    color: #fff;
+    background-color: #ffd400;
+    color: #007cc2;
     border: 0;
     padding: 10px 25px;
-    font-size: 16px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.contacto input[type=submit]:hover {
+    background-color: #e0ba00;
+}
+
+.contacto ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff;
+    opacity: .7;
+}
+.contacto ::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+    opacity: .7;
+}
+.contacto :-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+    opacity: .7;
+}
+.contacto :-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+    opacity: .7;
 }
 
 /* FOOTER */
 footer {
+    background-color: #e1e1e1;
     position: relative;
 }
 
@@ -1168,9 +1276,22 @@ footer ul li:nth-last-of-type(1) a::after {
 
 footer .footer-bottom p {
     margin: 0;
-    padding: 10px 0;
+    padding: 20px 0;
+    font-size: 17px;
     text-align: center;
-    background-color: rgba(0,0,0,.85);
+    color: #000;position: relative;
+}
+
+footer .footer-bottom p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #5474b3;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 /***** Parallax CSS *****/
@@ -1217,9 +1338,16 @@ footer .footer-bottom p {
     .navbar .navbar-nav>li>a::after {
         left: 5px;
     }
+    .direcciones .circle-hover p {
+         font-size: 18px;
+     }
 }
 
 @media (max-width: 767px) {
+    .fancy-box {
+        padding: 100px 0;
+        margin: 0 50px;
+    }
     .navbar .top-header {
         padding: 8px 0;
         width: 100%;
@@ -1286,6 +1414,10 @@ footer .footer-bottom p {
     .industrias .grid .grid-panel {
         width: 50%;
     }
+    .opportunities .fancy-box a {
+        padding: 15px 20px;
+        font-size: 18px;
+    }
     .blog .blog-feed {
         max-width: 400px;
         margin: 0 auto;
@@ -1301,6 +1433,10 @@ footer .footer-bottom p {
 }
 
 @media (max-width: 480px) {
+    .fancy-box {
+        padding: 75px 0;
+        margin: 0 25px;
+    }
     .direcciones .row {
         max-width: 300px;
         margin-left: auto;
@@ -1311,6 +1447,10 @@ footer .footer-bottom p {
     }
     .industrias .grid .grid-panel {
         width: 100%;
+    }
+    .opportunities .fancy-box a {
+        padding: 15px 20px;
+        font-size: 14px;
     }
 }
 

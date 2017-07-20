@@ -79,7 +79,9 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p class="white">2017 Aviso de Privacidad</p>
+        <div class="container">
+            <p class="white">2017 Aviso de Privacidad</p>
+        </div>
     </div>
 </footer>
 <script>
