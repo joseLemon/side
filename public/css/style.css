@@ -2,6 +2,8 @@
  * Created by José Angel Lujan Villaseñor on 23/05/2017.
  */
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
 @font-face {
     font-family: 'GothamBook';
     src: url(../fonts/GothamBookRegular.otf);
@@ -393,7 +395,7 @@ body {
 
 /* BANNER */
 .banner {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 180px);
     /*background: url(../img/index/banner.jpg) no-repeat center center;*/
     background-size: cover!important;
     background: transparent;
@@ -461,8 +463,18 @@ body {
     overflow: hidden;
 }
 
+.banner.main .diamond-container {
+    position: absolute;
+    left: -15px;
+}
+
 .banner.main .diamond {
     z-index: 10;
+}
+
+.banner .diamond a {
+    color: #fff!important;
+    text-decoration: none!important;
 }
 
 .banner.main .diamond .title {
@@ -471,6 +483,14 @@ body {
     height: 100%;
     line-height: 1;
     padding: 10px;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    font-family: 'Ubuntu', sans-serif;
+    transform: translateZ(0);
+}
+
+.banner.main .diamond .title:hover {
+    opacity: 1;
 }
 
 .banner.main .diamond .header {
@@ -486,13 +506,13 @@ body {
     text-align: right;
     color: #ffd525;
     font-size: 35px;
-    font-family: 'GothamBold', sans-serif;
+    font-weight: 700;
 }
 
 .banner.main .diamond,
 .banner.main .diamond + .bg-color {
     position: absolute;
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translateZ(0);
 }
 
 .banner.main .bg-color {
@@ -502,28 +522,207 @@ body {
     mix-blend-mode: multiply;
 }
 
+.banner.main .diamond + .bg-color::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity 400ms ease;
+}
+
+.banner.main .diamond:hover + .bg-color::before {
+    opacity: 1;
+}
+
 .banner.main .diamond.diamond-1,
 .banner.main .diamond.diamond-1 + .bg-color {
-    width: 170px;
-    height: 170px;
-    top: 10%;
-    left: 5%;
+    width: 18vh;
+    height: 18vh;
+    top: calc(10vh /*+ 85px*/);
+    left: 4vh;
 }
 
 .banner.main .diamond-1 + .bg-color {
     background-color: #f58634;
+    position: relative;
+
+}
+
+.banner.main .diamond-1 + .bg-color::before {
+    border-bottom: 18vh solid #f04a1a;
+    border-left: 18vh solid transparent;
 }
 
 .banner.main .diamond.diamond-2,
 .banner.main .diamond.diamond-2 + .bg-color {
-    width: 130px;
-    height: 130px;
-    top: 31%;
+    width: 14.5vh;
+    height: 14.5vh;
+    top: calc(32vh /*+ 65px*/);
     left: 0;
 }
 
 .banner.main .diamond-2 + .bg-color {
     background-color: #007cc2;
+}
+
+.banner.main .diamond-2 + .bg-color::before {
+    border-bottom: 14.5vh solid #003fa4;
+    border-left: 14.5vh solid transparent;
+}
+
+.banner.main .diamond.diamond-3,
+.banner.main .diamond.diamond-3 + .bg-color {
+    width: 31.2vh;
+    height: 31.2vh;
+    top: calc(17.5vh /*+ 150px*/);
+    left: 21vh;
+}
+
+.banner.main .diamond-3 + .bg-color {
+    background-color: #76c04e;
+}
+
+.banner.main .diamond-3 + .bg-color::before {
+    border-bottom: 31.2vh solid #3ca127;
+    border-left: 31.2vh solid transparent;
+}
+
+.banner.main .diamond.diamond-4,
+.banner.main .diamond.diamond-4 + .bg-color {
+    width: 22vh;
+    height: 22vh;
+    top: calc(5vh /*+ 105px*/);
+    left: 49vh;
+}
+
+.banner.main .diamond-4 + .bg-color {
+    background-color: #d82b90;
+}
+
+.banner.main .diamond-4 + .bg-color::before {
+    border-bottom: 22vh solid #c51659;
+    border-left: 22vh solid transparent;
+}
+
+.banner.main .diamond.diamond-5,
+.banner.main .diamond.diamond-5 + .bg-color {
+    width: 14.5vh;
+    height: 14.5vh;
+    top: calc(15vh /*+ 105px*/);
+    left: 75vh;
+}
+
+.banner.main .diamond-5 + .bg-color {
+    background-color: #f24656;
+}
+
+.banner.main .diamond-5 + .bg-color::before {
+    border-bottom: 14.5vh solid #ec232c;
+    border-left: 14.5vh solid transparent;
+}
+
+.banner.main .diamond.diamond-6,
+.banner.main .diamond.diamond-6 + .bg-color {
+    width: 31.2vh;
+    height: 31.2vh;
+    top: calc(11vh /*+ 105px*/);
+    left: 97vh;
+}
+
+.banner.main .diamond-6 + .bg-color {
+    background-color: #1a5391;
+}
+
+.banner.main .diamond-6 + .bg-color::before {
+    border-bottom: 31.2vh solid #0d2a5b;
+    border-left: 31.2vh solid transparent;
+}
+
+.banner.main .diamond.diamond-7,
+.banner.main .diamond.diamond-7 + .bg-color {
+    width: 14.5vh;
+    height: 14.5vh;
+    top: calc(42.5vh /*+ 105px*/);
+    left: 116.5vh;
+}
+
+.banner.main .diamond-7 + .bg-color {
+    background-color: #00b3b5;
+}
+
+.banner.main .diamond-7 + .bg-color::before {
+    border-bottom: 14.5vh solid #008d90;
+    border-left: 14.5vh solid transparent;
+}
+
+.banner.main .diamond.diamond-8,
+.banner.main .diamond.diamond-8 + .bg-color {
+    width: 31.2vh;
+    height: 31.2vh;
+    top: calc(40.5vh /*+ 105px*/);
+    left: 78.5vh;
+}
+
+.banner.main .diamond-8 + .bg-color {
+    background-color: #f58634;
+}
+
+.banner.main .diamond-8 + .bg-color::before {
+    border-bottom: 31.2vh solid #f04a1a;
+    border-left: 31.2vh solid transparent;
+}
+
+.banner.main .diamond.diamond-9,
+.banner.main .diamond.diamond-9 + .bg-color {
+    width: 22vh;
+    height: 22vh;
+    top: calc(28vh /*+ 105px*/);
+    left: 59.5vh;
+}
+
+.banner.main .diamond-9 + .bg-color {
+    background-color: #ffd525;
+}
+
+.banner.main .diamond-9 + .bg-color::before {
+    border-bottom: 22vh solid #ffab00;
+    border-left: 22vh solid transparent;
+}
+
+.banner.main .diamond.diamond-10,
+.banner.main .diamond.diamond-10 + .bg-color {
+    width: 31.22vh;
+    height: 31.22vh;
+    top: calc(47vh /*+ 105px*/);
+    left: 38.5vh;
+}
+
+.banner.main .diamond-10 + .bg-color {
+    background-color: #1a5391;
+}
+
+.banner.main .diamond-10 + .bg-color::before {
+    border-bottom: 31.2vh solid #0d2a5b;
+    border-left: 31.2vh solid transparent;
+}
+
+.banner.main .diamond.diamond-11,
+.banner.main .diamond.diamond-11 + .bg-color {
+    width: 14.5vh;
+    height: 14.5vh;
+    top: calc(49.5vh /*+ 105px*/);
+    left: 18vh;
+}
+
+.banner.main .diamond-11 + .bg-color {
+    background-color: #db4255;
+}
+
+.banner.main .diamond-11 + .bg-color::before {
+    border-bottom: 14.5vh solid #ec232c;
+    border-left: 14.5vh solid transparent;
 }
 
 /* DIRECCIONES */
@@ -1436,8 +1635,8 @@ footer .footer-bottom p::before {
         left: 5px;
     }
     .direcciones .circle-hover p {
-         font-size: 18px;
-     }
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1574,8 +1773,8 @@ footer .footer-bottom p::before {
         opacity: .7;
     }
     .direcciones .img-container::before {
-         opacity: .7;
-     }
+        opacity: .7;
+    }
     .industrias .grid .grid-panel::before {
         opacity: .55;
     }
