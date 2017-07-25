@@ -5,9 +5,26 @@
     <!-- ///////////  BANNER  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="banner" id="banner" style="background: url('{{ asset('img/index/banners/1.jpg') }}') no-repeat center center">
+    <div class="banner main" id="banner" style="background: url('{{ asset('img/index/banners/1.jpg') }}') no-repeat center center">
         <div class="container">
-
+            <div class="diamond diamond-1">
+                <div class="title">
+                    <div class="header">
+                        Texto de prueba para banner
+                    </div>
+                    <span class="date">2019</span>
+                </div>
+            </div>
+            <div class="bg-color"></div>
+            <div class="diamond diamond-2">
+                <div class="title">
+                    <div class="header">
+                        Texto de prueba para banner
+                    </div>
+                    <span class="date">2019</span>
+                </div>
+            </div>
+            <div class="bg-color"></div>
         </div>
     </div>
     <!-- ================================== -->

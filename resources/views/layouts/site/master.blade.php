@@ -36,13 +36,17 @@
                 </div>
             </div>
 
-            <div class="text-center divider divider-top">
+            <div class="divider divider-top"></div>
+            <div class="bottom-header text-center">
                 <span class="social">
                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
                 </span>
-                <input type="text">
+                <span class="search-bar">
+                    <input type="text">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
             </div>
         </div>
 
