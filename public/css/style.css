@@ -400,7 +400,7 @@ body {
     background-size: cover!important;
     background: transparent;
     color: #fff;
-    min-height: 400px;
+    min-height: 430px;
 }
 
 .banner h3 {
@@ -492,25 +492,60 @@ body {
     transition: opacity 300ms ease;
     font-family: 'Ubuntu', sans-serif;
     transform: translateZ(0);
+    z-index: 0;
+    overflow: hidden;
 }
 
 .banner.main .diamond .title:hover {
     opacity: 1;
 }
 
+.banner.main .diamond .title::before {
+    /*content:'';
+    width:100%;
+    height: 15px;
+    position:absolute;
+    left:0;
+    bottom: 0;
+    opacity: 1;
+    webkit-filter: contrast(1.7) brightness(70%) saturate(1.3);
+    filter: contrast(1.7) brightness(70%) saturate(1.3);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 40%, rgba(240,74,26,1) 80%, rgba(240,74,26,1) 100%);
+    background: linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 40%, rgba(240,74,26,1) 80%, rgba(240,74,26,1) 100%);*/
+}
+
 .banner.main .diamond .header {
-    font-size: 1.2vw;
+    font-size: 16px;
+    height: 100%;
+    overflow: hidden;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.banner.main .diamond.featured .header {
+    font-size: 22px;
+    line-height: 22px;
+    padding-right: 45px;
+}
+
+.banner.main .diamond .header:first-line {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.banner.main .diamond.featured .header:first-line {
+    font-size: 26px;
 }
 
 .banner.main .diamond .title .date {
     transform: rotate(90deg);
     display: block;
     position: absolute;
-    bottom: 35px;
+    bottom: 33px;
     right: -20px;
     text-align: right;
     color: #ffd525;
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 700;
 }
 
@@ -518,6 +553,7 @@ body {
 .banner.main .diamond + .bg-color {
     position: absolute;
     transform: rotate(-45deg) translateZ(0);
+    transition: opacity 300ms ease;
 }
 
 .banner.main .bg-color {
@@ -538,6 +574,7 @@ body {
     height: 0;
     opacity: 0;
     transition: opacity 400ms ease;
+    transform: translateZ(0);
 }
 
 .banner.main .diamond:hover + .bg-color::before {
@@ -559,7 +596,7 @@ body {
 }
 
 .banner.main .diamond-1 + .bg-color::before {
-    border-bottom: 9.13vw solid #f04a1a;
+    border-bottom: 9.13vw solid #f3732c;
     border-left: 9.13vw solid transparent;
 }
 
@@ -678,7 +715,7 @@ body {
 }
 
 .banner.main .diamond-8 + .bg-color::before {
-    border-bottom: 15.84vw solid #f04a1a;
+    border-bottom: 15.84vw solid #f3732c;
     border-left: 15.84vw solid transparent;
 }
 
@@ -1638,6 +1675,58 @@ footer .footer-bottom p::before {
     background-position: center;
 }
 
+@media (max-width: 1200px) {
+    .banner.main .diamond.diamond-1,
+    .banner.main .diamond.diamond-1 + .bg-color,
+    .banner.main .diamond.diamond-2,
+    .banner.main .diamond.diamond-2 + .bg-color,
+    .banner.main .diamond.diamond-4,
+    .banner.main .diamond.diamond-4 + .bg-color,
+    .banner.main .diamond.diamond-5,
+    .banner.main .diamond.diamond-5 + .bg-color,
+    .banner.main .diamond.diamond-7,
+    .banner.main .diamond.diamond-7 + .bg-color,
+    .banner.main .diamond.diamond-9,
+    .banner.main .diamond.diamond-9 + .bg-color,
+    .banner.main .diamond.diamond-11,
+    .banner.main .diamond.diamond-11 + .bg-color {
+        opacity: 0;
+    }
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color,
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-6 + .bg-color,
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-8 + .bg-color,
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-10 + .bg-color {
+        /*width: 190px;
+        height: 190px;*/
+    }
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color {
+        top: calc(7.84vw);
+        /*top: 94px;*/
+        left: 14.64vw;
+    }
+    .banner.main .diamond.diamond-6, .banner.main .diamond.diamond-6 + .bg-color {
+        top: calc(1.58vw);
+        /*top: 19px;*/
+        left: 31.7vw;
+    }
+    .banner.main .diamond.diamond-8, .banner.main .diamond.diamond-8 + .bg-color {
+        top: calc(17.4vw);
+        /*top: 209px;*/
+        left: 39.2vw;
+    }
+    .banner.main .diamond.diamond-10, .banner.main .diamond.diamond-10 + .bg-color {
+        top: calc(23.6vw);
+        /*top: 283px;*/
+        left: 22.1vw;
+    }
+    .banner.main .diamond.featured .header {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .banner.main .diamond.featured .header:first-line {
+        font-size: 22px;
+    }
+}
 
 @media (max-width: 992px) {
     .navbar .top-header .col .social,
@@ -1654,6 +1743,17 @@ footer .footer-bottom p::before {
     }
     .navbar .navbar-nav>li>a::after {
         left: 5px;
+    }
+    .banner.main .diamond .title .date {
+        display: none;
+    }
+    .banner.main .diamond.featured .header {
+        font-size: 16px;
+        line-height: 16px;
+        padding-right: 0;
+    }
+    .banner.main .diamond.featured .header:first-line {
+        font-size: 18px;
     }
     .direcciones .circle-hover p {
         font-size: 18px;
@@ -1733,6 +1833,41 @@ footer .footer-bottom p::before {
     .navbar .navbar-nav .dropdown .dropdown-menu li a {
         font-size: 11px;
     }
+    .banner.main .diamond-container {
+        height: 313px;
+        width: 1px;
+        margin-left: -65%;
+    }
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color,
+    .banner.main .diamond.diamond-6, .banner.main .diamond.diamond-6 + .bg-color,
+    .banner.main .diamond.diamond-8, .banner.main .diamond.diamond-8 + .bg-color,
+    .banner.main .diamond.diamond-10, .banner.main .diamond.diamond-10 + .bg-color {
+        width: 121px;
+        height: 121px;
+    }
+    .banner.main .diamond.diamond-3 + .bg-color::before,
+    .banner.main .diamond.diamond-6 + .bg-color::before,
+    .banner.main .diamond.diamond-8 + .bg-color::before,
+    .banner.main .diamond.diamond-10 + .bg-color::before {
+        border-bottom-width: 121px;
+        border-left-width: 121px;
+    }
+    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color {
+        top: 60px;
+        left: 112px;
+    }
+    .banner.main .diamond.diamond-6, .banner.main .diamond.diamond-6 + .bg-color {
+        top: 12px;
+        left: 243px;
+    }
+    .banner.main .diamond.diamond-8, .banner.main .diamond.diamond-8 + .bg-color {
+        top: 133px;
+        left: 301px;
+    }
+    .banner.main .diamond.diamond-10, .banner.main .diamond.diamond-10 + .bg-color {
+        top: 181px;
+        left: 170px;
+    }
     .industrias .grid .grid-panel {
         width: 50%;
     }
@@ -1784,6 +1919,12 @@ footer .footer-bottom p::before {
     .opportunities .fancy-box a {
         padding: 15px 20px;
         font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .banner.main .diamond-container {
+        margin-left: -84%;
     }
 }
 

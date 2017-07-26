@@ -12,9 +12,8 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
@@ -23,18 +22,17 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
                 <div class="bg-color"></div>
-                <div class="diamond diamond-3">
+                <div class="diamond diamond-3 featured">
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
                             <span class="date">2019</span>
                         </div>
@@ -45,9 +43,8 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
@@ -56,18 +53,17 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
                 <div class="bg-color"></div>
-                <div class="diamond diamond-6">
+                <div class="diamond diamond-6 featured">
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
                             <span class="date">2019</span>
                         </div>
@@ -78,18 +74,17 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
                 <div class="bg-color"></div>
-                <div class="diamond diamond-8">
+                <div class="diamond diamond-8 featured">
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
                             <span class="date">2019</span>
                         </div>
@@ -100,18 +95,17 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
                 <div class="bg-color"></div>
-                <div class="diamond diamond-10">
+                <div class="diamond diamond-10 featured">
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
                             <span class="date">2019</span>
                         </div>
@@ -122,9 +116,8 @@
                     <a href="">
                         <div class="title">
                             <div class="header">
-                                Texto de prueba para banner
+                                Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
                             </div>
-                            <span class="date">2019</span>
                         </div>
                     </a>
                 </div>
