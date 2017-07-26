@@ -842,6 +842,11 @@ body {
     transition: all 300ms ease;
 }
 
+.direcciones .col-sm-4,
+.direcciones .col-sm-4 .circle-hover {
+    transform: translateZ(0);
+}
+
 .direcciones .col-sm-4:hover .more {
     height: auto;
     opacity: 1;
@@ -855,16 +860,20 @@ body {
 .direcciones .col-sm-4 .circle-hover::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    height: calc(100%);
-    width: calc(100%);
+    top: 15px;
+    left: 15px;
+    height: calc(100% - 30px);
+    width: calc(100% - 30px);
     border-radius: 50%;
     opacity: 0;
-    transition: opacity 200ms ease;
+    transition: all 300ms ease, opacity 200ms ease;
 }
 
 .direcciones .col-sm-4:hover .circle-hover::after {
+    top: 0px;
+    left: 0px;
+    height: calc(100%);
+    width: calc(100%);
     opacity: 1;
 }
 
@@ -943,6 +952,10 @@ body {
 .chihuahua img {
     width: 90%;
     max-width: 700px;
+}
+
+.chihuahua .fancy-box {
+    padding: 100px 0;
 }
 
 /* NOSOTROS */
