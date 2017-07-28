@@ -18,4 +18,18 @@ class IndexController extends Controller {
 
         return view('site.index',$params);
     }
+
+    public function micro (Request $request, $name) {
+        $params = [];
+        switch ($name) {
+            case 'icatech':
+                $params['overlay_color'] = 'red';
+                break;
+            default:
+                return response(404);
+                break;
+        }
+
+        return view('site.micro',$params);
+    }
 }

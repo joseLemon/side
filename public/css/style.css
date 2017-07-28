@@ -31,8 +31,16 @@ body {
 }
 
 .spacing {
-    padding: 100px 0;
+    padding: 100px 10px;
     overflow: hidden;
+}
+
+.big-spacing {
+    padding: 150px 10px!important;
+}
+
+.small-spacing {
+    padding: 50px 10px;
 }
 
 .no-margin {
@@ -85,6 +93,10 @@ body {
     margin: 0 0 50px 0;
 }
 
+.red-overlay .heading {
+    color: #d97274;
+}
+
 /*
 .heading span {
     color: #fff;
@@ -112,14 +124,6 @@ body {
 .heading.heading-left span::before {
     right: -5px;
 }*/
-
-.white {
-    color: white;
-}
-
-.blue {
-    color: #00498e;
-}
 
 .yellow-btn {
     color: #0b2b2e;
@@ -170,6 +174,33 @@ body {
 
 .bg-cover {
     background-size: cover!important;
+}
+
+.fancy-text  {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.fancy-text::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 70px;
+    left: -17px;
+    top: -20px;
+}
+
+.red-overlay .fancy-text::before {
+    background-color: #c55e60;
+}
+
+.white {
+    color: #fff!important;
+}
+
+.blue {
+    color: #00498e!important;
 }
 
 /* NAVBAR */
@@ -455,16 +486,16 @@ body {
     opacity: 1;
 }
 
-.banner.main .container {
+.banner .container {
     position: relative;
 }
 
-.banner.main {
+.banner {
     position: relative;
     overflow: hidden;
 }
 
-.banner.main .diamond-container {
+.banner .diamond-container {
     position: absolute;
     left: 50%;
     width: 68.5vw;
@@ -473,7 +504,7 @@ body {
     transform: translate(-50%,-50%);
 }
 
-.banner.main .diamond {
+.banner .diamond {
     z-index: 10;
 }
 
@@ -482,7 +513,7 @@ body {
     text-decoration: none!important;
 }
 
-.banner.main .diamond .title {
+.banner .diamond .title {
     position: relative;
     width: 100%;
     height: 100%;
@@ -496,11 +527,11 @@ body {
     overflow: hidden;
 }
 
-.banner.main .diamond .title:hover {
+.banner .diamond .title:hover {
     opacity: 1;
 }
 
-.banner.main .diamond .title::before {
+.banner .diamond .title::before {
     /*content:'';
     width:100%;
     height: 15px;
@@ -514,7 +545,7 @@ body {
     background: linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 40%, rgba(240,74,26,1) 80%, rgba(240,74,26,1) 100%);*/
 }
 
-.banner.main .diamond .header {
+.banner .diamond .header {
     font-size: 16px;
     height: 100%;
     overflow: hidden;
@@ -522,22 +553,22 @@ body {
     line-height: 16px;
 }
 
-.banner.main .diamond.featured .header {
+.banner .diamond.featured .header {
     font-size: 22px;
     line-height: 22px;
     padding-right: 45px;
 }
 
-.banner.main .diamond .header:first-line {
+.banner .diamond .header:first-line {
     font-weight: 300;
     font-size: 18px;
 }
 
-.banner.main .diamond.featured .header:first-line {
+.banner .diamond.featured .header:first-line {
     font-size: 26px;
 }
 
-.banner.main .diamond .title .date {
+.banner .diamond .title .date {
     transform: rotate(90deg);
     display: block;
     position: absolute;
@@ -549,14 +580,14 @@ body {
     font-weight: 700;
 }
 
-.banner.main .diamond,
-.banner.main .diamond + .bg-color {
+.banner .diamond,
+.banner .diamond + .bg-color {
     position: absolute;
     transform: rotate(-45deg) translateZ(0);
     transition: opacity 300ms ease;
 }
 
-.banner.main .bg-color {
+.banner .bg-color {
     content: '';
     display: block;
     position: absolute;
@@ -566,7 +597,7 @@ body {
     filter: contrast(1.7) brightness(70%) saturate(1.3);
 }
 
-.banner.main .diamond + .bg-color::before {
+.banner .diamond + .bg-color::before {
     content: '';
     position: absolute;
     display: block;
@@ -577,197 +608,205 @@ body {
     transform: translateZ(0);
 }
 
-.banner.main .diamond:hover + .bg-color::before {
+.banner .diamond:hover + .bg-color::before {
     opacity: 1;
 }
 
-.banner.main .diamond.diamond-1,
-.banner.main .diamond.diamond-1 + .bg-color {
+.banner .diamond.diamond-1,
+.banner .diamond.diamond-1 + .bg-color {
     width: 9.13vw;
     height: 9.13vw;
     top: calc(5.11vw /*+ 85px*/);
     left: 2.05vw;
 }
 
-.banner.main .diamond-1 + .bg-color {
+.banner .diamond-1 + .bg-color {
     background-color: #f58634;
     position: relative;
 
 }
 
-.banner.main .diamond-1 + .bg-color::before {
+.banner .diamond-1 + .bg-color::before {
     border-bottom: 9.13vw solid #f3732c;
     border-left: 9.13vw solid transparent;
 }
 
-.banner.main .diamond.diamond-2,
-.banner.main .diamond.diamond-2 + .bg-color {
+.banner .diamond.diamond-2,
+.banner .diamond.diamond-2 + .bg-color {
     width: 7.36vw;
     height: 7.36vw;
     top: calc(16.25vw /*+ 65px*/);
     left: 0;
 }
 
-.banner.main .diamond-2 + .bg-color {
+.banner .diamond-2 + .bg-color {
     background-color: #007cc2;
 }
 
-.banner.main .diamond-2 + .bg-color::before {
+.banner .diamond-2 + .bg-color::before {
     border-bottom: 7.36vw solid #003fa4;
     border-left: 7.36vw solid transparent;
 }
 
-.banner.main .diamond.diamond-3,
-.banner.main .diamond.diamond-3 + .bg-color {
+.banner .diamond.diamond-3,
+.banner .diamond.diamond-3 + .bg-color {
     width: 15.84vw;
     height: 15.84vw;
     top: calc(8.84vw /*+ 150px*/);
     left: 10.64vw;
 }
 
-.banner.main .diamond-3 + .bg-color {
+.banner .diamond-3 + .bg-color {
     background-color: #76c04e;
 }
 
-.banner.main .diamond-3 + .bg-color::before {
+.banner .diamond-3 + .bg-color::before {
     border-bottom: 15.9vw solid #3ca127;
     border-left: 15.9vw solid transparent;
 }
 
-.banner.main .diamond.diamond-4,
-.banner.main .diamond.diamond-4 + .bg-color {
+.banner .diamond.diamond-4,
+.banner .diamond.diamond-4 + .bg-color {
     width: 11.15vw;
     height: 11.15vw;
     top: calc(2.55vw /*+ 105px*/);
     left: 24.85vw;
 }
 
-.banner.main .diamond-4 + .bg-color {
+.banner .diamond-4 + .bg-color {
     background-color: #d82b90;
 }
 
-.banner.main .diamond-4 + .bg-color::before {
+.banner .diamond-4 + .bg-color::before {
     border-bottom: 11.15vw solid #c51659;
     border-left: 11.15vw solid transparent;
 }
 
-.banner.main .diamond.diamond-5,
-.banner.main .diamond.diamond-5 + .bg-color {
+.banner .diamond.diamond-5,
+.banner .diamond.diamond-5 + .bg-color {
     width: 7.36vw;
     height: 7.36vw;
     top: calc(7.6vw /*+ 105px*/);
     left: 38.05vw;
 }
 
-.banner.main .diamond-5 + .bg-color {
+.banner .diamond-5 + .bg-color {
     background-color: #f24656;
 }
 
-.banner.main .diamond-5 + .bg-color::before {
+.banner .diamond-5 + .bg-color::before {
     border-bottom: 7.36vw solid #ec232c;
     border-left: 7.36vw solid transparent;
 }
 
-.banner.main .diamond.diamond-6,
-.banner.main .diamond.diamond-6 + .bg-color {
+.banner .diamond.diamond-6,
+.banner .diamond.diamond-6 + .bg-color {
     width: 15.84vw;
     height: 15.84vw;
     top: calc(5.58vw /*+ 105px*/);
     left: 49.2vw;
 }
 
-.banner.main .diamond-6 + .bg-color {
+.banner .diamond-6 + .bg-color {
     background-color: #1a5391;
 }
 
-.banner.main .diamond-6 + .bg-color::before {
+.banner .diamond-6 + .bg-color::before {
     border-bottom: 15.84vw solid #0d2a5b;
     border-left: 15.84vw solid transparent;
 }
 
-.banner.main .diamond.diamond-7,
-.banner.main .diamond.diamond-7 + .bg-color {
+.banner .diamond.diamond-7,
+.banner .diamond.diamond-7 + .bg-color {
     width: 7.36vw;
     height: 7.36vw;
     top: calc(21.495vw /*+ 105px*/);
     left: 59.125vw;
 }
 
-.banner.main .diamond-7 + .bg-color {
+.banner .diamond-7 + .bg-color {
     background-color: #00b3b5;
 }
 
-.banner.main .diamond-7 + .bg-color::before {
+.banner .diamond-7 + .bg-color::before {
     border-bottom: 7.36vw solid #008d90;
     border-left: 7.36vw solid transparent;
 }
 
-.banner.main .diamond.diamond-8,
-.banner.main .diamond.diamond-8 + .bg-color {
+.banner .diamond.diamond-8,
+.banner .diamond.diamond-8 + .bg-color {
     width: 15.84vw;
     height: 15.84vw;
     top: calc(20.5vw /*+ 105px*/);
     left: 39.8vw;
 }
 
-.banner.main .diamond-8 + .bg-color {
+.banner .diamond-8 + .bg-color {
     background-color: #f58634;
 }
 
-.banner.main .diamond-8 + .bg-color::before {
+.banner .diamond-8 + .bg-color::before {
     border-bottom: 15.84vw solid #f3732c;
     border-left: 15.84vw solid transparent;
 }
 
-.banner.main .diamond.diamond-9,
-.banner.main .diamond.diamond-9 + .bg-color {
+.banner .diamond.diamond-9,
+.banner .diamond.diamond-9 + .bg-color {
     width: 11.14vw;
     height: 11.14vw;
     top: calc(14.3vw /*+ 105px*/);
     left: 30.3vw;
 }
 
-.banner.main .diamond-9 + .bg-color {
+.banner .diamond-9 + .bg-color {
     background-color: #ffd525;
 }
 
-.banner.main .diamond-9 + .bg-color::before {
+.banner .diamond-9 + .bg-color::before {
     border-bottom: 11.14vw solid #ffab00;
     border-left: 11.14vw solid transparent;
 }
 
-.banner.main .diamond.diamond-10,
-.banner.main .diamond.diamond-10 + .bg-color {
+.banner .diamond.diamond-10,
+.banner .diamond.diamond-10 + .bg-color {
     width: 15.84vw;
     height: 15.84vw;
     top: calc(23.85vw /*+ 105px*/);
     left: 19.54vw;
 }
 
-.banner.main .diamond-10 + .bg-color {
+.banner .diamond-10 + .bg-color {
     background-color: #1a5391;
 }
 
-.banner.main .diamond-10 + .bg-color::before {
+.banner .diamond-10 + .bg-color::before {
     border-bottom: 15.84vw solid #0d2a5b;
     border-left: 15.84vw solid transparent;
 }
 
-.banner.main .diamond.diamond-11,
-.banner.main .diamond.diamond-11 + .bg-color {
+.banner .diamond.diamond-11,
+.banner .diamond.diamond-11 + .bg-color {
     width: 7.36vw;
     height: 7.36vw;
     top: calc(25.11vw /*+ 105px*/);
     left: 9.1vw;
 }
 
-.banner.main .diamond-11 + .bg-color {
+.banner .diamond-11 + .bg-color {
     background-color: #db4255;
 }
 
-.banner.main .diamond-11 + .bg-color::before {
+.banner .diamond-11 + .bg-color::before {
     border-bottom: 7.36vw solid #ec232c;
     border-left: 7.36vw solid transparent;
+}
+
+.red-overlay .banner .diamond + .bg-color {
+    background-color: #ee424f!important;
+}
+
+.red-overlay .banner .diamond + .bg-color::before {
+    border-bottom-color: #ab2f39!important;
 }
 
 /* DIRECCIONES */
@@ -1091,21 +1130,6 @@ body {
     font-weight: bold;
     font-size: 22px;
     margin: 20px 0;
-}
-
-/* VIDEO */
-.video {
-    position: relative;
-    text-align: center;
-}
-
-.video .parallax-element {
-    /*background: url(../img/index/video.jpg) no-repeat center center;*/
-}
-
-.video i {
-    font-size: 140px;
-    color: #fff;
 }
 
 /* AYUDA */
@@ -1557,6 +1581,48 @@ body {
     opacity: .7;
 }
 
+/**** MICROSITO ****/
+.acerca .spacing {
+    overflow: visible;
+}
+
+/* VIDEO */
+.video {
+    position: relative;
+    text-align: center;
+}
+
+.video a {
+    outline: none!important;
+}
+
+.video i {
+    font-size: 140px;
+    color: #fff;
+}
+
+.video-modal .modal-content {
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.video-modal .modal-content .modal-header,
+.video-modal .modal-content .modal-body {
+    border: 0;
+    padding: 0;
+}
+
+.video-modal .modal-header button {
+    font-size: 35px;
+}
+
+.video-modal iframe {
+    width: 100%;
+    max-height: 100%;
+}
+
 /* FOOTER */
 footer {
     background-color: #e1e1e1;
@@ -1676,54 +1742,54 @@ footer .footer-bottom p::before {
 }
 
 @media (max-width: 1200px) {
-    .banner.main .diamond.diamond-1,
-    .banner.main .diamond.diamond-1 + .bg-color,
-    .banner.main .diamond.diamond-2,
-    .banner.main .diamond.diamond-2 + .bg-color,
-    .banner.main .diamond.diamond-4,
-    .banner.main .diamond.diamond-4 + .bg-color,
-    .banner.main .diamond.diamond-5,
-    .banner.main .diamond.diamond-5 + .bg-color,
-    .banner.main .diamond.diamond-7,
-    .banner.main .diamond.diamond-7 + .bg-color,
-    .banner.main .diamond.diamond-9,
-    .banner.main .diamond.diamond-9 + .bg-color,
-    .banner.main .diamond.diamond-11,
-    .banner.main .diamond.diamond-11 + .bg-color {
+    .banner .diamond.diamond-1,
+    .banner .diamond.diamond-1 + .bg-color,
+    .banner .diamond.diamond-2,
+    .banner .diamond.diamond-2 + .bg-color,
+    .banner .diamond.diamond-4,
+    .banner .diamond.diamond-4 + .bg-color,
+    .banner .diamond.diamond-5,
+    .banner .diamond.diamond-5 + .bg-color,
+    .banner .diamond.diamond-7,
+    .banner .diamond.diamond-7 + .bg-color,
+    .banner .diamond.diamond-9,
+    .banner .diamond.diamond-9 + .bg-color,
+    .banner .diamond.diamond-11,
+    .banner .diamond.diamond-11 + .bg-color {
         opacity: 0;
     }
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color,
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-6 + .bg-color,
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-8 + .bg-color,
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-10 + .bg-color {
+    .banner .diamond.diamond-3, .banner .diamond.diamond-3 + .bg-color,
+    .banner .diamond.diamond-3, .banner .diamond.diamond-6 + .bg-color,
+    .banner .diamond.diamond-3, .banner .diamond.diamond-8 + .bg-color,
+    .banner .diamond.diamond-3, .banner .diamond.diamond-10 + .bg-color {
         /*width: 190px;
         height: 190px;*/
     }
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color {
+    .banner .diamond.diamond-3, .banner .diamond.diamond-3 + .bg-color {
         top: calc(7.84vw);
         /*top: 94px;*/
         left: 14.64vw;
     }
-    .banner.main .diamond.diamond-6, .banner.main .diamond.diamond-6 + .bg-color {
+    .banner .diamond.diamond-6, .banner .diamond.diamond-6 + .bg-color {
         top: calc(1.58vw);
         /*top: 19px;*/
         left: 31.7vw;
     }
-    .banner.main .diamond.diamond-8, .banner.main .diamond.diamond-8 + .bg-color {
+    .banner .diamond.diamond-8, .banner .diamond.diamond-8 + .bg-color {
         top: calc(17.4vw);
         /*top: 209px;*/
         left: 39.2vw;
     }
-    .banner.main .diamond.diamond-10, .banner.main .diamond.diamond-10 + .bg-color {
+    .banner .diamond.diamond-10, .banner .diamond.diamond-10 + .bg-color {
         top: calc(23.6vw);
         /*top: 283px;*/
         left: 22.1vw;
     }
-    .banner.main .diamond.featured .header {
+    .banner .diamond.featured .header {
         font-size: 18px;
         line-height: 18px;
     }
-    .banner.main .diamond.featured .header:first-line {
+    .banner .diamond.featured .header:first-line {
         font-size: 22px;
     }
 }
@@ -1744,15 +1810,15 @@ footer .footer-bottom p::before {
     .navbar .navbar-nav>li>a::after {
         left: 5px;
     }
-    .banner.main .diamond .title .date {
+    .banner .diamond .title .date {
         display: none;
     }
-    .banner.main .diamond.featured .header {
+    .banner .diamond.featured .header {
         font-size: 16px;
         line-height: 16px;
         padding-right: 0;
     }
-    .banner.main .diamond.featured .header:first-line {
+    .banner .diamond.featured .header:first-line {
         font-size: 18px;
     }
     .direcciones .circle-hover p {
@@ -1833,38 +1899,38 @@ footer .footer-bottom p::before {
     .navbar .navbar-nav .dropdown .dropdown-menu li a {
         font-size: 11px;
     }
-    .banner.main .diamond-container {
+    .banner .diamond-container {
         height: 313px;
         width: 1px;
         margin-left: -65%;
     }
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color,
-    .banner.main .diamond.diamond-6, .banner.main .diamond.diamond-6 + .bg-color,
-    .banner.main .diamond.diamond-8, .banner.main .diamond.diamond-8 + .bg-color,
-    .banner.main .diamond.diamond-10, .banner.main .diamond.diamond-10 + .bg-color {
+    .banner .diamond.diamond-3, .banner .diamond.diamond-3 + .bg-color,
+    .banner .diamond.diamond-6, .banner .diamond.diamond-6 + .bg-color,
+    .banner .diamond.diamond-8, .banner .diamond.diamond-8 + .bg-color,
+    .banner .diamond.diamond-10, .banner .diamond.diamond-10 + .bg-color {
         width: 121px;
         height: 121px;
     }
-    .banner.main .diamond.diamond-3 + .bg-color::before,
-    .banner.main .diamond.diamond-6 + .bg-color::before,
-    .banner.main .diamond.diamond-8 + .bg-color::before,
-    .banner.main .diamond.diamond-10 + .bg-color::before {
+    .banner .diamond.diamond-3 + .bg-color::before,
+    .banner .diamond.diamond-6 + .bg-color::before,
+    .banner .diamond.diamond-8 + .bg-color::before,
+    .banner .diamond.diamond-10 + .bg-color::before {
         border-bottom-width: 121px;
         border-left-width: 121px;
     }
-    .banner.main .diamond.diamond-3, .banner.main .diamond.diamond-3 + .bg-color {
+    .banner .diamond.diamond-3, .banner .diamond.diamond-3 + .bg-color {
         top: 60px;
         left: 112px;
     }
-    .banner.main .diamond.diamond-6, .banner.main .diamond.diamond-6 + .bg-color {
+    .banner .diamond.diamond-6, .banner .diamond.diamond-6 + .bg-color {
         top: 12px;
         left: 243px;
     }
-    .banner.main .diamond.diamond-8, .banner.main .diamond.diamond-8 + .bg-color {
+    .banner .diamond.diamond-8, .banner .diamond.diamond-8 + .bg-color {
         top: 133px;
         left: 301px;
     }
-    .banner.main .diamond.diamond-10, .banner.main .diamond.diamond-10 + .bg-color {
+    .banner .diamond.diamond-10, .banner .diamond.diamond-10 + .bg-color {
         top: 181px;
         left: 170px;
     }
@@ -1923,7 +1989,7 @@ footer .footer-bottom p::before {
 }
 
 @media (max-width: 320px) {
-    .banner.main .diamond-container {
+    .banner .diamond-container {
         margin-left: -84%;
     }
 }

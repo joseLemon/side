@@ -12,5 +12,6 @@
 */
 
 Route::get('/', ['as' => 'site.index', 'uses' => 'IndexController@index']);
+Route::get('/micro/{name}', ['as' => 'site.micro', 'uses' => 'IndexController@micro']);
 
 require __DIR__.'/blog.php';

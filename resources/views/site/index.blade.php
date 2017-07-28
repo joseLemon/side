@@ -483,51 +483,6 @@
             </div>
         </div>
     </div>
-    <!-- ================================== -->
-
-    <!-- ///////////  CONTACTO  \\\\\\\\\\\ -->
-
-    <!-- ================================== -->
-    <div class="contacto spacing" id="contacto">
-        <div class="container">
-            <h1 class="heading text-center white"><span class="bold">¿Dudas?</span> Contáctanos</h1>
-            <div class="row no-margin text-center">
-                <div class="hidden-xs" style="float: left; width: 12.5%; min-height: 1px"></div>
-                <div class="col-sm-3">
-                    <p>
-                        <img src="{{ asset('img/index/contacto/pin.png') }}" alt="Localización">
-                        P.O. Box 123 TownPress VT 12345
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p>
-                        <img src="{{ asset('img/index/contacto/phone.png') }}" alt="Teléfono">
-                        Tel. (123) 456-7890
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p>
-                        <img src="{{ asset('img/index/contacto/mail.png') }}" alt="Correo">
-                        townhall@townpres.gox
-                    </p>
-                </div>
-            </div>
-            <form>
-                <div class="row no-margin">
-                    <div class="col-sm-6">
-                        <input type="text" placeholder="NOMBRE">
-                        <input type="email" placeholder="EMAIL">
-                    </div>
-                    <div class="col-sm-6">
-                        <textarea cols="30" rows="10" placeholder="MENSAJE"></textarea>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <input type="submit" value="ENVIAR">
-                </div>
-            </form>
-        </div>
-    </div>
 @stop
 @section('scripts')
     <script>
