@@ -828,10 +828,17 @@ body {
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
+    padding-top: 100%;
 }
 
 .direcciones .img-container img {
     width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%,-50%);
+    transition: width 200ms ease;
 }
 
 .direcciones .img-container::before {
@@ -844,6 +851,10 @@ body {
     overflow: hidden;
     transform: translateZ(0);
     mix-blend-mode: multiply;
+}
+
+.direcciones .col-sm-4:hover .img-container img {
+    width: 130%;
 }
 
 .direcciones .red .img-container::before {
