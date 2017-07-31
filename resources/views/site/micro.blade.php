@@ -9,119 +9,36 @@
         <div class="banner red-overlay" id="banner" style="background: url('{{ asset('img/index/banners/4.jpg') }}') no-repeat center center">
             <div class="container">
                 <div class="diamond-container">
-                    <div class="diamond diamond-1">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-1"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-2">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-2"></div>
                     <div class="bg-color"></div>
                     <div class="diamond diamond-3 featured">
                         <a href="">
                             <div class="title">
                                 <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
+                                    INSTITUTO DE CAPACITACIÓN PARA EL TRABAJO DEL ESTADO DE CHIHUAHUA
                                 </div>
-                                <span class="date">2019</span>
+                                <span class="date">ICATECH:</span>
                             </div>
                         </a>
                     </div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-4">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-4"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-5">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-5"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-6 featured">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                                <span class="date">2019</span>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-6 featured"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-7">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-7"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-8 featured">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                                <span class="date">2019</span>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-8 featured"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-9">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-9"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-10 featured">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                                <span class="date">2019</span>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-10 featured"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-11">
-                        <a href="">
-                            <div class="title">
-                                <div class="header">
-                                    Chihuahua capital:<br> Será sede del Congreso Nacional AMEREF
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="diamond diamond-11"></div>
                     <div class="bg-color"></div>
                 </div>
             </div>

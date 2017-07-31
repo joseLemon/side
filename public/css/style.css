@@ -546,38 +546,42 @@ body {
 }
 
 .banner .diamond .header {
-    font-size: 16px;
+    font-size: 18px;
     height: 100%;
     overflow: hidden;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 18px;
 }
 
 .banner .diamond.featured .header {
-    font-size: 22px;
-    line-height: 22px;
+    font-size: 26px;
+    line-height: 26px;
     padding-right: 45px;
 }
 
 .banner .diamond .header:first-line {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .banner .diamond.featured .header:first-line {
-    font-size: 26px;
+    font-size: 22px;
 }
 
 .banner .diamond .title .date {
     transform: rotate(90deg);
     display: block;
     position: absolute;
-    bottom: 33px;
-    right: -20px;
+    bottom: 0;
+    right: 0;
     text-align: right;
     color: #ffd525;
     font-size: 40px;
     font-weight: 700;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
 }
 
 .banner .diamond,
@@ -1657,7 +1661,7 @@ body {
 
 /* PROGRAMAS */
 .programas .spacing {
-    /*overflow: visible;*/
+    overflow: visible;
 }
 
 .programas .row {
@@ -1681,17 +1685,31 @@ body {
 }
 
 .programas .top .col-sm-6:hover {
+    /*background-color: #d7d7d7;*/
+}
+
+.programas .top .row .col-sm-6:nth-of-type(1)::before,
+.programas .top .row .col-sm-6:nth-of-type(2)::before {
+    content: '';
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    transition: background 100ms ease;
+}
+
+.programas .top .row .col-sm-6:hover:nth-of-type(1)::before,
+.programas .top .row .col-sm-6:hover:nth-of-type(2)::before {
     background-color: #d7d7d7;
 }
 
 .programas .top .row .col-sm-6:nth-of-type(1)::before {
-    /*content: '';
-    position: absolute;
-    width: 50vw;
-    height: 100%;
-    background-color: #d7d7d7;
     right: 0;
-    z-index: -1;*/
+}
+
+.programas .top .row .col-sm-6:nth-of-type(2)::before {
+    left: 0;
 }
 
 .programas .top .img-container {
@@ -1900,6 +1918,22 @@ footer .footer-bottom p::before {
     background-position: center;
 }
 
+@media (max-width: 1600px) {
+    .banner .diamond.featured .date {
+        font-size: 24px;
+        padding-top: 5px;
+        padding-right: 5px;
+    }
+    .banner .diamond.featured .header {
+        font-size: 22px;
+        line-height: 22px;
+        padding-right: 34px;
+    }
+    .banner .diamond.featured .header:first-line {
+        font-size: 18px;
+    }
+}
+
 @media (max-width: 1200px) {
     .banner .diamond.diamond-1,
     .banner .diamond.diamond-1 + .bg-color,
@@ -1944,12 +1978,15 @@ footer .footer-bottom p::before {
         /*top: 283px;*/
         left: 22.1vw;
     }
+    .banner .diamond.featured .date {
+        font-size: 20px;
+    }
     .banner .diamond.featured .header {
         font-size: 18px;
         line-height: 18px;
     }
     .banner .diamond.featured .header:first-line {
-        font-size: 22px;
+        font-size: 14px;
     }
 }
 
@@ -1978,7 +2015,7 @@ footer .footer-bottom p::before {
         padding-right: 0;
     }
     .banner .diamond.featured .header:first-line {
-        font-size: 18px;
+        font-size: 14px;
     }
     .direcciones .circle-hover p {
         font-size: 18px;
