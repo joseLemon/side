@@ -207,4 +207,20 @@
     </div>
 @stop
 @section('scripts')
+    <script>
+        /* REFRESH SRC OF VIDEO IFRAME */
+        var iframe;
+        $(document).ready(function() {
+            iframe = $("#video-modal").find('iframe').attr('src');
+            $("#video-modal").find('iframe').attr("src", "");
+        });
+
+        $("#video-modal").on('show.bs.modal', function () {
+            $(this).find('iframe').attr("src", iframe);
+        });
+
+        $("#video-modal").on('hidden.bs.modal', function () {
+            $(this).find('iframe').attr("src", "");
+        });
+    </script>
 @stop

@@ -248,7 +248,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1.5px solid #3159a8;
+    border: 1.5px solid #00498e;
     border-radius: 8px;
     padding: 5px 8px;
 }
@@ -928,9 +928,9 @@ body {
 .direcciones .circle-hover .more {
     display: block;
     opacity: 0;
-    height: 0;
     font-size: 16px;
     transition: all 300ms ease;
+    margin-bottom: -15px;
 }
 
 .direcciones .col-sm-4,
@@ -1648,6 +1648,12 @@ body {
     color: #fff;
 }
 
+.video-modal .modal-dialog {
+    width: 100%;
+    max-width: 650px;
+    max-height: 100%;
+}
+
 .video-modal .modal-content {
     border: 0;
     border-radius: 0;
@@ -1661,13 +1667,25 @@ body {
     padding: 0;
 }
 
+.video-modal .modal-content .modal-body {
+    height: 380px;
+    max-height: calc(100vh - 93px);
+}
+
 .video-modal .modal-header button {
     font-size: 35px;
+    color: #fff!important;
+    opacity: .5;
+    outline: none!important;
+}
+
+.video-modal .modal-header button:hover {
+    opacity: .8;
 }
 
 .video-modal iframe {
     width: 100%;
-    max-height: 100%;
+    height: 100%;
 }
 
 /* PROGRAMAS */
@@ -1699,8 +1717,7 @@ body {
     /*background-color: #d7d7d7;*/
 }
 
-.programas .top .row .col-sm-6:nth-of-type(1)::before,
-.programas .top .row .col-sm-6:nth-of-type(2)::before {
+.programas .top .row .col-sm-6::before {
     content: '';
     position: absolute;
     width: 50vw;
@@ -1825,27 +1842,45 @@ footer .footer-top {
     padding: 30px 0;
 }
 
+footer .footer-top .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .footer-top .row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
 footer .footer-top div[class*=col-] {
     padding: 0;
 }
 
-footer .footer-top .social {
-    float: right;
-    top: 30px;
-    right: 0;
+footer .footer-top p {
+    margin: 20px 0;
+    color: #000;
 }
 
 footer .footer-top .social i {
-    font-size: 25px;
+    font-size: 21px;
     padding-top: 6px;
-    height: 38px;
-    width: 38px;
+    height: 35px;
+    width: 35px;
     display: inline-block;
-    color: #fff;
-    border: 2px solid #fff;
+    color: #3159a8;
+    border: 2px solid #3159a8;
     border-radius: 8px;
     text-align: center;
-    margin: 0 3px;
+    transition: all 200ms ease;
+    margin-right: 2.5px;
+}
+
+footer .footer-top .social i:hover {
+    color: #fff;
+    background-color: #3159a8;
 }
 
 footer .center-img {
@@ -1855,31 +1890,32 @@ footer .center-img {
 footer ul {
     display: block;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
     margin: 0;
     padding: 0;
     width: 100%;
-    text-align: center;
+    text-align: right;
 }
 
 footer ul li {
     list-style: none;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 footer ul li a {
-    color: #fff;
+    color: #4669af;
+    font-size: 16.5px;
 }
 
 footer ul li a::after {
-    content: '|';
-    padding-left: 15px;
+    /*content: '|';
+    padding-left: 15px;*/
 }
 
 footer ul li:nth-last-of-type(1) a::after {
-    content: '';
-    padding: 0;
+    /*content: '';
+    padding: 0;*/
 }
 
 footer .footer-bottom p {
@@ -2155,13 +2191,60 @@ footer .footer-bottom p::before {
     .blog .blog-feed .img-bg {
         transform: none;
     }
+    .video-modal .modal-dialog {
+        margin: 10px auto;
+    }
+    .video-modal .modal-content .modal-body {
+        height: 380px;
+        max-height: calc(100vh - 53px);
+    }
+    .programas .top .row .col-sm-6::before {
+        width: 100vw;
+        left: -15px!important;
+        right: auto!important;
+    }
+    .programas .top .row .col-sm-6 {
+        width: 100%;
+    }
+    .programas .top .img-container {
+        width: 60px;
+        float: left;
+    }
+    .programas .top .text-container {
+        width: calc(100% - 70px);
+    }
     .programas .bottom .row .col-sm-6::after {
         background-color: transparent!important;
     }
-    footer .footer-top .social {
-        float: none;
+    footer .footer-top .col-sm-4 {
+        width: 100%;
+        padding: 10px 15px!important;
+    }
+    footer ul {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
         text-align: center;
-        margin-top: 20px;
+    }
+    footer ul li {
+        display: inline-block;
+    }
+    footer ul li a::after {
+        content: '|';
+        padding-left: 5px;
+    }
+    footer ul li:nth-last-of-type(1) a::after {
+        content: '';
+        padding: 0;
+    }
+    footer .footer-top .social {
+        text-align: center;
+    }
+    footer .footer-top p {
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 }
 
