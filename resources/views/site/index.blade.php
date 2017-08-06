@@ -112,7 +112,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 light-red">
-                    <a href="/micro/icatech">
+                    <a href="">
                     <span class="circle-hover">
                         <p>
                             ICATECH
@@ -401,7 +401,7 @@
     <!-- ///////////  CHIHUAHUA  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="chihuahua bg-cover" id="chihuahua" style="background: url('{{ asset('img/index/banners/3.jpg') }}') no-repeat center top;">
+    <div class="chihuahua bg-cover" id="chihuahua" style="/*background: url('{{ asset('img/index/banners/3.jpg') }}') no-repeat center top;*/">
         <video src="{{ asset('video/1.mp4') }}" autoplay></video>
     <!--<div class="fancy-box text-center">
             <img class="center-block" src="{{ asset('img/index/decorations/1.png') }}">
