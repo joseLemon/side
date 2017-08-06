@@ -39,9 +39,9 @@
             <div class="divider divider-top"></div>
             <div class="bottom-header text-center">
                 <span class="social">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+                    <a href="https://business.facebook.com/SIDEChih/?business_id=435161826691478" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/SIDEChih" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/side_chih/?hl=es" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </span>
                 <span class="search-bar">
                     <input type="text">
@@ -107,14 +107,10 @@
             <div class="row no-margin">
                 <div class="col-sm-4">
                     <img class="img-responsive center-block" src="{{ asset('img/index/footer/side.png') }}" alt="Chihuahua">
-                    <p>
-                        We are an award winning design agency that
-                        specialises in creating award winning designs.
-                    </p>
                     <div class="social">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+                        <a href="https://business.facebook.com/SIDEChih/?business_id=435161826691478" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/SIDEChih" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/side_chih/?hl=es" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -123,9 +119,7 @@
                 <div class="col-sm-4">
                     <ul>
                         <li><a href="">INICIO</a></li>
-                        <li><a href="">VÍNCULOS DE INTERÉS</a></li>
                         <li><a href="">TRANSPARENCIA</a></li>
-                        <li><a href="">PBR</a></li>
                     </ul>
                 </div>
             </div>
