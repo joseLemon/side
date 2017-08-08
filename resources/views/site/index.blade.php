@@ -355,7 +355,7 @@
             <h1 class="heading text-center">Blog de <span class="bold">Noticias</span></h1>
             <div class="row no-margin blog-feed">
                 <div class="col-sm-4">
-                    <div class="img-bg" style="background: url(http://home.dev/SIDE/public/uploads/blog/1/1.jpg) no-repeat center center; background-size: cover;"></div>
+                    <div class="img-bg" style="background: url('{{ asset('uploads/blog/1/1.jpg') }}') no-repeat center center; background-size: cover;"></div>
                     <div class="post-summary">
                         <h5>14-07-2017</h5>
                         <h4 class="bold">Presenta Innovación y Desarrollo Económico 46 proyectos productivos para Madera</h4>
@@ -364,7 +364,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="img-bg" style="background: url(http://home.dev/SIDE/public/uploads/blog/2/2.jpg) no-repeat center center; background-size: cover;"></div>
+                    <div class="img-bg" style="background: url('{{ asset('uploads/blog/2/2.jpg') }}') no-repeat center center; background-size: cover;"></div>
                     <div class="post-summary">
                         <h5>21-07-2017</h5>
                         <h4 class="bold">Inversión Extranjera repuntará en los próximos meses en el estado</h4>
@@ -376,7 +376,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="img-bg" style="background: url(http://home.dev/SIDE/public/uploads/blog/3/3.jpg) no-repeat center center; background-size: cover;"></div>
+                    <div class="img-bg" style="background: url('{{ asset('uploads/blog/3/3.jpg') }}') no-repeat center center; background-size: cover;"></div>
                     <div class="post-summary">
                         <h5>25-07-2017</h5>
                         <h4 class="bold">Ciudad Juárez está lista para "The Border Market"</h4>
