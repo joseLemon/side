@@ -66,36 +66,37 @@
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('img/index/contacto/pin.png') }}" alt="Localización">
-                    P.O. Box 123 TownPress VT 12345
+                    Avenida Abraham Lincoln N.1290,
+                    Ciudad Juárez, Mexico 32310
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('img/index/contacto/phone.png') }}" alt="Teléfono">
-                    Tel. (123) 456-7890
+                    Tel. (656) 629-3300<br> (614) 442 33 00
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('img/index/contacto/mail.png') }}" alt="Correo">
-                    townhall@townpres.gox
+                    jorge.venzor@chihuahua.com.mx
                 </p>
             </div>
         </div>
-        <form>
+        {!! Form::open(['route' => ['mailer.contact'], 'id' => 'formContact']) !!}
             <div class="row no-margin">
                 <div class="col-sm-6">
-                    <input type="text" placeholder="NOMBRE">
-                    <input type="email" placeholder="EMAIL">
+                    <input type="text" placeholder="NOMBRE" name="contact_name">
+                    <input type="email" placeholder="EMAIL" name="contact_email">
                 </div>
                 <div class="col-sm-6">
-                    <textarea cols="30" rows="10" placeholder="MENSAJE"></textarea>
+                    <textarea cols="30" rows="10" placeholder="MENSAJE" name="contact_message"></textarea>
                 </div>
             </div>
             <div class="text-center">
                 <input type="submit" value="ENVIAR">
             </div>
-        </form>
+        {!! Form::close() !!}
     </div>
 </div>
 <footer>

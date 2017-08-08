@@ -98,110 +98,6 @@
             <h1 class="big-heading bold">DIRECCIONES</h1>
             <p class="text">Visita todas nuestras plataformas y conoce más de nuestro trabajo.</p>
             <div class="row no-margin">
-                <div class="col-sm-4 col-xs-6 red">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            DIRECCIÓN DE PROMOCIÓN
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/1.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 light-red">
-                    <a href="">
-                    <span class="circle-hover">
-                        <p>
-                            ICATECH
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/2.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-            <!--<div class="col-sm-4 col-xs-6 pink">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            CODECH
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/3.png') }}">
-                        </div>
-                    </a>
-                </div>-->
-                <div class="col-sm-4 col-xs-6 salmon">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            FODARCH
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/3.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 magenta">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            AH CHIHUAHUA
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/4.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 purple">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            I<sup>2</sup>C
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/5.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 indigo">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            INADET
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/6.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 dark-blue">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            FIDEAPECH
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/7.jpg') }}">
-                        </div>
-                    </a>
-                </div>
                 <div class="col-sm-4 col-xs-6 blue">
                     <a href="#">
                     <span class="circle-hover">
@@ -212,45 +108,6 @@
                     </span>
                         <div class="img-container">
                             <img src="{{ asset('img/index/direcciones/8.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 light-blue">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            ASACH
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/9.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 cyan">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            DIRECCIÓN DE GESTIÓN ESTRATÉGICA Y EFICACIA
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/10.jpg') }}">
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-6 lime">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            DIRECCIÓN DE AGROINDUSTRIA
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/11.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -267,19 +124,6 @@
                         </div>
                     </a>
                 </div>
-            <!--<div class="col-sm-4 col-xs-6 green">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            FIDEICOMISO BARRANCAS DE COBRE
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/6.png') }}">
-                        </div>
-                    </a>
-                </div>-->
                 <div class="col-sm-4 col-xs-6 yellow">
                     <a href="#">
                     <span class="circle-hover">
@@ -290,6 +134,32 @@
                     </span>
                         <div class="img-container">
                             <img src="{{ asset('img/index/direcciones/13.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 salmon">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            DIRECCIÓN DE GESTIÓN ESTRATÉGICA Y EFICACIA
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/10.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 red">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            DIRECCIÓN DE PROMOCIÓN
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/1.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -306,6 +176,19 @@
                         </div>
                     </a>
                 </div>
+                <div class="col-sm-4 col-xs-6 lime">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            DIRECCIÓN DE AGROINDUSTRIA
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/11.jpg') }}">
+                        </div>
+                    </a>
+                </div>
                 <div class="col-sm-4 col-xs-6 brown">
                     <a href="#">
                     <span class="circle-hover">
@@ -316,6 +199,32 @@
                     </span>
                         <div class="img-container">
                             <img src="{{ asset('img/index/direcciones/15.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 light-red">
+                    <a href="">
+                    <span class="circle-hover">
+                        <p>
+                            ICATECH
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/2.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 indigo">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            INADET
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/6.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -332,6 +241,98 @@
                         </div>
                     </a>
                 </div>
+                <div class="col-sm-4 col-xs-6 cyan">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            FODARCH
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/3.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 dark-blue">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            FIDEAPECH
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/7.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 light-blue">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            ASACH
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/9.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-6 purple">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            I<sup>2</sup>C
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/5.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 col-xs-6 magenta">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            AH CHIHUAHUA
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/4.jpg') }}">
+                        </div>
+                    </a>
+                </div>
+            <!--<div class="col-sm-4 col-xs-6 pink">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            CODECH
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/3.png') }}">
+                        </div>
+                    </a>
+                </div>-->
+            <!--<div class="col-sm-4 col-xs-6 green">
+                    <a href="#">
+                    <span class="circle-hover">
+                        <p>
+                            FIDEICOMISO BARRANCAS DE COBRE
+                            <span class="more">Ver más</span>
+                        </p>
+                    </span>
+                        <div class="img-container">
+                            <img src="{{ asset('img/index/direcciones/6.png') }}">
+                        </div>
+                    </a>
+                </div>-->
             </div>
         </div>
     </div>
