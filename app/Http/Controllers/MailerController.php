@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class MailerController extends Controller {
 
@@ -12,31 +12,33 @@ class MailerController extends Controller {
         $contact_email = $request->input('contact_email');
         $contact_message = $request->input('contact_message');
 
-        $message_body = "De: ".$contact_name."\r\n";
+        /*$message_body = "De: ".$contact_name."\r\n";
         $message_body .= "Correo: <".$contact_email.">\r\n\r\n";
         $message_body .= "Mensaje: \r\n".$contact_message;
 
-        $contact_data = [
+        $contact = [
             'name'      => $contact_name,
             'email'     => $contact_email,
             'message'   => $contact_message
-        ];
+        ];*/
+
+        $contact = new \stdClass();
+        $contact->contact_name = $contact_name;
+        $contact->contact_email = $contact_email;
+        $contact->contact_message = $contact_message;
 
         /*\Mail::send('site.index', [], function ($message){
             $message->to('pepe.lujan2@gmail.com')->subject('Expertphp.in - Testing mail');
         });*/
+        \Mail::to('pepe.lujan2@gmail.com','José Angel')
+            ->send(new Contact($contact));
 
-        try {
-            Mail::raw($message_body, function ($message) use ($contact_data) {
-                $subject = 'Mensaje de la forma de contacto del Sitio Web de SIDE';
+        /*\Mail::raw($message_body, function ($message) use ($contact_data) {
+            $message->from($contact_data['email'], $contact_data['name'])
+                ->to('pepe.lujan2@gmail.com','José Angel')
+                ->subject('Mensaje de la forma de contacto del Sitio Web de SIDE');
+        });*/
 
-                $message->from($contact_data['email'], $contact_data['name']);
-                $message->to('pepe.lujan2@gmail.com')->subject($subject);
-            });
-
-            return 'Mensaje enviado exitosamente.';
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        return 'Mensaje enviado exitosamente.';
     }
 }
