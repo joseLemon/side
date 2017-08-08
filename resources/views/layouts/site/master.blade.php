@@ -83,20 +83,20 @@
                 </p>
             </div>
         </div>
-        <form>
+        {!! Form::open(['route' => ['mailer.contact'], 'id' => 'formContact']) !!}
             <div class="row no-margin">
                 <div class="col-sm-6">
-                    <input type="text" placeholder="NOMBRE">
-                    <input type="email" placeholder="EMAIL">
+                    <input type="text" placeholder="NOMBRE" name="contact_name">
+                    <input type="email" placeholder="EMAIL" name="contact_email">
                 </div>
                 <div class="col-sm-6">
-                    <textarea cols="30" rows="10" placeholder="MENSAJE"></textarea>
+                    <textarea cols="30" rows="10" placeholder="MENSAJE" name="contact_message"></textarea>
                 </div>
             </div>
             <div class="text-center">
                 <input type="submit" value="ENVIAR">
             </div>
-        </form>
+        {!! Form::close() !!}
     </div>
 </div>
 <footer>
