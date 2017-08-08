@@ -107,7 +107,9 @@
         <div class="footer-top">
             <div class="row no-margin">
                 <div class="col-sm-4">
-                    <img class="img-responsive center-block" src="{{ asset('img/index/footer/side.png') }}" alt="Chihuahua">
+                    <div>
+                        <img class="img-responsive center-block" src="{{ asset('img/index/footer/side.png') }}" alt="Chihuahua">
+                    </div>
                     <div class="social">
                         <a href="https://business.facebook.com/SIDEChih/?business_id=435161826691478" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="https://twitter.com/SIDEChih" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -115,7 +117,9 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <img class="img-responsive center-block" src="{{ asset('img/index/footer/chihuahua.png') }}" alt="Chihuahua">
+                    <div>
+                        <img class="img-responsive center-block" src="{{ asset('img/index/footer/chihuahua.png') }}" alt="Chihuahua">
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     <ul>

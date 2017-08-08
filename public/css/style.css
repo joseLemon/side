@@ -924,6 +924,9 @@ body {
     font-size: 22px;
     display: block;
     width: calc(100% - 30px);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 
 .direcciones .circle-hover .more {
@@ -934,9 +937,24 @@ body {
     margin-bottom: -15px;
 }
 
+.direcciones .col-sm-4 a {
+    display: block;
+}
+
 .direcciones .col-sm-4,
 .direcciones .col-sm-4 .circle-hover {
     transform: translateZ(0);
+}
+
+.direcciones .col-sm-4 .circle-hover {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding-top: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .direcciones .col-sm-4:hover .more {
@@ -2313,6 +2331,12 @@ footer .footer-bottom p::before {
 
 /* IE10+ FALLBACK */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .direcciones .col-sm-4 .circle-hover::after {
+        top: 0px;
+        left: 0px;
+        height: calc(100%);
+        width: calc(100%);
+    }
     .nosotros .img-container.active::after, .nosotros .img-container:hover::after {
         background-color: #002c5f;
         opacity: .7;
