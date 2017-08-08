@@ -66,19 +66,20 @@
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('img/index/contacto/pin.png') }}" alt="Localización">
-                    P.O. Box 123 TownPress VT 12345
+                    Avenida Abraham Lincoln N.1290,
+                    Ciudad Juárez, Mexico 32310
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('img/index/contacto/phone.png') }}" alt="Teléfono">
-                    Tel. (123) 456-7890
+                    Tel. (656) 629-3300<br> (614) 442 33 00
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('img/index/contacto/mail.png') }}" alt="Correo">
-                    townhall@townpres.gox
+                    jorge.venzor@chihuahua.com.mx
                 </p>
             </div>
         </div>
