@@ -14,5 +14,14 @@
 Route::get('/', ['as' => 'site.index', 'uses' => 'IndexController@index']);
 Route::get('/micro/{name}', ['as' => 'site.micro', 'uses' => 'IndexController@micro']);
 
-require __DIR__.'/blog.php';
+
 require __DIR__.'/mailer.php';
+
+//  ACCESS TO AUTHENTICATED USERS
+Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function(){
+    //  BLOG SECTION
+    require __DIR__.'/blog.php';
+});
+
+Auth::routes();
+Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
