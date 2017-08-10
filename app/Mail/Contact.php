@@ -17,8 +17,7 @@ class Contact extends Mailable
      *
      * @return void
      */
-    public function __construct($contact)
-    {
+    public function __construct($contact) {
         $this->contact = $contact;
     }
 
@@ -27,8 +26,7 @@ class Contact extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->from($this->contact->contact_email, $this->contact->contact_name)
             ->subject('Mensaje de la forma de contacto del Sitio Web de SIDE')
             ->view('emails.contact');

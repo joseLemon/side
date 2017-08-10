@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Contact;
+use App\Providers\EventServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Events\MessageSending;
 
 class MailerController extends Controller {
 
@@ -30,15 +32,27 @@ class MailerController extends Controller {
         /*\Mail::send('site.index', [], function ($message){
             $message->to('pepe.lujan2@gmail.com')->subject('Expertphp.in - Testing mail');
         });*/
-        \Mail::to('pepe.lujan2@gmail.com','José Angel')
+        echo \Mail::to('pepe.lujan2@gmail.com','José Angel')
             ->send(new Contact($contact));
 
+
+        if( count(\Mail::failures()) > 0 ) {
+
+            echo 'Error en el envio.';
+
+            foreach(Mail::failures as $email_address) {
+                echo " - $email_address <br />";
+            }
+
+            return true;
+
+        } else {
+            return 'Mensaje enviado exitosamente.';
+        }
         /*\Mail::raw($message_body, function ($message) use ($contact_data) {
             $message->from($contact_data['email'], $contact_data['name'])
                 ->to('pepe.lujan2@gmail.com','José Angel')
                 ->subject('Mensaje de la forma de contacto del Sitio Web de SIDE');
         });*/
-
-        return 'Mensaje enviado exitosamente.';
     }
 }

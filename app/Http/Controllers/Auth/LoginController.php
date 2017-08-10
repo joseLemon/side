@@ -6,8 +6,8 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Auth;
+use Hash;
 
 class LoginController extends Controller
 {
@@ -41,6 +41,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function index() {
+        return view('auth.login');
+    }
+
     public function login(Request $request) {
         $data = $request->all();
         $data['email'] = trim($request->input('email'));
@@ -57,7 +61,7 @@ class LoginController extends Controller
 
         $user = User::where('user_email', 'LIKE', $request->input('email'))->first();
         if($user !== NULL && Hash::check($request->input('password'), $user->user_password)) {
-            if (Auth::login($user)) {
+            if (Auth::loginUsingId($user->user_id)) {
                 return redirect()->route('home');
             } else {
                 \Session::flash('globalMessage','El usuario y/o contraseña es incorrecto');
@@ -73,6 +77,6 @@ class LoginController extends Controller
 
     public function logOut() {
         Auth::logout();
-        return redirect()->route('dashboard.home');
+        return redirect()->route('home');
     }
 }
