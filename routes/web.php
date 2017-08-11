@@ -54,7 +54,7 @@ Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {
 // Password Reset Routes...
     Route::post('password/email', [
         'as' => 'password.email',
-        'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
+        'uses' => 'Auth\ForgotPasswordController@resetPassword'
     ]);
     Route::get('password/reset', [
         'as' => 'password.request',
