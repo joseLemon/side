@@ -59,17 +59,17 @@ class LoginController extends Controller
             'password.required' => 'La contraseña es obligatoria.',
         ]);
 
-        $user = User::where('user_email', 'LIKE', $request->input('email'))->first();
+        $user = User::where('email', 'LIKE', $request->input('email'))->first();
         if($user !== NULL && Hash::check($request->input('password'), $user->user_password)) {
             if (Auth::loginUsingId($user->user_id)) {
                 return redirect()->route('home');
             } else {
-                \Session::flash('globalMessage','El usuario y/o contraseña es incorrecto');
+                \Session::flash('alertMessage','El usuario y/o contraseña es incorrecto');
                 \Session::flash('alert-class','alert-danger');
                 return redirect()->route('login')->withInput();
             }
         } else {
-            \Session::flash('globalMessage','El usuario y/o contraseña es incorrecto');
+            \Session::flash('alertMessage','El usuario y/o contraseña es incorrecto');
             \Session::flash('alert-class','alert-danger');
             return redirect()->route('login')->withInput();
         }

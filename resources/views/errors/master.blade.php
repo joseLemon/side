@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>404</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     @yield('head')
     <style>
@@ -12,7 +13,7 @@
 
         body {
             font-family: 'Ubuntu', sans-serif;
-            background-color: #d3d3d3;
+            background-color: #222d32;
         }
 
         h1 {
@@ -23,7 +24,7 @@
 
         h1, h2 {
             margin: 0;
-            color: #a3a3a3;
+            color: #666;
         }
 
         .container {
