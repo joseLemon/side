@@ -59,7 +59,7 @@
                 su nombre o está temporalmente fuera de servicio.
             </p>
             <p>
-                Hacer favor de intentar lo siguiente:
+                Favor de intentar lo siguiente:
             </p>
             <ul>
                 <li>
