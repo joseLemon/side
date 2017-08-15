@@ -36,15 +36,12 @@ class BlogController extends Controller {
 
     public function edit($id)
     {
-        $post = Blog::find($id);
-
-        if (!$post) {
-            return abort('404');
-        }
+        $post = $this->postExists($id);
 
         $params = [
             'post'  => $post
         ];
+
 
         return view('blog.edit.edit',$params);
     }
@@ -81,6 +78,7 @@ class BlogController extends Controller {
     public static function getPosts(Request $request) {
         $search = $request->input('search','');
         $paginate = $request->input('paginate',10);
+        $except = $request->input('except','');
         $date = date('Y-m-d', strtotime(str_replace('/', '-', $search)));
         if($date == '1970-01-01') {
             $date = $search;
@@ -106,7 +104,11 @@ class BlogController extends Controller {
             );
         }
 
-        $query = $posts->paginate($paginate);
+        if($except != '') {
+            $posts->where('post_id','!=',$except);
+        }
+
+        $query = $posts->inRandomOrder()->paginate($paginate);
 
         return $query;
     }
@@ -121,5 +123,26 @@ class BlogController extends Controller {
         ];
 
         return response()->json($jsonResponse);
+    }
+
+    public function single($id) {
+        $post = $this->postExists($id);
+
+        $params = [
+            'id'    => $id,
+            'post'  => $post
+        ];
+
+        return view('site.single',$params);
+    }
+
+    function postExists($id) {
+        $post = Blog::find($id);
+
+        if (!$post) {
+            return abort('404');
+        }
+
+        return $post;
     }
 }

@@ -1545,6 +1545,10 @@ body {
     background-image: none!important;
 }
 
+.single {
+    background-color: #e1e1e1;
+}
+
 /* REGISTRO */
 .registro {
     padding: 100px 0;

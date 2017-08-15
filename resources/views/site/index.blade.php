@@ -354,39 +354,7 @@
     <div class="blog spacing" id="blog">
         <div class="container">
             <h1 class="heading text-center">Blog de <span class="bold">Noticias</span></h1>
-            <div class="row no-margin blog-feed">
-                <div class="col-sm-4">
-                    <div class="img-bg" style="background: url('{{ asset('uploads/blog/1/1.jpg') }}') no-repeat center center; background-size: cover;"></div>
-                    <div class="post-summary">
-                        <h5>14-07-2017</h5>
-                        <h4 class="bold">Presenta Innovación y Desarrollo Económico 46 proyectos productivos para Madera</h4>
-                        <p class="text">La implementación de 46 proyectos vinculados al desarrollo, productividad y activación económica del municipio de Madera, fue ...</p>
-                        <a href="#">Leer más</a>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="img-bg" style="background: url('{{ asset('uploads/blog/2/2.jpg') }}') no-repeat center center; background-size: cover;"></div>
-                    <div class="post-summary">
-                        <h5>21-07-2017</h5>
-                        <h4 class="bold">Inversión Extranjera repuntará en los próximos meses en el estado</h4>
-                        <p class="text">
-                            La Inversión Extranjera directa dejó ganancias por 389.3 mdd en el primer trimestre del año
-                            Afirmó el ...
-                        </p>
-                        <a href="#">Leer más</a>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="img-bg" style="background: url('{{ asset('uploads/blog/3/3.jpg') }}') no-repeat center center; background-size: cover;"></div>
-                    <div class="post-summary">
-                        <h5>25-07-2017</h5>
-                        <h4 class="bold">Ciudad Juárez está lista para "The Border Market"</h4>
-                        <p class="text">
-                            Un encuentro que recibirá a 96 productores de las áreas industrial, turística, comercial y ...</p>
-                        <a href="#">Leer más</a>
-                    </div>
-                </div>
-            </div>
+            <div class="row no-margin blog-feed"></div>
             <!--<div class="blog-nav text-center">
                 <a href="#" data-slide="prev">
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -471,7 +439,7 @@
 @stop
 @section('scripts')
     <script>
-        /*$(document).ready(function () {
+        $(document).ready(function () {
             getPosts();
         });
         function getPosts($get_posts_by,$page) {
@@ -494,13 +462,13 @@
                             '<h5>' + post.post_date + '</h5>' +
                             '<h4 class="bold">' + post.post_title + '</h4>' +
                             '<p class="text">' + RemoveHTMLTags(post.post_excerpt) + '</p>' +
-                            '<a href="#">Leer más</a>' +
+                            '<a href="{{ url('blog/single') }}/'+post.post_id+'">Leer más</a>' +
                             '</div>' +
                             '</div>'
                         );
                     });
                 }
             });
-        }*/
+        }
     </script>
 @stop

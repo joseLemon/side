@@ -14,3 +14,4 @@ Route::post('blog/{id}', ['as' => 'blog.update', 'uses' => 'BlogController@updat
 Route::get('blog/show', ['as' => 'blog.show', 'uses' => 'BlogController@show']);
 Route::get('posts/getPosts', ['as' => 'posts.get', 'uses' => 'BlogController@getPosts']);
 Route::get('blog/delete', ['as' => 'blog.delete', 'uses' => 'BlogController@delete']);
+Route::get('blog/single/{id}', ['as' => 'blog.single', 'uses' => 'BlogController@single']);
