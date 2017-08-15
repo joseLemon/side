@@ -10,16 +10,17 @@
                         @if ($errors->has('email'))
                             <div>{{ $errors->first('email') }}</div>
                         @endif
+                        <div>{{ session('status') }}</div>
+                    </div>
+                @endif
+                @if(session('status'))
+                    <div class="box-errors alert alert-success fade in alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        <div>{{ session('status') }}</div>
                     </div>
                 @endif
                 <div class="box-header">Recupera tu contraseña</div>
                 <div class="box-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <form method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 

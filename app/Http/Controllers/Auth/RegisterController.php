@@ -67,7 +67,7 @@ class RegisterController extends Controller
         $user->user_name = $request->input('name');
         $user->user_last_name = $request->input('name');
         $user->email = $request->input('email');
-        $user->user_password = bcrypt($request->input('password'));
+        $user->password = bcrypt($request->input('password'));
         $user->save();
 
         return view('auth.login');

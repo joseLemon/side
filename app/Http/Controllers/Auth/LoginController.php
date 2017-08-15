@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/blog/show';
 
     /**
      * Create a new controller instance.
@@ -60,7 +60,7 @@ class LoginController extends Controller
         ]);
 
         $user = User::where('email', 'LIKE', $request->input('email'))->first();
-        if($user !== NULL && Hash::check($request->input('password'), $user->user_password)) {
+        if($user !== NULL && Hash::check($request->input('password'), $user->password)) {
             if (Auth::loginUsingId($user->user_id)) {
                 return redirect()->route('home');
             } else {

@@ -142,8 +142,8 @@
         }
 
         .box-errors.alert-dismissable .close {
-            top: -10px;
-            right: -16px;
+            top: -5px;
+            right: -12px;
             opacity: .5;
         }
     </style>
