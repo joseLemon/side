@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SIDE</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/cms/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/modules/jquery-confirm/css/jquery-confirm.css') }}">
+    <link rel="icon" href="{{ asset('public/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/cms/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/js/modules/jquery-confirm/css/jquery-confirm.css') }}">
     @yield('head')
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/modules/jquery-confirm/js/jquery-confirm.js') }}"></script>
+    <script src="{{ asset('public/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/modules/jquery-confirm/js/jquery-confirm.js') }}"></script>
     <script>
         $(document).ready(function () {
             // Add slideDown animation to Bootstrap dropdown when expanding.

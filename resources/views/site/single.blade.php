@@ -11,7 +11,7 @@
             <div class="row no-margin">
                 <div class="col-sm-6">
                     <div class="img-container">
-                        <img class="img-responsive center-block" src="{{ asset('uploads/blog') }}/{{ $id }}/{{ $post->post_img }}" alt="single_img">
+                        <img class="img-responsive center-block" src="{{ asset('public/uploads/blog') }}/{{ $id }}/{{ $post->post_img }}" alt="single_img">
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 success: function (posts) {
                     $('.blog-feed').empty();
                     $(posts.data).each(function (i, post) {
-                        var img_url = '{{ asset('uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
+                        var img_url = '{{ asset('public/uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
                         $('.blog-feed').append(
                             '<div class="col-sm-4">' +
                             '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +

@@ -1,4 +1,4 @@
-<script src="{{ asset('js/modules/tinymce/tinymce.min.js?apiKey=?apiKey=lmzwakfmcpx8xyo0kmi4gzbnvwa6qp6hdvku58vnvcjzdwpj') }}"></script>
+<script src="{{ asset('public/js/modules/tinymce/tinymce.min.js?apiKey=?apiKey=lmzwakfmcpx8xyo0kmi4gzbnvwa6qp6hdvku58vnvcjzdwpj') }}"></script>
 <script>
     $(document).ready(function() {
         tinymce.init({

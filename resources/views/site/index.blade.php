@@ -5,7 +5,7 @@
     <!-- ///////////  BANNER  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="banner main" id="banner" style="background: url('{{ asset('img/index/banners/1.jpg') }}') no-repeat center center">
+    <div class="banner main" id="banner" style="background: url('{{ asset('public/img/index/banners/1.jpg') }}') no-repeat center center">
         <div class="container">
             <div class="diamond-container">
                 <div class="diamond diamond-1"></div>
@@ -74,7 +74,7 @@
     <div class="ayuda" id="ayuda">
         <div class="parallax-container">
             <div class="parallax">
-                <img src="{{ asset('img/index/innovas.jpg') }}">
+                <img src="{{ asset('public/img/index/innovas.jpg') }}">
             </div>
             <div class="container">
                 <div class="question-box">
@@ -107,7 +107,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/8.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/8.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -120,7 +120,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/12.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/12.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -133,7 +133,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/13.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/13.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -146,7 +146,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/10.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/10.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -159,7 +159,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/1.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/1.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -172,7 +172,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/14.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/14.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -185,7 +185,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/11.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/11.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -198,7 +198,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/15.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/15.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -211,7 +211,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/2.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/2.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -224,7 +224,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/6.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/6.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -237,7 +237,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/16.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/16.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -250,7 +250,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/3.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/3.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -263,7 +263,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/7.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/7.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -276,7 +276,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/9.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/9.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -289,7 +289,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/5.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/5.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -303,7 +303,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/4.jpg') }}">
+                            <img src="{{ asset('public/img/index/direcciones/4.jpg') }}">
                         </div>
                     </a>
                 </div>
@@ -316,7 +316,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/3.png') }}">
+                            <img src="{{ asset('public/img/index/direcciones/3.png') }}">
                         </div>
                     </a>
                 </div>-->
@@ -329,7 +329,7 @@
                         </p>
                     </span>
                         <div class="img-container">
-                            <img src="{{ asset('img/index/direcciones/6.png') }}">
+                            <img src="{{ asset('public/img/index/direcciones/6.png') }}">
                         </div>
                     </a>
                 </div>-->
@@ -341,7 +341,7 @@
     <!-- ///////////  OPPORTUNITIES  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="opportunities bg-cover spacing" id="opportunities" style="background: url('{{ asset('img/index/banners/2.jpg') }}') no-repeat center bottom">
+    <div class="opportunities bg-cover spacing" id="opportunities" style="background: url('{{ asset('public/img/index/banners/2.jpg') }}') no-repeat center bottom">
         <div class="fancy-box text-center">
             <a href="http://theborderopportunities.com" target="_blank" class="white">theborderopportunities.com</a>
         </div>
@@ -370,10 +370,10 @@
     <!-- ///////////  CHIHUAHUA  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="chihuahua bg-cover" id="chihuahua" style="/*background: url('{{ asset('img/index/banners/3.jpg') }}') no-repeat center top;*/">
-        <video src="{{ asset('video/1.mp4') }}" autoplay></video>
+    <div class="chihuahua bg-cover" id="chihuahua" style="/*background: url('{{ asset('public/img/index/banners/3.jpg') }}') no-repeat center top;*/">
+        <video src="{{ asset('public/video/1.mp4') }}" autoplay></video>
     <!--<div class="fancy-box text-center">
-            <img class="center-block" src="{{ asset('img/index/decorations/1.png') }}">
+            <img class="center-block" src="{{ asset('public/img/index/decorations/1.png') }}">
         </div>-->
     </div>
     <!-- ================================== -->
@@ -386,19 +386,19 @@
             <div class="row no-margin nav-tab-menu">
                 <div class="col-sm-4 img-container">
                     <a href="#tab-1" data-toggle="tab">
-                        <img src="{{ asset('img/index/nosotros/1.png') }}">
+                        <img src="{{ asset('public/img/index/nosotros/1.png') }}">
                         <h3>Misión</h3>
                     </a>
                 </div>
                 <div class="col-sm-4 img-container">
                     <a href="#tab-2" data-toggle="tab">
-                        <img src="{{ asset('img/index/nosotros/2.png') }}">
+                        <img src="{{ asset('public/img/index/nosotros/2.png') }}">
                         <h3>Visión</h3>
                     </a>
                 </div>
                 <div class="col-sm-4 img-container">
                     <a href="#tab-3" data-toggle="tab">
-                        <img src="{{ asset('img/index/nosotros/3.png') }}">
+                        <img src="{{ asset('public/img/index/nosotros/3.png') }}">
                         <h3>Valores</h3>
                     </a>
                 </div>
@@ -454,7 +454,7 @@
                 success: function (posts) {
                     $('.blog-feed').empty();
                     $(posts.data).each(function (i, post) {
-                        var img_url = '{{ asset('uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
+                        var img_url = '{{ asset('public/uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
                         $('.blog-feed').append(
                             '<div class="col-sm-4">' +
                             '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +

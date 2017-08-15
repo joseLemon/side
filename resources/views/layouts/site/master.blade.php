@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SIDE</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/parallax.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="icon" href="{{ asset('public/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/style.css') }}">
+    <script src="{{ asset('public/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/js/parallax.js') }}"></script>
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/app.js') }}"></script>
     @yield('head')
 </head>
 <body>
@@ -23,10 +23,10 @@
             <div class="row no-margin top-header">
                 <div class="col-xs">
                     <div class="col">
-                        <img class="img-responsive center-block" src="{{ asset('img/index/amanece.png') }}" alt="Amanece">
+                        <img class="img-responsive center-block" src="{{ asset('public/img/index/amanece.png') }}" alt="Amanece">
                     </div>
                     <div class="col">
-                        <img class="img-responsive center-block" src="{{ asset('img/index/logo.png') }}" alt="SIDE">
+                        <img class="img-responsive center-block" src="{{ asset('public/img/index/logo.png') }}" alt="SIDE">
                     </div>
                 </div>
                 <div class="col col-xs text-center">
@@ -65,20 +65,20 @@
             <div class="hidden-xs" style="float: left; width: 12.5%; min-height: 1px"></div>
             <div class="col-sm-3">
                 <p>
-                    <img src="{{ asset('img/index/contacto/pin.png') }}" alt="Localización">
+                    <img src="{{ asset('public/img/index/contacto/pin.png') }}" alt="Localización">
                     Avenida Abraham Lincoln N.1290,
                     Ciudad Juárez, Mexico 32310
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
-                    <img src="{{ asset('img/index/contacto/phone.png') }}" alt="Teléfono">
+                    <img src="{{ asset('public/img/index/contacto/phone.png') }}" alt="Teléfono">
                     Tel. (656) 629-3300<br> (614) 442 33 00
                 </p>
             </div>
             <div class="col-sm-3">
                 <p>
-                    <img src="{{ asset('img/index/contacto/mail.png') }}" alt="Correo">
+                    <img src="{{ asset('public/img/index/contacto/mail.png') }}" alt="Correo">
                     jorge.venzor@chihuahua.com.mx
                 </p>
             </div>
@@ -101,14 +101,14 @@
 </div>
 <footer>
     <div class="parallax">
-        <div class="parallax-element" data-parallax="{{ asset('img/index/footer.jpg') }}" data-positiony="top"></div>
+        <div class="parallax-element" data-parallax="{{ asset('public/img/index/footer.jpg') }}" data-positiony="top"></div>
     </div>
     <div class="container small-spacing">
         <div class="footer-top">
             <div class="row no-margin">
                 <div class="col-sm-4">
                     <div>
-                        <img class="img-responsive center-block" src="{{ asset('img/index/footer/side.png') }}" alt="Chihuahua">
+                        <img class="img-responsive center-block" src="{{ asset('public/img/index/footer/side.png') }}" alt="Chihuahua">
                     </div>
                     <div class="social">
                         <a href="https://business.facebook.com/SIDEChih/?business_id=435161826691478" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div>
-                        <img class="img-responsive center-block" src="{{ asset('img/index/footer/chihuahua.png') }}" alt="Chihuahua">
+                        <img class="img-responsive center-block" src="{{ asset('public/img/index/footer/chihuahua.png') }}" alt="Chihuahua">
                     </div>
                 </div>
                 <div class="col-sm-4">
