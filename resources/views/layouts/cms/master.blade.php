@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/css/cms/style.css') }}">
     <link rel="stylesheet" href="{{ asset('public/js/modules/jquery-confirm/css/jquery-confirm.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/js/modules/jquery-ui/datepicker/jquery-ui-datepicker.css') }}">
     @yield('head')
     <script src="{{ asset('public/js/jquery.min.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/js/modules/jquery-confirm/js/jquery-confirm.js') }}"></script>
+    <script src="{{ asset('public/js/modules/jquery-ui/datepicker/jquery-ui-datepicker.js') }}"></script>
     <script>
         $(document).ready(function () {
             // Add slideDown animation to Bootstrap dropdown when expanding.

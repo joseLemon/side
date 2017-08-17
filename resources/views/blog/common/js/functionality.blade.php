@@ -19,6 +19,14 @@
             $('#post_img').val('');
             $('#state_check').val('removed');
         });
+
+        $( "#post_date" ).datepicker({
+            dateFormat: "dd/mm/yy",
+            beforeShow: function(input, inst) {
+                var widget = $(inst).datepicker('widget');
+                widget.css('margin-left', $(input).outerWidth() - widget.outerWidth());
+            }
+        });
     });
 
     function readFile() {

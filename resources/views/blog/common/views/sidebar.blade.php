@@ -1,6 +1,6 @@
 <div class="blog-sidebar">
     <label for="post_date">Fecha</label>
-    {!! Form::date('post_date',isset($post) ? $post->post_date : null,['class'=>'full-width','id'=>'post_date']) !!}
+    {!! Form::text('post_date',isset($post) ? date('d/m/Y', strtotime($post->post_date)) : null,['class'=>'full-width','id'=>'post_date']) !!}
     <hr>
     <label for="post_img">Imagen Destacada</label>
     <div class="img-container preview @isset($post->post_img){{ 'active' }}@endisset">

@@ -15,6 +15,10 @@ Route::get('/', ['as' => 'site.index', 'uses' => 'IndexController@index']);
 Route::get('/micro/{name}', ['as' => 'site.micro', 'uses' => 'IndexController@micro']);
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 
+//  PUBLIC BLOG
+Route::get('posts/getPosts', ['as' => 'posts.get', 'uses' => 'BlogController@getPosts']);
+Route::get('blog/single/{id}', ['as' => 'blog.single', 'uses' => 'BlogController@single']);
+
 
 require __DIR__.'/mailer.php';
 

@@ -20,7 +20,7 @@ class BlogController extends Controller {
 
         $post->post_title = $request->input('post_title');
         $post->post_content = $request->input('post_content');
-        $post_date = date('Y-m-d',strtotime($request->input('post_date')));
+        $post_date = \DateTime::createFromFormat('d/m/Y', $request->input('post_date'))->format('Y-m-d');
         $post->post_date = $post_date;
         $post->save();
 
@@ -51,7 +51,7 @@ class BlogController extends Controller {
 
         $post->post_title = $request->input('post_title');
         $post->post_content = $request->input('post_content');
-        $post_date = date('Y-m-d',strtotime($request->input('post_date')));
+        $post_date = \DateTime::createFromFormat('d/m/Y', $request->input('post_date'))->format('Y-m-d');
         $post->post_date = $post_date;
         $post->save();
 
@@ -85,9 +85,9 @@ class BlogController extends Controller {
         }
 
         $posts = Blog::select([
-            DB::raw('DATE_FORMAT(post_date, \'%d-%m-%Y\') AS post_date'),
             DB::raw('IF (CHAR_LENGTH(post_content) > 150, CONCAT(RTRIM(REVERSE(SUBSTRING(REVERSE(LEFT(post_content, 150)),LOCATE(" ",REVERSE(LEFT(post_content, 150)))))), \' ...\'), post_content) AS post_excerpt'),
             'post_id',
+            'post_date',
             'post_title',
             'post_img'
         ])
@@ -110,6 +110,12 @@ class BlogController extends Controller {
 
         $query = $posts->inRandomOrder()->paginate($paginate);
 
+        setlocale(LC_ALL,"es_MX","es_Mx","esp");
+        foreach($query as $q) {
+            $date = \DateTime::createFromFormat('Y-m-d', $q->post_date);
+            $q->post_date = ucfirst(strftime("%B %d, %y",$date->getTimestamp()));
+        }
+
         return $query;
     }
 
@@ -127,6 +133,9 @@ class BlogController extends Controller {
 
     public function single($id) {
         $post = $this->postExists($id);
+        setlocale(LC_ALL,"es_MX","es_Mx","esp");
+        $date = \DateTime::createFromFormat('Y-m-d', $post->post_date);
+        $post->post_date = ucfirst(strftime("%B %d, %y",$date->getTimestamp()));
 
         $params = [
             'id'    => $id,

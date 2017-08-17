@@ -9,13 +9,22 @@
         <div class="container">
             <h1 class="heading text-center">Blog de <span class="bold">Noticias</span></h1>
             <div class="row no-margin">
-                <div class="col-sm-6">
-                    <div class="img-container">
-                        <img class="img-responsive center-block" src="{{ asset('public/uploads/blog') }}/{{ $id }}/{{ $post->post_img }}" alt="single_img">
-                    </div>
+                <img src="{{ asset('public/uploads/blog') }}/{{ $id }}/{{ $post->post_img }}" alt="single_img">
+                <span class="date">{{ $post->post_date }}</span>
+                <h3 class="bold">{{ $post->post_title }}</h3>
+                {!! $post->post_content !!}
+
+                <div class="share-post text-right">
+                    <a href="{{ route('blog.single',$id) }}" id="share-to-fb">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={{ route('blog.single',$id) }}" id="share-to-twitter">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- ================================== -->
 
@@ -37,6 +46,24 @@
     </div>
 @stop
 @section('scripts')
+    <script>
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
+    </script>
     <script>
         $(document).ready(function () {
             getPosts();
@@ -70,5 +97,35 @@
                 }
             });
         }
+
+
+        window.fbAsyncInit = function(){
+            FB.init({
+                appId: '768242526711597', status: true, cookie: true, xfbml: true });
+        };
+        (function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if(d.getElementById(id)) {return;}
+            js = d.createElement('script'); js.id = id;
+            js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+            ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
+
+        function postToFeed(url){
+            var obj = {
+                method: 'feed',
+                link: url,
+                picture: '{{ asset('public/uploads/blog') }}/{{ $id }}/{{ $post->post_img }}',
+                name: '{{ $post->post_title }}'
+            };
+            function callback(response){}
+            FB.ui(obj, callback);
+        }
+
+        $('#share-to-fb').click(function(){
+            elem = $(this);
+            postToFeed($(this).attr('href'));
+            return false;
+        });
+
+        twttr.events.bind('tweet', function (event) {});
     </script>
 @stop

@@ -198,7 +198,7 @@ hr {
     outline: none;
     opacity: .4;
     color: #d44950;
-    z-index: 15;
+    z-index: 1;
 }
 
 .blog-sidebar .img-container.active .remove-img {
