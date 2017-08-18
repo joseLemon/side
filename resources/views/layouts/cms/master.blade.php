@@ -61,15 +61,15 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil menu-icon" aria-hidden="true"></i> Blog <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('blog.create') }}">NUEVO</a></li>
-                        <li><a href="{{ route('blog.show') }}">VER</a></li>
+                        <li><a href="{{ route('blog.create') }}">Nuevo</a></li>
+                        <li><a href="{{ route('blog.show') }}">Ver</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> Páginas <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">NUEVO</a></li>
-                        <li><a href="{{ route('page.show') }}">VER</a></li>
+                        <li><a href="#">Nuevo</a></li>
+                        <li><a href="{{ route('page.show') }}">Ver</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -63,4 +63,34 @@ class PagesController extends Controller {
 
         return response()->json($jsonResponse);
     }
+
+    public function edit($id) {
+        $page = $this->pageExists($id);
+
+        $params = [
+            'id'    =>  $id,
+            'page'  =>  $page
+        ];
+
+        if($page->page_type_id == 1) {
+            return view('pages.edit.index.edit',$params);
+        }
+
+        return view('pages.edit.edit',$params);
+    }
+
+
+    public function updateIndex($id) {
+        return;
+    }
+
+    function pageExists($id) {
+        $page = Page::find($id);
+
+        if (!$page) {
+            return abort('404');
+        }
+
+        return $page;
+    }
 }
