@@ -59,18 +59,24 @@
         <div class="collapse navbar-collapse" id="nav-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil menu-icon" aria-hidden="true"></i> BLOG <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil menu-icon" aria-hidden="true"></i> Blog <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('blog.create') }}">NUEVO</a></li>
                         <li><a href="{{ route('blog.show') }}">VER</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> PÁGINAS <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> Páginas <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">NUEVO</a></li>
-                        <li><a href="#">VER</a></li>
+                        <li><a href="{{ route('page.show') }}">VER</a></li>
                     </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ route('register') }}"><i class="fa fa-user-plus menu-icon" aria-hidden="true"></i> Agregar usuario</a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url('/').'/logout' }}"><i class="fa fa-sign-out menu-icon" aria-hidden="true"></i> Cerrar sesión</a>
                 </li>
             </ul>
         </div>

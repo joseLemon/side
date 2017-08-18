@@ -62,7 +62,7 @@ class LoginController extends Controller
         $user = User::where('email', 'LIKE', $request->input('email'))->first();
         if($user !== NULL && Hash::check($request->input('password'), $user->password)) {
             if (Auth::loginUsingId($user->user_id)) {
-                return redirect()->route('home');
+                return redirect()->route('blog.show');
             } else {
                 \Session::flash('alertMessage','El usuario y/o contraseña es incorrecto');
                 \Session::flash('alert-class','alert-danger');

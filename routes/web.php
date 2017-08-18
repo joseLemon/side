@@ -24,13 +24,16 @@ require __DIR__.'/mailer.php';
 
 //  ACCESS TO AUTHENTICATED USERS
 Route::group(['middleware' => '\App\Http\Middleware\AfterLogin'], function() {
-    //  BLOG SECTION
-    require __DIR__.'/blog.php';
     Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
     // Registration Routes...
-    Route::get('register', ['as' => 'register','uses' => 'Auth\RegisterController@showRegistrationForm']);
+    Route::get('register', ['as' => 'register','uses' => 'Auth\RegisterController@registerUser']);
     Route::post('register', ['as' => '','uses' => 'Auth\RegisterController@register']);
+
+    //  BLOG SECTION
+    require __DIR__.'/blog.php';
+    //  PAGES SECTION
+    require __DIR__.'/page.php';
 });
 
 Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {

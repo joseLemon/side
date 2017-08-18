@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Blog extends Model {
+class Page extends Model {
 
     use SoftDeletes;
 
     /*
      *
      * REFERENCE TO TABLE NAME
-     *
      */
-    protected $table = 'posts';
+
+    protected $table = 'pages';
 
     /*
      *
      * REFERENCE TO TABLE PRIMARY ID
      *
      */
-    protected $primaryKey = 'post_id';
-
+    protected $primaryKey = 'page_id';
 }
