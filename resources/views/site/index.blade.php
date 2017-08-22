@@ -99,7 +99,7 @@
             <p class="text">Visita todas nuestras plataformas y conoce más de nuestro trabajo.</p>
             <div class="row no-margin">
                 <div class="col-sm-4 col-xs-6 blue">
-                    <a href="#">
+                    <a href="{{ url('/').'/comercio' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE COMERCIO
@@ -112,7 +112,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 light-green">
-                    <a href="#">
+                    <a href="{{ url('/').'/energia' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE ENERGÍA
@@ -125,7 +125,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 yellow">
-                    <a href="#">
+                    <a href="{{ url('/').'/turismo' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE TURISMO
@@ -138,7 +138,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 salmon">
-                    <a href="#">
+                    <a href="{{ url('/').'/estrategica' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE GESTIÓN ESTRATÉGICA Y EFICACIA
@@ -151,7 +151,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 red">
-                    <a href="#">
+                    <a href="{{ url('/').'/promocion' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE PROMOCIÓN
@@ -164,7 +164,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 orange">
-                    <a href="#">
+                    <a href="{{ url('/').'/industria' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE INDUSTRIA
@@ -177,7 +177,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 lime">
-                    <a href="#">
+                    <a href="{{ url('/').'/agroindustria' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE AGROINDUSTRIA
@@ -190,7 +190,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 brown">
-                    <a href="#">
+                    <a href="{{ url('/').'/mineria' }}">
                     <span class="circle-hover">
                         <p>
                             DIRECCIÓN DE MINERÍA
@@ -203,7 +203,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 light-red">
-                    <a href="">
+                    <a href="http://www.icatech.edu.mx/">
                     <span class="circle-hover">
                         <p>
                             ICATECH
@@ -216,7 +216,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 indigo">
-                    <a href="#">
+                    <a href="http://inadet.com.mx/Principal/">
                     <span class="circle-hover">
                         <p>
                             INADET
@@ -229,7 +229,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 gray">
-                    <a href="#">
+                    <a href="{{ url('/').'/promotora' }}">
                     <span class="circle-hover">
                         <p>
                             PROMOTORA DE LA INDUSTRIA DE CHIHUAHUA
@@ -242,7 +242,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 cyan">
-                    <a href="#">
+                    <a href="{{ url('/').'/fodarch' }}">
                     <span class="circle-hover">
                         <p>
                             FODARCH
@@ -255,7 +255,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 dark-blue">
-                    <a href="#">
+                    <a href="http://fideapech.com.mx/">
                     <span class="circle-hover">
                         <p>
                             FIDEAPECH
@@ -268,7 +268,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 light-blue">
-                    <a href="#">
+                    <a href="{{ url('/').'/asach' }}">
                     <span class="circle-hover">
                         <p>
                             ASACH
@@ -281,7 +281,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 col-xs-6 purple">
-                    <a href="#">
+                    <a href="http://www.i2c.com.mx/">
                     <span class="circle-hover">
                         <p>
                             I<sup>2</sup>C
@@ -295,7 +295,7 @@
                 </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 col-xs-6 magenta">
-                    <a href="#">
+                    <a href="http://www.visita-chihuahua.com/">
                     <span class="circle-hover">
                         <p>
                             AH CHIHUAHUA

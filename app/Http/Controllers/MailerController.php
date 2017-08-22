@@ -11,6 +11,21 @@ use Illuminate\Mail\Events\MessageSending;
 class MailerController extends Controller {
 
     function sendContactMail(Request $request) {
+        $this->validate($request, [
+            'contact_name'      =>  'required|max:255',
+            'contact_email'     =>  'required|email',
+            'contact_message'   =>  'required|max:512'
+        ],[
+            'contact_name.required'     =>  'El nombre de contato es obligatorio',
+            'contact_name.max'          =>  'La cantidad máxima de caracteres permitida para el nombre es de :max',
+
+            'contact_mail.required'     =>  'El correo electrónico de contacto es obligatorio',
+            'contact_mail.email'        =>  'El correo electrónico ingresado no tiene un formato válido',
+
+            'contact_message.required'  =>  'El contenido del mensaje es obligatorio',
+            'contact_message.max'       =>  'La cantidad máxima de caracteres permitida para el contenido del mensaje es de :max',
+        ]);
+
         $contact_name = $request->input('contact_name');
         $contact_email = $request->input('contact_email');
         $contact_message = $request->input('contact_message');
@@ -26,16 +41,22 @@ class MailerController extends Controller {
 
         if( count(\Mail::failures()) > 0 ) {
 
-            echo 'Error en el envio.';
-
-            foreach(Mail::failures as $email_address) {
+            /*foreach(Mail::failures as $email_address) {
                 echo " - $email_address <br />";
-            }
+            }*/
 
-            return true;
+            $jsonResponse = [
+                'alert_class' => 'alert-danger',
+                'msg'   => 'Error en el envio, favor de intentarlo nuevamente más tarde'
+            ];
 
         } else {
-            return 'Mensaje enviado exitosamente.';
+            $jsonResponse = [
+                'alert_class' => 'alert-success',
+                'msg'   => 'Mensaje enviado exitosamente'
+            ];
         }
+
+        return response()->json($jsonResponse);
     }
 }

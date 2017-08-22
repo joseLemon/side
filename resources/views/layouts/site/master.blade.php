@@ -84,18 +84,21 @@
             </div>
         </div>
         {!! Form::open(['route' => ['mailer.contact'], 'id' => 'formContact']) !!}
-            <div class="row no-margin">
-                <div class="col-sm-6">
-                    <input type="text" placeholder="NOMBRE" name="contact_name">
-                    <input type="email" placeholder="EMAIL" name="contact_email">
-                </div>
-                <div class="col-sm-6">
-                    <textarea cols="30" rows="10" placeholder="MENSAJE" name="contact_message"></textarea>
-                </div>
+        <div class="row no-margin">
+            <div class="col-sm-12">
+                <div class="alert hidden" id="contact-alert-box"></div>
             </div>
-            <div class="text-center">
-                <input type="submit" value="ENVIAR">
+            <div class="col-sm-6">
+                <input type="text" placeholder="NOMBRE" name="contact_name">
+                <input type="email" placeholder="EMAIL" name="contact_email">
             </div>
+            <div class="col-sm-6">
+                <textarea cols="30" rows="10" placeholder="MENSAJE" name="contact_message"></textarea>
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="submit" value="ENVIAR">
+        </div>
         {!! Form::close() !!}
     </div>
 </div>
@@ -123,8 +126,9 @@
                 </div>
                 <div class="col-sm-4">
                     <ul>
-                        <li><a href="">INICIO</a></li>
-                        <li><a href="">TRANSPARENCIA</a></li>
+                        <li><a href="{{ url('/') }}">INICIO</a></li>
+                        <li><a href="http://www.chihuahua.com.mx/Transparencia/index.html">TRANSPARENCIA</a></li>
+                        <li><a href="http://www.chihuahua.com.mx/SitioSecretariaEconomia/PBR.ASPX">PBR</a></li>
                     </ul>
                 </div>
             </div>
@@ -142,6 +146,34 @@
         var regX = /(<([^>]+)>)/ig;
         return $text.replace(regX, "");
     }
+
+    $('#formContact').submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+        var alertBox = $('#contact-alert-box');
+        $.ajax({
+            type: 'POST',
+            url: form.attr('action'),
+            data: form.serialize(),
+            dataType: 'JSON'
+        }).always(function (data) {
+            alertBox.empty();
+
+            alertBox.removeClass('hidden').removeClass('alert-success').removeClass('alert-danger');
+
+            if(data.alert_class) {
+                alertBox.addClass(data.alert_class);
+                alertBox.text(data.msg);
+            }
+
+            if(data.responseJSON) {
+                alertBox.addClass('alert-danger');
+                $.each(data.responseJSON, function (index, msg) {
+                    alertBox.append(msg + '<br>');
+                })
+            }
+        });
+    });
 </script>
 @yield('scripts')
 </body>
