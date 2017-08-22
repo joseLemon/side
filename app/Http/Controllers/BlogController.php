@@ -25,7 +25,7 @@ class BlogController extends Controller {
         $post->save();
 
         if($_FILES['post_img']['size'] > 0) {
-            ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img');
+            ImgUploadController::fileUpload(public_path().'/uploads/blog/'.$post->post_id.'/','post_img');
         }
 
         \Session::flash('alertMessage','Nueva entrada creada.');
@@ -56,13 +56,13 @@ class BlogController extends Controller {
         $post->save();
 
         if($_FILES['post_img']['size'] > 0) {
-            ImgUploadController::fileUpload(public_path().'\uploads\blog\\'.$post->post_id.'\\','post_img',true);
+            ImgUploadController::fileUpload(public_path().'/uploads/blog/'.$post->post_id.'/','post_img',true);
 
             $post->post_img = $_FILES['post_img']['name'];
             $post->save();
         } else if($request->input('state_check') == 'removed') {
             //  Delete files if they exist
-            $files = glob(public_path().'\uploads\blog\\'.$post->post_id.'\\'.'/*'); // get all file names
+            $files = glob(public_path().'/uploads/blog/'.$post->post_id.'/'.'/*'); // get all file names
             foreach($files as $file){ // iterate files
                 if(is_file($file))
                     unlink($file); // delete file

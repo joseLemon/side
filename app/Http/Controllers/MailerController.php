@@ -35,7 +35,7 @@ class MailerController extends Controller {
         $contact->contact_email = $contact_email;
         $contact->contact_message = $contact_message;
 
-        \Mail::to('pepe.lujan2@gmail.com','José Angel')
+        \Mail::to(env('CONTACT_MAIL'),env('CONTACT_NAME'))
             ->send(new Contact($contact));
 
 

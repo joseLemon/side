@@ -43,7 +43,7 @@ class UserResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->from(env('CONTACT_MAIL'), env('CONTACT_NAME'))
+            ->from(env('SITE_CONTACT_MAIL'), env('SITE_CONTACT_NAME'))
             ->subject('Recuperar contraseña')
             ->greeting('¡Hola!')
             ->line('Si has olvidado tu contraseña, da click en el botón siguiente para generar una nueva contraseña.')
