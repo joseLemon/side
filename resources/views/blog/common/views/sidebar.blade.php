@@ -3,7 +3,7 @@
     {!! Form::text('post_date',isset($post) ? date('d/m/Y', strtotime($post->post_date)) : null,['class'=>'full-width','id'=>'post_date']) !!}
     <hr>
     <label for="post_img">Imagen Destacada</label>
-    <div class="img-container preview @isset($post->post_img){{ 'active' }}@endisset">
+    <div class="img-preview img-container preview @isset($post->post_img){{ 'active' }}@endisset">
         <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
         <img src="@isset($post->post_img){{ asset('public/uploads/blog/' . $post->post_id . '/' . $post->post_img) }}@endisset" id="preview" class="center-block img-responsive">
     </div>

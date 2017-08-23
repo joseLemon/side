@@ -46,7 +46,7 @@
     @yield('scripts')
 </head>
 <body>
-<div class="main-menu">
+<div class="main-menu active">
     <nav class="navbar navbar-default">
 
         <div class="navbar-header">
