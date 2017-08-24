@@ -157,7 +157,7 @@
                     </div>
                 </div>
 
-                <div class="row no-margin">
+                <!--<div class="row no-margin">
                     <div class="col-sm-12">
                         <h3>Video</h3>
                     </div>
@@ -167,8 +167,7 @@
                             <input type="file" name="video_banner" id="video_banner">
                         </label>
                     </div>
-                </div>
-
+                </div>-->
 
                 <div class="row no-margin">
                     <div class="col-sm-12">
@@ -201,8 +200,8 @@
                             Sección 2
                             <input class="input-cms" type="text" name="es_about_2_title" id="es_about_2_title" placeholder="Título">
                             <input class="input-cms" type="text" name="en_about_2_title" id="en_about_2_title" placeholder="Título inglés">
-                            <textarea class="input-cms" name="es_about_1_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto"></textarea>
-                            <textarea class="input-cms" name="en_about_2_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto inglés"></textarea>
+                            <textarea class="input-cms" name="es_about_2_text" id="es_about_2_text" cols="30" rows="5" placeholder="Texto"></textarea>
+                            <textarea class="input-cms" name="en_about_2_text" id="es_about_2_text" cols="30" rows="5" placeholder="Texto inglés"></textarea>
 
                             <label for="about_2_img" class="input-file-cms">
                                 Elegir imagen
@@ -223,8 +222,8 @@
                             Sección 3
                             <input class="input-cms" type="text" name="es_about_3_title" id="es_about_3_title" placeholder="Título">
                             <input class="input-cms" type="text" name="en_about_3_title" id="en_about_3_title" placeholder="Título inglés">
-                            <textarea class="input-cms" name="es_about_1_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto"></textarea>
-                            <textarea class="input-cms" name="en_about_2_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto inglés"></textarea>
+                            <textarea class="input-cms" name="es_about_3_text" id="es_about_3_text" cols="30" rows="5" placeholder="Texto"></textarea>
+                            <textarea class="input-cms" name="en_about_2_text" id="es_about_3_text" cols="30" rows="5" placeholder="Texto inglés"></textarea>
 
                             <label for="about_3_img">
                                 <div class="img-preview img-container preview @isset($page->about_3_img){{ 'active' }}@endisset">
@@ -240,6 +239,10 @@
                             </label>
                         </label>
                     </div>
+                </div>
+
+                <div class="text-center">
+                    {!! Form::submit('Guardar',['class'=>'submit-cms big-btn']) !!}
                 </div>
 
             </div>

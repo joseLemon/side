@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\PageIndex;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller {
@@ -80,8 +81,136 @@ class PagesController extends Controller {
     }
 
 
-    public function updateIndex($id) {
-        return;
+    public function updateIndex(Request $request, $id) {
+        $page = PageIndex::find($id);
+
+        if(!$page) {
+            $page = new PageIndex();
+        }
+
+        $page->page_id = $id;
+
+        //  BANNER PRINCIPAL
+        if($_FILES['banner_1_img']['size'] > 0) {
+            $delete = false;
+            if($page->banner_1_img) {
+                $delete = true;
+            }
+            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_1_img',$delete,1920,2000,true);
+        }
+        $page->banner_1_img = $_FILES['banner_1_img']['name'];
+
+        //  SEGUNDO BANNER
+        if($_FILES['banner_2_img']['size'] > 0) {
+            $delete = false;
+            if($page->banner_2_img) {
+                $delete = true;
+            }
+            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_2_img',$delete,1920,2000,true);
+        }
+        $page->banner_2_img = $_FILES['banner_2_img']['name'];
+        $page->es_banner_2_text = $request->input('es_banner_2_text');
+        $page->en_banner_2_text = $request->input('en_banner_2_text');
+
+        //  TERCER BANNER
+        if($_FILES['banner_3_img']['size'] > 0) {
+            $delete = false;
+            if($page->banner_3_img) {
+                $delete = true;
+            }
+            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_3_img',$delete,1920,2000,true);
+        }
+        $page->banner_3_img = $_FILES['banner_3_img']['name'];
+        $page->es_banner_3_text = $request->input('es_banner_3_text');
+        $page->en_banner_3_text = $request->input('en_banner_3_text');
+        $page->banner_3_url = $request->input('banner_3_url');
+
+        //  DIAMANTE 1
+        $page->es_diamond_1_text = $request->input('es_diamond_1_text');
+        $page->en_diamond_1_text = $request->input('en_diamond_1_text');
+        $page->diamond_1_url = $request->input('diamond_1_url');
+
+        //  DIAMANTE 2
+        $page->es_diamond_2_text = $request->input('es_diamond_2_text');
+        $page->en_diamond_2_text = $request->input('en_diamond_2_text');
+        $page->diamond_2_url = $request->input('diamond_2_url');
+
+        // DIAMANTE 3
+        $page->es_diamond_3_text = $request->input('es_diamond_3_text');
+        $page->en_diamond_3_text = $request->input('en_diamond_3_text');
+        $page->diamond_3_url = $request->input('diamond_3_url');
+
+        // DIAMANTE 4
+        $page->es_diamond_4_text = $request->input('es_diamond_4_text');
+        $page->en_diamond_4_text = $request->input('en_diamond_4_text');
+        $page->diamond_4_url = $request->input('diamond_4_url');
+
+        //  DIRECCIONES
+        $page->es_sites_title = $request->input('es_sites_title');
+        $page->en_sites_title = $request->input('en_sites_title');
+
+        //  BLOG
+        $page->es_blog_title = $request->input('es_blog_title');
+        $page->en_blog_title = $request->input('en_blog_title');
+        $page->es_sites_subtitle = $request->input('es_sites_subtitle');
+        $page->en_sites_subtitle = $request->input('en_sites_subtitle');
+
+        //  VIDEO
+        /*if($_FILES['video_banner']['size'] > 0) {
+            $delete = false;
+            if($page->video_banner) {
+                $delete = true;
+            }
+            ImgUploadController::videoUpload(public_path().'/uploads/pages/'.$page->page_id.'/videos/','video_banner',$delete);
+        }
+        $page->video_banner = $_FILES['video_banner']['name'];*/
+
+        //  INFORMACIÓN
+        if($_FILES['about_1_img']['size'] > 0) {
+            $delete = false;
+            if($page->about_1_img) {
+                $delete = true;
+            }
+            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_1_img',$delete,1920,2000,true);
+        }
+        $page->about_1_img = $_FILES['about_1_img']['name'];
+        $page->es_about_1_title = $request->input('es_about_1_title');
+        $page->es_about_1_text = $request->input('es_about_1_text');
+        $page->en_about_1_title = $request->input('en_about_1_title');
+        $page->en_about_1_text = $request->input('en_about_1_text');
+
+        if($_FILES['about_2_img']['size'] > 0) {
+            $delete = false;
+            if($page->about_2_img) {
+                $delete = true;
+            }
+            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_2_img',$delete,1920,2000,true);
+        }
+        $page->about_2_img = $_FILES['about_2_img']['name'];
+        $page->es_about_2_title = $request->input('es_about_2_title');
+        $page->es_about_2_text = $request->input('es_about_2_text');
+        $page->en_about_2_title = $request->input('en_about_2_title');
+        $page->en_about_2_text = $request->input('en_about_2_text');
+
+        if($_FILES['about_3_img']['size'] > 0) {
+            $delete = false;
+            if($page->about_3_img) {
+                $delete = true;
+            }
+            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_3_img',$delete,1920,2000,true);
+        }
+        $page->about_3_img = $_FILES['about_3_img']['name'];
+        $page->es_about_3_title = $request->input('es_about_3_title');
+        $page->es_about_3_text = $request->input('es_about_3_text');
+        $page->en_about_3_title = $request->input('en_about_3_title');
+        $page->en_about_3_text = $request->input('en_about_3_text');
+
+        $page->save();
+
+        \Session::flash('alertMessage','Página de inicio editada correctamente.');
+        \Session::flash('alert-class','alert-success');
+
+        return redirect()->route('pages.show');
     }
 
     function pageExists($id) {

@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 class ImgUploadController extends Controller {
-    public static function fileUpload($target_dir, $input_name, $delete) {
+    public static function fileUpload($target_dir, $input_name, $delete = false, $max_width = 700, $max_height = 394, $use_name = false) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
@@ -20,11 +20,45 @@ class ImgUploadController extends Controller {
             }
         }
 
+
+        if($use_name) {
+            $path = $_FILES[$input_name]['name'];
+            $extension = pathinfo($path, PATHINFO_EXTENSION);
+            $name = $input_name.'.'.$extension;
+        } else {
+            $name = $_FILES[$input_name]['name'];
+        }
+
         if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . 'temp.tmp')) {
             // Resize it
-            self::GenerateThumbnail($target_dir . 'temp.tmp',$target_dir . $_FILES[$input_name]['name'],700,394,1);
+            self::GenerateThumbnail($target_dir . 'temp.tmp',$target_dir . $name,$max_width,$max_height,1);
             // Delete full size
             unlink($target_dir . 'temp.tmp');
+            return 'success';
+        } else {
+            return 'failed';
+        }
+    }
+
+    public static function videoUpload($target_dir, $input_name, $delete = false) {
+        //  Create temporary directory
+        if(!is_dir($target_dir) && !file_exists($target_dir)) {
+            mkdir($target_dir);
+        }
+        if ($_FILES[$input_name]["size"] > 25000000) {
+            return 'failed';
+        }
+
+        if($delete) {
+            //  Delete files if they exist
+            $files = glob($target_dir.'/*'); // get all file names
+            foreach($files as $file){ // iterate files
+                if(is_file($file))
+                    unlink($file); // delete file
+            }
+        }
+
+        if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . $_FILES[$input_name]['name'])) {
             return 'success';
         } else {
             return 'failed';

@@ -129,6 +129,7 @@
                         <li><a href="{{ url('/') }}">INICIO</a></li>
                         <li><a href="http://www.chihuahua.com.mx/Transparencia/index.html">TRANSPARENCIA</a></li>
                         <li><a href="http://www.chihuahua.com.mx/SitioSecretariaEconomia/PBR.ASPX">PBR</a></li>
+                        <li><a href="Programa Sectorial.pdf" target="_blank">Programa Sectorial</a></li>
                     </ul>
                 </div>
             </div>
