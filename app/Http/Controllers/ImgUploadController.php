@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 class ImgUploadController extends Controller {
-    public static function fileUpload($target_dir, $input_name, $delete = false, $max_width = 700, $max_height = 394, $use_name = false) {
+    public static function fileUpload($target_dir, $input_name, $delete = false, $individual = false, $max_width = 700, $max_height = 394, $use_name = false, $thumbnail = true) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
@@ -13,13 +13,19 @@ class ImgUploadController extends Controller {
 
         if($delete) {
             //  Delete files if they exist
-            $files = glob($target_dir.'/*'); // get all file names
-            foreach($files as $file){ // iterate files
-                if(is_file($file))
+            if($individual) {
+                $file = $target_dir.$_FILES[$input_name]['name']; // get all file names
+                if (file_exists($file)) {
                     unlink($file); // delete file
+                }
+            } else {
+                $files = glob($target_dir.'/*'); // get all file names
+                foreach($files as $file){ // iterate files
+                    if(is_file($file))
+                        unlink($file); // delete file
+                }
             }
         }
-
 
         if($use_name) {
             $path = $_FILES[$input_name]['name'];
@@ -29,14 +35,22 @@ class ImgUploadController extends Controller {
             $name = $_FILES[$input_name]['name'];
         }
 
-        if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . 'temp.tmp')) {
-            // Resize it
-            self::GenerateThumbnail($target_dir . 'temp.tmp',$target_dir . $name,$max_width,$max_height,1);
-            // Delete full size
-            unlink($target_dir . 'temp.tmp');
-            return 'success';
+        if($thumbnail) {
+            if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . $name . 'temp.tmp')) {
+                // Resize it
+                self::GenerateThumbnail($target_dir . 'temp.tmp',$target_dir . $name,$max_width,$max_height,1);
+                // Delete full size
+                unlink($target_dir . $name . 'temp.tmp');
+                return 'thumbnail success';
+            } else {
+                return 'thumbnail failed';
+            }
         } else {
-            return 'failed';
+            if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . $name)) {
+                return 'image success';
+            } else {
+                return 'image failed';
+            }
         }
     }
 

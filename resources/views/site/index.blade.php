@@ -5,7 +5,7 @@
     <!-- ///////////  BANNER  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="banner main" id="banner" style="background: url('{{ asset('public/img/index/banners/1.jpg') }}') no-repeat center center">
+    <div class="banner main" id="banner" style="background: url('{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_1_img' . strchr($page->page_index->banner_1_img,'.')) }}') no-repeat center center">
         <div class="container">
             <div class="diamond-container">
                 <div class="diamond diamond-1"></div>
@@ -13,10 +13,10 @@
                 <div class="diamond diamond-2"></div>
                 <div class="bg-color"></div>
                 <div class="diamond diamond-3 featured">
-                    <a href="http://thebordermarket.com/" target="_blank">
+                    <a href="{!! $page->page_index->diamond_1_url !!}" target="_blank">
                         <div class="title">
                             <div class="header">
-                                The Border Market:<br> La exposición más grande de la frontera  el 17, 18 y 19 de agosto
+                                {!! $page->page_index->es_diamond_1_text !!}
                             </div>
                         </div>
                     </a>
@@ -27,11 +27,10 @@
                 <div class="diamond diamond-5"></div>
                 <div class="bg-color"></div>
                 <div class="diamond diamond-6 featured">
-                    <a href="" onclick="event.preventDefault();">
+                    <a href="{!! $page->page_index->diamond_2_url !!}" onclick="event.preventDefault();">
                         <div class="title">
                             <div class="header">
-                                Tienes una microempresa metalmecánica, gastronómica o de comercio y servicio el “Fondo Frontera” es para ti.<br>
-                                Informes: (656) 629 3300 EXT. 54900
+                                {!! $page->page_index->es_diamond_2_text !!}
                             </div>
                         </div>
                     </a>
@@ -40,10 +39,10 @@
                 <div class="diamond diamond-7"></div>
                 <div class="bg-color"></div>
                 <div class="diamond diamond-8 featured">
-                    <a href="http://www.visitajuarez.com/" target="_blank">
+                    <a href="{!! $page->page_index->diamond_3_url !!}" onclick="event.preventDefault();">
                         <div class="title">
                             <div class="header">
-                                “Aventura en Dunas”<br> 23, 7, 24 de septiembre (656) 629 33 00 EXT. 54924, 54931
+                                {!! $page->page_index->es_diamond_3_text !!}
                             </div>
                         </div>
                     </a>
@@ -52,10 +51,10 @@
                 <div class="diamond diamond-9"> </div>
                 <div class="bg-color"></div>
                 <div class="diamond diamond-10 featured">
-                    <a href="http://chihuahuainnova.mx/" target="_blank">
+                    <a href="{!! $page->page_index->diamond_4_url !!}" onclick="event.preventDefault();">
                         <div class="title">
                             <div class="header">
-                                Chihuahua Innova ¡Participa en nuestra convocatoria! Entra al siguiente link y participa con tu proyecto en Chihuahua Innova http://chihuahuainnova.mx/
+                                {!! $page->page_index->es_diamond_4_text !!}
                             </div>
                         </div>
                     </a>
@@ -74,12 +73,12 @@
     <div class="ayuda" id="ayuda">
         <div class="parallax-container">
             <div class="parallax">
-                <img src="{{ asset('public/img/index/innovas.jpg') }}">
+                <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_2_img' . strchr($page->page_index->banner_2_img,'.')) }}">
             </div>
             <div class="container">
                 <div class="question-box">
-                    <h3 class="white">¿CÓMO TE PODEMOS</h3>
-                    <h2 class="white">AYUDAR?</h2>
+                    <h3 class="white">{!! $page->page_index->es_banner_2_text_1 !!}</h3>
+                    <h2 class="white">{!! $page->page_index->es_banner_2_text_2 !!}</h2>
                     <div class="input-group">
                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                         <input class="form-control" type="text">
@@ -95,8 +94,8 @@
     <!-- ================================== -->
     <div class="direcciones spacing" id="direcciones">
         <div class="container">
-            <h1 class="big-heading bold">DIRECCIONES</h1>
-            <p class="text">Visita todas nuestras plataformas y conoce más de nuestro trabajo.</p>
+            <h1 class="big-heading bold">{!! $page->page_index->es_sites_title !!}</h1>
+            <p class="text">{!! $page->page_index->es_sites_subtitle !!}</p>
             <div class="row no-margin">
                 <div class="col-sm-4 col-xs-6 blue">
                     <a href="{{ url('/').'/comercio' }}">
@@ -307,32 +306,6 @@
                         </div>
                     </a>
                 </div>
-            <!--<div class="col-sm-4 col-xs-6 pink">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            CODECH
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('public/img/index/direcciones/3.png') }}">
-                        </div>
-                    </a>
-                </div>-->
-            <!--<div class="col-sm-4 col-xs-6 green">
-                    <a href="#">
-                    <span class="circle-hover">
-                        <p>
-                            FIDEICOMISO BARRANCAS DE COBRE
-                            <span class="more">Ver más</span>
-                        </p>
-                    </span>
-                        <div class="img-container">
-                            <img src="{{ asset('public/img/index/direcciones/6.png') }}">
-                        </div>
-                    </a>
-                </div>-->
             </div>
         </div>
     </div>
@@ -341,9 +314,9 @@
     <!-- ///////////  OPPORTUNITIES  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="opportunities bg-cover spacing" id="opportunities" style="background: url('{{ asset('public/img/index/banners/2.jpg') }}') no-repeat center bottom">
+    <div class="opportunities bg-cover spacing" id="opportunities" style="background: url('{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_3_img' . strchr($page->page_index->banner_3_img,'.')) }}') no-repeat center bottom">
         <div class="fancy-box text-center">
-            <a href="http://theborderopportunities.com" target="_blank" class="white">theborderopportunities.com</a>
+            <a href="{!! $page->page_index->banner_3_url !!}" target="_blank" class="white">{!! $page->page_index->es_banner_3_text !!}</a>
         </div>
     </div>
     <!-- ================================== -->
@@ -353,7 +326,7 @@
     <!-- ================================== -->
     <div class="blog spacing" id="blog">
         <div class="container">
-            <h1 class="heading text-center">Blog de <span class="bold">Noticias</span></h1>
+            <h1 class="heading text-center">{!! $page->page_index->es_blog_title !!}</h1>
             <div class="row no-margin blog-feed"></div>
             <!--<div class="blog-nav text-center">
                 <a href="#" data-slide="prev">
@@ -386,52 +359,36 @@
             <div class="row no-margin nav-tab-menu">
                 <div class="col-sm-4 img-container">
                     <a href="#tab-1" data-toggle="tab">
-                        <img src="{{ asset('public/img/index/nosotros/1.png') }}">
-                        <h3>Misión</h3>
+                        <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/about_1_img' . strchr($page->page_index->about_1_img,'.')) }}">
+                        <h3>{!! $page->page_index->es_about_1_title !!}</h3>
                     </a>
                 </div>
                 <div class="col-sm-4 img-container">
                     <a href="#tab-2" data-toggle="tab">
-                        <img src="{{ asset('public/img/index/nosotros/2.png') }}">
-                        <h3>Visión</h3>
+                        <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/about_2_img' . strchr($page->page_index->about_2_img,'.')) }}">
+                        <h3>{!! $page->page_index->es_about_2_title !!}</h3>
                     </a>
                 </div>
                 <div class="col-sm-4 img-container">
                     <a href="#tab-3" data-toggle="tab">
-                        <img src="{{ asset('public/img/index/nosotros/3.png') }}">
-                        <h3>Valores</h3>
+                        <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/about_3_img' . strchr($page->page_index->about_3_img,'.')) }}">
+                        <h3>{!! $page->page_index->es_about_3_title !!}</h3>
                     </a>
                 </div>
             </div>
             <div class="tab-content blue">
                 <div id="tab-1" class="tab-pane fade in active">
                     <p class="text">
-                        Generar una economía vigorosa de mayor valor a través de la generación
-                        de estrategias, políticas y programas que mejoren el entorno económico
-                        y fomenten la innovación en el estado, con el fin de impulsar la movilidad
-                        social y asegurar una mejor calida de vida en la población.
+                        {!! $page->page_index->es_about_1_text !!}
                     </p>
                 </div>
                 <div id="tab-2" class="tab-pane fade">
                     <p class="text">
-                        Ser una institución reconocida por su capacidad de generar las condiciones
-                        para fomentar el desarrollo económico y la innovación en el estado, que se vea
-                        traducido en un crecimiento dinámico y sustentable basado en una sinergia de
-                        los sectores: industrial, comercial, energía, agroindustrial, turismo y de servicio,
-                        basada en una actitud de servicio, con una estructura de trabajo profesional y
-                        orientada a resultados.
+                        {!! $page->page_index->es_about_2_text !!}
                     </p>
                 </div>
                 <div id="tab-3" class="tab-pane fade">
-                    <ul class="text">
-                        <li>Transparencia</li>
-                        <li>Confianza</li>
-                        <li>Honestidad</li>
-                        <li>Innovación</li>
-                        <li>Respeto</li>
-                        <li>Solidaridad</li>
-                        <li>Integridad</li>
-                    </ul>
+                    {!! $page->page_index->es_about_3_text !!}
                 </div>
             </div>
         </div>

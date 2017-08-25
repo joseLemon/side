@@ -67,6 +67,8 @@ class PagesController extends Controller {
 
     public function edit($id) {
         $page = $this->pageExists($id);
+        $page->page_index = $page->join('page_index','page_index.page_id','=','pages.page_id')
+            ->first();
 
         $params = [
             'id'    =>  $id,
@@ -96,9 +98,9 @@ class PagesController extends Controller {
             if($page->banner_1_img) {
                 $delete = true;
             }
-            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_1_img',$delete,1920,2000,true);
+            echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_1_img',$delete, true,1920,2000,true, false);
+            $page->banner_1_img = $_FILES['banner_1_img']['name'];
         }
-        $page->banner_1_img = $_FILES['banner_1_img']['name'];
 
         //  SEGUNDO BANNER
         if($_FILES['banner_2_img']['size'] > 0) {
@@ -106,11 +108,13 @@ class PagesController extends Controller {
             if($page->banner_2_img) {
                 $delete = true;
             }
-            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_2_img',$delete,1920,2000,true);
+            echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_2_img',$delete, true,1920,2000,true, false);
+            $page->banner_2_img = $_FILES['banner_2_img']['name'];
         }
-        $page->banner_2_img = $_FILES['banner_2_img']['name'];
-        $page->es_banner_2_text = $request->input('es_banner_2_text');
-        $page->en_banner_2_text = $request->input('en_banner_2_text');
+        $page->es_banner_2_text_1 = $request->input('es_banner_2_text_1');
+        $page->es_banner_2_text_2 = $request->input('es_banner_2_text_2');
+        $page->en_banner_2_text_1 = $request->input('en_banner_2_text_1');
+        $page->en_banner_2_text_2 = $request->input('en_banner_2_text_2');
 
         //  TERCER BANNER
         if($_FILES['banner_3_img']['size'] > 0) {
@@ -118,9 +122,9 @@ class PagesController extends Controller {
             if($page->banner_3_img) {
                 $delete = true;
             }
-            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_3_img',$delete,1920,2000,true);
+            echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_3_img',$delete, true,1920,2000,true, false);
+            $page->banner_3_img = $_FILES['banner_3_img']['name'];
         }
-        $page->banner_3_img = $_FILES['banner_3_img']['name'];
         $page->es_banner_3_text = $request->input('es_banner_3_text');
         $page->en_banner_3_text = $request->input('en_banner_3_text');
         $page->banner_3_url = $request->input('banner_3_url');
@@ -171,9 +175,9 @@ class PagesController extends Controller {
             if($page->about_1_img) {
                 $delete = true;
             }
-            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_1_img',$delete,1920,2000,true);
+            echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_1_img',$delete, true,1920,2000,true, false);
+            $page->about_1_img = $_FILES['about_1_img']['name'];
         }
-        $page->about_1_img = $_FILES['about_1_img']['name'];
         $page->es_about_1_title = $request->input('es_about_1_title');
         $page->es_about_1_text = $request->input('es_about_1_text');
         $page->en_about_1_title = $request->input('en_about_1_title');
@@ -184,9 +188,9 @@ class PagesController extends Controller {
             if($page->about_2_img) {
                 $delete = true;
             }
-            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_2_img',$delete,1920,2000,true);
+            echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_2_img',$delete, true,1920,2000,true, false);
+            $page->about_2_img = $_FILES['about_2_img']['name'];
         }
-        $page->about_2_img = $_FILES['about_2_img']['name'];
         $page->es_about_2_title = $request->input('es_about_2_title');
         $page->es_about_2_text = $request->input('es_about_2_text');
         $page->en_about_2_title = $request->input('en_about_2_title');
@@ -197,9 +201,9 @@ class PagesController extends Controller {
             if($page->about_3_img) {
                 $delete = true;
             }
-            ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_3_img',$delete,1920,2000,true);
+            echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','about_3_img',$delete, true,1920,2000,true, false);
+            $page->about_3_img = $_FILES['about_3_img']['name'];
         }
-        $page->about_3_img = $_FILES['about_3_img']['name'];
         $page->es_about_3_title = $request->input('es_about_3_title');
         $page->es_about_3_text = $request->input('es_about_3_text');
         $page->en_about_3_title = $request->input('en_about_3_title');
