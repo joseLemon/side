@@ -101,6 +101,8 @@ class PagesController extends Controller {
             echo ImgUploadController::fileUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_1_img',$delete, true,1920,2000,true, false);
             $page->banner_1_img = $_FILES['banner_1_img']['name'];
         }
+        $page->es_banner_1_text = $request->input('es_banner_1_text');
+        $page->en_banner_1_text = $request->input('en_banner_1_text');
 
         //  SEGUNDO BANNER
         if($_FILES['banner_2_img']['size'] > 0) {

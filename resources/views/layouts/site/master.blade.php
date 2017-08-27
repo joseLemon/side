@@ -31,7 +31,7 @@
                 </div>
                 <div class="col col-xs text-center">
                 <span class="links">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">CONTACTO</a> | <a href="#">INGLÉS</a>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a class="smoothscroll" href="#contacto">CONTACTO</a> | <a class="langToggle" data-language="@if($_COOKIE['indexLanguage'] == 'en'){{ 'es' }}@else{{ 'en' }}@endif" href="#">@if($_COOKIE['indexLanguage'] == 'en'){{ 'ESPAÑOL' }}@else{{ 'ENGLISH' }}@endif</a>
                 </span>
                 </div>
             </div>

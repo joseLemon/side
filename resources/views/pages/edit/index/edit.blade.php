@@ -26,6 +26,13 @@
                             </label>
                         </label>
                     </div>
+                    <div class="col-sm-6">
+                        <label for="es_banner_3_text">
+                            Texto del Banner
+                            <input class="input-cms" type="text" name="es_banner_1_text" id="es_banner_1_text" placeholder="Texto" value="@isset($page->page_index->es_banner_1_text ){{ $page->page_index->es_banner_1_text }}@endisset">
+                            <input class="input-cms" type="text" name="en_banner_1_text" id="en_banner_1_text" placeholder="Texto inglés" value="@isset($page->page_index->en_banner_1_text ){{ $page->page_index->en_banner_1_text }}@endisset">
+                        </label>
+                    </div>
                 </div>
 
                 <div class="row no-margin">
