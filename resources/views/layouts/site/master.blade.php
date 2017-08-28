@@ -16,6 +16,7 @@
     @yield('head')
 </head>
 <body>
+@yield('analytics')
 <nav class="navbar navbar-default">
     <div class="container">
 
@@ -31,7 +32,13 @@
                 </div>
                 <div class="col col-xs text-center">
                 <span class="links">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a class="smoothscroll" href="#contacto">CONTACTO</a> | <a class="langToggle" data-language="@if($_COOKIE['indexLanguage'] == 'en'){{ 'es' }}@else{{ 'en' }}@endif" href="#">@if($_COOKIE['indexLanguage'] == 'en'){{ 'ESPAÑOL' }}@else{{ 'ENGLISH' }}@endif</a>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a class="smoothscroll" href="#contacto">CONTACTO</a> | <a class="langToggle" data-language="
+                        @if(isset($_COOKIE['indexLanguage']))
+                            @if($_COOKIE['indexLanguage'] == 'en'){{ 'es' }}@else{{ 'en' }}@endif" href="#">@if($_COOKIE['indexLanguage'] == 'en'){{ 'ESPAÑOL' }}@else{{ 'ENGLISH' }}@endif
+                        @else
+                            {!! 'es" href="#">ENGLISH' !!}
+                        @endif
+                    </a>
                 </span>
                 </div>
             </div>

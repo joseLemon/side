@@ -19,7 +19,7 @@ class IndexController extends Controller {
         ];
 
         if(!isset($_COOKIE['indexLanguage'])) {
-            $this->setLanguage('es');
+            $this->setLanguage($request,'es');
         }
 
         return view('site.index',$params);
@@ -39,8 +39,13 @@ class IndexController extends Controller {
         return view('site.micro',$params);
     }
 
-    public function setLanguage (Request $request) {
+    public function setLanguage (Request $request, $language_str = 'es') {
+
         $language = $request->input('language');
+        if(!$language) {
+            $language = $language_str;
+        }
+
         if($language == 'es' || $language == 'en') {
             setcookie('indexLanguage', $language, time() + (10 * 365 * 24 * 60 * 60), "/"); // delete in ten years
         } else {

@@ -1,4 +1,16 @@
 @extends('layouts.site.master')
+@section('analytics')
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-96473960-4', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+@stop
 @section('content')
     <!-- ================================== -->
 
@@ -16,8 +28,12 @@
                     <a href="{!! $page->page_index->diamond_1_url !!}" {!! isset($page->page_index->diamond_1_url) ? '' : 'onclick="event.preventDefault();"' !!} target="_blank">
                         <div class="title">
                             <div class="header">
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_1_text))
-                                    {!! $page->page_index->en_diamond_1_text !!}
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_1_text))
+                                        {!! $page->page_index->en_diamond_1_text !!}
+                                    @else
+                                        {!! $page->page_index->es_diamond_1_text !!}
+                                    @endif
                                 @else
                                     {!! $page->page_index->es_diamond_1_text !!}
                                 @endif
@@ -34,8 +50,12 @@
                     <a href="{!! $page->page_index->diamond_2_url !!}" {!! isset($page->page_index->diamond_2_url) ? '' : 'onclick="event.preventDefault();"' !!} target="_blank">
                         <div class="title">
                             <div class="header">
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_2_text))
-                                    {!! $page->page_index->en_diamond_2_text !!}
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_2_text))
+                                        {!! $page->page_index->en_diamond_2_text !!}
+                                    @else
+                                        {!! $page->page_index->es_diamond_2_text !!}
+                                    @endif
                                 @else
                                     {!! $page->page_index->es_diamond_2_text !!}
                                 @endif
@@ -50,8 +70,12 @@
                     <a href="{!! $page->page_index->diamond_3_url !!}" {!! isset($page->page_index->diamond_3_url) ? '' : 'onclick="event.preventDefault();"' !!} target="_blank">
                         <div class="title">
                             <div class="header">
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_3_text))
-                                    {!! $page->page_index->en_diamond_3_text !!}
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_3_text))
+                                        {!! $page->page_index->en_diamond_3_text !!}
+                                    @else
+                                        {!! $page->page_index->es_diamond_3_text !!}
+                                    @endif
                                 @else
                                     {!! $page->page_index->es_diamond_3_text !!}
                                 @endif
@@ -66,8 +90,12 @@
                     <a href="{!! $page->page_index->diamond_4_url !!}" {!! isset($page->page_index->diamond_4_url) ? '' : 'onclick="event.preventDefault();"' !!} target="_blank">
                         <div class="title">
                             <div class="header">
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_4_text))
-                                    {!! $page->page_index->en_diamond_4_text !!}
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_diamond_4_text))
+                                        {!! $page->page_index->en_diamond_4_text !!}
+                                    @else
+                                        {!! $page->page_index->es_diamond_4_text !!}
+                                    @endif
                                 @else
                                     {!! $page->page_index->es_diamond_4_text !!}
                                 @endif
@@ -80,8 +108,12 @@
                 <div class="bg-color"></div>
             </div>
             <h1 class="text-center banner-text">
-                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_1_text))
-                    {!! $page->page_index->en_banner_1_text !!}
+                @if(isset($_COOKIE['indexLanguage']))
+                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_1_text))
+                        {!! $page->page_index->en_banner_1_text !!}
+                    @else
+                        {!! $page->page_index->es_banner_1_text !!}
+                    @endif
                 @else
                     {!! $page->page_index->es_banner_1_text !!}
                 @endif
@@ -101,15 +133,23 @@
             <div class="container">
                 <div class="question-box">
                     <h3 class="white">
-                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_2_text_1))
-                            {!! $page->page_index->en_banner_2_text_1 !!}
+                        @if(isset($_COOKIE['indexLanguage']))
+                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_2_text_1))
+                                {!! $page->page_index->en_banner_2_text_1 !!}
+                            @else
+                                {!! $page->page_index->es_banner_2_text_1 !!}
+                            @endif
                         @else
                             {!! $page->page_index->es_banner_2_text_1 !!}
                         @endif
                     </h3>
                     <h2 class="white">
-                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_2_text_2))
-                            {!! $page->page_index->en_banner_2_text_2 !!}
+                        @if(isset($_COOKIE['indexLanguage']))
+                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_2_text_2))
+                                {!! $page->page_index->en_banner_2_text_2 !!}
+                            @else
+                                {!! $page->page_index->es_banner_2_text_2 !!}
+                            @endif
                         @else
                             {!! $page->page_index->es_banner_2_text_2 !!}
                         @endif
@@ -130,15 +170,23 @@
     <div class="direcciones spacing" id="direcciones">
         <div class="container">
             <h1 class="big-heading bold">
-                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_sites_title))
-                    {!! $page->page_index->en_sites_title !!}
+                @if(isset($_COOKIE['indexLanguage']))
+                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_sites_title))
+                        {!! $page->page_index->en_sites_title !!}
+                    @else
+                        {!! $page->page_index->es_sites_title !!}
+                    @endif
                 @else
                     {!! $page->page_index->es_sites_title !!}
                 @endif
             </h1>
             <p class="text">
-                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_sites_subtitle))
-                    {!! $page->page_index->en_sites_subtitle !!}
+                @if(isset($_COOKIE['indexLanguage']))
+                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_sites_subtitle))
+                        {!! $page->page_index->en_sites_subtitle !!}
+                    @else
+                        {!! $page->page_index->es_sites_subtitle !!}
+                    @endif
                 @else
                     {!! $page->page_index->es_sites_subtitle !!}
                 @endif
@@ -364,8 +412,12 @@
     <div class="opportunities bg-cover spacing" id="opportunities" style="background: url('{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_3_img' . strchr($page->page_index->banner_3_img,'.')) }}') no-repeat center bottom">
         <div class="fancy-box text-center">
             <a href="{!! $page->page_index->banner_3_url !!}" target="_blank" class="white">
-                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_3_text))
-                    {!! $page->page_index->en_banner_3_text !!}
+                @if(isset($_COOKIE['indexLanguage']))
+                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_banner_3_text))
+                        {!! $page->page_index->en_banner_3_text !!}
+                    @else
+                        {!! $page->page_index->es_banner_3_text !!}
+                    @endif
                 @else
                     {!! $page->page_index->es_banner_3_text !!}
                 @endif
@@ -380,8 +432,12 @@
     <div class="blog spacing" id="blog">
         <div class="container">
             <h1 class="heading text-center">
-                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_blog_title))
-                    {!! $page->page_index->en_blog_title !!}
+                @if(isset($_COOKIE['indexLanguage']))
+                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_blog_title))
+                        {!! $page->page_index->en_blog_title !!}
+                    @else
+                        {!! $page->page_index->es_blog_title !!}
+                    @endif
                 @else
                     {!! $page->page_index->es_blog_title !!}
                 @endif
@@ -420,8 +476,12 @@
                     <a href="#tab-1" data-toggle="tab">
                         <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/about_1_img' . strchr($page->page_index->about_1_img,'.')) }}">
                         <h3>
-                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_1_title))
-                                {!! $page->page_index->en_about_1_title !!}
+                            @if(isset($_COOKIE['indexLanguage']))
+                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_1_title))
+                                    {!! $page->page_index->en_about_1_title !!}
+                                @else
+                                    {!! $page->page_index->es_about_1_title !!}
+                                @endif
                             @else
                                 {!! $page->page_index->es_about_1_title !!}
                             @endif
@@ -432,8 +492,12 @@
                     <a href="#tab-2" data-toggle="tab">
                         <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/about_2_img' . strchr($page->page_index->about_2_img,'.')) }}">
                         <h3>
-                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_2_title))
-                                {!! $page->page_index->en_about_2_title !!}
+                            @if(isset($_COOKIE['indexLanguage']))
+                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_2_title))
+                                    {!! $page->page_index->en_about_2_title !!}
+                                @else
+                                    {!! $page->page_index->es_about_2_title !!}
+                                @endif
                             @else
                                 {!! $page->page_index->es_about_2_title !!}
                             @endif
@@ -444,8 +508,12 @@
                     <a href="#tab-3" data-toggle="tab">
                         <img src="{{ asset('public/uploads/pages/' . $page->page_index->page_id . '/about_3_img' . strchr($page->page_index->about_3_img,'.')) }}">
                         <h3>
-                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_3_title))
-                                {!! $page->page_index->en_about_3_title !!}
+                            @if(isset($_COOKIE['indexLanguage']))
+                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_3_title))
+                                    {!! $page->page_index->en_about_3_title !!}
+                                @else
+                                    {!! $page->page_index->es_about_3_title !!}
+                                @endif
                             @else
                                 {!! $page->page_index->es_about_3_title !!}
                             @endif
@@ -456,8 +524,12 @@
             <div class="tab-content blue">
                 <div id="tab-1" class="tab-pane fade in active">
                     <p class="text">
-                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_1_text))
-                            {!! $page->page_index->en_about_1_text !!}
+                        @if(isset($_COOKIE['indexLanguage']))
+                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_1_text))
+                                {!! $page->page_index->en_about_1_text !!}
+                            @else
+                                {!! $page->page_index->es_about_1_text !!}
+                            @endif
                         @else
                             {!! $page->page_index->es_about_1_text !!}
                         @endif
@@ -465,16 +537,24 @@
                 </div>
                 <div id="tab-2" class="tab-pane fade">
                     <p class="text">
-                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_2_text))
-                            {!! $page->page_index->en_about_2_text !!}
+                        @if(isset($_COOKIE['indexLanguage']))
+                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_2_text))
+                                {!! $page->page_index->en_about_2_text !!}
+                            @else
+                                {!! $page->page_index->es_about_2_text !!}
+                            @endif
                         @else
                             {!! $page->page_index->es_about_2_text !!}
                         @endif
                     </p>
                 </div>
                 <div id="tab-3" class="tab-pane fade">
-                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_3_text))
-                        {!! $page->page_index->en_about_3_text !!}
+                    @if(isset($_COOKIE['indexLanguage']))
+                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->page_index->en_about_3_text))
+                            {!! $page->page_index->en_about_3_text !!}
+                        @else
+                            {!! $page->page_index->es_about_3_text !!}
+                        @endif
                     @else
                         {!! $page->page_index->es_about_3_text !!}
                     @endif
