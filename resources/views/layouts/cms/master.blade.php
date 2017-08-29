@@ -68,7 +68,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> Páginas <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Nuevo</a></li>
+                        <li><a href="{{ route('page.create') }}">Nuevo</a></li>
                         <li><a href="{{ route('pages.show') }}">Ver</a></li>
                     </ul>
                 </li>

@@ -20,4 +20,6 @@ Route::post('page/{id}', ['as' => 'page.update.index', 'uses' => 'PagesControlle
 /*
  * MICRO SITES
  */
+Route::get('page/create', ['as' => 'page.create', 'uses' => 'PagesController@create']);
+Route::post('page/store', ['as' => 'page.store', 'uses' => 'PagesController@store']);
 

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use App\Models\Page;
 use App\Models\PageIndex;
 use Illuminate\Http\Request;
@@ -8,6 +9,16 @@ use Illuminate\Http\Request;
 class PagesController extends Controller {
     public function show() {
         return view('pages.show.show');
+    }
+
+    public function create () {
+        $colors = Color::select(['color_name','color_id'])->get();
+
+        $params = [
+            'colors'    =>  $colors
+        ];
+
+        return view('pages.create.create', $params);
     }
 
     public static function getPages(Request $request) {
