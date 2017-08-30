@@ -1,4 +1,7 @@
 @extends('layouts.cms.master')
+@section('scripts')
+    @include('pages.common.js.functionality')
+@stop
 @section('content')
     <div class="big-container"><div class="dash-object">
             <div class="page-section">

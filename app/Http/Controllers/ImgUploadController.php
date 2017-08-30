@@ -54,7 +54,7 @@ class ImgUploadController extends Controller {
         }
     }
 
-    public static function videoUpload($target_dir, $input_name, $delete = false) {
+    public static function generalUpload($target_dir, $input_name, $delete = false, $individual = false) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
@@ -65,10 +65,17 @@ class ImgUploadController extends Controller {
 
         if($delete) {
             //  Delete files if they exist
-            $files = glob($target_dir.'/*'); // get all file names
-            foreach($files as $file){ // iterate files
-                if(is_file($file))
+            if($individual) {
+                $file = $target_dir.$_FILES[$input_name]['name']; // get all file names
+                if (file_exists($file)) {
                     unlink($file); // delete file
+                }
+            } else {
+                $files = glob($target_dir.'/*'); // get all file names
+                foreach($files as $file){ // iterate files
+                    if(is_file($file))
+                        unlink($file); // delete file
+                }
             }
         }
 

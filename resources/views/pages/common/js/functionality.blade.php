@@ -1,6 +1,5 @@
 <script>
     $(document).ready(function() {
-        //document.getElementById("banner_1_img").addEventListener("change", readFile);
 
         $('input[type=file]').change(readFile);
 
