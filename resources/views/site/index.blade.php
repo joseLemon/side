@@ -585,7 +585,9 @@
                         var img_url = '{{ asset('public/uploads/blog') }}' + '/' + post.post_id + '/' + post.post_img;
                         $('.blog-feed').append(
                             '<div class="col-sm-4">' +
-                            '<div class="img-bg" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +
+                            '<div class="img-bg">' +
+                            '<div class="post-img" style="background: url(' + img_url + ') no-repeat center center; background-size: cover;"></div>' +
+                            '</div>' +
                             '<div class="post-summary">' +
                             '<h5>' + post.post_date + '</h5>' +
                             '<h4 class="bold">' + post.post_title + '</h4>' +

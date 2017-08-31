@@ -12,7 +12,7 @@
             Imagen del sitio
             <label for="page_img" class="input-file-cms">
                 Elegir imagen
-                <input type="file" name="page_img" id="page_img" accept="image/*">
+                <input type="file" name="page_img" id="page_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="page_img_check" id="page_img_check">
             </label>
         </label>
@@ -43,15 +43,15 @@
         <h3>Banner Principal</h3>
     </div>
     <div class="col-sm-6">
-        <label for="page_img" class="img_upload_container">
+        <label for="banner_1_img" class="img_upload_container">
             <div class="img-preview img-container preview @isset($page->micro->banner_1_img){{ 'active' }}@endisset">
                 <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
                 <img src="@isset($page->micro->banner_1_img){{ asset('public/uploads/pages/' . $page->page_id . '/banner_1_img'. strchr($page->micro->banner_1_img,'.') . '?=' . rand(1,99999999)) }}@endisset" id="preview" class="center-block img-responsive">
             </div>
             Imagen del banner
-            <label for="page_img" class="input-file-cms">
+            <label for="banner_1_img" class="input-file-cms">
                 Elegir imagen
-                <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*">
+                <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="banner_1_img_check" id="banner_1_img_check">
             </label>
         </label>
@@ -116,7 +116,7 @@
                 Imagen de la sección
                 <label for="about_1_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="about_1_img" id="about_1_img" accept="image/*">
+                    <input type="file" name="about_1_img" id="about_1_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_about_1_check" id="state_about_1_check">
                 </label>
             </label>
@@ -138,12 +138,13 @@
                 Imagen de la sección
                 <label for="about_2_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="about_2_img" id="about_2_img" accept="image/*">
+                    <input type="file" name="about_2_img" id="about_2_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_about_2_check" id="state_about_2_check">
                 </label>
             </label>
         </label>
     </div>
+    <div class="clearfix hidden-lg hidden-md"></div>
     <div class="col-sm-6 col-md-4">
         <label for="es_about_3_title" class="img_upload_container">
             Sección 3
@@ -160,7 +161,7 @@
                 Imagen de la sección
                 <label for="about_3_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="about_3_img" id="about_3_img" accept="image/*">
+                    <input type="file" name="about_3_img" id="about_3_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_about_3_check" id="state_about_3_check">
                 </label>
             </label>
@@ -172,15 +173,15 @@
         <h3>Video</h3>
     </div>
     <div class="col-sm-6">
-        <label for="page_img" class="img_upload_container">
+        <label for="banner_2_img" class="img_upload_container">
             <div class="img-preview img-container preview @isset($page->micro->banner_2_img){{ 'active' }}@endisset">
                 <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
                 <img src="@isset($page->micro->banner_2_img){{ asset('public/uploads/pages/' . $page->page_id . '/banner_2_img'. strchr($page->micro->banner_2_img,'.') . '?=' . rand(1,99999999)) }}@endisset" id="preview" class="center-block img-responsive">
             </div>
             Imagen del banner
-            <label for="page_img" class="input-file-cms">
+            <label for="banner_2_img" class="input-file-cms">
                 Elegir imagen
-                <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*">
+                <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="banner_2_img_check" id="banner_2_img_check">
             </label>
         </label>
@@ -223,7 +224,7 @@
                 Imagen de la sección
                 <label for="program_1_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="program_1_img" id="program_1_img" accept="image/*">
+                    <input type="file" name="program_1_img" id="program_1_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_1_check" id="state_program_1_check">
                 </label>
             </label>
@@ -249,7 +250,7 @@
                 Imagen de la sección
                 <label for="program_2_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="program_2_img" id="program_2_img" accept="image/*">
+                    <input type="file" name="program_2_img" id="program_2_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_2_check" id="state_program_2_check">
                 </label>
             </label>
@@ -261,6 +262,7 @@
             </label>
         </label>
     </div>
+    <div class="clearfix"></div>
     <div class="col-sm-6 col-md-6">
         <label for="es_program_3_title" class="img_upload_container">
             Sección 3
@@ -275,7 +277,7 @@
                 Imagen de la sección
                 <label for="program_3_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="program_3_img" id="program_3_img" accept="image/*">
+                    <input type="file" name="program_3_img" id="program_3_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_3_check" id="state_program_3_check">
                 </label>
             </label>
@@ -301,7 +303,7 @@
                 Imagen de la sección
                 <label for="program_4_img" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="program_4_img" id="program_4_img" accept="image/*">
+                    <input type="file" name="program_4_img" id="program_4_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_4_check" id="state_program_4_check">
                 </label>
             </label>
@@ -319,15 +321,15 @@
         <h3>Programas administrados</h3>
     </div>
     <div class="col-sm-6">
-        <label for="page_img" class="img_upload_container">
+        <label for="banner_3_img" class="img_upload_container">
             <div class="img-preview img-container preview @isset($page->micro->banner_3_img){{ 'active' }}@endisset">
                 <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
                 <img src="@isset($page->micro->banner_3_img){{ asset('public/uploads/pages/' . $page->page_id . '/banner_3_img'. strchr($page->micro->banner_3_img,'.') . '?=' . rand(1,99999999)) }}@endisset" id="preview" class="center-block img-responsive">
             </div>
             Imagen del banner
-            <label for="page_img" class="input-file-cms">
+            <label for="banner_3_img" class="input-file-cms">
                 Elegir imagen
-                <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*">
+                <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="banner_3_img_check" id="banner_3_img_check">
             </label>
         </label>
@@ -343,6 +345,7 @@
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
     <div class="col-sm-6 col-md-6">
         <label for="es_program_1_title_2" class="img_upload_container">
             Sección 1
@@ -357,7 +360,7 @@
                 Imagen de la sección
                 <label for="program_1_img_2" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="program_1_img_2" id="program_1_img_2" accept="image/*">
+                    <input type="file" name="program_1_img_2" id="program_1_img_2" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_1_check_2" id="state_program_1_check_2">
                 </label>
             </label>
@@ -383,7 +386,7 @@
                 Imagen de la sección
                 <label for="program_2_img_2" class="input-file-cms">
                     Elegir imagen
-                    <input type="file" name="program_2_img_2" id="program_2_img_2" accept="image/*">
+                    <input type="file" name="program_2_img_2" id="program_2_img_2" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_2_check_2" id="state_program_2_check_2">
                 </label>
             </label>
@@ -395,4 +398,7 @@
             </label>
         </label>
     </div>
+</div>
+<div class="text-center">
+    {!! Form::submit('Guardar',['class'=>'submit-cms big-btn']) !!}
 </div>

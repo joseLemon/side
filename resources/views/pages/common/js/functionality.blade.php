@@ -1,7 +1,6 @@
 <script>
     $(document).ready(function() {
-
-        $('input[type=file]').change(readFile);
+        $('.input-file-img').change(readFile);
 
         $('.img-container .remove-img').click(function () {
             var button = $(this),

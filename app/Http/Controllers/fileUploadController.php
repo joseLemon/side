@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
-class ImgUploadController extends Controller {
-    public static function fileUpload($target_dir, $input_name, $delete = false, $individual = false, $max_width = 700, $max_height = 394, $use_name = false, $thumbnail = true) {
+class fileUploadController extends Controller {
+    public static function imgUpload($target_dir, $input_name, $delete = false, $individual = false, $max_width = 700, $max_height = 394, $use_name = false, $thumbnail = true) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
@@ -54,11 +54,18 @@ class ImgUploadController extends Controller {
         }
     }
 
-    public static function generalUpload($target_dir, $input_name, $delete = false, $individual = false) {
+    public static function generalUpload($target_dir, $input_name, $delete = false, $individual = false, $folder = false) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
         }
+        if($folder) {
+            $target_dir = $target_dir.$input_name.'/';
+            if(!is_dir($target_dir) && !file_exists($target_dir)) {
+                mkdir($target_dir);
+            }
+        }
+
         if ($_FILES[$input_name]["size"] > 25000000) {
             return 'failed';
         }

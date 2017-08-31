@@ -15,11 +15,10 @@ Route::get('page/{id}/edit', ['as' => 'page.edit', 'uses' => 'PagesController@ed
 /*
  * INDEX
  */
-Route::post('page/{id}', ['as' => 'page.update.index', 'uses' => 'PagesController@updateIndex']);
+Route::post('page/{id}/update', ['as' => 'page.update.index', 'uses' => 'PagesController@updateIndex']);
 
 /*
  * MICRO SITES
  */
 Route::get('page/create', ['as' => 'page.create', 'uses' => 'PagesController@create']);
 Route::post('page/store', ['as' => 'page.store', 'uses' => 'PagesController@store']);
-

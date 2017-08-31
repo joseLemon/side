@@ -1483,6 +1483,15 @@ body {
 .blog .blog-feed .img-bg {
     height: 380px;
     transform: skew(-6deg);
+    overflow: hidden;
+}
+
+.blog .blog-feed .img-bg .post-img {
+    width: calc(100% + 50px);
+    height: 100%;
+    transform: skew(6deg);
+    left: -25px;
+    position: relative;
 }
 
 .blog .post-summary {
@@ -2308,8 +2317,13 @@ footer .footer-bottom p::before {
         max-width: 400px;
         margin: 0 auto;
     }
+    .blog .blog-feed .img-bg .post-img,
     .blog .blog-feed .img-bg {
         transform: none;
+    }
+    .blog .blog-feed .img-bg .post-img {
+        width: 100%;
+        left: 0;
     }
     .video-modal .modal-dialog {
         margin: 10px auto;

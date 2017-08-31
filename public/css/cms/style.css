@@ -169,21 +169,21 @@ hr {
     position: relative;
     overflow: hidden;
     background-image:
-            -moz-linear-gradient(45deg, #e3e3e3 25%, transparent 25%),
-            -moz-linear-gradient(-45deg, #e3e3e3 25%, transparent 25%),
-            -moz-linear-gradient(45deg, transparent 75%, #e3e3e3 75%),
-            -moz-linear-gradient(-45deg, transparent 75%, #e3e3e3 75%);
+            -moz-linear-gradient(45deg, #d3d3d3 25%, transparent 25%),
+            -moz-linear-gradient(-45deg, #d3d3d3 25%, transparent 25%),
+            -moz-linear-gradient(45deg, transparent 75%, #d3d3d3 75%),
+            -moz-linear-gradient(-45deg, transparent 75%, #d3d3d3 75%);
     background-image:
-            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #e3e3e3), color-stop(.25, transparent)),
-            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #e3e3e3), color-stop(.25, transparent)),
-            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #e3e3e3)),
-            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #e3e3e3));
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #d3d3d3), color-stop(.25, transparent)),
+            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #d3d3d3), color-stop(.25, transparent)),
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #d3d3d3)),
+            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #d3d3d3));
 
     -moz-background-size:50px 50px;
     background-size:50px 50px;
-    -webkit-background-size:50px 51px; /* override value for shitty webkit */
+    -webkit-background-size:50px 51px; /* override value for webkit */
 
-    background-position:0 0, 25px 0, 25px -25px, 0px 25px;
+    background-position:0 0, 25px 0, 25px -25px, 0 25px;
 }
 
 .img-preview.img-container img {
@@ -251,8 +251,11 @@ hr {
     .main-menu.active {
         left: 0;
     }
-    .main-menu.active .navbar {
+    .main-menu .navbar {
         left: -210px;
+    }
+    .main-menu.active .navbar {
+        left: 0;
     }
     .navbar {
         padding: 0;

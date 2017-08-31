@@ -21,7 +21,7 @@
                             Imagen del Banner
                             <label for="banner_1_img" class="input-file-cms">
                                 Elegir imagen
-                                <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*">
+                                <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*" class="input-file-img">
                                 <input type="hidden" name="state_1_check" id="state_1_check">
                             </label>
                         </label>
@@ -86,7 +86,7 @@
                             Imagen del Banner
                             <label for="banner_2_img" class="input-file-cms">
                                 Elegir imagen
-                                <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*">
+                                <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img">
                                 <input type="hidden" name="state_2_check" id="state_2_check">
                             </label>
                         </label>
@@ -135,7 +135,7 @@
                             Imagen del Banner
                             <label for="banner_3_img" class="input-file-cms">
                                 Elegir imagen
-                                <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*">
+                                <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*" class="input-file-img">
                                 <input type="hidden" name="state_3_check" id="state_3_check">
                             </label>
                         </label>
@@ -198,7 +198,7 @@
                                 Imagen de la sección
                                 <label for="about_1_img" class="input-file-cms">
                                     Elegir imagen
-                                    <input  accept="image/*" name="about_1_img" id="about_1_img" accept="image/*">
+                                    <input type="file" name="about_1_img" id="about_1_img" accept="image/*" class="input-file-img">
                                     <input type="hidden" name="state_about_1_check" id="state_about_1_check">
                                 </label>
                             </label>
@@ -220,7 +220,7 @@
                                 Imagen de la sección
                                 <label for="about_2_img" class="input-file-cms">
                                     Elegir imagen
-                                    <input type="file" name="about_2_img" id="about_2_img" accept="image/*">
+                                    <input type="file" name="about_2_img" id="about_2_img" accept="image/*" class="input-file-img">
                                     <input type="hidden" name="state_about_2_check" id="state_about_2_check">
                                 </label>
                             </label>
@@ -242,7 +242,7 @@
                                 Imagen de la sección
                                 <label for="about_3_img" class="input-file-cms">
                                     Elegir imagen
-                                    <input type="file" name="about_3_img" id="about_3_img" accept="image/*">
+                                    <input type="file" name="about_3_img" id="about_3_img" accept="image/*" class="input-file-img">
                                     <input type="hidden" name="state_about_3_check" id="state_about_3_check">
                                 </label>
                             </label>
