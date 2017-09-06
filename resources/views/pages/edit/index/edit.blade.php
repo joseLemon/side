@@ -4,7 +4,7 @@
 @stop
 @section('content')
     <div class="big-container">
-        {!! Form::open(['route' => ['page.update.index',$id], 'id' => 'formPage', 'enctype' => 'multipart/form-data']) !!}
+        {!! Form::open(['route' => ['page.update',$id], 'id' => 'formPage', 'enctype' => 'multipart/form-data']) !!}
         <div class="dash-object">
             <div class="page-section">
 

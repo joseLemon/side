@@ -1,7 +1,19 @@
 @extends('layouts.cms.master')
 @section('content')
     <div class="big-container">
-        {!! Form::open(['route' => ['page.update',$id], 'id' => 'formPage', 'enctype' => 'multipart/form-data']) !!}
-        {!! Form::close() !!}
+        <div class="dash-object">
+            <div class="page-section">
+                {!! Form::open(['route' => ['page.update',$id], 'id' => 'formPage', 'enctype' => 'multipart/form-data']) !!}
+                <select class="input-cms" name="page_type" id="page_type">
+                    @foreach($page_types as $type)
+                        <option value="{{ $type->page_type_id }}">{{ $type->page_type_name }}</option>
+                    @endforeach
+                </select>
+                <div class="form-container" id="micro-form">
+                    @include('pages.common.views.form_micro')
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
     </div>
 @stop

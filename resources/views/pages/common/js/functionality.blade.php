@@ -30,5 +30,20 @@
                 preview.addClass('active');
             }
         }
+
+        $('#page_type').change(function () {
+            var select = $(this),
+                selected_option = select.find('option:selected').val();
+
+            $('.form-container').fadeOut('fast');
+
+            switch (selected_option) {
+                case '2':
+                    $('#micro-form').fadeIn('fast');
+                    break;
+                default:
+                    break;
+            }
+        });
     });
 </script>

@@ -5,6 +5,7 @@ use App\Models\Color;
 use App\Models\Page;
 use App\Models\PageIndex;
 use App\Models\PageMicro;
+use App\Models\PageType;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller {
@@ -14,9 +15,13 @@ class PagesController extends Controller {
 
     public function create () {
         $colors = Color::select(['color_name','color_id'])->get();
+        $page_types = PageType::select(['page_type_name','page_type_id'])
+            ->where('page_type_id','!=',1)
+            ->get();
 
         $params = [
-            'colors'    =>  $colors
+            'colors'        =>  $colors,
+            'page_types'    =>  $page_types
         ];
 
         return view('pages.create.create', $params);
@@ -27,7 +32,7 @@ class PagesController extends Controller {
         $page->page_title = $request->input('page_title');
         $page->color_id = $request->input('color');
         $page->page_url = $request->input('page_url');
-        $page->page_type_id = 2;
+        $page->page_type_id = $request->input('page_type');
         $page->save();
         //  IMAGEN DEL SITIO
         if($_FILES['page_img']['size'] > 0) {
@@ -272,21 +277,39 @@ class PagesController extends Controller {
             ->first();
 
         $params = [
-            'id'    =>  $id,
-            'page'  =>  $page
+            'id'            =>  $id,
+            'page'          =>  $page,
         ];
 
         if($page->page_type_id == 1) {
             return view('pages.edit.index.edit',$params);
         }
 
+        if($page->page_type_id == 2) {
+            $page->micro = $page->micro()->first();
+
+            $colors = Color::select(['color_name','color_id'])->get();
+            $page_types = PageType::select(['page_type_name','page_type_id'])
+                ->where('page_type_id','!=',1)
+                ->get();
+
+            $params['colors'] = $colors;
+            $params['page_types'] = $page_types;
+
+        }
+
         return view('pages.edit.edit',$params);
     }
 
-
-    public function updateIndex(Request $request, $id) {
+    public function update (Request $request, $id) {
         $page = PageIndex::find($id);
 
+        if($page->page_type_id == 1) {
+            $this->updateIndex($request, $id, $page);
+        }
+    }
+
+    public function updateIndex(Request $request, $id, $page) {
         if(!$page) {
             $page = new PageIndex();
         }

@@ -226,6 +226,12 @@ hr {
     display: block;
 }
 
+.page-section .img_upload_container .img-preview img {
+    /*width: 300px;
+    max-width: 100%;
+    margin: 0 auto;*/
+}
+
 @media(max-width: 992px) {
     .dash-object {
         padding: 20px;

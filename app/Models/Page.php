@@ -22,4 +22,11 @@ class Page extends Model {
      *
      */
     protected $primaryKey = 'page_id';
+
+    /*
+     * Get the micro page that owns this page
+     */
+    public function micro () {
+        return $this->hasMany('App\Models\PageMicro','page_id','page_id');
+    }
 }
