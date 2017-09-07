@@ -1,4 +1,7 @@
 @extends('layouts.cms.master')
+@section('scripts')
+    @include('pages.common.js.functionality')
+@stop
 @section('content')
     <div class="big-container">
         <div class="dash-object">
@@ -9,8 +12,19 @@
                         <option value="{{ $type->page_type_id }}">{{ $type->page_type_name }}</option>
                     @endforeach
                 </select>
+                @include('pages.common.views.form_page')
+                @if($page->page_type_id == 2)
                 <div class="form-container" id="micro-form">
                     @include('pages.common.views.form_micro')
+                </div>
+                @endif
+                @if($page->page_type_id == 3)
+                <div class="form-container" id="external-form">
+                    @include('pages.common.views.form_external')
+                </div>
+                @endif
+                <div class="text-center">
+                    {!! Form::submit('Guardar',['class'=>'submit-cms big-btn']) !!}
                 </div>
                 {!! Form::close() !!}
             </div>

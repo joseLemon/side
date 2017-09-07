@@ -29,4 +29,11 @@ class Page extends Model {
     public function micro () {
         return $this->hasMany('App\Models\PageMicro','page_id','page_id');
     }
+
+    /*
+     * Get the micro page that owns this page
+     */
+    public function external () {
+        return $this->hasMany('App\Models\PageExternal','page_id','page_id');
+    }
 }

@@ -13,8 +13,15 @@
                         <option value="{{ $type->page_type_id }}">{{ $type->page_type_name }}</option>
                     @endforeach
                 </select>
+                @include('pages.common.views.form_page')
                 <div class="form-container" id="micro-form">
                     @include('pages.common.views.form_micro')
+                </div>
+                <div class="form-container" id="external-form" style="display: none;">
+                    @include('pages.common.views.form_external')
+                </div>
+                <div class="text-center">
+                    {!! Form::submit('Guardar',['class'=>'submit-cms big-btn']) !!}
                 </div>
                 {!! Form::close() !!}
             </div>
