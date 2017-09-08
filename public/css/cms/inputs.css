@@ -136,3 +136,7 @@ textarea.input-cms {
 .ui-color-select.gray {
     background-color: #aaafb0!important;
 }
+
+input[disabled], select[disabled], textarea[disabled] {
+    background-color: #e3e3e3;
+}

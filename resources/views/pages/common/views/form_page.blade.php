@@ -24,7 +24,7 @@
                     Seleccionar color del sitio
                     <select class="input-cms hidden" name="color" id="color">
                         @foreach($colors as $color)
-                            <option value="{{ $color->color_id }}" data-class="{{ $color->color_slug }}">{{ $color->color_name }}</option>
+                            <option value="{{ $color->color_id }}" data-class="{{ $color->color_slug }}" @if($page->color_id == $color->color_id){{ 'selected' }}@endif>{{ $color->color_name }}</option>
                         @endforeach
                     </select>
                 </label>

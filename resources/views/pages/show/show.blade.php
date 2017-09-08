@@ -45,13 +45,18 @@
                 success: function (pages) {
                     tbody.empty();
                     $(pages.data).each(function (i, page) {
+                        var deleteBtn = '';
+                        if(page.page_type != 1) {
+                            deleteBtn = '<a href="#" class="delete preventDef"><i class="fa fa-times" aria-hidden="true"></i></a>';
+                        }
+
                         tbody.append(
                             '<tr data-anchor="' + url + '/' + page.page_id + '/edit' + '" data-pageid="' + page.page_id + '">' +
                             '<td>' + page.page_id + '</td>' +
                             '<td>' + page.page_date + '</td>' +
                             '<td>' + page.page_title + '</td>' +
                             '<td>' +
-                            '<a href="#" class="delete preventDef"><i class="fa fa-times" aria-hidden="true"></i></a>' +
+                            deleteBtn +
                             '</td>' +
                             '</tr>'
                         );

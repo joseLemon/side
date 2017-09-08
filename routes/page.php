@@ -15,7 +15,7 @@ Route::get('page/{id}/edit', ['as' => 'page.edit', 'uses' => 'PagesController@ed
 /*
  * INDEX
  */
-Route::post('page/{id}/update', ['as' => 'page.update', 'uses' => 'PagesController@updateIndex']);
+Route::post('page/{id}/update', ['as' => 'page.update', 'uses' => 'PagesController@update']);
 
 /*
  * MICRO SITES
