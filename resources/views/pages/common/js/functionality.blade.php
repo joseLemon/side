@@ -9,7 +9,7 @@
                 check = input.next();
 
             preview.removeClass('active').find('img').attr('src', '');
-            input.val('');
+            input.val('').data('value', '');
             check.val('removed');
         });
 
@@ -28,6 +28,8 @@
                 FR.readAsDataURL(this.files[0]);
 
                 preview.addClass('active');
+
+                input.data('value', '');
             }
         }
 

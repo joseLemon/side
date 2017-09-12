@@ -535,7 +535,7 @@ class PagesController extends Controller {
 
         if($page_type_id == 3) {
             $page_external = PageExternal::where('page_id',$id)
-            ->first();
+                ->first();
             $page_external->page_external_url = $request->input('page_external_url');
             $page_external->save();
         }
@@ -547,6 +547,8 @@ class PagesController extends Controller {
     }
 
     public function updateIndex(Request $request, $id, $page) {
+        $this->validateIndex($request);
+
         if(!$page) {
             $page = new PageIndex();
         }
@@ -678,6 +680,63 @@ class PagesController extends Controller {
         \Session::flash('alert-class','alert-success');
 
         return redirect()->route('pages.show');
+    }
+
+    private function validateIndex(Request $request) {
+        $this->validate($request, [
+            'banner_1_img' => 'required|sometimes',
+            'banner_2_img' => 'required|sometimes',
+            'banner_3_img' => 'required|sometimes',
+            'es_diamond_1_text' => 'required|max:255',
+            'es_diamond_2_text' => 'required|max:255',
+            'es_diamond_3_text' => 'required|max:255',
+            'es_diamond_4_text' => 'required|max:255',
+            'es_banner_2_text_1' => 'required|max:128',
+            'es_banner_2_text_2' => 'required|max:128',
+            'es_banner_3_text' => 'required|max:128',
+            'banner_3_url' => 'required|max:255',
+            'es_sites_title' => 'required|max:128',
+            'es_sites_subtitle' => 'required|max:128',
+            'es_blog_title' => 'required|max:128',
+            'video_banner' => 'required|max:255',
+            'about_1_img' => 'required|sometimes',
+            'es_about_1_title' => 'required|max:128',
+            'es_about_1_text' => 'required|max:512',
+            'about_2_img' => 'required|sometimes',
+            'es_about_2_title' => 'required|max:128',
+            'es_about_2_text' => 'required|max:512',
+            'about_3_img' => 'required|sometimes',
+            'es_about_3_title' => 'required|max:128',
+            'es_about_3_text' => 'required|max:512',
+        ], [
+            'required'  =>  ':attribute es obliogatorio.',
+            'max'       =>  ':attribute, la máxima cantidad de caracteres permitida para el campo o el nombre de archivo es de :max',
+        ], [
+            'banner_1_img' => 'Banner principal',
+            'banner_2_img' => 'Segundo banner',
+            'banner_3_img' => 'Tercer banner',
+            'es_diamond_1_text' => 'Texto de rombo 1',
+            'es_diamond_2_text' => 'Texto de rombo 2',
+            'es_diamond_3_text' => 'Texto de rombo 3',
+            'es_diamond_4_text' => 'Texto de rombo 4',
+            'es_banner_2_text_1' => 'Texto de segundo banner',
+            'es_banner_2_text_2' => 'Texto de segundo banner',
+            'es_banner_3_text' => 'Texto de tercer banner',
+            'banner_3_url' => 'URL de tercer banner',
+            'es_sites_title' => 'Título de direcciones',
+            'es_sites_subtitle' => 'Subtítulo de direcciones',
+            'es_blog_title' => 'Título de blog',
+            'video_banner' => 'Video',
+            'about_1_img' => 'Imágen 1 información',
+            'es_about_1_title' => 'Título 1 información',
+            'es_about_1_text' => 'Texto 1 información',
+            'about_2_img' => 'Imagen 2 información',
+            'es_about_2_title' => 'Título 2 información',
+            'es_about_2_text' => 'Texto 2 información',
+            'about_3_img' => 'Imagen 3 información',
+            'es_about_3_title' => 'Título 3 información',
+            'es_about_3_text' => 'Texto 3 información',
+        ]);
     }
 
     function pageExists($id) {

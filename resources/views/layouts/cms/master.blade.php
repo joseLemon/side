@@ -94,6 +94,16 @@
             {{ \Session::get('alertMessage') }}
         </div>
     @endif
+    @if (!$errors->isEmpty())
+        <div id="globalMessage" class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
+        </div>
+    @endif
     @yield('content')
 </div>
 

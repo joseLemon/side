@@ -1,6 +1,20 @@
 @extends('layouts.cms.master')
 @section('scripts')
     @include('pages.common.js.functionality')
+    <script>
+        $(document).ready(function () {
+            $('#formPage').submit(function (e) {
+                e.preventDefault();
+                $('input[type=file]').each(function () {
+                    if(!(!$(this).data('value'))) {
+                        $(this).prop('disabled',true);
+                    }
+                });
+
+                $(this)[0].submit();
+            });
+        });
+    </script>
 @stop
 @section('content')
     <div class="big-container">
@@ -21,7 +35,7 @@
                             Imagen del Banner
                             <label for="banner_1_img" class="input-file-cms">
                                 Elegir imagen
-                                <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*" class="input-file-img">
+                                <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->banner_1_img){{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_1_img' . strchr($page->page_index->banner_1_img,'.')) }}@endisset">
                                 <input type="hidden" name="state_1_check" id="state_1_check">
                             </label>
                         </label>
@@ -86,7 +100,7 @@
                             Imagen del Banner
                             <label for="banner_2_img" class="input-file-cms">
                                 Elegir imagen
-                                <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img">
+                                <data-" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->banner_2_img){{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_2_img' . strchr($page->page_index->banner_2_img,'.')) }}@endisset">
                                 <input type="hidden" name="state_2_check" id="state_2_check">
                             </label>
                         </label>
@@ -135,7 +149,7 @@
                             Imagen del Banner
                             <label for="banner_3_img" class="input-file-cms">
                                 Elegir imagen
-                                <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*" class="input-file-img">
+                                <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->banner_3_img){{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_3_img' . strchr($page->page_index->banner_3_img,'.')) }}@endisset">
                                 <input type="hidden" name="state_3_check" id="state_3_check">
                             </label>
                         </label>
@@ -198,7 +212,7 @@
                                 Imagen de la sección
                                 <label for="about_1_img" class="input-file-cms">
                                     Elegir imagen
-                                    <input type="file" name="about_1_img" id="about_1_img" accept="image/*" class="input-file-img">
+                                    <input type="file" name="about_1_img" id="about_1_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->about_1_img){{ asset('public/uploads/pages/' . $page->page_id . '/about_1_img'. strchr($page->page_index->about_1_img,'.')) }}@endisset">
                                     <input type="hidden" name="state_about_1_check" id="state_about_1_check">
                                 </label>
                             </label>
@@ -220,7 +234,7 @@
                                 Imagen de la sección
                                 <label for="about_2_img" class="input-file-cms">
                                     Elegir imagen
-                                    <input type="file" name="about_2_img" id="about_2_img" accept="image/*" class="input-file-img">
+                                    <input type="file" name="about_2_img" id="about_2_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->about_2_img){{ asset('public/uploads/pages/' . $page->page_id . '/about_2_img'. strchr($page->page_index->about_2_img,'.')) }}@endisset">
                                     <input type="hidden" name="state_about_2_check" id="state_about_2_check">
                                 </label>
                             </label>
@@ -242,7 +256,7 @@
                                 Imagen de la sección
                                 <label for="about_3_img" class="input-file-cms">
                                     Elegir imagen
-                                    <input type="file" name="about_3_img" id="about_3_img" accept="image/*" class="input-file-img">
+                                    <input type="file" name="about_3_img" id="about_3_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->about_3_img){{ asset('public/uploads/pages/' . $page->page_id . '/about_3_img'. strchr($page->page_index->about_3_img,'.')) }}@endisset">
                                     <input type="hidden" name="state_about_3_check" id="state_about_3_check">
                                 </label>
                             </label>
