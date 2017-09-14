@@ -19,9 +19,9 @@
     <div class="col-sm-6">
         <label for="es_diamond_1_text">
             Rombo 1
-            <input class="input-cms" type="text" name="es_diamond_1_text" placeholder="Texto" value="@isset($page->micro->es_diamond_1_text){{ $page->micro->es_diamond_1_text }}@endisset">
-            <input class="input-cms" type="text" name="en_diamond_1_text" placeholder="Texto inglés" value="@isset($page->micro->en_diamond_1_text){{ $page->micro->en_diamond_1_text }}@endisset">
-            <input class="input-cms" type="text" name="diamond_1_url" placeholder="URL" value="@isset($page->micro->diamond_1_url){{ $page->micro->diamond_1_url }}@endisset">
+            <input class="input-cms" type="text" name="es_diamond_1_text" placeholder="Texto" value="{{ isset($page->micro->es_diamond_1_text) ? $page->micro->es_diamond_1_text : old('es_diamond_1_text') }}">
+            <input class="input-cms" type="text" name="en_diamond_1_text" placeholder="Texto inglés" value="{{ isset($page->micro->en_diamond_1_text) ? $page->micro->en_diamond_1_text : old('en_diamond_1_text') }}">
+            <input class="input-cms" type="text" name="diamond_1_url" placeholder="URL" value="{{ isset($page->micro->diamond_1_url) ? $page->micro->diamond_1_url : old('diamond_1_url') }}">
         </label>
     </div>
 </div>
@@ -35,10 +35,10 @@
         </label>
         <div class="row">
             <div class="col-sm-6">
-                {!! Form::text('es_page_about_title',isset($page) ? $page->micro->es_page_about_title : null,['class'=>'input-cms','id'=>'es_page_about_title','placeholder'=>'Título']) !!}
+                {!! Form::text('es_page_about_title',isset($page) ? $page->micro->es_page_about_title : old('es_page_about_title'),['class'=>'input-cms','id'=>'es_page_about_title','placeholder'=>'Título']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::text('en_page_about_title',isset($page) ? $page->micro->en_page_about_title : null,['class'=>'input-cms','id'=>'en_page_about_title','placeholder'=>'Título inglés']) !!}
+                {!! Form::text('en_page_about_title',isset($page) ? $page->micro->en_page_about_title : old('en_page_about_title'),['class'=>'input-cms','id'=>'en_page_about_title','placeholder'=>'Título inglés']) !!}
             </div>
         </div>
     </div>
@@ -48,10 +48,10 @@
         </label>
         <div class="row">
             <div class="col-sm-6">
-                {!! Form::textarea('es_page_about_text',isset($page) ? $page->micro->es_page_about_text : null,['class'=>'input-cms','id'=>'es_page_about_text','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+                {!! Form::textarea('es_page_about_text',isset($page) ? $page->micro->es_page_about_text : old('es_page_about_text'),['class'=>'input-cms','id'=>'es_page_about_text','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::textarea('en_page_about_text',isset($page) ? $page->micro->en_page_about_text : null,['class'=>'input-cms','id'=>'en_page_about_text','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
+                {!! Form::textarea('en_page_about_text',isset($page) ? $page->micro->en_page_about_text : old('en_page_about_text'),['class'=>'input-cms','id'=>'en_page_about_text','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
             </div>
         </div>
     </div>
@@ -63,10 +63,10 @@
     <div class="col-sm-6 col-md-4">
         <label for="es_about_1_title" class="img_upload_container">
             Sección 1
-            <input class="input-cms" type="text" name="es_about_1_title" id="es_about_1_title" placeholder="Título" value="@isset($page->micro->es_about_1_title ){{ $page->micro->es_about_1_title }}@endisset">
-            <input class="input-cms" type="text" name="en_about_1_title" id="en_about_1_title" placeholder="Título inglés"  value="@isset($page->micro->en_about_1_title ){{ $page->micro->en_about_1_title }}@endisset">
-            <textarea class="input-cms" name="es_about_1_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto">@isset($page->micro->es_about_1_text ){{ $page->micro->es_about_1_text }}@endisset</textarea>
-            <textarea class="input-cms" name="en_about_1_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto inglés">@isset($page->micro->en_about_1_text ){{ $page->micro->en_about_1_text }}@endisset</textarea>
+            <input class="input-cms" type="text" name="es_about_1_title" id="es_about_1_title" placeholder="Título" value="{{ isset($page->micro->es_about_1_title ) ? $page->micro->es_about_1_title : old('es_about_1_title') }}">
+            <input class="input-cms" type="text" name="en_about_1_title" id="en_about_1_title" placeholder="Título inglés"  value="{{ isset($page->micro->en_about_1_title ) ? $page->micro->en_about_1_title : old('en_about_1_title') }}">
+            <textarea class="input-cms" name="es_about_1_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto">{{ isset($page->micro->es_about_1_text ) ? $page->micro->es_about_1_text : old('es_about_1_text') }}</textarea>
+            <textarea class="input-cms" name="en_about_1_text" id="es_about_1_text" cols="30" rows="5" placeholder="Texto inglés">{{ isset($page->micro->en_about_1_text ) ? $page->micro->en_about_1_text : old('en_about_1_text') }}</textarea>
 
             <label for="about_1_img">
                 <div class="img-preview img-container preview @isset($page->micro->about_1_img){{ 'active' }}@endisset">
@@ -85,10 +85,10 @@
     <div class="col-sm-6 col-md-4">
         <label for="es_about_2_title" class="img_upload_container">
             Sección 2
-            <input class="input-cms" type="text" name="es_about_2_title" id="es_about_2_title" placeholder="Título" value="@isset($page->micro->es_about_2_title ){{ $page->micro->es_about_2_title }}@endisset">
-            <input class="input-cms" type="text" name="en_about_2_title" id="en_about_2_title" placeholder="Título inglés" value="@isset($page->micro->en_about_2_title ){{ $page->micro->en_about_2_title }}@endisset">
-            <textarea class="input-cms" name="es_about_2_text" id="es_about_2_text" cols="30" rows="5" placeholder="Texto">@isset($page->micro->es_about_2_text ){{ $page->micro->es_about_2_text }}@endisset</textarea>
-            <textarea class="input-cms" name="en_about_2_text" id="es_about_2_text" cols="30" rows="5" placeholder="Texto inglés">@isset($page->micro->en_about_2_text ){{ $page->micro->en_about_2_text }}@endisset</textarea>
+            <input class="input-cms" type="text" name="es_about_2_title" id="es_about_2_title" placeholder="Título" value="{{ isset($page->micro->es_about_2_title ) ? $page->micro->es_about_2_title : old('es_about_2_title') }}">
+            <input class="input-cms" type="text" name="en_about_2_title" id="en_about_2_title" placeholder="Título inglés" value="{{ isset($page->micro->en_about_2_title ) ? $page->micro->en_about_2_title : old('en_about_2_title') }}">
+            <textarea class="input-cms" name="es_about_2_text" id="es_about_2_text" cols="30" rows="5" placeholder="Texto">{{ isset($page->micro->es_about_2_text ) ? $page->micro->es_about_2_text : old('es_about_2_text') }}</textarea>
+            <textarea class="input-cms" name="en_about_2_text" id="es_about_2_text" cols="30" rows="5" placeholder="Texto inglés">{{ isset($page->micro->en_about_2_text ) ? $page->micro->en_about_2_text : old('en_about_2_text') }}</textarea>
 
             <label for="about_2_img">
                 <div class="img-preview img-container preview @isset($page->micro->about_2_img){{ 'active' }}@endisset">
@@ -108,10 +108,10 @@
     <div class="col-sm-6 col-md-4">
         <label for="es_about_3_title" class="img_upload_container">
             Sección 3
-            <input class="input-cms" type="text" name="es_about_3_title" id="es_about_3_title" placeholder="Título" value="@isset($page->micro->es_about_3_title ){{ $page->micro->es_about_3_title }}@endisset">
-            <input class="input-cms" type="text" name="en_about_3_title" id="en_about_3_title" placeholder="Título inglés" value="@isset($page->micro->en_about_3_title ){{ $page->micro->en_about_3_title }}@endisset">
-            <textarea class="input-cms" name="es_about_3_text" id="es_about_3_text" cols="30" rows="5" placeholder="Texto">@isset($page->micro->es_about_3_text ){{ $page->micro->es_about_3_text }}@endisset</textarea>
-            <textarea class="input-cms" name="en_about_3_text" id="es_about_3_text" cols="30" rows="5" placeholder="Texto inglés">@isset($page->micro->en_about_3_text ){{ $page->micro->en_about_3_text }}@endisset</textarea>
+            <input class="input-cms" type="text" name="es_about_3_title" id="es_about_3_title" placeholder="Título" value="{{ isset($page->micro->es_about_3_title ) ? $page->micro->es_about_3_title : old('es_about_3_title')}}">
+            <input class="input-cms" type="text" name="en_about_3_title" id="en_about_3_title" placeholder="Título inglés" value="{{ isset($page->micro->en_about_3_title ) ? $page->micro->en_about_3_title : old('en_about_3_title')}}">
+            <textarea class="input-cms" name="es_about_3_text" id="es_about_3_text" cols="30" rows="5" placeholder="Texto">{{ isset($page->micro->es_about_3_text ) ? $page->micro->es_about_3_text : old('es_about_3_text')}}</textarea>
+            <textarea class="input-cms" name="en_about_3_text" id="es_about_3_text" cols="30" rows="5" placeholder="Texto inglés">{{ isset($page->micro->en_about_3_text ) ? $page->micro->en_about_3_text : old('en_about_3_text')}}</textarea>
 
             <label for="about_3_img">
                 <div class="img-preview img-container preview @isset($page->micro->about_3_img){{ 'active' }}@endisset">
@@ -149,7 +149,7 @@
     <div class="col-sm-6">
         <label for="page_video_iframe">
             iframe de Youtube
-            {!! Form::text('page_video_iframe',isset($page) ? $page->page_video_iframe : null,['class'=>'input-cms','id'=>'page_video_iframe','placeholder'=>'iframe de Youtube']) !!}
+            {!! Form::text('page_video_iframe',isset($page) ? $page->page_video_iframe : old('page_video_iframe'),['class'=>'input-cms','id'=>'page_video_iframe','placeholder'=>'iframe de Youtube']) !!}
         </label>
     </div>
 </div>
@@ -163,18 +163,20 @@
         </label>
         <div class="row">
             <div class="col-sm-6">
-                {!! Form::text('es_programs_title',isset($page) ? $page->micro->es_programs_title : null,['class'=>'input-cms','id'=>'es_programs_title','placeholder'=>'Título']) !!}
+                {!! Form::text('es_programs_title',isset($page) ? $page->micro->es_programs_title : old('es_programs_title'),['class'=>'input-cms','id'=>'es_programs_title','placeholder'=>'Título']) !!}
             </div>
             <div class="col-sm-6">
-                {!! Form::text('en_programs_title',isset($page) ? $page->micro->en_programs_title : null,['class'=>'input-cms','id'=>'en_programs_title','placeholder'=>'Título inglés']) !!}
+                {!! Form::text('en_programs_title',isset($page) ? $page->micro->en_programs_title : old('en_programs_title'),['class'=>'input-cms','id'=>'en_programs_title','placeholder'=>'Título inglés']) !!}
             </div>
         </div>
     </div>
     <div class="col-sm-6 col-md-6">
         <label for="es_program_1_title" class="img_upload_container">
             Sección 1
-            <input class="input-cms" type="text" name="es_program_1_title" id="es_program_1_title" placeholder="Título" value="@isset($page->micro->es_program_1_title ){{ $page->micro->es_program_1_title }}@endisset">
-            <input class="input-cms" type="text" name="en_program_1_title" id="en_program_1_title" placeholder="Título inglés"  value="@isset($page->micro->en_program_1_title ){{ $page->micro->en_program_1_title }}@endisset">
+            <input class="input-cms" type="text" name="es_program_1_title" id="es_program_1_title" placeholder="Título" value="{{ isset($page->micro->es_program_1_title ) ? $page->micro->es_program_1_title : old('es_program_1_title') }}">
+            <input class="input-cms" type="text" name="en_program_1_title" id="en_program_1_title" placeholder="Título inglés"  value="{{ isset($page->micro->en_program_1_title ) ? $page->micro->en_program_1_title : old('en_program_1_title') }}">
+            {!! Form::textarea('es_program_1_text',isset($page) ? $page->micro->es_program_1_text : old('es_program_1_title'),['class'=>'input-cms','id'=>'es_program_1_text','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+            {!! Form::textarea('en_program_1_text',isset($page) ? $page->micro->en_program_1_text : old('en_program_1_title'),['class'=>'input-cms','id'=>'en_program_1_text','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
 
             <label for="program_1_img">
                 <div class="img-preview img-container preview @isset($page->micro->program_1_img){{ 'active' }}@endisset">
@@ -199,8 +201,10 @@
     <div class="col-sm-6 col-md-6">
         <label for="es_program_2_title" class="img_upload_container">
             Sección 2
-            <input class="input-cms" type="text" name="es_program_2_title" id="es_program_2_title" placeholder="Título" value="@isset($page->micro->es_program_2_title ){{ $page->micro->es_program_2_title }}@endisset">
-            <input class="input-cms" type="text" name="en_program_2_title" id="en_program_2_title" placeholder="Título inglés"  value="@isset($page->micro->en_program_2_title ){{ $page->micro->en_program_2_title }}@endisset">
+            <input class="input-cms" type="text" name="es_program_2_title" id="es_program_2_title" placeholder="Título" value="{{ isset($page->micro->es_program_2_title ) ? $page->micro->es_program_2_title : old('es_program_2_title')}}">
+            <input class="input-cms" type="text" name="en_program_2_title" id="en_program_2_title" placeholder="Título inglés"  value="{{ isset($page->micro->en_program_2_title ) ? $page->micro->en_program_2_title : old('en_program_2_title')}}">
+            {!! Form::textarea('es_program_2_text',isset($page) ? $page->micro->es_program_2_text : old('es_program_2_text'),['class'=>'input-cms','id'=>'es_program_2_text','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+            {!! Form::textarea('en_program_2_text',isset($page) ? $page->micro->en_program_2_text : old('en_program_2_text'),['class'=>'input-cms','id'=>'en_program_2_text','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
 
             <label for="program_2_img">
                 <div class="img-preview img-container preview @isset($page->micro->program_2_img){{ 'active' }}@endisset">
@@ -226,8 +230,10 @@
     <div class="col-sm-6 col-md-6">
         <label for="es_program_3_title" class="img_upload_container">
             Sección 3
-            <input class="input-cms" type="text" name="es_program_3_title" id="es_program_3_title" placeholder="Título" value="@isset($page->micro->es_program_3_title ){{ $page->micro->es_program_3_title }}@endisset">
-            <input class="input-cms" type="text" name="en_program_3_title" id="en_program_3_title" placeholder="Título inglés"  value="@isset($page->micro->en_program_3_title ){{ $page->micro->en_program_3_title }}@endisset">
+            <input class="input-cms" type="text" name="es_program_3_title" id="es_program_3_title" placeholder="Título" value="{{ isset($page->micro->es_program_3_title ) ? $page->micro->es_program_3_title : old('es_program_3_title') }}">
+            <input class="input-cms" type="text" name="en_program_3_title" id="en_program_3_title" placeholder="Título inglés"  value="{{ isset($page->micro->en_program_3_title ) ? $page->micro->en_program_3_title : old('en_program_3_title') }}">
+            {!! Form::textarea('es_program_3_text',isset($page) ? $page->micro->es_program_3_text : old('es_program_3_text'),['class'=>'input-cms','id'=>'es_program_3_text','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+            {!! Form::textarea('en_program_3_text',isset($page) ? $page->micro->en_program_3_text : old('en_program_3_text'),['class'=>'input-cms','id'=>'en_program_3_text','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
 
             <label for="program_3_img">
                 <div class="img-preview img-container preview @isset($page->micro->program_3_img){{ 'active' }}@endisset">
@@ -252,8 +258,10 @@
     <div class="col-sm-6 col-md-6">
         <label for="es_program_4_title" class="img_upload_container">
             Sección 4
-            <input class="input-cms" type="text" name="es_program_4_title" id="es_program_4_title" placeholder="Título" value="@isset($page->micro->es_program_4_title ){{ $page->micro->es_program_4_title }}@endisset">
-            <input class="input-cms" type="text" name="en_program_4_title" id="en_program_4_title" placeholder="Título inglés"  value="@isset($page->micro->en_program_4_title ){{ $page->micro->en_program_4_title }}@endisset">
+            <input class="input-cms" type="text" name="es_program_4_title" id="es_program_4_title" placeholder="Título" value="{{ isset($page->micro->es_program_4_title ) ? $page->micro->es_program_4_title : old('es_program_4_title') }}">
+            <input class="input-cms" type="text" name="en_program_4_title" id="en_program_4_title" placeholder="Título inglés"  value="{{ isset($page->micro->en_program_4_title ) ? $page->micro->en_program_4_title : old('en_program_4_title') }}">
+            {!! Form::textarea('es_program_4_text',isset($page) ? $page->micro->es_program_4_text : old('es_program_4_text'),['class'=>'input-cms','id'=>'es_program_4_text','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+            {!! Form::textarea('en_program_4_text',isset($page) ? $page->micro->en_program_4_text : old('en_program_4_text'),['class'=>'input-cms','id'=>'en_program_4_text','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
 
             <label for="program_4_img">
                 <div class="img-preview img-container preview @isset($page->micro->program_4_img){{ 'active' }}@endisset">
@@ -300,8 +308,8 @@
         </label>
         <div class="row">
             <div class="col-sm-12">
-                {!! Form::text('es_programs_title_2',isset($page) ? $page->micro->es_programs_title_2 : null,['class'=>'input-cms','id'=>'es_programs_title_2','placeholder'=>'Título']) !!}
-                {!! Form::text('en_programs_title_2',isset($page) ? $page->micro->en_programs_title_2 : null,['class'=>'input-cms','id'=>'en_programs_title_2','placeholder'=>'Título inglés']) !!}
+                {!! Form::text('es_programs_title_2',isset($page) ? $page->micro->es_programs_title_2 : old('es_programs_title_2'),['class'=>'input-cms','id'=>'es_programs_title_2','placeholder'=>'Título']) !!}
+                {!! Form::text('en_programs_title_2',isset($page) ? $page->micro->en_programs_title_2 : old('en_programs_title_2'),['class'=>'input-cms','id'=>'en_programs_title_2','placeholder'=>'Título inglés']) !!}
             </div>
         </div>
     </div>
@@ -309,8 +317,10 @@
     <div class="col-sm-6 col-md-6">
         <label for="es_program_1_title_2" class="img_upload_container">
             Sección 1
-            <input class="input-cms" type="text" name="es_program_1_title_2" id="es_program_1_title_2" placeholder="Título" value="@isset($page->micro->es_program_1_title_2 ){{ $page->micro->es_program_1_title_2 }}@endisset">
-            <input class="input-cms" type="text" name="en_program_1_title_2" id="en_program_1_title_2" placeholder="Título inglés"  value="@isset($page->micro->en_program_1_title_2 ){{ $page->micro->en_program_1_title_2 }}@endisset">
+            <input class="input-cms" type="text" name="es_program_1_title_2" id="es_program_1_title_2" placeholder="Título" value="{{ isset($page->micro->es_program_1_title_2 ) ? $page->micro->es_program_1_title_2 : old('es_program_1_title_2')}}">
+            <input class="input-cms" type="text" name="en_program_1_title_2" id="en_program_1_title_2" placeholder="Título inglés"  value="{{ isset($page->micro->en_program_1_title_2 ) ? $page->micro->en_program_1_title_2 : old('en_program_1_title_2')}}">
+            {!! Form::textarea('es_program_1_text_2',isset($page) ? $page->micro->es_program_1_text_2 : old('es_program_1_text_2'),['class'=>'input-cms','id'=>'es_program_1_text_2','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+            {!! Form::textarea('en_program_1_text_2',isset($page) ? $page->micro->en_program_1_text_2 : old('en_program_1_text_2'),['class'=>'input-cms','id'=>'en_program_1_text_2','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
 
             <label for="program_1_img_2">
                 <div class="img-preview img-container preview @isset($page->micro->program_1_img){{ 'active' }}@endisset">
@@ -335,8 +345,10 @@
     <div class="col-sm-6 col-md-6">
         <label for="es_program_2_title_2" class="img_upload_container">
             Sección 2
-            <input class="input-cms" type="text" name="es_program_2_title_2" id="es_program_2_title_2" placeholder="Título" value="@isset($page->micro->es_program_2_title_2 ){{ $page->micro->es_program_2_title_2 }}@endisset">
-            <input class="input-cms" type="text" name="en_program_2_title_2" id="en_program_2_title_2" placeholder="Título inglés"  value="@isset($page->micro->en_program_2_title_2 ){{ $page->micro->en_program_2_title_2 }}@endisset">
+            <input class="input-cms" type="text" name="es_program_2_title_2" id="es_program_2_title_2" placeholder="Título" value="{{ isset($page->micro->es_program_2_title_2 ) ? $page->micro->es_program_2_title_2 : old('es_program_2_title_2')}}">
+            <input class="input-cms" type="text" name="en_program_2_title_2" id="en_program_2_title_2" placeholder="Título inglés"  value="{{ isset($page->micro->en_program_2_title_2 ) ? $page->micro->en_program_2_title_2 : old('en_program_2_title_2')}}">
+            {!! Form::textarea('es_program_2_text_2',isset($page) ? $page->micro->es_program_2_text_2 : old('es_program_2_text_2'),['class'=>'input-cms','id'=>'es_program_2_text_2','placeholder'=>'Texto','cols'=>30,'rows'=>5]) !!}
+            {!! Form::textarea('en_program_2_text_2',isset($page) ? $page->micro->en_program_2_text_2 : old('en_program_2_text_2'),['class'=>'input-cms','id'=>'en_program_2_text_2','placeholder'=>'Texto inglés','cols'=>30,'rows'=>5]) !!}
 
             <label for="program_2_img_2">
                 <div class="img-preview img-container preview @isset($page->micro->program_2_img_2){{ 'active' }}@endisset">

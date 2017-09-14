@@ -240,6 +240,7 @@
                             </label>
                         </label>
                     </div>
+                    <div class="clearfix hidden-lg hidden-md"></div>
                     <div class="col-sm-6 col-md-4">
                         <label for="es_about_3_title" class="img_upload_container">
                             Sección 3

@@ -31,6 +31,14 @@ class PagesController extends Controller {
     public function store (Request $request) {
         $page_type_id = $request->input('page_type');
 
+        $this->validateMainPageInfo($request);
+
+        if($page_type_id == 2) {
+            $this->validatePageMicro($request);
+        } else if($page_type_id == 3) {
+            $this->validatePageExternal($request);
+        }
+
         $page = new Page();
         $page->page_title = $request->input('page_title');
         $page->color_id = $request->input('color');
@@ -141,6 +149,8 @@ class PagesController extends Controller {
             }
             $page->es_program_1_title = $request->input('es_program_1_title');
             $page->en_program_1_title = $request->input('en_program_1_title');
+            $page->es_program_1_text = $request->input('es_program_1_text');
+            $page->en_program_1_text = $request->input('en_program_1_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
 
             if($_FILES['program_2_img']['size'] > 0) {
@@ -153,6 +163,8 @@ class PagesController extends Controller {
             }
             $page->es_program_2_title = $request->input('es_program_2_title');
             $page->en_program_2_title = $request->input('en_program_2_title');
+            $page->es_program_2_text = $request->input('es_program_2_text');
+            $page->en_program_2_text = $request->input('en_program_2_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
 
             if($_FILES['program_3_img']['size'] > 0) {
@@ -165,6 +177,8 @@ class PagesController extends Controller {
             }
             $page->es_program_3_title = $request->input('es_program_3_title');
             $page->en_program_3_title = $request->input('en_program_3_title');
+            $page->es_program_3_text = $request->input('es_program_3_text');
+            $page->en_program_3_text = $request->input('en_program_3_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
 
             if($_FILES['program_4_img']['size'] > 0) {
@@ -177,6 +191,8 @@ class PagesController extends Controller {
             }
             $page->es_program_4_title = $request->input('es_program_4_title');
             $page->en_program_4_title = $request->input('en_program_4_title');
+            $page->es_program_4_text = $request->input('es_program_4_text');
+            $page->en_program_4_text = $request->input('en_program_4_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_4',false,true,true);
 
             //  SEGUNDO BANNER/VIDEO
@@ -203,6 +219,8 @@ class PagesController extends Controller {
             }
             $page->es_program_1_title_2 = $request->input('es_program_1_title_2');
             $page->en_program_1_title_2 = $request->input('en_program_1_title_2');
+            $page->es_program_1_text_2 = $request->input('es_program_1_text_2');
+            $page->en_program_1_text_2 = $request->input('en_program_1_text_2');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1_2',false,true,true);
 
             if($_FILES['program_2_img_2']['size'] > 0) {
@@ -215,6 +233,8 @@ class PagesController extends Controller {
             }
             $page->es_program_2_title_2 = $request->input('es_program_2_title_2');
             $page->en_program_2_title_2 = $request->input('en_program_2_title_2');
+            $page->es_program_2_text_2 = $request->input('es_program_2_text_2');
+            $page->en_program_2_text_2 = $request->input('en_program_2_text_2');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2_2',false,true,true);
 
             $page->save();
@@ -339,6 +359,13 @@ class PagesController extends Controller {
             $page = PageIndex::find($id);
             return $this->updateIndex($request, $id, $page);
         } else {
+            $this->validateMainPageInfo($request);
+
+            if($page->page_type_id == 2) {
+                $this->validatePageMicro($request);
+            } else if($page->page_type_id == 3) {
+                $this->validatePageExternal($request);
+            }
             return $this->updateMicro($request, $id, $page);
         }
     }
@@ -453,6 +480,8 @@ class PagesController extends Controller {
             }
             $page->es_program_1_title = $request->input('es_program_1_title');
             $page->en_program_1_title = $request->input('en_program_1_title');
+            $page->es_program_1_text = $request->input('es_program_1_text');
+            $page->en_program_1_text = $request->input('en_program_1_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
 
             if($_FILES['program_2_img']['size'] > 0) {
@@ -465,6 +494,8 @@ class PagesController extends Controller {
             }
             $page->es_program_2_title = $request->input('es_program_2_title');
             $page->en_program_2_title = $request->input('en_program_2_title');
+            $page->es_program_2_text = $request->input('es_program_2_text');
+            $page->en_program_2_text = $request->input('en_program_2_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
 
             if($_FILES['program_3_img']['size'] > 0) {
@@ -477,6 +508,8 @@ class PagesController extends Controller {
             }
             $page->es_program_3_title = $request->input('es_program_3_title');
             $page->en_program_3_title = $request->input('en_program_3_title');
+            $page->es_program_3_text = $request->input('es_program_3_text');
+            $page->en_program_3_text = $request->input('en_program_3_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
 
             if($_FILES['program_4_img']['size'] > 0) {
@@ -489,6 +522,8 @@ class PagesController extends Controller {
             }
             $page->es_program_4_title = $request->input('es_program_4_title');
             $page->en_program_4_title = $request->input('en_program_4_title');
+            $page->es_program_4_text = $request->input('es_program_4_text');
+            $page->en_program_4_text = $request->input('en_program_4_text');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_4',false,true,true);
 
             //  SEGUNDO BANNER/VIDEO
@@ -515,6 +550,8 @@ class PagesController extends Controller {
             }
             $page->es_program_1_title_2 = $request->input('es_program_1_title_2');
             $page->en_program_1_title_2 = $request->input('en_program_1_title_2');
+            $page->es_program_1_text_2 = $request->input('es_program_1_text_2');
+            $page->en_program_1_text_2 = $request->input('en_program_1_text_2');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1_2',false,true,true);
 
             if($_FILES['program_2_img_2']['size'] > 0) {
@@ -527,6 +564,8 @@ class PagesController extends Controller {
             }
             $page->es_program_2_title_2 = $request->input('es_program_2_title_2');
             $page->en_program_2_title_2 = $request->input('en_program_2_title_2');
+            $page->es_program_2_text_2 = $request->input('es_program_2_text_2');
+            $page->en_program_2_text_2 = $request->input('en_program_2_text_2');
             fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2_2',false,true,true);
 
             $page->save();
@@ -727,7 +766,7 @@ class PagesController extends Controller {
             'es_sites_subtitle' => 'Subtítulo de direcciones',
             'es_blog_title' => 'Título de blog',
             'video_banner' => 'Video',
-            'about_1_img' => 'Imágen 1 información',
+            'about_1_img' => 'Imagen 1 información',
             'es_about_1_title' => 'Título 1 información',
             'es_about_1_text' => 'Texto 1 información',
             'about_2_img' => 'Imagen 2 información',
@@ -736,6 +775,109 @@ class PagesController extends Controller {
             'about_3_img' => 'Imagen 3 información',
             'es_about_3_title' => 'Título 3 información',
             'es_about_3_text' => 'Texto 3 información',
+        ]);
+    }
+
+    private function validatePageMicro(Request $request) {
+        $this->validate($request, [
+            'es_diamond_1_text' => 'required|max:255',
+            'es_page_about_title' => 'required|max:128',
+            'es_page_about_text' => 'required|max:512',
+            'es_about_1_title' => 'required|max:128',
+            'es_about_1_text' => 'required|max:512',
+            'about_1_img' => 'required|sometimes',
+            'es_about_2_title' => 'required|max:128',
+            'es_about_2_text' => 'required|max:512',
+            'about_2_img' => 'required|sometimes',
+            'es_about_3_title' => 'required|max:128',
+            'es_about_3_text' => 'required|max:512',
+            'about_3_img' => 'required|sometimes',
+            'banner_2_img' => 'required|sometimes',
+            'page_video_iframe' => 'required|max:512',
+            'es_programs_title' => 'required|max:128',
+            'es_program_1_title' => 'required|max:128',
+            'program_1_img' => 'required|sometimes',
+            'es_program_2_title' => 'required|max:128',
+            'program_2_img' => 'required|sometimes',
+            'es_program_3_title' => 'required|max:128',
+            'program_3_img' => 'required|sometimes',
+            'es_program_4_title' => 'required|max:128',
+            'program_4_img' => 'required|sometimes',
+            'banner_3_img' => 'required|sometimes',
+            'es_programs_title_2' => 'required|max:128',
+            'es_program_1_title_2' => 'required|max:128',
+            'program_1_img_2' => 'required|sometimes',
+            'es_program_2_title_2' => 'required|max:128',
+            'program_2_img_2' => 'required|sometimes',
+            'es_program_1_text' => 'required|max:512',
+            'es_program_2_text' => 'required|max:512',
+            'es_program_3_text' => 'required|max:512',
+            'es_program_4_text' => 'required|max:512',
+            'es_program_1_text_2' => 'required|max:512',
+            'es_program_2_text_2' => 'required|max:512',
+        ],[
+            'required'  =>  ':attribute es obliogatorio.',
+            'max'       =>  ':attribute, la máxima cantidad de caracteres permitida para el campo o el nombre de archivo es de :max',
+        ],[
+            'es_diamond_1_text' => 'Texto rombo',
+            'es_page_about_title' => 'Título de Acerca de',
+            'es_page_about_text' => 'Texto de Acerca de',
+            'es_about_1_title' => 'Título 1 información',
+            'es_about_1_text' => 'Texto 1 información',
+            'about_1_img' => 'Imagen 1 información',
+            'es_about_2_title' => 'Título 2 información',
+            'es_about_2_text' => 'Texto 2 información',
+            'about_2_img' => 'Imagen 2 información',
+            'es_about_3_title' => 'Título 3 información',
+            'es_about_3_text' => 'Texto 3 información',
+            'about_3_img' => 'Imagen 3 información',
+            'banner_2_img' => 'Segundo banner',
+            'page_video_iframe' => 'Video',
+            'es_programs_title' => 'Título Programas',
+            'es_program_1_title' => 'Título 1 programa',
+            'program_1_img' => 'Imagen 1 programa',
+            'es_program_2_title' => 'Título 2 programa',
+            'program_2_img' => 'Imagen 2 programa',
+            'es_program_3_title' => 'Título 3 programa',
+            'program_3_img' => 'Imagen 3 programa',
+            'es_program_4_title' => 'Título 4 programa',
+            'program_4_img' => 'Imagen 4 programa',
+            'banner_3_img' => 'Tercer banner',
+            'es_programs_title_2' => 'Títulos programas administrados',
+            'es_program_1_title_2' => 'Título 1 programa admin.',
+            'program_1_img_2' => 'Imagen 1 programa admin.',
+            'es_program_2_title_2' => 'Título 2 programa admin.',
+            'program_2_img_2' => 'Imagen 2 programa admin.',
+            'es_program_1_text' => 'Texto 1 programa',
+            'es_program_2_text' => 'Texto 2 programa',
+            'es_program_3_text' => 'Texto 3 programa',
+            'es_program_4_text' => 'Texto 4 programa',
+            'es_program_1_text_2' => 'Texto 1 programa admin.',
+            'es_program_2_text_2' => 'Texto 2 programa admin.',
+        ]);
+    }
+
+    private function validatePageExternal(Request $request) {
+        $this->validate($request, [
+            'page_external_url' => 'required|max:512'
+        ],[
+            'required'  =>  ':attribute es obliogatorio.',
+            'max'       =>  ':attribute, la máxima cantidad de caracteres permitida para el campo o el nombre de archivo es de :max',
+        ],[
+            'page_external_url' => 'URL del sitio externo'
+        ]);
+    }
+
+    private function validateMainPageInfo(Request $request) {
+        $this->validate($request, [
+            'page_title' => 'required|max:255',
+            'page_url' => 'page_url|sometimes',
+        ],[
+            'required'  =>  ':attribute es obliogatorio.',
+            'max'       =>  ':attribute, la máxima cantidad de caracteres permitida para el campo o el nombre de archivo es de :max',
+        ],[
+            'page_title' => 'Nombre del sitio',
+            'page_url' => 'URL del sitio',
         ]);
     }
 

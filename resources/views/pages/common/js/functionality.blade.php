@@ -39,17 +39,19 @@
 
             $('.form-container').fadeOut('fast');
 
-            $page_slug_container = $('#page_url').closest('.col-sm-12');
-            $form = '';
+            var page_slug_container = $('#page_url').closest('.col-sm-12'),
+                page_url_input = $('#page_url');
 
             switch (selected_option) {
                 case '2':
                     $('#micro-form').fadeIn('fast');
-                    $page_slug_container.fadeIn('fast');
+                    page_slug_container.fadeIn('fast');
+                    page_url_input.prop('disabled',false);
                     break;
                 case '3':
                     $('#external-form').fadeIn('fast');
-                    $page_slug_container.fadeOut('fast');
+                    page_slug_container.fadeOut('fast');
+                    page_url_input.prop('disabled',true);
                     break;
                 default:
                     break;

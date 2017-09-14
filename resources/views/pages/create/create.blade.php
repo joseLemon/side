@@ -10,14 +10,14 @@
                 {!! Form::label('page_type','Tipo de página') !!}
                 <select class="input-cms" name="page_type" id="page_type">
                     @foreach($page_types as $type)
-                        <option value="{{ $type->page_type_id }}">{{ $type->page_type_name }}</option>
+                        <option value="{{ $type->page_type_id }}" @if(old('page_type') == $type->page_type_id){{ 'selected' }}@endif >{{ $type->page_type_name }}</option>
                     @endforeach
                 </select>
                 @include('pages.common.views.form_page')
-                <div class="form-container" id="micro-form">
+                <div class="form-container" id="micro-form" @if(old('page_type') > 2){!! 'style="display: none;"' !!}@endif>
                     @include('pages.common.views.form_micro')
                 </div>
-                <div class="form-container" id="external-form" style="display: none;">
+                <div class="form-container" id="external-form" @if(old('page_type') != 3){!! 'style="display: none;"' !!}@endif>
                     @include('pages.common.views.form_external')
                 </div>
                 <div class="text-center">
