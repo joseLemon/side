@@ -1,6 +1,7 @@
 <script>
     $(document).ready(function() {
         $('.input-file-img').change(readFile);
+        $('.input-file-doc').change(readFileDoc);
 
         $('.img-container .remove-img').click(function () {
             var button = $(this),
@@ -32,6 +33,30 @@
                 input.data('value', '');
             }
         }
+
+        function readFileDoc() {
+            var input = $(this),
+                label_text = input.closest('label').find('.label_text');
+            if (this.files && this.files[0]) {
+
+                var FR = new FileReader();
+
+                FR.addEventListener("load", function (e) {
+                    if(input.val() != '') {
+                        input.addClass('loaded-file');
+                        label_text.text(input.val().split('\\').pop());
+                    } else {
+                    }
+                });
+
+                FR.readAsDataURL(this.files[0]);
+            } else {
+                label_text.text('Elegir documento');
+                input.removeClass('loaded-file');
+            }
+        }
+
+
 
         $('#page_type').change(function () {
             var select = $(this),

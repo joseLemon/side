@@ -20,7 +20,45 @@ textarea.input-cms {
 .input-file-cms {
     cursor: pointer;
     font-weight: 100;
-    text-decoration: underline;
+    color: #0086bd;
+    border: 1.5px solid #0086bd;
+    display: inline-block;
+    max-width: 200px;
+    text-align: center;
+    padding: 5px 25px;
+    position: relative;
+    margin: 4px auto;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.input-file-cms:hover {
+    color: #0072a0;
+    border: 1.5px solid #0072a0;
+}
+
+.input-file-cms .label_text {
+    display: block;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.input-file-cms:before {
+    content: "\f093";
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .input-file-cms input {

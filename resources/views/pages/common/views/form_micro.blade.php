@@ -10,7 +10,7 @@
             </div>
             Imagen del banner
             <label for="banner_1_img" class="input-file-cms">
-                Elegir imagen
+                <span class="label_text">Elegir imagen</span>
                 <input type="file" name="banner_1_img" id="banner_1_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="banner_1_img_check" id="banner_1_img_check">
             </label>
@@ -75,7 +75,7 @@
                 </div>
                 Imagen de la sección
                 <label for="about_1_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="about_1_img" id="about_1_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_about_1_check" id="state_about_1_check">
                 </label>
@@ -97,7 +97,7 @@
                 </div>
                 Imagen de la sección
                 <label for="about_2_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="about_2_img" id="about_2_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_about_2_check" id="state_about_2_check">
                 </label>
@@ -120,7 +120,7 @@
                 </div>
                 Imagen de la sección
                 <label for="about_3_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="about_3_img" id="about_3_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_about_3_check" id="state_about_3_check">
                 </label>
@@ -140,7 +140,7 @@
             </div>
             Imagen del banner
             <label for="banner_2_img" class="input-file-cms">
-                Elegir imagen
+                <span class="label_text">Elegir imagen</span>
                 <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="banner_2_img_check" id="banner_2_img_check">
             </label>
@@ -185,15 +185,15 @@
                 </div>
                 Imagen de la sección
                 <label for="program_1_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="program_1_img" id="program_1_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_1_check" id="state_program_1_check">
                 </label>
             </label>
 
-            <label for="file_program_1" class="input-file-cms">
-                Elegir documento
-                <input type="file" name="file_program_1" id="file_program_1">
+            <label for="file_program_1" class="input-file-cms document">
+                <span class="label_text">{{ isset($page->micro->file_program_1) ? $page->micro->file_program_1 : 'Elegir documento' }}</span>
+                <input type="file" name="file_program_1" id="file_program_1" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_1_check" id="state_file_program_1_check">
             </label>
         </label>
@@ -213,15 +213,15 @@
                 </div>
                 Imagen de la sección
                 <label for="program_2_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="program_2_img" id="program_2_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_2_check" id="state_program_2_check">
                 </label>
             </label>
 
-            <label for="file_program_2" class="input-file-cms">
-                Elegir documento
-                <input type="file" name="file_program_2" id="file_program_2">
+            <label for="file_program_2" class="input-file-cms document">
+                <span class="label_text">{{ isset($page->micro->file_program_2) ? $page->micro->file_program_2 : 'Elegir documento' }}</span>
+                <input type="file" name="file_program_2" id="file_program_2" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_2_check" id="state_file_program_2_check">
             </label>
         </label>
@@ -242,15 +242,15 @@
                 </div>
                 Imagen de la sección
                 <label for="program_3_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="program_3_img" id="program_3_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_3_check" id="state_program_3_check">
                 </label>
             </label>
 
-            <label for="file_program_3" class="input-file-cms">
-                Elegir documento
-                <input type="file" name="file_program_3" id="file_program_3">
+            <label for="file_program_3" class="input-file-cms document">
+                <span class="label_text">{{ isset($page->micro->file_program_3) ? $page->micro->file_program_3 : 'Elegir documento' }}</span>
+                <input type="file" name="file_program_3" id="file_program_3" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_3_check" id="state_file_program_3_check">
             </label>
         </label>
@@ -270,15 +270,15 @@
                 </div>
                 Imagen de la sección
                 <label for="program_4_img" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="program_4_img" id="program_4_img" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_4_check" id="state_program_4_check">
                 </label>
             </label>
 
-            <label for="file_program_4" class="input-file-cms">
-                Elegir documento
-                <input type="file" name="file_program_4" id="file_program_4">
+            <label for="file_program_4" class="input-file-cms document">
+                <span class="label_text">{{ isset($page->micro->file_program_4) ? $page->micro->file_program_4 : 'Elegir documento' }}</span>
+                <input type="file" name="file_program_4" id="file_program_4" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_4_check" id="state_file_program_4_check">
             </label>
         </label>
@@ -296,7 +296,7 @@
             </div>
             Imagen del banner
             <label for="banner_3_img" class="input-file-cms">
-                Elegir imagen
+                <span class="label_text">Elegir imagen</span>
                 <input type="file" name="banner_3_img" id="banner_3_img" accept="image/*" class="input-file-img">
                 <input type="hidden" name="banner_3_img_check" id="banner_3_img_check">
             </label>
@@ -329,15 +329,15 @@
                 </div>
                 Imagen de la sección
                 <label for="program_1_img_2" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="program_1_img_2" id="program_1_img_2" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_1_check_2" id="state_program_1_check_2">
                 </label>
             </label>
 
-            <label for="file_program_1_2" class="input-file-cms">
-                Elegir documento
-                <input type="file" name="file_program_1_2" id="file_program_1_2">
+            <label for="file_program_1_2" class="input-file-cms document">
+                <span class="label_text">{{ isset($page->micro->file_program_1_2) ? $page->micro->file_program_1_2 : 'Elegir documento' }}</span>
+                <input type="file" name="file_program_1_2" id="file_program_1_2" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_1_check_2" id="state_file_program_1_check_2">
             </label>
         </label>
@@ -357,15 +357,15 @@
                 </div>
                 Imagen de la sección
                 <label for="program_2_img_2" class="input-file-cms">
-                    Elegir imagen
+                    <span class="label_text">Elegir imagen</span>
                     <input type="file" name="program_2_img_2" id="program_2_img_2" accept="image/*" class="input-file-img">
                     <input type="hidden" name="state_program_2_check_2" id="state_program_2_check_2">
                 </label>
             </label>
 
-            <label for="file_program_2_2" class="input-file-cms">
-                Elegir documento
-                <input type="file" name="file_program_2_2" id="file_program_2_2">
+            <label for="file_program_2_2" class="input-file-cms document">
+                <span class="label_text">{{ isset($page->micro->file_program_2_2) ? $page->micro->file_program_2_2 : 'Elegir documento' }}</span>
+                <input type="file" name="file_program_2_2" id="file_program_2_2" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_2_check_2" id="state_file_program_2_check_2">
             </label>
         </label>
