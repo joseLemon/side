@@ -151,8 +151,10 @@ class PagesController extends Controller {
             $page->en_program_1_title = $request->input('en_program_1_title');
             $page->es_program_1_text = $request->input('es_program_1_text');
             $page->en_program_1_text = $request->input('en_program_1_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
-            $page->file_program_1 = $_FILES['file_program_1']['name'];
+            if($_FILES['file_program_1']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_1', false, true, true);
+                $page->file_program_1 = $_FILES['file_program_1']['name'];
+            }
 
             if($_FILES['program_2_img']['size'] > 0) {
                 $delete = false;
@@ -166,8 +168,10 @@ class PagesController extends Controller {
             $page->en_program_2_title = $request->input('en_program_2_title');
             $page->es_program_2_text = $request->input('es_program_2_text');
             $page->en_program_2_text = $request->input('en_program_2_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
-            $page->file_program_2 = $_FILES['file_program_2']['name'];
+            if($_FILES['file_program_']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_2', false, true, true);
+                $page->file_program_2 = $_FILES['file_program_2']['name'];
+            }
 
             if($_FILES['program_3_img']['size'] > 0) {
                 $delete = false;
@@ -181,8 +185,10 @@ class PagesController extends Controller {
             $page->en_program_3_title = $request->input('en_program_3_title');
             $page->es_program_3_text = $request->input('es_program_3_text');
             $page->en_program_3_text = $request->input('en_program_3_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
-            $page->file_program_3 = $_FILES['file_program_3']['name'];
+            if($_FILES['file_program_3']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_3', false, true, true);
+                $page->file_program_3 = $_FILES['file_program_3']['name'];
+            }
 
             if($_FILES['program_4_img']['size'] > 0) {
                 $delete = false;
@@ -196,8 +202,10 @@ class PagesController extends Controller {
             $page->en_program_4_title = $request->input('en_program_4_title');
             $page->es_program_4_text = $request->input('es_program_4_text');
             $page->en_program_4_text = $request->input('en_program_4_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_4',false,true,true);
-            $page->file_program_4 = $_FILES['file_program_4']['name'];
+            if($_FILES['file_program_4']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_4', false, true, true);
+                $page->file_program_4 = $_FILES['file_program_4']['name'];
+            }
 
             //  SEGUNDO BANNER/VIDEO
             if($_FILES['banner_3_img']['size'] > 0) {
@@ -225,8 +233,10 @@ class PagesController extends Controller {
             $page->en_program_1_title_2 = $request->input('en_program_1_title_2');
             $page->es_program_1_text_2 = $request->input('es_program_1_text_2');
             $page->en_program_1_text_2 = $request->input('en_program_1_text_2');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1_2',false,true,true);
-            $page->file_program_1_2 = $_FILES['file_program_1_2']['name'];
+            if($_FILES['file_program_1_2']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_1_2', false, true, true);
+                $page->file_program_1_2 = $_FILES['file_program_1_2']['name'];
+            }
 
             if($_FILES['program_2_img_2']['size'] > 0) {
                 $delete = false;
@@ -240,8 +250,10 @@ class PagesController extends Controller {
             $page->en_program_2_title_2 = $request->input('en_program_2_title_2');
             $page->es_program_2_text_2 = $request->input('es_program_2_text_2');
             $page->en_program_2_text_2 = $request->input('en_program_2_text_2');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2_2',false,true,true);
-            $page->file_program_2_2 = $_FILES['file_program_2_2']['name'];
+            if($_FILES['file_program_2_2']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_2_2', false, true, true);
+                $page->file_program_2_2 = $_FILES['file_program_2_2']['name'];
+            }
 
             $page->save();
 
@@ -264,19 +276,37 @@ class PagesController extends Controller {
         $search = $request->input('search','');
         $paginate = $request->input('paginate',10);
         $except = $request->input('except');
+        $getAll = $request->input('getAll', false);
 
         $date = date('Y-m-d', strtotime(str_replace('/', '-', $search)));
         if($date == '1970-01-01') {
             $date = $search;
         }
 
-        $pages = Page::select([
-            'page_id',
-            'page_title',
-            'created_at as page_date',
-            'page_type_id as page_type',
-        ])
-            ->orderBy('page_id');
+        if($getAll) {
+            $pages = Page::select([
+                'pages.page_id',
+                'page_title',
+                'page_url',
+                'page_img',
+                'color_slug',
+                'pages.created_at as page_date',
+                'page_type_id as page_type',
+                'page_external_url'
+            ])
+                ->join('colors','colors.color_id','=','pages.color_id')
+                ->leftJoin('pages_external','pages_external.page_id','=','pages.page_id')
+                ->groupBy('pages.page_id')
+                ->orderBy('pages.page_id');
+        } else {
+            $pages = Page::select([
+                'page_id',
+                'page_title',
+                'created_at as page_date',
+                'page_type_id as page_type',
+            ])
+                ->orderBy('page_id');
+        }
 
         if($request->input('get_pages_by') == 'search') {
             $pages->whereRaw(
@@ -293,7 +323,11 @@ class PagesController extends Controller {
             $pages->where('page_type_id','!=',$except);
         }
 
-        $query = $pages->paginate($paginate);
+        if($getAll) {
+            $query = $pages->get();
+        } else {
+            $query = $pages->paginate($paginate);
+        }
 
         setlocale(LC_ALL,"es_MX","es_Mx","esp");
         foreach($query as $q) {
@@ -488,8 +522,10 @@ class PagesController extends Controller {
             $page->en_program_1_title = $request->input('en_program_1_title');
             $page->es_program_1_text = $request->input('es_program_1_text');
             $page->en_program_1_text = $request->input('en_program_1_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
-            $page->file_program_1 = $_FILES['file_program_1']['name'];
+            if($_FILES['file_program_1']['size'] > 0) {
+                fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
+                $page->file_program_1 = $_FILES['file_program_1']['name'];
+            }
 
             if($_FILES['program_2_img']['size'] > 0) {
                 $delete = false;
@@ -503,8 +539,10 @@ class PagesController extends Controller {
             $page->en_program_2_title = $request->input('en_program_2_title');
             $page->es_program_2_text = $request->input('es_program_2_text');
             $page->en_program_2_text = $request->input('en_program_2_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
-            $page->file_program_2 = $_FILES['file_program_2']['name'];
+            if($_FILES['file_program_2']['size'] > 0) {
+                fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
+                $page->file_program_2 = $_FILES['file_program_2']['name'];
+            }
 
             if($_FILES['program_3_img']['size'] > 0) {
                 $delete = false;
@@ -518,8 +556,10 @@ class PagesController extends Controller {
             $page->en_program_3_title = $request->input('en_program_3_title');
             $page->es_program_3_text = $request->input('es_program_3_text');
             $page->en_program_3_text = $request->input('en_program_3_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
-            $page->file_program_3 = $_FILES['file_program_3']['name'];
+            if($_FILES['file_program_3']['size'] > 0) {
+                fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
+                $page->file_program_3 = $_FILES['file_program_3']['name'];
+            }
 
             if($_FILES['program_4_img']['size'] > 0) {
                 $delete = false;
@@ -533,8 +573,10 @@ class PagesController extends Controller {
             $page->en_program_4_title = $request->input('en_program_4_title');
             $page->es_program_4_text = $request->input('es_program_4_text');
             $page->en_program_4_text = $request->input('en_program_4_text');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_4',false,true,true);
-            $page->file_program_4 = $_FILES['file_program_4']['name'];
+            if($_FILES['file_program_4']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_4', false, true, true);
+                $page->file_program_4 = $_FILES['file_program_4']['name'];
+            }
 
             //  SEGUNDO BANNER/VIDEO
             if($_FILES['banner_3_img']['size'] > 0) {
@@ -562,8 +604,10 @@ class PagesController extends Controller {
             $page->en_program_1_title_2 = $request->input('en_program_1_title_2');
             $page->es_program_1_text_2 = $request->input('es_program_1_text_2');
             $page->en_program_1_text_2 = $request->input('en_program_1_text_2');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1_2',false,true,true);
-            $page->file_program_1_2 = $_FILES['file_program_1_2']['name'];
+            if($_FILES['file_program_1_2']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_1_2', false, true, true);
+                $page->file_program_1_2 = $_FILES['file_program_1_2']['name'];
+            }
 
             if($_FILES['program_2_img_2']['size'] > 0) {
                 $delete = false;
@@ -577,8 +621,10 @@ class PagesController extends Controller {
             $page->en_program_2_title_2 = $request->input('en_program_2_title_2');
             $page->es_program_2_text_2 = $request->input('es_program_2_text_2');
             $page->en_program_2_text_2 = $request->input('en_program_2_text_2');
-            fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2_2',false,true,true);
-            $page->file_program_2_2 = $_FILES['file_program_2_2']['name'];
+            if($_FILES['file_program_2_2']['size'] > 0) {
+                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_2_2', false, true, true);
+                $page->file_program_2_2 = $_FILES['file_program_2_2']['name'];
+            }
 
             $page->save();
 
@@ -882,14 +928,14 @@ class PagesController extends Controller {
 
     private function validateMainPageInfo(Request $request) {
         $this->validate($request, [
-            'page_title' => 'required|max:255',
-            'page_url' => 'page_url|sometimes',
+            'page_title'    => 'required|max:255',
+            'page_url'      => 'required|sometimes',
         ],[
-            'required'  =>  ':attribute es obliogatorio.',
-            'max'       =>  ':attribute, la máxima cantidad de caracteres permitida para el campo o el nombre de archivo es de :max',
+            'required'      =>  ':attribute es obliogatorio.',
+            'max'           =>  ':attribute, la máxima cantidad de caracteres permitida para el campo o el nombre de archivo es de :max',
         ],[
-            'page_title' => 'Nombre del sitio',
-            'page_url' => 'URL del sitio',
+            'page_title'    => 'Nombre del sitio',
+            'page_url'      => 'URL del sitio',
         ]);
     }
 
@@ -902,4 +948,5 @@ class PagesController extends Controller {
 
         return $page;
     }
+
 }

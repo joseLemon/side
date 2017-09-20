@@ -12,7 +12,8 @@
 */
 
 Route::get('/', ['as' => 'site.index', 'uses' => 'IndexController@index']);
-Route::get('/micro/{name}', ['as' => 'site.micro', 'uses' => 'IndexController@micro']);
+Route::get('/{slug}', ['as' => 'site.micro', 'uses' => 'IndexController@micro']);
+//Route::get('/micro/{name}', ['as' => 'site.micro', 'uses' => 'IndexController@micro']);
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/setLanguage', ['as' => 'language.set', 'uses' => 'IndexController@setLanguage']);
 

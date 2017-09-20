@@ -149,7 +149,7 @@
     <div class="col-sm-6">
         <label for="page_video_iframe">
             iframe de Youtube
-            {!! Form::text('page_video_iframe',isset($page) ? $page->page_video_iframe : old('page_video_iframe'),['class'=>'input-cms','id'=>'page_video_iframe','placeholder'=>'iframe de Youtube']) !!}
+            {!! Form::text('page_video_iframe',isset($page) ? $page->micro->page_video_iframe : old('page_video_iframe'),['class'=>'input-cms','id'=>'page_video_iframe','placeholder'=>'iframe de Youtube']) !!}
         </label>
     </div>
 </div>

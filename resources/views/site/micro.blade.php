@@ -1,6 +1,6 @@
 @extends('layouts.site.master')
 @section('content')
-    <div class="{{ $overlay_color }}-overlay">
+    <div class="{{ $page->color_slug }}-overlay">
         <!-- ================================== -->
 
         <!-- ///////////  BANNER  \\\\\\\\\\\ -->
@@ -17,7 +17,15 @@
                         <a href="">
                             <div class="title">
                                 <div class="header">
-                                    INSTITUTO DE CAPACITACIÓN PARA EL TRABAJO DEL ESTADO DE CHIHUAHUA
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_diamond_1_text))
+                                            {!! $page->micro->en_diamond_1_text !!}
+                                        @else
+                                            {!! $page->micro->es_diamond_1_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_diamond_1_text !!}
+                                    @endif
                                 </div>
                                 <span class="date">ICATECH:</span>
                             </div>
@@ -50,32 +58,113 @@
         <!-- ================================== -->
         <div class="acerca" id="acerca">
             <div class="container spacing">
-                <h1 class="heading bold text-center">¿Quiénes somos?</h1>
+                <h1 class="heading bold text-center">
+                    @if(isset($_COOKIE['indexLanguage']))
+                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_page_about_title))
+                            {!! $page->micro->en_page_about_title !!}
+                        @else
+                            {!! $page->micro->es_page_about_title !!}
+                        @endif
+                    @else
+                        {!! $page->micro->es_page_about_title !!}
+                    @endif
+                </h1>
                 <div class="fancy-text">
                     <p>
-                        Somos el Fideicomiso Para el Fomento de las Actividades en el Estado de Chihuahua (FIDEAPECH),
-                        y ofrecemos diversas opciones de crédito para negocios, mediante planes de financiamiento adecuados
-                        a sus necesidades, con las tasas mas bajas del mercado, que ayuda al desarrollo sustentable de
-                        nuestro Estado.
-                    </p>
-                    <p>
-                        El fin del fideicomiso es incentivar la economía del Estado de Chihuahua.
+                        @if(isset($_COOKIE['indexLanguage']))
+                            @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_page_about_text))
+                                {!! $page->micro->en_page_about_text !!}
+                            @else
+                                {!! $page->micro->es_page_about_text !!}
+                            @endif
+                        @else
+                            {!! $page->micro->es_page_about_text !!}
+                        @endif
                     </p>
                 </div>
             </div>
             <div class="info">
-                <div class="row no-margin">
+                <div class="row no-margin nav-tab-menu">
                     <div class="col-sm-4">
                         <img src="{{ asset('public/img/micro/acerca/1.png') }}">
-                        <h2>Misión</h2>
+                        <h2>
+                            @if(isset($_COOKIE['indexLanguage']))
+                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_1_title))
+                                    {!! $page->micro->en_about_1_title !!}
+                                @else
+                                    {!! $page->micro->es_about_1_title !!}
+                                @endif
+                            @else
+                                {!! $page->micro->es_about_1_title !!}
+                            @endif
+                        </h2>
+                        <div class="text-container" tabindex="0">
+                            <p class="text">
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_1_text))
+                                        {!! $page->micro->en_about_1_text !!}
+                                    @else
+                                        {!! $page->micro->es_about_1_text !!}
+                                    @endif
+                                @else
+                                    {!! $page->micro->es_about_1_text !!}
+                                @endif
+                            </p>
+                        </div>
                     </div>
                     <div class="col-sm-4">
                         <img src="{{ asset('public/img/micro/acerca/2.png') }}">
-                        <h2>Visión</h2>
+                        <h2>
+                            @if(isset($_COOKIE['indexLanguage']))
+                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_2_title))
+                                    {!! $page->micro->en_about_2_title !!}
+                                @else
+                                    {!! $page->micro->es_about_2_title !!}
+                                @endif
+                            @else
+                                {!! $page->micro->es_about_2_title !!}
+                            @endif
+                        </h2>
+                        <div class="text-container" tabindex="0">
+                            <p class="text">
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_2_text))
+                                        {!! $page->micro->en_about_2_text !!}
+                                    @else
+                                        {!! $page->micro->es_about_2_text !!}
+                                    @endif
+                                @else
+                                    {!! $page->micro->es_about_2_text !!}
+                                @endif
+                            </p>
+                        </div>
                     </div>
                     <div class="col-sm-4">
                         <img src="{{ asset('public/img/micro/acerca/3.png') }}">
-                        <h2>Valores</h2>
+                        <h2>
+                            @if(isset($_COOKIE['indexLanguage']))
+                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_3_title))
+                                    {!! $page->micro->en_about_3_title !!}
+                                @else
+                                    {!! $page->micro->es_about_3_title !!}
+                                @endif
+                            @else
+                                {!! $page->micro->es_about_3_title !!}
+                            @endif
+                        </h2>
+                        <div class="text-container" tabindex="0">
+                            <p class="text">
+                                @if(isset($_COOKIE['indexLanguage']))
+                                    @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_3_text))
+                                        {!! $page->micro->en_about_3_text !!}
+                                    @else
+                                        {!! $page->micro->es_about_3_text !!}
+                                    @endif
+                                @else
+                                    {!! $page->micro->es_about_3_text !!}
+                                @endif
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,7 +202,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/HLVucxPibRs" frameborder="0" allowfullscreen></iframe>
+                        {!! $page->micro->page_video_iframe !!}
                     </div>
                 </div>
             </div>
@@ -125,7 +214,17 @@
         <!-- ================================== -->
         <div class="programas" id="programas">
             <div class="container spacing top">
-                <h1 class="heading bold text-center">Conoce nuestros programas</h1>
+                <h1 class="heading bold text-center">
+                    @if(isset($_COOKIE['indexLanguage']))
+                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_programs_title))
+                            {!! $page->micro->en_programs_title !!}
+                        @else
+                            {!! $page->micro->es_programs_title !!}
+                        @endif
+                    @else
+                        {!! $page->micro->es_programs_title !!}
+                    @endif
+                </h1>
                 <div class="row no-margin">
                     <div class="col-sm-6">
                         <div>
@@ -133,7 +232,28 @@
                                 <img src="{{ asset('public/img/micro/programas/1.png') }}">
                             </div>
                             <div class="text-container">
-                                <h4>Financiamiento para el desarrollo del Estado de Chihuahua</h4>
+                                <h4>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_1_title))
+                                            {!! $page->micro->en_program_1_title !!}
+                                        @else
+                                            {!! $page->micro->es_program_1_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_1_title !!}
+                                    @endif
+                                </h4>
+                                <p>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_1_text))
+                                            {!! $page->micro->en_program_1_text !!}
+                                        @else
+                                            {!! $page->micro->es_program_1_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_1_text !!}
+                                    @endif
+                                </p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -144,7 +264,28 @@
                                 <img src="{{ asset('public/img/micro/programas/2.png') }}">
                             </div>
                             <div class="text-container">
-                                <h4>Programa del fondo de las actividades productivas</h4>
+                                <h4>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_2_title))
+                                            {!! $page->micro->en_program_2_title !!}
+                                        @else
+                                            {!! $page->micro->es_program_2_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_2_title !!}
+                                    @endif
+                                </h4>
+                                <p>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_2_text))
+                                            {!! $page->micro->en_program_2_text !!}
+                                        @else
+                                            {!! $page->micro->es_program_2_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_2_text !!}
+                                    @endif
+                                </p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -157,7 +298,28 @@
                                 <img src="{{ asset('public/img/micro/programas/3.png') }}">
                             </div>
                             <div class="text-container">
-                                <h4>Fondo de apoyo al Desarrollo Social</h4>
+                                <h4>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_3_title))
+                                            {!! $page->micro->en_program_3_title !!}
+                                        @else
+                                            {!! $page->micro->es_program_3_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_3_title !!}
+                                    @endif
+                                </h4>
+                                <p>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_3_text))
+                                            {!! $page->micro->en_program_3_text !!}
+                                        @else
+                                            {!! $page->micro->es_program_3_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_3_text !!}
+                                    @endif
+                                </p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -168,7 +330,28 @@
                                 <img src="{{ asset('public/img/micro/programas/4.png') }}">
                             </div>
                             <div class="text-container">
-                                <h4>Financiamiento para el desarrollo de Ciudad Juárez</h4>
+                                <h4>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_4_title))
+                                            {!! $page->micro->en_program_4_title !!}
+                                        @else
+                                            {!! $page->micro->es_program_4_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_4_title !!}
+                                    @endif
+                                </h4>
+                                <p>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_4_text))
+                                            {!! $page->micro->en_program_4_text !!}
+                                        @else
+                                            {!! $page->micro->es_program_4_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_4_text !!}
+                                    @endif
+                                </p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -187,7 +370,28 @@
                                 <div class="img-container">
                                     <img src="{{ asset('public/img/micro/programas/5.png') }}">
                                 </div>
-                                <h4>Programa de apoyo e innovación tecnológica para la micro y pequeña empresa</h4>
+                                <h4>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_1_title_2))
+                                            {!! $page->micro->en_program_1_title_2 !!}
+                                        @else
+                                            {!! $page->micro->es_program_1_title_2 !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_1_title_2 !!}
+                                    @endif
+                                </h4>
+                                <p>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_1_text_2))
+                                            {!! $page->micro->en_program_1_text_2 !!}
+                                        @else
+                                            {!! $page->micro->es_program_1_text_2 !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_1_text_2 !!}
+                                    @endif
+                                </p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -196,7 +400,28 @@
                                 <div class="img-container">
                                     <img src="{{ asset('public/img/micro/programas/6.png') }}">
                                 </div>
-                                <h4>Programa de fomento al desarrollo turístico</h4>
+                                <h4>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_2_title_2))
+                                            {!! $page->micro->en_program_2_title_2 !!}
+                                        @else
+                                            {!! $page->micro->es_program_2_title_2 !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_2_title_2 !!}
+                                    @endif
+                                </h4>
+                                <p>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_2_text_2))
+                                            {!! $page->micro->en_program_2_text_2 !!}
+                                        @else
+                                            {!! $page->micro->es_program_2_text_2 !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_program_2_text_2 !!}
+                                    @endif
+                                </p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>

@@ -25,16 +25,20 @@ class IndexController extends Controller {
         return view('site.index',$params);
     }
 
-    public function micro (Request $request, $name) {
-        $params = [];
-        switch ($name) {
-            case 'icatech':
-                $params['overlay_color'] = 'red';
-                break;
-            default:
-                return response(404);
-                break;
+    public function micro ($name) {
+        $page = Page::where('page_url',$name)
+            ->join('colors','colors.color_id','=','pages.color_id')
+            ->first();
+
+        if(!$page) {
+            return abort(404);
         }
+
+        $page->micro = $page->micro()->first();
+
+        $params = [
+            'page' => $page,
+        ];
 
         return view('site.micro',$params);
     }

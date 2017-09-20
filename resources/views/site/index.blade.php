@@ -191,7 +191,7 @@
                     {!! $page->page_index->es_sites_subtitle !!}
                 @endif
             </p>
-            <div class="row no-margin">
+            <div class="row no-margin micro-pages-container">
                 <div class="col-sm-4 col-xs-6 blue">
                     <a href="{{ url('/').'/comercio' }}">
                     <span class="circle-hover">
@@ -569,6 +569,7 @@
     <script>
         $(document).ready(function () {
             getPosts();
+            getPages();
         });
         function getPosts($get_posts_by,$page) {
             $.ajax({
@@ -595,6 +596,42 @@
                             '<a href="{{ url('blog/single') }}/'+post.post_id+'">Leer más</a>' +
                             '</div>' +
                             '</div>'
+                        );
+                    });
+                }
+            });
+        }
+        function getPages($get_posts_by) {
+            $.ajax({
+                url: '{{ route('pages.get') }}',
+                type: 'GET',
+                data: {
+                    'get_posts_by': $get_posts_by,
+                    'getAll': 1,
+                    'except': 1
+                },
+                success: function (pages) {
+                    $('.micro-pages-container').empty();
+                    $(pages).each(function (i, page) {
+                        console.log(page);
+                        var img_url = '{{ asset('public/uploads/pages') }}/' + page.page_id + '/page_img.' + page.page_img.split('.').pop(),
+                            page_url = '{{ url('/') }}/' + page.page_url;
+                        if(page.page_type === 3) {
+                            page_url = page.page_external_url;
+                        }
+                        $('.micro-pages-container').append(
+                            '<div class="col-sm-4 col-xs-6 ' + page.color_slug + '">' +
+                            '<a href="' + page_url + '">' +
+                            '<span class="circle-hover">' +
+                            '<p>' +
+                            page.page_title +
+                            '<span class="more">Ver más</span>' +
+                            '</p>' +
+                            '</span>' +
+                            '<div class="img-container">' +
+                            '<img src="' + img_url + '">' +
+                            '</div>' +
+                            '</a>'
                         );
                     });
                 }

@@ -1,5 +1,6 @@
 @extends('layouts.cms.master')
 @section('head')
+    <link rel="stylesheet" href="{{ asset('public/js/modules/jquery-ui/sortable/jquery-ui-sortable.min.css') }}">
     <style>
         table tbody tr {
             cursor: pointer;
@@ -12,6 +13,7 @@
     </style>
 @stop
 @section('scripts')
+    <script src="{{ asset('public/js/modules/jquery-ui/sortable/jquery-ui-sortable.min.js') }}"></script>
     <script>
         $(document).ready(function () {
             fillPagesTable('all',1);
@@ -24,6 +26,26 @@
                 if(e.which == 13) {
                     fillPagesTable('search',1,$(this).val());
                 }
+            });
+
+            var fixHelperModified = function(e, tr) {
+                    if(tr.index() !== 0) {
+                        var $originals = tr.children();
+                        var $helper = tr.clone();
+                        $helper.children().each(function(index) {
+                            $(this).width($originals.eq(index).width())
+                        });
+                        return $helper;
+                    }
+                },
+                updateIndex = function(e, ui) {
+                console.log(ui.item.context.attributes[1].nodeValue);
+                // APPLY AJAX FOR CONSECUTIVE
+                };
+
+            $("#pagesTable tbody").sortable({
+                helper: fixHelperModified,
+                stop: updateIndex
             });
         });
 
