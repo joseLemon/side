@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,20 @@ class IndexController extends Controller {
         return view('site.index',$params);
     }
 
-    public function micro ($name) {
+    public function micro (Request $request, $name) {
+        switch ($name) {
+            case 'login':
+            case 'home':
+                return LoginController::index();
+                break;
+            case 'logout':
+                return LoginController::logOut();
+                break;
+            case 'setLanguage':
+                return $this->setLanguage($request);
+                break;
+        }
+
         $page = Page::where('page_url',$name)
             ->join('colors','colors.color_id','=','pages.color_id')
             ->first();

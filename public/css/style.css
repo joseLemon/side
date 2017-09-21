@@ -94,31 +94,31 @@ body {
 }
 
 .red-overlay .heading {
-    color: #d97274;
+    color: rgb(163,46,50);
 }
 .red-overlay .fancy-text:before {
-    background-color: #c55e60;
+    background-color: rgb(123,30,33);
 }
 .red-overlay .banner .diamond + .bg-color {
-    background-color: #ee424f!important;
+    background-color: rgb(123,30,33);
 }
 .red-overlay .banner .diamond + .bg-color:before {
-    border-bottom-color: #ab2f39!important;
+    border-bottom-color: rgb(101,29,31);
 }
 .red-overlay .programas .top .text-container h4 {
-    color: #e59294;
+    color: rgb(163,46,50);
 }
 .red-overlay .acerca .info .col-sm-4:nth-of-type(1),
 .red-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
-    background-color: #ad5057;
+    background-color: rgb(101,29,31);
 }
 .red-overlay .acerca .info .col-sm-4:nth-of-type(2),
 .red-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
-    background-color: #d66971;
+    background-color: rgb(123,30,33);
 }
 .red-overlay .acerca .info .col-sm-4:nth-of-type(3),
 .red-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
-    background-color: #f7848c;
+    background-color: rgb(163,46,50);
 }
 
 
@@ -148,6 +148,343 @@ body {
 .blue-overlay .acerca .info .col-sm-4:nth-of-type(3),
 .blue-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
     background-color: rgb(102,166,227);
+}
+
+.light-green-overlay .heading {
+    color: rgb(121,205,105);
+}
+.light-green-overlay .fancy-text:before {
+    background-color: rgb(94,159,81);
+}
+.light-green-overlay .banner .diamond + .bg-color {
+    background-color: rgb(94,159,81);
+}
+.light-green-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(73,123,63);
+}
+.light-green-overlay .programas .top .text-container h4 {
+    color: rgb(121,205,105);
+}
+.light-green-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.light-green-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(73,123,63);
+}
+.light-green-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.light-green-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(94,159,81);
+}
+.light-green-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.light-green-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(121,205,105);
+}
+
+.salmon-overlay .heading {
+    color: rgb(237,168,231);
+}
+.salmon-overlay .fancy-text:before {
+    background-color: rgb(209,109,200);
+}
+.salmon-overlay .banner .diamond + .bg-color {
+    background-color: rgb(209,109,200);
+}
+.salmon-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(187, 93, 179);
+}
+.salmon-overlay .programas .top .text-container h4 {
+    color: rgb(237,168,231);
+}
+.salmon-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.salmon-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(187, 93, 179);
+}
+.salmon-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.salmon-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(209,109,200);
+}
+.salmon-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.salmon-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(237,168,231);
+}
+
+.magenta-overlay .heading {
+    color: rgb(208,140,178);
+}
+.magenta-overlay .fancy-text:before {
+    background-color: rgb(210,14,135);
+}
+.magenta-overlay .banner .diamond + .bg-color {
+    background-color: rgb(210,14,135);
+}
+.magenta-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(164, 45, 112);
+}
+.magenta-overlay .programas .top .text-container h4 {
+    color: rgb(208,140,178);
+}
+.magenta-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.magenta-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(164, 45, 112);
+}
+.magenta-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.magenta-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(210,14,135);
+}
+.magenta-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.magenta-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(208,140,178);
+}
+
+.gray-overlay .heading {
+    color: rgb(208,207,207);
+}
+.gray-overlay .fancy-text:before {
+    background-color: rgb(179,179,179);
+}
+.gray-overlay .banner .diamond + .bg-color {
+    background-color: rgb(179,179,179);
+}
+.gray-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(220, 209, 49); /* WHAT */
+}
+.gray-overlay .programas .top .text-container h4 {
+    color: rgb(208,207,207);
+}
+.gray-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.gray-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(220, 209, 49); /* WHAT */
+}
+.gray-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.gray-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(179,179,179);
+}
+.gray-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.gray-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(208,207,207);
+}
+
+.yellow-overlay .heading {
+    color: rgb(255,248,136);
+}
+.yellow-overlay .fancy-text:before {
+    background-color: rgb(240,229,54);
+}
+.yellow-overlay .banner .diamond + .bg-color {
+    background-color: rgb(240,229,54);
+}
+.yellow-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(220, 209, 49);
+}
+.yellow-overlay .programas .top .text-container h4 {
+    color: rgb(255,248,136);
+}
+.yellow-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.yellow-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(220, 209, 49);
+}
+.yellow-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.yellow-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(240,229,54);
+}
+.yellow-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.yellow-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(255,248,136);
+}
+
+.brown-overlay .heading {
+    color: rgb(193,125,62);
+}
+.brown-overlay .fancy-text:before {
+    background-color: rgb(170,110,55);
+}
+.brown-overlay .banner .diamond + .bg-color {
+    background-color: rgb(170,110,55);
+}
+.brown-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(137, 87, 42);
+}
+.brown-overlay .programas .top .text-container h4 {
+    color: rgb(193,125,62);
+}
+.brown-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.brown-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(137, 87, 42);
+}
+.brown-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.brown-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(170,110,55);
+}
+.brown-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.brown-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(193,125,62);
+}
+
+.light-blue-overlay .heading {
+    color: rgb(192,220,242);
+}
+.light-blue-overlay .fancy-text:before {
+    background-color: rgb(159,199,229);
+}
+.light-blue-overlay .banner .diamond + .bg-color {
+    background-color: rgb(159,199,229);
+}
+.light-blue-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(102, 153, 204);
+}
+.light-blue-overlay .programas .top .text-container h4 {
+    color: rgb(192,220,242);
+}
+.light-blue-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.light-blue-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(102, 153, 204);
+}
+.light-blue-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.light-blue-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(159,199,229);
+}
+.light-blue-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.light-blue-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(192,220,242);
+}
+
+.purple-overlay .heading {
+    color: rgb(162,20,138);
+}
+.purple-overlay .fancy-text:before {
+    background-color: rgb(130,10,110);
+}
+.purple-overlay .banner .diamond + .bg-color {
+    background-color: rgb(130,10,110);
+}
+.purple-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(106, 9, 90);
+}
+.purple-overlay .programas .top .text-container h4 {
+    color: rgb(162,20,138);
+}
+.purple-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.purple-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(106, 9, 90);
+}
+.purple-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.purple-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(130,10,110);
+}
+.purple-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.purple-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(162,20,138);
+}
+
+.indigo-overlay .heading {
+    color: rgb(104,70,169);
+}
+.indigo-overlay .fancy-text:before {
+    background-color: rgb(86,55,145);
+}
+.indigo-overlay .banner .diamond + .bg-color {
+    background-color: rgb(86,55,145);
+}
+.indigo-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(76, 49, 132);
+}
+.indigo-overlay .programas .top .text-container h4 {
+    color: rgb(104,70,169);
+}
+.indigo-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.indigo-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(76, 49, 132);
+}
+.indigo-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.indigo-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(86,55,145);
+}
+.indigo-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.indigo-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(104,70,169);
+}
+
+.light-red-overlay .heading {
+    color: rgb(179,103,109);
+}
+.light-red-overlay .fancy-text:before {
+    background-color: rgb(150,80,85);
+}
+.light-red-overlay .banner .diamond + .bg-color {
+    background-color: rgb(150,80,85);
+}
+.light-red-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(122, 65, 69);
+}
+.light-red-overlay .programas .top .text-container h4 {
+    color: rgb(179,103,109);
+}
+.light-red-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.light-red-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(122, 65, 69);
+}
+.light-red-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.light-red-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(150,80,85);
+}
+.light-red-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.light-red-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(179,103,109);
+}
+
+.cyan-overlay .heading {
+    color: rgb(150,215,215);
+}
+.cyan-overlay .fancy-text:before {
+    background-color: rgb(120,199,199);
+}
+.cyan-overlay .banner .diamond + .bg-color {
+    background-color: rgb(120,199,199);
+}
+.cyan-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(96, 164, 164);
+}
+.cyan-overlay .programas .top .text-container h4 {
+    color: rgb(150,215,215);
+}
+.cyan-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.cyan-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(96, 164, 164);
+}
+.cyan-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.cyan-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(120,199,199);
+}
+.cyan-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.cyan-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(150,215,215);
+}
+
+/* light medium medium dark light dark medium light*/
+.dark-blue-overlay .heading {
+    color: rgb(67,102,169);
+}
+.dark-blue-overlay .fancy-text:before {
+    background-color: rgb(43,76,140);
+}
+.dark-blue-overlay .banner .diamond + .bg-color {
+    background-color: rgb(43,76,140);
+}
+.dark-blue-overlay .banner .diamond + .bg-color:before {
+    border-bottom-color: rgb(33, 56, 100);
+}
+.dark-blue-overlay .programas .top .text-container h4 {
+    color: rgb(67,102,169);
+}
+.dark-blue-overlay .acerca .info .col-sm-4:nth-of-type(1),
+.dark-blue-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
+    background-color: rgb(33, 56, 100);
+}
+.dark-blue-overlay .acerca .info .col-sm-4:nth-of-type(2),
+.dark-blue-overlay .acerca .info .col-sm-4:nth-of-type(2) .text-container {
+    background-color: rgb(43,76,140);
+}
+.dark-blue-overlay .acerca .info .col-sm-4:nth-of-type(3),
+.dark-blue-overlay .acerca .info .col-sm-4:nth-of-type(3) .text-container {
+    background-color: rgb(67,102,169);
 }
 
 /*

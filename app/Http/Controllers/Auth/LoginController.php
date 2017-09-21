@@ -41,11 +41,17 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function index() {
+    public static function index() {
+        if(\Auth::user()) {
+            return redirect()->route('blog.show');
+        }
         return view('auth.login');
     }
 
     public function login(Request $request) {
+        if(\Auth::user()) {
+            return redirect()->route('blog.show');
+        }
         $data = $request->all();
         $data['email'] = trim($request->input('email'));
         $request->replace($data);
@@ -75,7 +81,7 @@ class LoginController extends Controller
         }
     }
 
-    public function logOut() {
+    public static function logOut() {
         Auth::logout();
         return redirect()->route('home');
     }
