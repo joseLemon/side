@@ -74,7 +74,7 @@
 
                         tbody.append(
                             '<tr data-anchor="' + url + '/' + page.page_id + '/edit' + '" data-pageid="' + page.page_id + '">' +
-                            '<td>' + page.page_id + '</td>' +
+                            '<td>' + (parseInt(page.sequence)+1) + '</td>' +
                             '<td>' + page.page_date + '</td>' +
                             '<td>' + page.page_title + '</td>' +
                             '<td>' +

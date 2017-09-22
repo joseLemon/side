@@ -27,7 +27,6 @@
                                         {!! $page->micro->es_diamond_1_text !!}
                                     @endif
                                 </div>
-                                <span class="date">ICATECH:</span>
                             </div>
                         </a>
                     </div>
@@ -70,8 +69,7 @@
                     @endif
                 </h1>
                 <div class="fancy-text">
-                    <p>
-                        @if(isset($_COOKIE['indexLanguage']))
+                    <p>@if(isset($_COOKIE['indexLanguage']))
                             @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_page_about_text))
                                 {!! $page->micro->en_page_about_text !!}
                             @else
@@ -79,26 +77,29 @@
                             @endif
                         @else
                             {!! $page->micro->es_page_about_text !!}
-                        @endif
-                    </p>
+                        @endif</p>
                 </div>
             </div>
             <div class="info">
-                <div class="row no-margin nav-tab-menu">
+                <div class="row no-margin nav-tab-menu eq-height-cols-table">
                     <div class="col-sm-4">
-                        <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_1_img'.strchr($page->micro->about_1_img,'.') }}">
-                        <h2>
-                            @if(isset($_COOKIE['indexLanguage']))
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_1_title))
-                                    {!! $page->micro->en_about_1_title !!}
-                                @else
-                                    {!! $page->micro->es_about_1_title !!}
-                                @endif
-                            @else
-                                {!! $page->micro->es_about_1_title !!}
-                            @endif
-                        </h2>
-                        <div class="text-container" tabindex="0">
+                        <div class="vertical-align-abs" tabindex="0">
+                            <div class="vertical-align">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_1_img'.strchr($page->micro->about_1_img,'.') }}">
+                                <h2>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_1_title))
+                                            {!! $page->micro->en_about_1_title !!}
+                                        @else
+                                            {!! $page->micro->es_about_1_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_about_1_title !!}
+                                    @endif
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="text-container">
                             <p class="text">
                                 @if(isset($_COOKIE['indexLanguage']))
                                     @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_1_text))
@@ -113,19 +114,23 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_2_img'.strchr($page->micro->about_2_img,'.') }}">
-                        <h2>
-                            @if(isset($_COOKIE['indexLanguage']))
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_2_title))
-                                    {!! $page->micro->en_about_2_title !!}
-                                @else
-                                    {!! $page->micro->es_about_2_title !!}
-                                @endif
-                            @else
-                                {!! $page->micro->es_about_2_title !!}
-                            @endif
-                        </h2>
-                        <div class="text-container" tabindex="0">
+                        <div class="vertical-align-abs" tabindex="0">
+                            <div class="vertical-align">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_2_img'.strchr($page->micro->about_2_img,'.') }}">
+                                <h2>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_2_title))
+                                            {!! $page->micro->en_about_2_title !!}
+                                        @else
+                                            {!! $page->micro->es_about_2_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_about_2_title !!}
+                                    @endif
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="text-container">
                             <p class="text">
                                 @if(isset($_COOKIE['indexLanguage']))
                                     @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_2_text))
@@ -140,19 +145,23 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_3_img'.strchr($page->micro->about_3_img,'.') }}">
-                        <h2>
-                            @if(isset($_COOKIE['indexLanguage']))
-                                @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_3_title))
-                                    {!! $page->micro->en_about_3_title !!}
-                                @else
-                                    {!! $page->micro->es_about_3_title !!}
-                                @endif
-                            @else
-                                {!! $page->micro->es_about_3_title !!}
-                            @endif
-                        </h2>
-                        <div class="text-container" tabindex="0">
+                        <div class="vertical-align-abs" tabindex="0">
+                            <div class="vertical-align">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_3_img'.strchr($page->micro->about_3_img,'.') }}">
+                                <h2>
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_3_title))
+                                            {!! $page->micro->en_about_3_title !!}
+                                        @else
+                                            {!! $page->micro->es_about_3_title !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_about_3_title !!}
+                                    @endif
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="text-container">
                             <p class="text">
                                 @if(isset($_COOKIE['indexLanguage']))
                                     @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_3_text))
@@ -243,8 +252,7 @@
                                         {!! $page->micro->es_program_1_title !!}
                                     @endif
                                 </h4>
-                                <p>
-                                    @if(isset($_COOKIE['indexLanguage']))
+                                <p>@if(isset($_COOKIE['indexLanguage']))
                                         @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_1_text))
                                             {!! $page->micro->en_program_1_text !!}
                                         @else
@@ -252,8 +260,7 @@
                                         @endif
                                     @else
                                         {!! $page->micro->es_program_1_text !!}
-                                    @endif
-                                </p>
+                                    @endif</p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -275,8 +282,7 @@
                                         {!! $page->micro->es_program_2_title !!}
                                     @endif
                                 </h4>
-                                <p>
-                                    @if(isset($_COOKIE['indexLanguage']))
+                                <p>@if(isset($_COOKIE['indexLanguage']))
                                         @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_2_text))
                                             {!! $page->micro->en_program_2_text !!}
                                         @else
@@ -284,8 +290,7 @@
                                         @endif
                                     @else
                                         {!! $page->micro->es_program_2_text !!}
-                                    @endif
-                                </p>
+                                    @endif</p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -309,8 +314,7 @@
                                         {!! $page->micro->es_program_3_title !!}
                                     @endif
                                 </h4>
-                                <p>
-                                    @if(isset($_COOKIE['indexLanguage']))
+                                <p>@if(isset($_COOKIE['indexLanguage']))
                                         @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_3_text))
                                             {!! $page->micro->en_program_3_text !!}
                                         @else
@@ -318,8 +322,7 @@
                                         @endif
                                     @else
                                         {!! $page->micro->es_program_3_text !!}
-                                    @endif
-                                </p>
+                                    @endif</p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -341,8 +344,7 @@
                                         {!! $page->micro->es_program_4_title !!}
                                     @endif
                                 </h4>
-                                <p>
-                                    @if(isset($_COOKIE['indexLanguage']))
+                                <p>@if(isset($_COOKIE['indexLanguage']))
                                         @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_4_text))
                                             {!! $page->micro->en_program_4_text !!}
                                         @else
@@ -350,8 +352,7 @@
                                         @endif
                                     @else
                                         {!! $page->micro->es_program_4_text !!}
-                                    @endif
-                                </p>
+                                    @endif</p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -381,8 +382,7 @@
                                         {!! $page->micro->es_program_1_title_2 !!}
                                     @endif
                                 </h4>
-                                <p>
-                                    @if(isset($_COOKIE['indexLanguage']))
+                                <p>@if(isset($_COOKIE['indexLanguage']))
                                         @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_1_text_2))
                                             {!! $page->micro->en_program_1_text_2 !!}
                                         @else
@@ -390,8 +390,7 @@
                                         @endif
                                     @else
                                         {!! $page->micro->es_program_1_text_2 !!}
-                                    @endif
-                                </p>
+                                    @endif</p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>
@@ -411,8 +410,7 @@
                                         {!! $page->micro->es_program_2_title_2 !!}
                                     @endif
                                 </h4>
-                                <p>
-                                    @if(isset($_COOKIE['indexLanguage']))
+                                <p>@if(isset($_COOKIE['indexLanguage']))
                                         @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_program_2_text_2))
                                             {!! $page->micro->en_program_2_text_2 !!}
                                         @else
@@ -420,8 +418,7 @@
                                         @endif
                                     @else
                                         {!! $page->micro->es_program_2_text_2 !!}
-                                    @endif
-                                </p>
+                                    @endif</p>
                                 <a href="">Descargar Solicitud</a>
                             </div>
                         </div>

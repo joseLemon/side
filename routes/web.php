@@ -20,7 +20,8 @@ Route::get('/setLanguage', ['as' => 'language.set', 'uses' => 'IndexController@s
 //  PUBLIC BLOG
 Route::get('posts/getPosts', ['as' => 'posts.get', 'uses' => 'BlogController@getPosts']);
 Route::get('blog/single/{id}', ['as' => 'blog.single', 'uses' => 'BlogController@single']);
-
+//  PUBLIC PAGES
+Route::get('page/getPages', ['as' => 'pages.get', 'uses' => 'PagesController@getPages']);
 
 require __DIR__.'/mailer.php';
 

@@ -297,15 +297,16 @@ class PagesController extends Controller {
                 ->join('colors','colors.color_id','=','pages.color_id')
                 ->leftJoin('pages_external','pages_external.page_id','=','pages.page_id')
                 ->groupBy('pages.page_id')
-                ->orderBy('pages.page_id');
+                ->orderBy('pages.sequence');
         } else {
             $pages = Page::select([
                 'page_id',
                 'page_title',
                 'created_at as page_date',
                 'page_type_id as page_type',
+                'sequence'
             ])
-                ->orderBy('page_id');
+                ->orderBy('pages.sequence');
         }
 
         if($request->input('get_pages_by') == 'search') {
