@@ -2137,6 +2137,7 @@ body {
     opacity: 1;
 }
 
+.acerca .info .text-container ul,
 .acerca .info .text-container .text {
     position: relative;
     top: 50%;

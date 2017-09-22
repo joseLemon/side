@@ -6,7 +6,7 @@
         <!-- ///////////  BANNER  \\\\\\\\\\\ -->
 
         <!-- ================================== -->
-        <div class="banner red-overlay" id="banner" style="background: url('{{ asset('public/img/index/banners/4.jpg') }}') no-repeat center center">
+        <div class="banner red-overlay" id="banner" style="background: url('{{ asset('public/uploads/pages').'/'.$page->page_id.'/banner_1_img'.strchr($page->micro->banner_1_img,'.') }}') no-repeat center center">
             <div class="container">
                 <div class="diamond-container">
                     <div class="diamond diamond-1"></div>
@@ -86,7 +86,7 @@
             <div class="info">
                 <div class="row no-margin nav-tab-menu">
                     <div class="col-sm-4">
-                        <img src="{{ asset('public/img/micro/acerca/1.png') }}">
+                        <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_1_img'.strchr($page->micro->about_1_img,'.') }}">
                         <h2>
                             @if(isset($_COOKIE['indexLanguage']))
                                 @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_1_title))
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ asset('public/img/micro/acerca/2.png') }}">
+                        <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_2_img'.strchr($page->micro->about_2_img,'.') }}">
                         <h2>
                             @if(isset($_COOKIE['indexLanguage']))
                                 @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_2_title))
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ asset('public/img/micro/acerca/3.png') }}">
+                        <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/about_3_img'.strchr($page->micro->about_3_img,'.') }}">
                         <h2>
                             @if(isset($_COOKIE['indexLanguage']))
                                 @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_about_3_title))
@@ -185,7 +185,7 @@
         <div class="video" id="video">
             <div class="parallax-container big-spacing">
                 <div class="parallax">
-                    <img src="{{ asset('public/img/index/banners/5.jpg') }}">
+                    <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/banner_2_img'.strchr($page->micro->banner_2_img,'.') }}">
                 </div>
                 <div class="container">
                     <a href="#video-modal" data-toggle="modal" data-target="#video-modal">
@@ -229,7 +229,7 @@
                     <div class="col-sm-6">
                         <div>
                             <div class="img-container">
-                                <img src="{{ asset('public/img/micro/programas/1.png') }}">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/program_1_img'.strchr($page->micro->program_1_img,'.') }}">
                             </div>
                             <div class="text-container">
                                 <h4>
@@ -261,7 +261,7 @@
                     <div class="col-sm-6">
                         <div>
                             <div class="img-container">
-                                <img src="{{ asset('public/img/micro/programas/2.png') }}">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/program_2_img'.strchr($page->micro->program_2_img,'.') }}">
                             </div>
                             <div class="text-container">
                                 <h4>
@@ -295,7 +295,7 @@
                     <div class="col-sm-6">
                         <div>
                             <div class="img-container">
-                                <img src="{{ asset('public/img/micro/programas/3.png') }}">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/program_3_img'.strchr($page->micro->program_3_img,'.') }}">
                             </div>
                             <div class="text-container">
                                 <h4>
@@ -327,7 +327,7 @@
                     <div class="col-sm-6">
                         <div>
                             <div class="img-container">
-                                <img src="{{ asset('public/img/micro/programas/4.png') }}">
+                                <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/program_4_img'.strchr($page->micro->program_4_img,'.') }}">
                             </div>
                             <div class="text-container">
                                 <h4>
@@ -360,7 +360,7 @@
             </div>
             <div class="parallax-container">
                 <div class="parallax">
-                    <img src="{{ asset('public/img/index/banners/6.jpg') }}">
+                    <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/banner_3_img'.strchr($page->micro->banner_3_img,'.') }}">
                 </div>
                 <div class="container bottom">
                     <h1 class="heading bold white text-center">Programas administrados</h1>
@@ -368,7 +368,7 @@
                         <div class="col-sm-6">
                             <div>
                                 <div class="img-container">
-                                    <img src="{{ asset('public/img/micro/programas/5.png') }}">
+                                    <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/program_1_img_2'.strchr($page->micro->program_1_img_2,'.') }}">
                                 </div>
                                 <h4>
                                     @if(isset($_COOKIE['indexLanguage']))
@@ -398,7 +398,7 @@
                         <div class="col-sm-6">
                             <div>
                                 <div class="img-container">
-                                    <img src="{{ asset('public/img/micro/programas/6.png') }}">
+                                    <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/program_2_img_2'.strchr($page->micro->program_2_img_2,'.') }}">
                                 </div>
                                 <h4>
                                     @if(isset($_COOKIE['indexLanguage']))

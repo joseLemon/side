@@ -168,7 +168,7 @@ class PagesController extends Controller {
             $page->en_program_2_title = $request->input('en_program_2_title');
             $page->es_program_2_text = $request->input('es_program_2_text');
             $page->en_program_2_text = $request->input('en_program_2_text');
-            if($_FILES['file_program_']['size'] > 0) {
+            if($_FILES['file_program_2']['size'] > 0) {
                 fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_2', false, true, true);
                 $page->file_program_2 = $_FILES['file_program_2']['name'];
             }
@@ -840,9 +840,9 @@ class PagesController extends Controller {
         $this->validate($request, [
             'es_diamond_1_text' => 'required|max:255',
             'es_page_about_title' => 'required|max:128',
-            'es_page_about_text' => 'required|max:512',
+            'es_page_about_text' => 'required|max:1255',
             'es_about_1_title' => 'required|max:128',
-            'es_about_1_text' => 'required|max:512',
+            'es_about_1_text' => 'required|max:1024',
             'about_1_img' => 'required|sometimes',
             'es_about_2_title' => 'required|max:128',
             'es_about_2_text' => 'required|max:512',
@@ -857,7 +857,7 @@ class PagesController extends Controller {
             'program_1_img' => 'required|sometimes',
             'es_program_2_title' => 'required|max:128',
             'program_2_img' => 'required|sometimes',
-            'es_program_3_title' => 'required|max:128',
+            'es_program_3_title' => 'required|max:512',
             'program_3_img' => 'required|sometimes',
             'es_program_4_title' => 'required|max:128',
             'program_4_img' => 'required|sometimes',
