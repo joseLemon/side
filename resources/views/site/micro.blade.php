@@ -1,6 +1,6 @@
 @extends('layouts.site.master')
 @section('content')
-    <div class="{{ $page->color_slug }}-overlay">
+    <div class="{{ $page->color_slug }}-overlay micro-container">
         <!-- ================================== -->
 
         <!-- ///////////  BANNER  \\\\\\\\\\\ -->
@@ -234,7 +234,7 @@
                         {!! $page->micro->es_programs_title !!}
                     @endif
                 </h1>
-                <div class="row no-margin">
+                <div class="row no-margin eq-height-cols-table">
                     <div class="col-sm-6">
                         <div>
                             <div class="img-container">
@@ -296,7 +296,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row no-margin">
+                <div class="row no-margin eq-height-cols-table">
                     <div class="col-sm-6">
                         <div>
                             <div class="img-container">
@@ -359,7 +359,7 @@
                     </div>
                 </div>
             </div>
-            <div class="parallax-container">
+            <!--<div class="parallax-container">
                 <div class="parallax">
                     <img src="{{ asset('public/uploads/pages').'/'.$page->page_id.'/banner_3_img'.strchr($page->micro->banner_3_img,'.') }}">
                 </div>
@@ -424,7 +424,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 @stop
