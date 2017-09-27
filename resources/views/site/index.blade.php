@@ -404,7 +404,6 @@
                     $('.micro-pages-container').empty();
                     var arrLength = pages.length;
                     $(pages).each(function (i, page) {
-                        console.log((i+1)%3);
                         var img_url = '{{ asset('public/uploads/pages') }}/' + page.page_id + '/page_img.' + page.page_img.split('.').pop(),
                             page_url = '{{ url('/') }}/' + page.page_url;
                         if(page.page_type == 3) {
