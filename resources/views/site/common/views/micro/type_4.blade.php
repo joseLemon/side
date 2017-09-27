@@ -30,7 +30,7 @@
             width: calc(100% - 120px);
             margin: 0 auto;
             overflow: visible;
-            height: 800px;
+            height: 720px;
         }
 
         .slick-track {
@@ -40,9 +40,16 @@
         .slick-slide {
             position: relative;
             text-align: center;
-            transition: all 260ms ease;
+            transition: all 250ms cubic-bezier(0.25, 0.1, 0.25, 1), padding 0ms ease;
             opacity: 1;
             outline: none!important;
+            float: left;
+            transform: translateZ(0);
+        }
+
+        .slick-slide:after {
+            content: '';
+            clear: both;
         }
 
         .slick-content {
@@ -72,6 +79,8 @@
 
         .slick-slide:not(.slick-current):not(.slick-prev-1):not(.slick-prev-2):not(.slick-next-1):not(.slick-next-2) {
             opacity: 0;
+            height: 0;
+            padding: 0;
             margin-top: 48%;
         }
 
@@ -145,6 +154,9 @@
             }
             .slick-list {
                 height: auto;
+            }
+            .slick-track {
+                top: 0;
             }
             .slick-slide {
                 margin-top: 0!important;
@@ -281,12 +293,36 @@
         <div class="product-carousel container" id="productCarousel">
             <div class="carousel-container">
                 <div class="slick-center">
-                    <div><div class="slick-content"><div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">1</div></div></div>
-                    <div><div class="slick-content"><div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">2</div></div></div>
-                    <div><div class="slick-content"><div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">3</div></div></div>
-                    <div><div class="slick-content"><div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">4</div></div></div>
-                    <div><div class="slick-content"><div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">5</div></div></div>
-                    <div><div class="slick-content"><div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">6</div></div></div>
+                    <div>
+                        <div class="slick-content">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">1</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slick-content">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">2</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slick-content">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">3</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slick-content">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">4</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slick-content">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">5</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slick-content">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">6</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="slick-controls-container">
                     <button class="slick-left slick-controls"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
@@ -367,11 +403,15 @@
 
         slider.slick({
             centerMode: true,
-            centerPadding: '0px',
+            centerPadding: '60px',
             slidesToShow: 5,
             arrows: false,
             infinite: false,
             draggable: false,
+            speed: 280,
+            edgeFriction: 1,
+            cssEase: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+            lazyLoad: 'progressive',
             responsive: [
                 {
                     breakpoint: 992,
