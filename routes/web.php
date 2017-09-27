@@ -53,3 +53,7 @@ Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {
 
     Route::post('/login/post', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
 });
+
+Route::get('/test/type4', function () {
+    return view('site.common.views.micro.type_4');
+});
