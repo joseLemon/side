@@ -73,8 +73,8 @@
             <div class="col-sm-3">
                 <p>
                     <img src="{{ asset('public/img/index/contacto/pin.png') }}" alt="Localización">
-                    Avenida Abraham Lincoln N.1290,
-                    Ciudad Juárez, Mexico 32310
+                    Avenida Abraham Lincoln N.1290, Ciudad Juárez, Mexico 32310<br>
+                    Av. Don Quijote de la Mancha No. 1 Complejo Industria Chihuahua C.P. 31136
                 </p>
             </div>
             <div class="col-sm-3">

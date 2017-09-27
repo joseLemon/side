@@ -1,6 +1,6 @@
 @extends('layouts.site.master')
 @section('content')
-    <div class="{{ $page->color_slug }}-overlay">
+    <div class="{{ $page->color_slug }}-overlay micro-container">
         <!-- ================================== -->
 
         <!-- ///////////  BANNER  \\\\\\\\\\\ -->

@@ -48,6 +48,11 @@ class IndexController extends Controller {
             return abort(404);
         }
 
+        // Construcción
+        if($page->page_type_id == 2) {
+            return $this->underConstruction();
+        }
+
         $page->micro = $page->micro()->first();
 
         $params = [
@@ -55,6 +60,10 @@ class IndexController extends Controller {
         ];
 
         return view('site.micro',$params);
+    }
+
+    public function underConstruction () {
+        return view('site.under_construction');
     }
 
     public function setLanguage (Request $request, $language_str = 'es') {
