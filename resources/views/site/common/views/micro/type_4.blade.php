@@ -9,20 +9,29 @@
             padding: 100px 0;
         }
 
+        .product-carousel .carousel-container:before,
         .product-carousel .carousel-container:after {
             content: '';
             position: absolute;
             display: block;
+            transform: rotate(45deg);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
             width: 85%;
             padding-top: 85%;
+        }
+
+        .product-carousel .carousel-container:before {
+            top: -107%;
+            background-color: #d56970;
+        }
+
+        .product-carousel .carousel-container:after {
             border: 2px solid #fff;
             border-bottom: 0;
             border-right: 0;
             top: 260px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            transform: rotate(45deg);
             pointer-events: none;
         }
 
@@ -30,17 +39,17 @@
             width: calc(100% - 120px);
             margin: 0 auto;
             overflow: visible;
-            height: 720px;
         }
 
         .slick-track {
             top: 50px;
+            height: 530px;
         }
 
         .slick-slide {
             position: relative;
             text-align: center;
-            transition: all 250ms cubic-bezier(0.25, 0.1, 0.25, 1), padding 0ms ease;
+            transition: top 250ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 200ms ease;
             opacity: 1;
             outline: none!important;
             float: left;
@@ -81,21 +90,24 @@
             opacity: 0;
             height: 0;
             padding: 0;
-            margin-top: 48%;
+            /*margin-top: 48%;*/
+            top: 100%;
         }
 
         .slick-prev-1,
         .slick-next-1 {
-            margin-top: 16%;
+            /*margin-top: 16%;*/
+            top: 34%;
         }
 
         .slick-prev-2,
         .slick-next-2 {
-            margin-top: 32%;
+            /*margin-top: 32%;*/
+            top: 67%;
         }
 
         .slick-current {
-
+            top: 0;
         }
 
         .slick-controls-container {
@@ -111,6 +123,7 @@
             border: 0;
             color: #fff;
             outline: none!important;
+            font-size: 80px;
         }
 
         .slick-controls.slick-left:after,
@@ -118,8 +131,8 @@
             content: '';
             position: absolute;
             display: block;
-            width: 300px;
-            height: 300px;
+            width: 500px;
+            height: 500px;
             background-color: #666;
             top: 50%;
             transform: translateY(-50%) rotate(45deg);
@@ -148,6 +161,97 @@
             left: 0;
         }
 
+        .slick-slide-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            bottom: 0;
+            height: 320px;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .slick-slide-info:after {
+            content: '';
+            top: 240px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            padding-top: 100%;
+            transform: rotate(45deg);
+            background-color: #fff;
+            z-index: -1;
+        }
+
+        .slick-slide-info .info-slide {
+            /*position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: 100%;
+            shape-outside: polygon(409px 161px, 571px 0px, 735px 161px, 901px 330px, 242px 330px);*/
+            height: 100%;
+            padding: 180px 330px 0 330px;
+            opacity: 0;
+            transition: opacity 300ms ease;
+            position: absolute;
+        }
+
+        .slick-slide-info .info-slide.active {
+            opacity: 1;
+        }
+
+        .slick-slide-info .info-slide h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ad5057;
+            font-weight: bold;
+        }
+
+        .slick-slide-info .info-slide p {
+            margin: 0;
+            padding: 0 20px;
+            font-size: 16px;
+        }
+
+        @media(max-width: 1200px) {
+            .product-carousel .carousel-container:before {
+                top: -86%;
+            }
+            .slick-slide:not(.slick-current):not(.slick-prev-1):not(.slick-prev-2):not(.slick-next-1):not(.slick-next-2) {
+                top: 77%;
+            }
+            .slick-prev-1,
+            .slick-next-1 {
+                top: 26%;
+            }
+            .slick-prev-2,
+            .slick-next-2 {
+                top: 53%;
+            }
+            .slick-slide-info {
+                height: 410px;
+            }
+            .slick-slide-info .info-slide {
+                padding: 180px 315px 0 315px
+            }
+            .slick-slide-info .info-slide p {
+                padding: 0;
+            }
+            .slick-controls {
+                font-size: 60px;
+            }
+            .slick-controls.slick-left:after,
+            .slick-controls.slick-right:after {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
         @media(max-width: 992px) {
             .product-carousel .carousel-container:after {
                 display: none;
@@ -157,9 +261,11 @@
             }
             .slick-track {
                 top: 0;
+                height: auto;
             }
             .slick-slide {
                 margin-top: 0!important;
+                top: 0!important;
                 opacity: 1!important;
             }
         }
@@ -290,38 +396,83 @@
         <!-- ///////////  CAROUSEL  \\\\\\\\\\\ -->
 
         <!-- ================================== -->
-        <div class="product-carousel container" id="productCarousel">
+        <div class="product-carousel container small-spacing" id="productCarousel">
+            <h1 class="heading bold text-center">Productos</h1>
             <div class="carousel-container">
                 <div class="slick-center">
                     <div>
-                        <div class="slick-content">
-                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">1</div>
+                        <div class="slick-content" data-slide="1">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="slick-content">
-                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">2</div>
+                        <div class="slick-content" data-slide="2">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="slick-content">
-                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">3</div>
+                        <div class="slick-content" data-slide="3">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="slick-content">
-                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">4</div>
+                        <div class="slick-content" data-slide="4">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="slick-content">
-                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">5</div>
+                        <div class="slick-content" data-slide="5">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="slick-content">
-                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto">6</div>
+                        <div class="slick-content" data-slide="6">
+                            <div class="vertical-align-abs"><img src="{{ asset('public/img/micro/productos/1.png') }}" alt="producto"></div>
                         </div>
+                    </div>
+                </div>
+                <div class="slick-slide-info">
+                    <div class="info-slide active" data-slide="1">
+                        <h2>Lorem ipsum 1</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="info-slide" data-slide="2">
+                        <h2>Lorem ipsum 2</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="info-slide" data-slide="3">
+                        <h2>Lorem ipsum 3</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="info-slide" data-slide="4">
+                        <h2>Lorem ipsum 4</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="info-slide" data-slide="5">
+                        <h2>Lorem ipsum 5</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="info-slide" data-slide="6">
+                        <h2>Lorem ipsum 6</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.
+                        </p>
                     </div>
                 </div>
                 <div class="slick-controls-container">
@@ -370,6 +521,7 @@
         }
 
         slider.on('beforeChange', function () {
+            $('.info-slide').removeClass('active');
             switch (direction) {
                 case 'left':
                     $('.slick-prev-1').removeClass('slick-prev-1');
@@ -388,6 +540,11 @@
                     $('.slick-next-1').next().addClass('slick-next-2');
                     break;
             }
+        });
+
+        slider.on('afterChange', function () {
+            var slide_number = $('.slick-current').find('.slick-content').data('slide');
+            $('.info-slide[data-slide='+slide_number+']').addClass('active');
         });
 
         var direction;
