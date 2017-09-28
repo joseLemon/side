@@ -194,15 +194,16 @@
             margin: 0 auto;
             height: 100%;
             shape-outside: polygon(409px 161px, 571px 0px, 735px 161px, 901px 330px, 242px 330px);*/
-            height: 100%;
             padding: 180px 330px 0 330px;
             opacity: 0;
             transition: opacity 300ms ease;
             position: absolute;
+            height: 0!important;
         }
 
         .slick-slide-info .info-slide.active {
             opacity: 1;
+            height: 100%!important;
         }
 
         .slick-slide-info .info-slide h2 {
@@ -253,6 +254,9 @@
         }
 
         @media(max-width: 992px) {
+            .product-carousel .carousel-container {
+                height: 500px;
+            }
             .product-carousel .carousel-container:after {
                 display: none;
             }
@@ -263,10 +267,66 @@
                 top: 0;
                 height: auto;
             }
-            .slick-slide {
+            .slick-slide:not(.slick-current) {
                 margin-top: 0!important;
                 top: 0!important;
-                opacity: 1!important;
+                opacity: 0;
+            }
+            .slick-slide-info {
+                position: absolute;
+                height: auto;
+                bottom: 0;
+                overflow: visible;
+            }
+            .slick-slide-info:after {
+                display: none;
+            }
+            .slick-slide-info .info-slide {
+                position: relative;
+                padding: 0;
+                overflow: visible;
+            }
+            .slick-slide-info .info-slide.active {
+                padding: 10px;
+                height: auto!important;
+            }
+        }
+
+        @media(max-width: 767px) {
+            .slick-content {
+                width: 45%;
+                padding-top: 45%;
+                margin: 0 auto;
+            }
+            .slick-controls {
+                font-size: 40px;
+            }
+            .slick-controls.slick-left:after,
+            .slick-controls.slick-right:after {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .slick-content {
+                width: 80%;
+                padding-top: 80%;
+            }
+            .slick-controls {
+                font-size: 40px;
+            }
+            .slick-controls.slick-left:after,
+            .slick-controls.slick-right:after {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media(max-width: 320px) {
+            .slick-content {
+                width: 100%;
+                padding-top: 100%;
             }
         }
     </style>
@@ -566,26 +626,24 @@
             infinite: false,
             draggable: false,
             speed: 280,
-            edgeFriction: 1,
             cssEase: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
-            lazyLoad: 'progressive',
             responsive: [
                 {
-                    breakpoint: 992,
-                    settings: {
-                        draggable: true
-                    }
-                },
-                {
-                    breakpoint: 768,
+                    breakpoint: 993,
                     settings: {
                         slidesToShow: 3
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 321,
+                    settings: {
+                        centerPadding: '0px'
                     }
                 }
             ]
