@@ -58,3 +58,7 @@ Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {
 Route::get('/test/type4', function () {
     return view('site.common.views.micro.type_4');
 });
+
+Route::get('/test/type5', function () {
+    return view('site.common.views.micro.type_5');
+});
