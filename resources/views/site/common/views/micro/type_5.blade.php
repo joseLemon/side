@@ -62,6 +62,7 @@
         .flex-container .month-selection {
             flex: 0;
             width: 0;
+            position: relative;
         }
 
         .flex-container .month-selection.shown {
@@ -117,6 +118,27 @@
             font-size: 24px;
         }
 
+        .flex-container .month-selection .close-month-selection {
+            position: absolute;
+            left: -35px;
+            font-size: 27px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            outline: none!important;
+            opacity: 0;
+            transition: opacity 400ms ease;
+            color: #fff;
+        }
+
+        .flex-container .month-selection.shown .close-month-selection {
+            opacity: .7;
+        }
+
+        .flex-container .month-selection.shown .close-month-selection:hover {
+            opacity: .9;
+        }
+
         @media(max-width: 992px) {
             .flex-container .month-selection .flex-container {
                 flex-flow: column wrap;
@@ -133,7 +155,7 @@
                 order: 2;
             }
             .flex-container .month-selection.shown {
-                padding: 5x;
+                padding: 5px;
             }
             .flex-container .month-selection .month-selector:after {
                 top: 5px;
@@ -287,6 +309,9 @@
                     <h4 class="vertical-align-abs">2017</h4>
                 </div>
                 <div class="month-selection">
+                    <button class="close-month-selection">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
                     <div class="flex-container">
                         <div class="month-selector" data-month="1">
                             <h4 class="vertical-align-abs">Enero</h4>
@@ -355,6 +380,21 @@
 
             $('.year-selector').not(year_selector).removeClass('active');
             $('.month-selection').addClass('shown');
+            year_selector.css({'pointer-events':'none'});
+        });
+
+        $('.close-month-selection').click(function () {
+            $('.month-selection').removeClass('shown');
+
+            $('.year-selector').each(function () {
+                var year_selector = $(this);
+
+                if(!year_selector.hasClass('active')) {
+                    year_selector.addClass('active');
+                } else {
+                    year_selector.css({'pointer-events':'all'});
+                }
+            });
         });
     </script>
 @stop
