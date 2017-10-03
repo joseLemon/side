@@ -38,6 +38,9 @@ class IndexController extends Controller {
             case 'setLanguage':
                 return $this->setLanguage($request);
                 break;
+            case 'register':
+                return view('auth.register');
+                break;
         }
 
         $page = Page::where('page_url',$name)

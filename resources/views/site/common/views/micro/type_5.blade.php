@@ -13,7 +13,7 @@
             padding: 250px 0;
             cursor: pointer;
             position: relative;
-            transition: all 300ms ease;
+            transition: all 400ms ease;
         }
 
         .flex-container .year-selector:nth-of-type(1) {
