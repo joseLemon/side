@@ -145,4 +145,11 @@ class fileUploadController extends Controller {
         }
         return 1;
     }
+
+    public static function deleteFile($target_dir,$file_name) {
+        $file = $target_dir.$file_name; // get all file names
+        if (file_exists($file)) {
+            unlink($file); // delete file
+        }
+    }
 }

@@ -411,15 +411,15 @@ class PagesController extends Controller {
                 $page->file_program_16 = $_FILES['file_program_16']['name'];
             }
 
-            //  SEGUNDO BANNER/VIDEO
-            if($_FILES['banner_3_img']['size'] > 0) {
+            //  TERCER BANNER
+            /*if($_FILES['banner_3_img']['size'] > 0) {
                 $delete = false;
                 if($page->banner_3_img) {
                     $delete = true;
                 }
                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','banner_3_img',$delete, true,1920,2000,true, false);
                 $page->banner_3_img = $_FILES['banner_3_img']['name'];
-            }
+            }*/
 
             /*//  PROGRAMAS ADMINISTRADOS
             $page->es_programs_title_2 = $request->input('es_programs_title_2');
@@ -673,6 +673,10 @@ class PagesController extends Controller {
             $page->es_about_1_text = $request->input('es_about_1_text');
             $page->en_about_1_title = $request->input('en_about_1_title');
             $page->en_about_1_text = $request->input('en_about_1_text');
+            // TO TEST: DELETE FILE
+            /*if($request->input('state_about_1_check') == 'removed') {
+                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','about_1_img'.strchr($page->about_1_img,'.'));
+            }*/
 
             if($_FILES['about_2_img']['size'] > 0) {
                 $delete = false;
@@ -730,6 +734,10 @@ class PagesController extends Controller {
             if($_FILES['file_program_1']['size'] > 0) {
                 fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
                 $page->file_program_1 = $_FILES['file_program_1']['name'];
+            }
+            // TO TEST: DELETE FILE
+            if($request->input('state_program_1_check') == 'removed') {
+                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','file_program_1'.strchr($page->file_program_1,'.'));
             }
 
             if($_FILES['program_2_img']['size'] > 0) {
@@ -988,14 +996,14 @@ class PagesController extends Controller {
             }
 
             //  SEGUNDO BANNER/VIDEO
-            if($_FILES['banner_3_img']['size'] > 0) {
+            /*if($_FILES['banner_3_img']['size'] > 0) {
                 $delete = false;
                 if($page->banner_3_img) {
                     $delete = true;
                 }
                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','banner_3_img',$delete, true,1920,2000,true, false);
                 $page->banner_3_img = $_FILES['banner_3_img']['name'];
-            }
+            }*/
 
             /*//  PROGRAMAS ADMINISTRADOS
             $page->es_programs_title_2 = $request->input('es_programs_title_2');
@@ -1073,7 +1081,7 @@ class PagesController extends Controller {
         $page->es_banner_1_text = $request->input('es_banner_1_text');
         $page->en_banner_1_text = $request->input('en_banner_1_text');
 
-        //  SEGUNDO BANNER
+        //  SEGUNDO BANNER/VIDEO
         if($_FILES['banner_2_img']['size'] > 0) {
             $delete = false;
             if($page->banner_2_img) {
@@ -1261,7 +1269,7 @@ class PagesController extends Controller {
             'about_3_img' => 'required|sometimes',
             'banner_2_img' => 'required|sometimes',
             'page_video_iframe' => 'required|max:512',
-            'es_programs_title' => 'required|max:512',
+            /*'es_programs_title' => 'required|max:512',*/
             'es_program_1_title' => 'max:512',
             'program_1_img' => 'sometimes',
             'es_program_2_title' => 'max:512',
@@ -1300,7 +1308,7 @@ class PagesController extends Controller {
             'about_3_img' => 'Imagen 3 información',
             'banner_2_img' => 'Segundo banner',
             'page_video_iframe' => 'Video',
-            'es_programs_title' => 'Título Programas',
+            /*'es_programs_title' => 'Título Programas',*/
             'es_program_1_title' => 'Título 1 programa',
             'program_1_img' => 'Imagen 1 programa',
             'es_program_2_title' => 'Título 2 programa',

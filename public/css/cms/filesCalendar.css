@@ -1,0 +1,163 @@
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container .year-selector {
+    flex: 0;
+    width: 0;
+    text-align: center;
+    padding: 250px 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 400ms ease;
+}
+
+.flex-container .year-selector:nth-of-type(1) {
+    background-color: #959595;
+}
+.flex-container .year-selector:nth-of-type(2) {
+    background-color: #b7b7b7;
+}
+.flex-container .year-selector:nth-of-type(3) {
+    background-color: #996666;
+}
+.flex-container .year-selector:nth-of-type(4) {
+    background-color: #cc6666;
+}
+.flex-container .year-selector:nth-of-type(5) {
+    background-color: #ff9999;
+}
+
+.flex-container .year-selector.active {
+    flex: 1;
+}
+
+.flex-container .year-selector h4,
+.flex-container .month-selection .month-selector h4 {
+    font-family: 'GothamBold', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    transition: all 200ms ease;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    width: 0;
+    margin: 0;
+}
+
+.flex-container .year-selector.active h4,
+.flex-container .month-selection.shown .month-selector h4 {
+    opacity: 1;
+    width: auto;
+}
+
+.flex-container .year-selector:hover h4 {
+    font-size: 33px;
+}
+
+.flex-container .month-selection {
+    flex: 0;
+    width: 0;
+    position: relative;
+}
+
+.flex-container .month-selection.shown {
+    flex: 4;
+    width: auto;
+    background: url(../../img/micro/prontuarios/1.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 8px;
+}
+
+.flex-container .month-selection .flex-container {
+    height: 33.3333%;
+}
+
+.flex-container .month-selection .month-selector {
+    flex: 1 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.flex-container .month-selection .month-selector:after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    background-color: #fff;
+    opacity: .8;
+    z-index: -1;
+}
+
+.flex-container .month-selection .month-selector:nth-of-type(1) {
+    order: 1;
+}
+.flex-container .month-selection .month-selector:nth-of-type(2) {
+    order: 2;
+}
+.flex-container .month-selection .month-selector:nth-of-type(3) {
+    order: 3;
+}
+.flex-container .month-selection .month-selector:nth-of-type(4) {
+    order: 4;
+}
+
+.flex-container .month-selection .month-selector h4 {
+    color: #666;
+    font-size: 20px;
+    text-align: center;
+}
+
+.flex-container .month-selection .month-selector:hover h4 {
+    font-size: 24px;
+}
+
+.flex-container .month-selection .close-month-selection {
+    position: absolute;
+    left: -35px;
+    font-size: 27px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    outline: none!important;
+    opacity: 0;
+    transition: opacity 400ms ease;
+    color: #fff;
+}
+
+.flex-container .month-selection.shown .close-month-selection {
+    opacity: .7;
+}
+
+.flex-container .month-selection.shown .close-month-selection:hover {
+    opacity: .9;
+}
+
+@media(max-width: 992px) {
+    .flex-container .month-selection .flex-container {
+        flex-flow: column wrap;
+    }
+    .flex-container .month-selection .month-selector {
+        height: 50%;
+    }
+    .flex-container .month-selection .month-selector:nth-of-type(2) {
+        order: 3;
+    }
+    .flex-container .month-selection .month-selector:nth-of-type(3) {
+        flex-grow: 0;
+        flex-basis: 50%;
+        order: 2;
+    }
+    .flex-container .month-selection.shown {
+        padding: 5px;
+    }
+    .flex-container .month-selection .month-selector:after {
+        top: 5px;
+        left: 5px;
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+    }
+}
