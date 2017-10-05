@@ -23,6 +23,11 @@
                     @include('pages.common.views.form_external')
                 </div>
                 @endif
+                @if($page->page_type_id == 4)
+                <div class="form-container" id="carousel-form">
+                    @include('pages.common.views.form_carousel')
+                </div>
+                @endif
                 <div class="text-center">
                     {!! Form::submit('Guardar',['class'=>'submit-cms big-btn']) !!}
                 </div>

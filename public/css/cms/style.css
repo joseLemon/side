@@ -28,6 +28,10 @@ hr {
     margin: 0;
 }
 
+.row-no-margin {
+    margin: 0;
+}
+
 /* NAVBAR */
 .main-menu {
     width: 220px;
@@ -219,6 +223,29 @@ hr {
 
 .img-preview.img-container.active .remove-img:hover {
     opacity: .8;
+}
+
+.panel {
+}
+
+.panel .panel-heading {
+    cursor: pointer;
+}
+
+.panel .panel-title {
+    position: relative;
+    padding-right: 15px;
+}
+
+.panel .expand-accordion {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    color: #a3a3a3;
 }
 
 /* PAGES */
