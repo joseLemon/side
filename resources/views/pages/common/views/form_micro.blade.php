@@ -283,7 +283,7 @@
             </label>
         </label>
     </div>
-    <div class="clearfix hidden-lg"></div>
+    <div class="clearfix"></div>
     <div class="col-sm-6 col-md-6 col-lg-3">
         <label for="es_program_5_title" class="img_upload_container">
             Sección 5
@@ -397,7 +397,7 @@
             </label>
         </label>
     </div>
-    <div class="clearfix hidden-lg"></div>
+    <div class="clearfix"></div>
     <div class="col-sm-6 col-md-6 col-lg-3">
         <label for="es_program_9_title" class="img_upload_container">
             Sección 9
@@ -511,7 +511,7 @@
             </label>
         </label>
     </div>
-    <div class="clearfix hidden-lg"></div>
+    <div class="clearfix"></div>
     <div class="col-sm-6 col-md-6 col-lg-3">
         <label for="es_program_13_title" class="img_upload_container">
             Sección 13
