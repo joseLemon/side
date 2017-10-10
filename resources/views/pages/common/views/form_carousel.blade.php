@@ -7,6 +7,7 @@
         </div>
     </div>
 </div>
+<div id="carouselInputList" class="hidden"></div>
 <script>
     $('#add-carousel').click(function () {
         var accordion = $('#accordion-products'),
@@ -24,7 +25,7 @@
             '</div>' +
             '<div id="collapse' + panel_number + '" class="panel-collapse collapse">' +
             '<div class="panel-body text-right">' +
-            '{!! Form::text('carrusel_title[]',null,['class'=>'input-cms','id'=>'carousel_title[]','placeholder'=>'Título de carrusel']) !!}' +
+            '<input type="text" name="carousel_title_' + panel_number + '" id="carousel_title_' + panel_number + '" placeholder="Título de carrusel" class="input-cms carousel-title">' +
             '<div class="panel-group text-left" id="accordion-product-info-' + panel_number + '"></div>' +
             '<button type="button" class="add-product" onclick="addProductFunc(\'accordion-product-info-' + panel_number + '\',\'' + panel_number + '\')">Agregar Producto</button>' +
             '</div>' +
@@ -63,11 +64,31 @@
             '</label>' +
             '</div>' +
             '<div class="col-sm-6">' +
-            '{!! Form::textarea('product_text[]',null,['class'=>'input-cms','id'=>'product_text[]','placeholder'=>'Texto de producto']) !!}' +
+            '<input type="text" name="prodcut_title[]" id="product_title_"'+ panel_number + '-' + panel_number_parent +' placeholder="Título del producto" class="input-cms product-title">' +
+            '<textarea name="product_text[]" id="product_text_'+ panel_number + '-' + panel_number_parent +'" cols="30" rows="5" placeholder="Texto del producto" class="input-cms product-text"></textarea>' +
             '</div>' +
             '</div>' +
             '</div>' +
             '</div>'
         );
     }
+
+    $('form').submit(function (e) {
+        e.preventDefault()
+        e.stopImmediatePropagation();
+        var inputList = $('#carouselInputList');
+        inputList.empty();
+        $('#accordion-products > .panel').each(function () {
+            var panel = $(this),
+                title = panel.find('.carousel-title').val(),
+                metaList = title;
+            panel.find('.product-title').each(function () {
+                var input_title = $(this),
+                    title = input_title.val(),
+                    text = input_title.next().val();
+                metaList += '_@@_' + title + '_%%_' + text
+            });
+            inputList.append('<input type="hidden" val="' + metaList + '">')
+        });
+    })
 </script>

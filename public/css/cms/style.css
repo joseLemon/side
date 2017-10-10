@@ -248,6 +248,18 @@ hr {
     color: #a3a3a3;
 }
 
+.panel-collapse {
+    margin: 10px 0;
+}
+
+.panel-collapse .panel-body {
+    border: 0!important;
+}
+
+.panel textarea {
+    margin: 0;
+}
+
 /* PAGES */
 .page-section label {
     display: block;

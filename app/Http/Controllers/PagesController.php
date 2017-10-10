@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use App\Models\Page;
+use App\Models\PageCarousel;
 use App\Models\PageExternal;
 use App\Models\PageIndex;
 use App\Models\PageMicro;
@@ -610,6 +611,8 @@ class PagesController extends Controller {
                 $this->validatePageMicro($request);
             } else if($page->page_type_id == 3) {
                 $this->validatePageExternal($request);
+            } else if($page->page_type_id == 4) {
+                $this->validatePageCarousel($request);
             }
             return $this->updateMicro($request, $id, $page);
         }
@@ -633,12 +636,17 @@ class PagesController extends Controller {
 
         $page_type_id = $page->page_type_id;
 
-        if($page_type_id == 2) {
+        if($page_type_id >= 2) {
 
             $page_id = $page->page_id;
 
-            $page = PageMicro::where('page_id',$id)
-                ->first();
+            if($page_type_id == 2) {
+                $page = PageMicro::where('page_id', $id)
+                    ->first();
+            } else if($page_type_id == 4) {
+                $page = PageCarousel::where('page_id', $id)
+                    ->first();;
+            }
 
             if($_FILES['banner_1_img']['size'] > 0) {
                 $delete = false;
@@ -723,393 +731,350 @@ class PagesController extends Controller {
             }
             $page->page_video_iframe = $request->input('page_video_iframe');
 
-            //  PROGRAMAS
-            $page->es_programs_title = $request->input('es_programs_title');
-            $page->en_programs_title = $request->input('en_programs_title');
+            if($page_type_id == 2) {
 
-            if($_FILES['program_1_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_1_img) {
-                    $delete = true;
+                //  PROGRAMAS
+                $page->es_programs_title = $request->input('es_programs_title');
+                $page->en_programs_title = $request->input('en_programs_title');
+
+                if($_FILES['program_1_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_1_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_1_img',$delete, true,1920,2000,true, false);
+                    $page->program_1_img = $_FILES['program_1_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_1_img',$delete, true,1920,2000,true, false);
-                $page->program_1_img = $_FILES['program_1_img']['name'];
-            }
-            if($request->input('state_program_1_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_1_img'.strchr($page->program_1_img,'.'));
-                $page->program_1_img = \DB::raw('NULL');
-            }
-            $page->es_program_1_title = $request->input('es_program_1_title');
-            $page->en_program_1_title = $request->input('en_program_1_title');
-            $page->es_program_1_text = $request->input('es_program_1_text');
-            $page->en_program_1_text = $request->input('en_program_1_text');
-            if($_FILES['file_program_1']['size'] > 0) {
-                fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
-                $page->file_program_1 = $_FILES['file_program_1']['name'];
-            }
-
-            if($_FILES['program_2_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_2_img) {
-                    $delete = true;
+                if($request->input('state_program_1_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_1_img'.strchr($page->program_1_img,'.'));
+                    $page->program_1_img = \DB::raw('NULL');
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_2_img',$delete, true,1920,2000,true, false);
-                $page->program_2_img = $_FILES['program_2_img']['name'];
-            }
-            if($request->input('state_program_2_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_2_img'.strchr($page->program_2_img,'.'));
-                $page->program_2_img = \DB::raw('NULL');
-            }
-            $page->es_program_2_title = $request->input('es_program_2_title');
-            $page->en_program_2_title = $request->input('en_program_2_title');
-            $page->es_program_2_text = $request->input('es_program_2_text');
-            $page->en_program_2_text = $request->input('en_program_2_text');
-            if($_FILES['file_program_2']['size'] > 0) {
-                fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
-                $page->file_program_2 = $_FILES['file_program_2']['name'];
-            }
-
-            if($_FILES['program_3_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_3_img) {
-                    $delete = true;
+                $page->es_program_1_title = $request->input('es_program_1_title');
+                $page->en_program_1_title = $request->input('en_program_1_title');
+                $page->es_program_1_text = $request->input('es_program_1_text');
+                $page->en_program_1_text = $request->input('en_program_1_text');
+                if($_FILES['file_program_1']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
+                    $page->file_program_1 = $_FILES['file_program_1']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_3_img',$delete, true,1920,2000,true, false);
-                $page->program_3_img = $_FILES['program_3_img']['name'];
-            }
-            if($request->input('state_program_3_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_3_img'.strchr($page->program_3_img,'.'));
-                $page->program_3_img = \DB::raw('NULL');
-            }
-            $page->es_program_3_title = $request->input('es_program_3_title');
-            $page->en_program_3_title = $request->input('en_program_3_title');
-            $page->es_program_3_text = $request->input('es_program_3_text');
-            $page->en_program_3_text = $request->input('en_program_3_text');
-            if($_FILES['file_program_3']['size'] > 0) {
-                fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
-                $page->file_program_3 = $_FILES['file_program_3']['name'];
-            }
 
-            if($_FILES['program_4_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_4_img) {
-                    $delete = true;
+                if($_FILES['program_2_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_2_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_2_img',$delete, true,1920,2000,true, false);
+                    $page->program_2_img = $_FILES['program_2_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_4_img',$delete, true,1920,2000,true, false);
-                $page->program_4_img = $_FILES['program_4_img']['name'];
-            }
-            if($request->input('state_program_4_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_4_img'.strchr($page->program_4_img,'.'));
-                $page->program_4_img = \DB::raw('NULL');
-            }
-            $page->es_program_4_title = $request->input('es_program_4_title');
-            $page->en_program_4_title = $request->input('en_program_4_title');
-            $page->es_program_4_text = $request->input('es_program_4_text');
-            $page->en_program_4_text = $request->input('en_program_4_text');
-            if($_FILES['file_program_4']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_4', false, true, true);
-                $page->file_program_4 = $_FILES['file_program_4']['name'];
-            }
-
-            if($_FILES['program_5_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_5_img) {
-                    $delete = true;
+                if($request->input('state_program_2_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_2_img'.strchr($page->program_2_img,'.'));
+                    $page->program_2_img = \DB::raw('NULL');
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_5_img',$delete, true,1920,2000,true, false);
-                $page->program_5_img = $_FILES['program_5_img']['name'];
-            }
-            if($request->input('state_program_5_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_5_img'.strchr($page->program_5_img,'.'));
-                $page->program_5_img = \DB::raw('NULL');
-            }
-            $page->es_program_5_title = $request->input('es_program_5_title');
-            $page->en_program_5_title = $request->input('en_program_5_title');
-            $page->es_program_5_text = $request->input('es_program_5_text');
-            $page->en_program_5_text = $request->input('en_program_5_text');
-            if($_FILES['file_program_5']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_5', false, true, true);
-                $page->file_program_5 = $_FILES['file_program_5']['name'];
-            }
-
-            if($_FILES['program_6_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_6_img) {
-                    $delete = true;
+                $page->es_program_2_title = $request->input('es_program_2_title');
+                $page->en_program_2_title = $request->input('en_program_2_title');
+                $page->es_program_2_text = $request->input('es_program_2_text');
+                $page->en_program_2_text = $request->input('en_program_2_text');
+                if($_FILES['file_program_2']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
+                    $page->file_program_2 = $_FILES['file_program_2']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_6_img',$delete, true,1920,2000,true, false);
-                $page->program_6_img = $_FILES['program_6_img']['name'];
-            }
-            if($request->input('state_program_6_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_6_img'.strchr($page->program_6_img,'.'));
-                $page->program_6_img = \DB::raw('NULL');
-            }
-            $page->es_program_6_title = $request->input('es_program_6_title');
-            $page->en_program_6_title = $request->input('en_program_6_title');
-            $page->es_program_6_text = $request->input('es_program_6_text');
-            $page->en_program_6_text = $request->input('en_program_6_text');
-            if($_FILES['file_program_6']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_6', false, true, true);
-                $page->file_program_6 = $_FILES['file_program_6']['name'];
-            }
 
-            if($_FILES['program_7_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_7_img) {
-                    $delete = true;
+                if($_FILES['program_3_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_3_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_3_img',$delete, true,1920,2000,true, false);
+                    $page->program_3_img = $_FILES['program_3_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_7_img',$delete, true,1920,2000,true, false);
-                $page->program_7_img = $_FILES['program_7_img']['name'];
-            }
-            if($request->input('state_program_7_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_7_img'.strchr($page->program_7_img,'.'));
-                $page->program_7_img = \DB::raw('NULL');
-            }
-            $page->es_program_7_title = $request->input('es_program_7_title');
-            $page->en_program_7_title = $request->input('en_program_7_title');
-            $page->es_program_7_text = $request->input('es_program_7_text');
-            $page->en_program_7_text = $request->input('en_program_7_text');
-            if($_FILES['file_program_7']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_7', false, true, true);
-                $page->file_program_7 = $_FILES['file_program_7']['name'];
-            }
-
-            if($_FILES['program_8_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_8_img) {
-                    $delete = true;
+                if($request->input('state_program_3_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_3_img'.strchr($page->program_3_img,'.'));
+                    $page->program_3_img = \DB::raw('NULL');
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_8_img',$delete, true,1920,2000,true, false);
-                $page->program_8_img = $_FILES['program_8_img']['name'];
-            }
-            if($request->input('state_program_8_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_8_img'.strchr($page->program_8_img,'.'));
-                $page->program_8_img = \DB::raw('NULL');
-            }
-            $page->es_program_8_title = $request->input('es_program_8_title');
-            $page->en_program_8_title = $request->input('en_program_8_title');
-            $page->es_program_8_text = $request->input('es_program_8_text');
-            $page->en_program_8_text = $request->input('en_program_8_text');
-            if($_FILES['file_program_8']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_8', false, true, true);
-                $page->file_program_8 = $_FILES['file_program_8']['name'];
-            }
-
-            if($_FILES['program_9_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_9_img) {
-                    $delete = true;
+                $page->es_program_3_title = $request->input('es_program_3_title');
+                $page->en_program_3_title = $request->input('en_program_3_title');
+                $page->es_program_3_text = $request->input('es_program_3_text');
+                $page->en_program_3_text = $request->input('en_program_3_text');
+                if($_FILES['file_program_3']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
+                    $page->file_program_3 = $_FILES['file_program_3']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_9_img',$delete, true,1920,2000,true, false);
-                $page->program_9_img = $_FILES['program_9_img']['name'];
-            }
-            if($request->input('state_program_9_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_9_img'.strchr($page->program_9_img,'.'));
-                $page->program_9_img = \DB::raw('NULL');
-            }
-            $page->es_program_9_title = $request->input('es_program_9_title');
-            $page->en_program_9_title = $request->input('en_program_9_title');
-            $page->es_program_9_text = $request->input('es_program_9_text');
-            $page->en_program_9_text = $request->input('en_program_9_text');
-            if($_FILES['file_program_9']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_9', false, true, true);
-                $page->file_program_9 = $_FILES['file_program_9']['name'];
-            }
 
-            if($_FILES['program_10_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_10_img) {
-                    $delete = true;
+                if($_FILES['program_4_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_4_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_4_img',$delete, true,1920,2000,true, false);
+                    $page->program_4_img = $_FILES['program_4_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_10_img',$delete, true,1920,2000,true, false);
-                $page->program_10_img = $_FILES['program_10_img']['name'];
-            }
-            if($request->input('state_program_10_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_10_img'.strchr($page->program_10_img,'.'));
-                $page->program_10_img = \DB::raw('NULL');
-            }
-            $page->es_program_10_title = $request->input('es_program_10_title');
-            $page->en_program_10_title = $request->input('en_program_10_title');
-            $page->es_program_10_text = $request->input('es_program_10_text');
-            $page->en_program_10_text = $request->input('en_program_10_text');
-            if($_FILES['file_program_10']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_10', false, true, true);
-                $page->file_program_10 = $_FILES['file_program_10']['name'];
-            }
-
-            if($_FILES['program_11_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_11_img) {
-                    $delete = true;
+                if($request->input('state_program_4_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_4_img'.strchr($page->program_4_img,'.'));
+                    $page->program_4_img = \DB::raw('NULL');
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_11_img',$delete, true,1920,2000,true, false);
-                $page->program_11_img = $_FILES['program_11_img']['name'];
-            }
-            if($request->input('state_program_11_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_11_img'.strchr($page->program_11_img,'.'));
-                $page->program_11_img = \DB::raw('NULL');
-            }
-            $page->es_program_11_title = $request->input('es_program_11_title');
-            $page->en_program_11_title = $request->input('en_program_11_title');
-            $page->es_program_11_text = $request->input('es_program_11_text');
-            $page->en_program_11_text = $request->input('en_program_11_text');
-            if($_FILES['file_program_11']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_11', false, true, true);
-                $page->file_program_11 = $_FILES['file_program_11']['name'];
-            }
-
-            if($_FILES['program_12_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_12_img) {
-                    $delete = true;
+                $page->es_program_4_title = $request->input('es_program_4_title');
+                $page->en_program_4_title = $request->input('en_program_4_title');
+                $page->es_program_4_text = $request->input('es_program_4_text');
+                $page->en_program_4_text = $request->input('en_program_4_text');
+                if($_FILES['file_program_4']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_4', false, true, true);
+                    $page->file_program_4 = $_FILES['file_program_4']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_12_img',$delete, true,1920,2000,true, false);
-                $page->program_12_img = $_FILES['program_12_img']['name'];
-            }
-            if($request->input('state_program_12_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_12_img'.strchr($page->program_12_img,'.'));
-                $page->program_12_img = \DB::raw('NULL');
-            }
-            $page->es_program_12_title = $request->input('es_program_12_title');
-            $page->en_program_12_title = $request->input('en_program_12_title');
-            $page->es_program_12_text = $request->input('es_program_12_text');
-            $page->en_program_12_text = $request->input('en_program_12_text');
-            if($_FILES['file_program_12']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_12', false, true, true);
-                $page->file_program_12 = $_FILES['file_program_12']['name'];
-            }
 
-            if($_FILES['program_13_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_13_img) {
-                    $delete = true;
+                if($_FILES['program_5_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_5_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_5_img',$delete, true,1920,2000,true, false);
+                    $page->program_5_img = $_FILES['program_5_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_13_img',$delete, true,1920,2000,true, false);
-                $page->program_13_img = $_FILES['program_13_img']['name'];
-            }
-            if($request->input('state_program_13_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_13_img'.strchr($page->program_13_img,'.'));
-                $page->program_13_img = \DB::raw('NULL');
-            }
-            $page->es_program_13_title = $request->input('es_program_13_title');
-            $page->en_program_13_title = $request->input('en_program_13_title');
-            $page->es_program_13_text = $request->input('es_program_13_text');
-            $page->en_program_13_text = $request->input('en_program_13_text');
-            if($_FILES['file_program_13']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_13', false, true, true);
-                $page->file_program_13 = $_FILES['file_program_13']['name'];
-            }
-
-            if($_FILES['program_14_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_14_img) {
-                    $delete = true;
+                if($request->input('state_program_5_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_5_img'.strchr($page->program_5_img,'.'));
+                    $page->program_5_img = \DB::raw('NULL');
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_14_img',$delete, true,1920,2000,true, false);
-                $page->program_14_img = $_FILES['program_14_img']['name'];
-            }
-            if($request->input('state_program_14_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_14_img'.strchr($page->program_14_img,'.'));
-                $page->program_14_img = \DB::raw('NULL');
-            }
-            $page->es_program_14_title = $request->input('es_program_14_title');
-            $page->en_program_14_title = $request->input('en_program_14_title');
-            $page->es_program_14_text = $request->input('es_program_14_text');
-            $page->en_program_14_text = $request->input('en_program_14_text');
-            if($_FILES['file_program_14']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_14', false, true, true);
-                $page->file_program_14 = $_FILES['file_program_14']['name'];
-            }
-
-            if($_FILES['program_15_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_15_img) {
-                    $delete = true;
+                $page->es_program_5_title = $request->input('es_program_5_title');
+                $page->en_program_5_title = $request->input('en_program_5_title');
+                $page->es_program_5_text = $request->input('es_program_5_text');
+                $page->en_program_5_text = $request->input('en_program_5_text');
+                if($_FILES['file_program_5']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_5', false, true, true);
+                    $page->file_program_5 = $_FILES['file_program_5']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_15_img',$delete, true,1920,2000,true, false);
-                $page->program_15_img = $_FILES['program_15_img']['name'];
-            }
-            if($request->input('state_program_15_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_15_img'.strchr($page->program_15_img,'.'));
-                $page->program_15_img = \DB::raw('NULL');
-            }
-            $page->es_program_15_title = $request->input('es_program_15_title');
-            $page->en_program_15_title = $request->input('en_program_15_title');
-            $page->es_program_15_text = $request->input('es_program_15_text');
-            $page->en_program_15_text = $request->input('en_program_15_text');
-            if($_FILES['file_program_15']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_15', false, true, true);
-                $page->file_program_15 = $_FILES['file_program_15']['name'];
-            }
 
-            if($_FILES['program_16_img']['size'] > 0) {
-                $delete = false;
-                if($page->program_16_img) {
-                    $delete = true;
+                if($_FILES['program_6_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_6_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_6_img',$delete, true,1920,2000,true, false);
+                    $page->program_6_img = $_FILES['program_6_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_16_img',$delete, true,1920,2000,true, false);
-                $page->program_16_img = $_FILES['program_16_img']['name'];
-            }
-            if($request->input('state_program_16_check') == 'removed') {
-                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_16_img'.strchr($page->program_16_img,'.'));
-                $page->program_16_img = \DB::raw('NULL');
-            }
-            $page->es_program_16_title = $request->input('es_program_16_title');
-            $page->en_program_16_title = $request->input('en_program_16_title');
-            $page->es_program_16_text = $request->input('es_program_16_text');
-            $page->en_program_16_text = $request->input('en_program_16_text');
-            if($_FILES['file_program_16']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_16', false, true, true);
-                $page->file_program_16 = $_FILES['file_program_16']['name'];
-            }
-
-            //  SEGUNDO BANNER/VIDEO
-            /*if($_FILES['banner_3_img']['size'] > 0) {
-                $delete = false;
-                if($page->banner_3_img) {
-                    $delete = true;
+                if($request->input('state_program_6_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_6_img'.strchr($page->program_6_img,'.'));
+                    $page->program_6_img = \DB::raw('NULL');
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','banner_3_img',$delete, true,1920,2000,true, false);
-                $page->banner_3_img = $_FILES['banner_3_img']['name'];
-            }*/
-
-            /*//  PROGRAMAS ADMINISTRADOS
-            $page->es_programs_title_2 = $request->input('es_programs_title_2');
-            $page->en_programs_title_2 = $request->input('en_programs_title_2');
-
-            if($_FILES['program_1_img_2']['size'] > 0) {
-                $delete = false;
-                if($page->program_1_img_2) {
-                    $delete = true;
+                $page->es_program_6_title = $request->input('es_program_6_title');
+                $page->en_program_6_title = $request->input('en_program_6_title');
+                $page->es_program_6_text = $request->input('es_program_6_text');
+                $page->en_program_6_text = $request->input('en_program_6_text');
+                if($_FILES['file_program_6']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_6', false, true, true);
+                    $page->file_program_6 = $_FILES['file_program_6']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_1_img_2',$delete, true,1920,2000,true, false);
-                $page->program_1_img_2 = $_FILES['program_1_img_2']['name'];
-            }
-            $page->es_program_1_title_2 = $request->input('es_program_1_title_2');
-            $page->en_program_1_title_2 = $request->input('en_program_1_title_2');
-            $page->es_program_1_text_2 = $request->input('es_program_1_text_2');
-            $page->en_program_1_text_2 = $request->input('en_program_1_text_2');
-            if($_FILES['file_program_1_2']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_1_2', false, true, true);
-                $page->file_program_1_2 = $_FILES['file_program_1_2']['name'];
-            }
 
-            if($_FILES['program_2_img_2']['size'] > 0) {
-                $delete = false;
-                if($page->program_2_img_2) {
-                    $delete = true;
+                if($_FILES['program_7_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_7_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_7_img',$delete, true,1920,2000,true, false);
+                    $page->program_7_img = $_FILES['program_7_img']['name'];
                 }
-                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_2_img_2',$delete, true,1920,2000,true, false);
-                $page->program_2_img_2 = $_FILES['program_2_img_2']['name'];
+                if($request->input('state_program_7_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_7_img'.strchr($page->program_7_img,'.'));
+                    $page->program_7_img = \DB::raw('NULL');
+                }
+                $page->es_program_7_title = $request->input('es_program_7_title');
+                $page->en_program_7_title = $request->input('en_program_7_title');
+                $page->es_program_7_text = $request->input('es_program_7_text');
+                $page->en_program_7_text = $request->input('en_program_7_text');
+                if($_FILES['file_program_7']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_7', false, true, true);
+                    $page->file_program_7 = $_FILES['file_program_7']['name'];
+                }
+
+                if($_FILES['program_8_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_8_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_8_img',$delete, true,1920,2000,true, false);
+                    $page->program_8_img = $_FILES['program_8_img']['name'];
+                }
+                if($request->input('state_program_8_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_8_img'.strchr($page->program_8_img,'.'));
+                    $page->program_8_img = \DB::raw('NULL');
+                }
+                $page->es_program_8_title = $request->input('es_program_8_title');
+                $page->en_program_8_title = $request->input('en_program_8_title');
+                $page->es_program_8_text = $request->input('es_program_8_text');
+                $page->en_program_8_text = $request->input('en_program_8_text');
+                if($_FILES['file_program_8']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_8', false, true, true);
+                    $page->file_program_8 = $_FILES['file_program_8']['name'];
+                }
+
+                if($_FILES['program_9_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_9_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_9_img',$delete, true,1920,2000,true, false);
+                    $page->program_9_img = $_FILES['program_9_img']['name'];
+                }
+                if($request->input('state_program_9_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_9_img'.strchr($page->program_9_img,'.'));
+                    $page->program_9_img = \DB::raw('NULL');
+                }
+                $page->es_program_9_title = $request->input('es_program_9_title');
+                $page->en_program_9_title = $request->input('en_program_9_title');
+                $page->es_program_9_text = $request->input('es_program_9_text');
+                $page->en_program_9_text = $request->input('en_program_9_text');
+                if($_FILES['file_program_9']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_9', false, true, true);
+                    $page->file_program_9 = $_FILES['file_program_9']['name'];
+                }
+
+                if($_FILES['program_10_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_10_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_10_img',$delete, true,1920,2000,true, false);
+                    $page->program_10_img = $_FILES['program_10_img']['name'];
+                }
+                if($request->input('state_program_10_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_10_img'.strchr($page->program_10_img,'.'));
+                    $page->program_10_img = \DB::raw('NULL');
+                }
+                $page->es_program_10_title = $request->input('es_program_10_title');
+                $page->en_program_10_title = $request->input('en_program_10_title');
+                $page->es_program_10_text = $request->input('es_program_10_text');
+                $page->en_program_10_text = $request->input('en_program_10_text');
+                if($_FILES['file_program_10']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_10', false, true, true);
+                    $page->file_program_10 = $_FILES['file_program_10']['name'];
+                }
+
+                if($_FILES['program_11_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_11_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_11_img',$delete, true,1920,2000,true, false);
+                    $page->program_11_img = $_FILES['program_11_img']['name'];
+                }
+                if($request->input('state_program_11_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_11_img'.strchr($page->program_11_img,'.'));
+                    $page->program_11_img = \DB::raw('NULL');
+                }
+                $page->es_program_11_title = $request->input('es_program_11_title');
+                $page->en_program_11_title = $request->input('en_program_11_title');
+                $page->es_program_11_text = $request->input('es_program_11_text');
+                $page->en_program_11_text = $request->input('en_program_11_text');
+                if($_FILES['file_program_11']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_11', false, true, true);
+                    $page->file_program_11 = $_FILES['file_program_11']['name'];
+                }
+
+                if($_FILES['program_12_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_12_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_12_img',$delete, true,1920,2000,true, false);
+                    $page->program_12_img = $_FILES['program_12_img']['name'];
+                }
+                if($request->input('state_program_12_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_12_img'.strchr($page->program_12_img,'.'));
+                    $page->program_12_img = \DB::raw('NULL');
+                }
+                $page->es_program_12_title = $request->input('es_program_12_title');
+                $page->en_program_12_title = $request->input('en_program_12_title');
+                $page->es_program_12_text = $request->input('es_program_12_text');
+                $page->en_program_12_text = $request->input('en_program_12_text');
+                if($_FILES['file_program_12']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_12', false, true, true);
+                    $page->file_program_12 = $_FILES['file_program_12']['name'];
+                }
+
+                if($_FILES['program_13_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_13_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_13_img',$delete, true,1920,2000,true, false);
+                    $page->program_13_img = $_FILES['program_13_img']['name'];
+                }
+                if($request->input('state_program_13_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_13_img'.strchr($page->program_13_img,'.'));
+                    $page->program_13_img = \DB::raw('NULL');
+                }
+                $page->es_program_13_title = $request->input('es_program_13_title');
+                $page->en_program_13_title = $request->input('en_program_13_title');
+                $page->es_program_13_text = $request->input('es_program_13_text');
+                $page->en_program_13_text = $request->input('en_program_13_text');
+                if($_FILES['file_program_13']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_13', false, true, true);
+                    $page->file_program_13 = $_FILES['file_program_13']['name'];
+                }
+
+                if($_FILES['program_14_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_14_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_14_img',$delete, true,1920,2000,true, false);
+                    $page->program_14_img = $_FILES['program_14_img']['name'];
+                }
+                if($request->input('state_program_14_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_14_img'.strchr($page->program_14_img,'.'));
+                    $page->program_14_img = \DB::raw('NULL');
+                }
+                $page->es_program_14_title = $request->input('es_program_14_title');
+                $page->en_program_14_title = $request->input('en_program_14_title');
+                $page->es_program_14_text = $request->input('es_program_14_text');
+                $page->en_program_14_text = $request->input('en_program_14_text');
+                if($_FILES['file_program_14']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_14', false, true, true);
+                    $page->file_program_14 = $_FILES['file_program_14']['name'];
+                }
+
+                if($_FILES['program_15_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_15_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_15_img',$delete, true,1920,2000,true, false);
+                    $page->program_15_img = $_FILES['program_15_img']['name'];
+                }
+                if($request->input('state_program_15_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_15_img'.strchr($page->program_15_img,'.'));
+                    $page->program_15_img = \DB::raw('NULL');
+                }
+                $page->es_program_15_title = $request->input('es_program_15_title');
+                $page->en_program_15_title = $request->input('en_program_15_title');
+                $page->es_program_15_text = $request->input('es_program_15_text');
+                $page->en_program_15_text = $request->input('en_program_15_text');
+                if($_FILES['file_program_15']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_15', false, true, true);
+                    $page->file_program_15 = $_FILES['file_program_15']['name'];
+                }
+
+                if($_FILES['program_16_img']['size'] > 0) {
+                    $delete = false;
+                    if($page->program_16_img) {
+                        $delete = true;
+                    }
+                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','program_16_img',$delete, true,1920,2000,true, false);
+                    $page->program_16_img = $_FILES['program_16_img']['name'];
+                }
+                if($request->input('state_program_16_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','program_16_img'.strchr($page->program_16_img,'.'));
+                    $page->program_16_img = \DB::raw('NULL');
+                }
+                $page->es_program_16_title = $request->input('es_program_16_title');
+                $page->en_program_16_title = $request->input('en_program_16_title');
+                $page->es_program_16_text = $request->input('es_program_16_text');
+                $page->en_program_16_text = $request->input('en_program_16_text');
+                if($_FILES['file_program_16']['size'] > 0) {
+                    fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_16', false, true, true);
+                    $page->file_program_16 = $_FILES['file_program_16']['name'];
+                }
+            } else if($page_type_id == 4) {
+
             }
-            $page->es_program_2_title_2 = $request->input('es_program_2_title_2');
-            $page->en_program_2_title_2 = $request->input('en_program_2_title_2');
-            $page->es_program_2_text_2 = $request->input('es_program_2_text_2');
-            $page->en_program_2_text_2 = $request->input('en_program_2_text_2');
-            if($_FILES['file_program_2_2']['size'] > 0) {
-                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_2_2', false, true, true);
-                $page->file_program_2_2 = $_FILES['file_program_2_2']['name'];
-            }*/
 
             $page->save();
 
