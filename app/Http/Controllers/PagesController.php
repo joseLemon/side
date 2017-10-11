@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Carousel;
 use App\Models\Color;
 use App\Models\Page;
 use App\Models\PageCarousel;
@@ -8,6 +9,7 @@ use App\Models\PageExternal;
 use App\Models\PageIndex;
 use App\Models\PageMicro;
 use App\Models\PageType;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller {
@@ -585,6 +587,17 @@ class PagesController extends Controller {
                 $page->external = $page->external()->first();
             }
 
+            if($page->page_type_id == 4) {
+                $page->micro = $page->carousel()->first();
+                $carousels = Carousel::where('page_id',$page->page_id)
+                    ->get();
+                $params['carousels'] = $carousels;
+
+                foreach ($carousels as $id => $carousel) {
+                    $carousels[$id]->products;
+                }
+            }
+
             $colors = Color::select(['color_name','color_id','color_slug'])->get();
             $page_types = PageType::select(['page_type_name','page_type_id'])
                 ->where('page_type_id','!=',1)
@@ -611,9 +624,8 @@ class PagesController extends Controller {
                 $this->validatePageMicro($request);
             } else if($page->page_type_id == 3) {
                 $this->validatePageExternal($request);
-            } else if($page->page_type_id == 4) {
-                $this->validatePageCarousel($request);
             }
+
             return $this->updateMicro($request, $id, $page);
         }
     }
@@ -645,7 +657,7 @@ class PagesController extends Controller {
                     ->first();
             } else if($page_type_id == 4) {
                 $page = PageCarousel::where('page_id', $id)
-                    ->first();;
+                    ->first();
             }
 
             if($_FILES['banner_1_img']['size'] > 0) {
@@ -1073,9 +1085,34 @@ class PagesController extends Controller {
                     $page->file_program_16 = $_FILES['file_program_16']['name'];
                 }
             } else if($page_type_id == 4) {
-
+                $products = $request->input('products');
+                $carousel_id = null;
+                foreach($products as $iterationId => $product) {
+                    $productArray = explode('_@@_', $product);
+                    foreach ($productArray as $metaId => $meta) {
+                        if($metaId == 0) {
+                            $carousel_title = $meta;
+                            $carousel = new Carousel();
+                            $carousel->carousel_title = $carousel_title;
+                            $carousel->page_id = $page->page_id;
+                            $carousel->save();
+                            $carousel_id = $carousel->carousel_id;
+                        } else {
+                            $productItem = explode('_%%_', $meta);
+                            $product = new Product();
+                            $product->carousel_id = $carousel_id;
+                            $product->product_title = $productItem[0];
+                            $product->product_text = $productItem[1];
+                            /*$img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
+                            if($_FILES[$img_file]['size'] > 0) {
+                                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/products/', $img_file, false, true, true);
+                                $product->product_img = $_FILES[$img_file]['name'];
+                            }*/
+                            $product->save();
+                        }
+                    }
+                }
             }
-
             $page->save();
 
         }

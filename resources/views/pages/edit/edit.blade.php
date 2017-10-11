@@ -16,6 +16,7 @@
                 @if($page->page_type_id == 2)
                 <div class="form-container" id="micro-form">
                     @include('pages.common.views.form_micro')
+                    @include('pages.common.views.form_programs')
                 </div>
                 @endif
                 @if($page->page_type_id == 3)
@@ -25,6 +26,7 @@
                 @endif
                 @if($page->page_type_id == 4)
                 <div class="form-container" id="carousel-form">
+                    @include('pages.common.views.form_micro')
                     @include('pages.common.views.form_carousel')
                 </div>
                 @endif
