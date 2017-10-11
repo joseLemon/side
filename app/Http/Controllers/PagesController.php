@@ -1103,11 +1103,15 @@ class PagesController extends Controller {
                             $product->carousel_id = $carousel_id;
                             $product->product_title = $productItem[0];
                             $product->product_text = $productItem[1];
-                            /*$img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
+                            $img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
                             if($_FILES[$img_file]['size'] > 0) {
-                                fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/products/', $img_file, false, true, true);
+                                $delete = false;
+                                if($product->product_img) {
+                                    $delete = true;
+                                }
+                                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/products/',$img_file,$delete, true,1920,2000,true, false);
                                 $product->product_img = $_FILES[$img_file]['name'];
-                            }*/
+                            }
                             $product->save();
                         }
                     }
