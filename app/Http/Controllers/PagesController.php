@@ -1086,32 +1086,44 @@ class PagesController extends Controller {
                 }
             } else if($page_type_id == 4) {
                 $products = $request->input('products');
-                $carousel_id = null;
                 foreach($products as $iterationId => $product) {
                     $productArray = explode('_@@_', $product);
+                    $carousel_id = $productArray[1];
+                    if($carousel_id == 'new') {
+                        $carousel = new Carousel();
+                    } else {
+                        $carousel = Carousel::find($carousel_id);
+                    }
+                    $carousel_title = $productArray[0];
+                    $carousel->carousel_title = $carousel_title;
+                    $carousel->page_id = $page->page_id;
+                    $carousel->save();
+
                     foreach ($productArray as $metaId => $meta) {
-                        if($metaId == 0) {
-                            $carousel_title = $meta;
-                            $carousel = new Carousel();
-                            $carousel->carousel_title = $carousel_title;
-                            $carousel->page_id = $page->page_id;
-                            $carousel->save();
-                            $carousel_id = $carousel->carousel_id;
+                        if($metaId == 0 || $metaId == 1) {
+                            continue;
                         } else {
                             $productItem = explode('_%%_', $meta);
-                            $product = new Product();
-                            $product->carousel_id = $carousel_id;
+                            $product_id = $productItem[2];
+
+                            if($product_id == 'new') {
+                                $product = new Product();
+                            } else if($product_id != null) {
+                                $product = Product::find($product_id);
+                            }
+
+                            $product->carousel_id = $carousel->carousel_id;
                             $product->product_title = $productItem[0];
                             $product->product_text = $productItem[1];
-                            $img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
-                            if($_FILES[$img_file]['size'] > 0) {
+                            //$img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
+                            /*if($_FILES[$img_file]['size'] > 0) {
                                 $delete = false;
                                 if($product->product_img) {
                                     $delete = true;
                                 }
                                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/products/',$img_file,$delete, true,1920,2000,true, false);
                                 $product->product_img = $_FILES[$img_file]['name'];
-                            }
+                            }*/
                             $product->save();
                         }
                     }

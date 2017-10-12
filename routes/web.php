@@ -38,6 +38,8 @@ Route::group(['middleware' => '\App\Http\Middleware\AfterLogin'], function() {
     require __DIR__.'/blog.php';
     //  PAGES SECTION
     require __DIR__.'/page.php';
+    //  CAROUSEL SECTION
+    require __DIR__.'/carousels.php';
 });
 
 Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {

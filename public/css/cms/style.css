@@ -225,27 +225,39 @@ hr {
     opacity: .8;
 }
 
-.panel {
-}
-
 .panel .panel-heading {
     cursor: pointer;
 }
 
 .panel .panel-title {
     position: relative;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.panel .expand-accordion {
+.panel .expand-accordion,
+.panel .deletePanel {
     position: absolute;
-    right: 0;
     top: 1px;
     padding: 0;
     border: 0;
     background-color: transparent;
     outline: none;
     color: #a3a3a3;
+}
+
+.panel .expand-accordion {
+    left: 0;
+}
+
+.panel .deletePanel {
+    right: -15px;
+    color: #c7254e;
+    opacity: .7;
+    height: calc(100% + 20px);
+    width: 30px;
+    top: -10px;
+    z-index: 10;
 }
 
 .panel-collapse {

@@ -1,7 +1,6 @@
 <script>
     $(document).ready(function() {
-        $('.input-file-img').change(readFile);
-        $('.input-file-doc').change(readFileDoc);
+        initReadFiles();
 
         $('.img-container .remove-img').click(function () {
             var button = $(this),
@@ -13,50 +12,6 @@
             input.val('').data('value', '');
             check.val('removed');
         });
-
-        function readFile() {
-            if (this.files && this.files[0]) {
-
-                var FR = new FileReader(),
-                    input = $(this),
-                    preview = input.closest('.img_upload_container').find('.preview'),
-                    previewImg = preview.find('img');
-
-                FR.addEventListener("load", function (e) {
-                    previewImg.attr('src',e.target.result);
-                });
-
-                FR.readAsDataURL(this.files[0]);
-
-                preview.addClass('active');
-
-                input.data('value', '');
-            }
-        }
-
-        function readFileDoc() {
-            var input = $(this),
-                label_text = input.closest('label').find('.label_text');
-            if (this.files && this.files[0]) {
-
-                var FR = new FileReader();
-
-                FR.addEventListener("load", function (e) {
-                    if(input.val() != '') {
-                        input.addClass('loaded-file');
-                        label_text.text(input.val().split('\\').pop());
-                    } else {
-                    }
-                });
-
-                FR.readAsDataURL(this.files[0]);
-            } else {
-                label_text.text('Elegir documento');
-                input.removeClass('loaded-file');
-            }
-        }
-
-
 
         $('#page_type').change(function () {
             var select = $(this),
@@ -104,4 +59,51 @@
                 .addClass( "ui-menu-icons avatar" );
         });
     });
+
+    function initReadFiles() {
+        $('.input-file-img').change(readFile);
+        $('.input-file-doc').change(readFileDoc);
+    }
+
+    function readFile() {
+        if (this.files && this.files[0]) {
+
+            var FR = new FileReader(),
+                input = $(this),
+                preview = input.closest('.img_upload_container').find('.preview'),
+                previewImg = preview.find('img');
+
+            FR.addEventListener("load", function (e) {
+                previewImg.attr('src',e.target.result);
+            });
+
+            FR.readAsDataURL(this.files[0]);
+
+            preview.addClass('active');
+
+            input.data('value', '');
+        }
+    }
+
+    function readFileDoc() {
+        var input = $(this),
+            label_text = input.closest('label').find('.label_text');
+        if (this.files && this.files[0]) {
+
+            var FR = new FileReader();
+
+            FR.addEventListener("load", function (e) {
+                if(input.val() != '') {
+                    input.addClass('loaded-file');
+                    label_text.text(input.val().split('\\').pop());
+                } else {
+                }
+            });
+
+            FR.readAsDataURL(this.files[0]);
+        } else {
+            label_text.text('Elegir documento');
+            input.removeClass('loaded-file');
+        }
+    }
 </script>

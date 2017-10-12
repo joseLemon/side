@@ -3,11 +3,14 @@
         <h3>Carruseles de productos</h3>
         <div class="panel-group" id="accordion-products">
             @foreach($carousels as $count => $carousel)
-            <div class="panel panel-default" id="{{ $count+1 }}" my_id="{{ $carousel->carousel_id }}">
+            <div class="panel panel-default" id="{{ $count+1 }}" my_id="{{ $carousel->carousel_id }}" type="carousel">
                 <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-products" href="#collapse{{ $count+1 }}">
                     <h4 class="panel-title">Carrusel {{ $count+1 }}
                         <button type="button" class="expand-accordion">
                             <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="deletePanel">
+                            <i class="fa fa-times" aria-hidden="true"></i>
                         </button>
                     </h4>
                 </div>
@@ -18,11 +21,14 @@
 
                             <!-- GOTTA MAKE THE PRODUCTS FOREACH -->
                             @foreach($carousel->products as $productCount => $product)
-                            <div class="panel panel-default" id="panel-{{ $productCount+1 }}-{{ $count+1 }}" my_id="{{ $product->product_id }}">
+                            <div class="panel panel-default" id="panel-{{ $productCount+1 }}-{{ $count+1 }}" my_id="{{ $product->product_id }}" type="product">
                                 <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-product-info-{{ $count+1 }}" href="#collapse{{ $productCount+1 }}-{{ $count+1 }}">
                                     <h4 class="panel-title">Producto {{ $productCount+1 }}
                                         <button type="button" class="expand-accordion">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="deletePanel">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
                                         </button>
                                     </h4>
                                 </div>
@@ -71,11 +77,14 @@
             panel_id = 'panel-'+panel_number;
 
         accordion.append(
-            '<div class="panel panel-default" id="' + panel_id + '" my_id="new">' +
+            '<div class="panel panel-default" id="' + panel_id + '" my_id="new" type="carousel">' +
             '<div class="panel-heading" data-toggle="collapse" data-parent="#accordion-products" href="#collapse' + panel_number + '">' +
             '<h4 class="panel-title">Carrusel ' + panel_number +
             '<button type="button" class="expand-accordion">' +
             '<i class="fa fa-plus" aria-hidden="true"></i>' +
+            '</button>' +
+            '<button type="button" class="deletePanel new">' +
+            '<i class="fa fa-times" aria-hidden="true"></i>' +
             '</button>' +
             '</h4>' +
             '</div>' +
@@ -87,6 +96,9 @@
             '</div>' +
             '</div>'
         );
+
+        deletePanel();
+        initReadFiles();
     });
 
     function addProductFunc(panel_accordion_id, panel_number_parent) {
@@ -95,11 +107,14 @@
             panel_id = 'panel-' + panel_number + '-' + panel_number_parent;
 
         panel_accordion.append(
-            '<div class="panel panel-default" id="' + panel_id + '" my_id="new">' +
+            '<div class="panel panel-default" id="' + panel_id + '" my_id="new" type="product">' +
             '<div class="panel-heading" data-toggle="collapse" data-parent="#' + panel_accordion_id + '" href="#collapse' + panel_number + '-' + panel_number_parent + '">' +
             '<h4 class="panel-title">Producto ' + panel_number +
             '<button type="button" class="expand-accordion">' +
             '<i class="fa fa-plus" aria-hidden="true"></i>' +
+            '</button>' +
+            '<button type="button" class="deletePanel new">' +
+            '<i class="fa fa-times" aria-hidden="true"></i>' +
             '</button>' +
             '</h4>' +
             '</div>' +
@@ -127,6 +142,9 @@
             '</div>' +
             '</div>'
         );
+
+        deletePanel();
+        initReadFiles();
     }
 
     $('form').submit(function (e) {
@@ -134,12 +152,8 @@
         e.stopImmediatePropagation();
 
         var form = $(this);
-        var inputListnew = $('#carouselInputList'),
-            inputListedit = $('#carouselInputListEdit'),
-            inputListdelete = $('#carouselInputListDelete');
-        inputListnew.empty();
-        inputListedit.empty();
-        inputListdelete.empty();
+        var inputList = $('#carouselInputList');
+        inputList.empty();
 
         $('#accordion-products > .panel').each(function () {
             var panel = $(this),
@@ -175,15 +189,50 @@
                 if(metaList == '') {
                     productsValidation();
                 } else {
-                    inputListnew.append('<input type="hidden" name="products[]" id="products" value="' + metaList + '">');
+                    inputList.append('<input type="hidden" name="products[]" id="products" value="' + metaList + '">');
                 }
             }
 
             if(validation) {
-                //form[0].submit();
+                form[0].submit();
             }
         });
     });
+
+    function deletePanel() {
+        $('.deletePanel').click(function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            var button = $(this),
+                panel = button.closest('.panel');
+
+            if(button.hasClass('new')) {
+                panel.remove();
+            } else {
+                var id = panel.attr('my_id'),
+                    type = panel.attr('type');
+
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('product.delete') }}',
+                    data: {
+                        'id': id,
+                        'type': type
+                    }
+                }).success(function () {
+                    location.reload();
+                }).fail(function () {
+                    $.alert({
+                        title: 'Error al borrar el Carrusel o Servicio.',
+                        content: 'No se pudo completar la operación, intentalo nuevamente más tarde.',
+                        backgroundDismiss: 'cancel'
+                    })
+                });
+
+            }
+        });
+    }
 
     function productsValidation() {
         $.alert({
@@ -193,4 +242,8 @@
         });
         return false;
     }
+
+    $(document).ready(function () {
+        deletePanel();
+    });
 </script>
