@@ -53,10 +53,18 @@ class IndexController extends Controller {
 
         // Construcción
         if($page->page_type_id == 2) {
-            return $this->underConstruction();
+            //return $this->underConstruction();
+            $page->micro = $page->micro()->first();
         }
 
-        $page->micro = $page->micro()->first();
+        if($page->page_type_id == 4) {
+            $page->micro = $page->carousel()->first();
+            $page->slider = $page->sliderInfo()->get();
+
+            foreach($page->slider as $key => $slider){
+                $page->slider[$key]->products;
+            }
+        }
 
         $params = [
             'page' => $page,
