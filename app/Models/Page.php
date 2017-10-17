@@ -50,4 +50,11 @@ class Page extends Model {
     public function sliderInfo () {
         return $this->hasMany('App\Models\Carousel','page_id','page_id');
     }
+
+    /*
+     * Get the micro page that owns this page
+     */
+    public function years () {
+        return $this->hasMany('App\Models\PageCalendar','page_id','page_id');
+    }
 }

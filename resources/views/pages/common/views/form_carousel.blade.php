@@ -40,7 +40,7 @@
                                                     <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
                                                     <img src="{{ asset('public/uploads/pages/' . $page->page_id . '/products/' . $product->product_img . '?=' . rand(1,99999999)) }}" id="preview" class="center-block img-responsive">
                                                 </div>
-                                                Imagen del sitio
+                                                Imagen del producto
                                                 <label for="product_{{ $productCount+1 }}-{{ $count+1 }}_img" class="input-file-cms">
                                                     Elegir imagen
                                                     <input type="file" name="product_{{ $productCount+1 }}-{{ $count+1 }}_img" id="product_{{ $productCount+1 }}-{{ $count+1 }}_img" accept="image/*" class="input-file-img">
@@ -126,7 +126,7 @@
             '<button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>' +
             '<img src="" id="preview" class="center-block img-responsive">' +
             '</div>' +
-            'Imagen del sitio' +
+            'Imagen del producto' +
             '<label for="product_' + panel_number + '-' + panel_number_parent + '_img" class="input-file-cms">' +
             'Elegir imagen' +
             '<input type="file" name="product_' + panel_number + '-' + panel_number_parent + '_img" id="product_' + panel_number + '-' + panel_number_parent + '_img" accept="image/*" class="input-file-img">' +

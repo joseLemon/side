@@ -66,6 +66,15 @@ class IndexController extends Controller {
             }
         }
 
+        if($page->page_type_id == 5) {
+            $page->micro = $page->years()->first();
+            /*$page->slider = $page->sliderInfo()->get();
+
+            foreach($page->slider as $key => $slider){
+                $page->slider[$key]->products;
+            }*/
+        }
+
         $params = [
             'page' => $page,
         ];
