@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Models\Carousel;
-use App\Models\Page;
 use App\Models\Product;
 use Illuminate\Http\Request;
 

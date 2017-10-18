@@ -40,6 +40,8 @@ Route::group(['middleware' => '\App\Http\Middleware\AfterLogin'], function() {
     require __DIR__.'/page.php';
     //  CAROUSEL SECTION
     require __DIR__.'/carousels.php';
+    //  CALENDAR SECTION
+    require __DIR__.'/calendar.php';
 });
 
 Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {

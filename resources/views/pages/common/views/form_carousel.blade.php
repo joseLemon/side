@@ -224,7 +224,7 @@
                     location.reload();
                 }).fail(function () {
                     $.alert({
-                        title: 'Error al borrar el Carrusel o Servicio.',
+                        title: 'Error al borrar el Carrusel o Producto.',
                         content: 'No se pudo completar la operación, intentalo nuevamente más tarde.',
                         backgroundDismiss: 'cancel'
                     })
