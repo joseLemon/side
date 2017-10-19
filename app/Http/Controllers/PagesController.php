@@ -654,13 +654,13 @@ class PagesController extends Controller {
 
             if($page->page_type_id == 5) {
                 $page->micro = $page->years()->first();
-                /*$carousels = Carousel::where('page_id',$page->page_id)
+                $years = Year::where('page_id',$page->page_id)
                     ->get();
-                $params['carousels'] = $carousels;
+                $params['years'] = $years;
 
-                foreach ($carousels as $id => $carousel) {
-                    $carousels[$id]->products;
-                }*/
+                foreach ($years as $id => $year) {
+                    $years[$id]->months;
+                }
             }
 
             $colors = Color::select(['color_name','color_id','color_slug'])->get();
@@ -1200,167 +1200,238 @@ class PagesController extends Controller {
                 }
             } else if($page_type_id == 5) {
                 $years = $request->input('year');
-                $january = $_FILES['january'];
-                $february = $_FILES['february'];
-                $march = $_FILES['march'];
-                $april = $_FILES['april'];
-                $may = $_FILES['may'];
-                $june = $_FILES['june'];
-                $july = $_FILES['july'];
-                $august = $_FILES['august'];
-                $september = $_FILES['september'];
-                $october = $_FILES['october'];
-                $november = $_FILES['november'];
-                $december = $_FILES['december'];
+                $yearIDs = $request->input('yearid');
                 foreach ($years as $key => $newYear) {
-                    $year = new Year();
+                    $yearID = $yearIDs[$key];
+                    if($yearID != 'new') {
+                        $year = Year::find($yearID);
+                    } else {
+                        $year = new Year();
+                    }
                     $year->page_id = $page->page_id;
                     $year->year_name = $newYear;
                     $year->save();
 
-                    $month = new Month();
-                    $month->month_number = 1;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['january']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',1)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 1;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['january']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','january', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','january', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['january']['name'][$key];
-                    }*/
+                    }
+                    // TO TEST <---
+                    if($request->input('state_month_check_1_'.$key) == 'removed') {
+                        fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page->page_id.'/',$month->month_file);
+                        $month->month_file = \DB::raw('NULL');
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 2;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['february']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',2)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 2;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['february']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','february', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','february', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['february']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 3;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['march']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',3)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 3;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['march']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','march', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','march', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['march']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 4;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['april']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',4)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 4;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['april']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','april', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','april', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['april']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 5;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['may']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',5)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 5;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['may']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','may', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','may', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['may']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 6;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['june']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',6)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 6;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['june']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','june', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','june', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['june']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 7;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['july']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',7)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 7;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['july']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','july', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','july', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['july']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 8;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['august']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',8)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 8;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['august']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','august', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','august', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['august']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 9;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['september']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',9)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 9;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['september']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','september', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','september', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['september']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 10;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['october']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',10)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 10;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['october']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','october', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','october', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['october']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 11;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['november']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',11)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 11;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['november']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','november', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','november', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['november']['name'][$key];
-                    }*/
+                    }
                     $month->save();
-                    $month = new Month();
-                    $month->month_number = 12;
-                    $month->year_id = $year->year_id;
-                    /*if($_FILES['december']['size'][$key] > 0) {
+                    if($yearID != 'new') {
+                        $month = Month::where('year_id',$yearID)
+                            ->where('month_number',12)
+                            ->first();
+                    } else {
+                        $month = new Month();
+                        $month->month_number = 12;
+                        $month->year_id = $year->year_id;
+                    }
+                    if($_FILES['december']['size'][$key] > 0) {
                         $delete = false;
                         if($month->month_file) {
                             $delete = true;
                         }
-                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','december', $delete, true, false);
+                        fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page->page_id.'/','december', $delete, true, false,true,$key);
                         $month->month_file = $_FILES['december']['name'][$key];
-                    }*/
+                    }
                     $month->save();
                 }
             }

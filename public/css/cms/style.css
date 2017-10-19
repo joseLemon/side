@@ -202,7 +202,7 @@ hr {
     overflow: hidden;
 }
 
-.img-preview.img-container .remove-img {
+.img-preview.img-container .remove-img, .remove-file {
     display: none;
     padding: 0;
     border: 0;
@@ -217,12 +217,19 @@ hr {
     z-index: 1;
 }
 
-.img-preview.img-container.active .remove-img {
+.img-preview.img-container.active .remove-img, .remove-file {
     display: block;
 }
 
-.img-preview.img-container.active .remove-img:hover {
+.img-preview.img-container.active .remove-img:hover, .remove-file:hover {
     opacity: .8;
+}
+
+.remove-file {
+    right: 6px;
+    top: 5px;
+    float: none;
+    position: absolute;
 }
 
 .panel .panel-heading {

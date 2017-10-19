@@ -54,7 +54,7 @@ class fileUploadController extends Controller {
         }
     }
 
-    public static function generalUpload($target_dir, $input_name, $delete = false, $individual = false, $folder = false) {
+    public static function generalUpload($target_dir, $input_name, $delete = false, $individual = false, $folder = false,$is_array = false,$array_key = null) {
         //  Create temporary directory
         if(!is_dir($target_dir) && !file_exists($target_dir)) {
             mkdir($target_dir);
@@ -66,14 +66,24 @@ class fileUploadController extends Controller {
             }
         }
 
-        if ($_FILES[$input_name]["size"] > 25000000) {
-            return 'failed';
+        if($is_array) {
+            if ($_FILES[$input_name]["size"][$array_key] > 25000000) {
+                return 'failed';
+            }
+        } else {
+            if ($_FILES[$input_name]["size"] > 25000000) {
+                return 'failed';
+            }
         }
 
         if($delete) {
             //  Delete files if they exist
             if($individual) {
-                $file = $target_dir.$_FILES[$input_name]['name']; // get all file names
+                if($is_array) {
+                    $file = $target_dir.$_FILES[$input_name]['name'][$array_key]; // get all file names
+                } else {
+                    $file = $target_dir.$_FILES[$input_name]['name']; // get all file names
+                }
                 if (file_exists($file)) {
                     unlink($file); // delete file
                 }
@@ -86,10 +96,18 @@ class fileUploadController extends Controller {
             }
         }
 
-        if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . $_FILES[$input_name]['name'])) {
-            return 'success';
+        if($is_array) {
+            if(move_uploaded_file($_FILES[$input_name]["tmp_name"][$array_key], $target_dir . $_FILES[$input_name]['name'][$array_key])) {
+                return 'success';
+            } else {
+                return 'failed';
+            }
         } else {
-            return 'failed';
+            if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . $_FILES[$input_name]['name'])) {
+                return 'success';
+            } else {
+                return 'failed';
+            }
         }
     }
 

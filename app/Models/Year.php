@@ -27,7 +27,7 @@ class Year extends Model {
     /**
      * Get the months for the year.
      */
-    public function products() {
-        return $this->hasMany('App\Models\Months','year_id','year_id');
+    public function months() {
+        return $this->hasMany('App\Models\Month','year_id','year_id');
     }
 }

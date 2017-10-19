@@ -13,6 +13,22 @@
             check.val('removed');
         });
 
+
+        $('.input-file-cms.document .remove-file').click(function () {
+            var button = $(this),
+                documentContainer = button.closest('.document'),
+                input = documentContainer.find('.input-file-doc'),
+                label_text = input.closest('label').find('.label_text'),
+                check = input.next();
+
+            documentContainer.removeClass('active');
+            label_text.text('Elegir documento');
+            input.removeClass('loaded-file');
+            input.val('');
+            check.val('removed');
+            button.addClass('hidden');
+        });
+
         $('#page_type').change(function () {
             var select = $(this),
                 selected_option = select.find('option:selected').val();
@@ -87,7 +103,9 @@
 
     function readFileDoc() {
         var input = $(this),
-            label_text = input.closest('label').find('.label_text');
+            label_text = input.closest('label').find('.label_text'),
+            documentContainer = input.closest('.input-file-cms.document'),
+            removeBtn = documentContainer.find('.remove-file').removeClass('hidden');
         if (this.files && this.files[0]) {
 
             var FR = new FileReader();
@@ -101,9 +119,13 @@
             });
 
             FR.readAsDataURL(this.files[0]);
+
+            documentContainer.addClass('active');
         } else {
             label_text.text('Elegir documento');
             input.removeClass('loaded-file');
+            documentContainer.removeClass('active');
+            removeBtn.addClass('hidden');
         }
     }
 </script>
