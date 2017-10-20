@@ -2,67 +2,69 @@
     <div class="col-sm-12">
         <h3>Carruseles de productos</h3>
         <div class="panel-group" id="accordion-products">
-            @foreach($carousels as $count => $carousel)
-            <div class="panel panel-default" id="{{ $count+1 }}" my_id="{{ $carousel->carousel_id }}" type="carousel">
-                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-products" href="#collapse{{ $count+1 }}">
-                    <h4 class="panel-title">Carrusel {{ $count+1 }}
-                        <button type="button" class="expand-accordion">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="deletePanel">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </button>
-                    </h4>
-                </div>
-                <div id="collapse{{ $count+1 }}" class="panel-collapse collapse">
-                    <div class="panel-body text-right">
-                        <input type="text" name="carousel_title_{{ $count+1 }}" id="carousel_title_{{ $count+1 }}" placeholder="Título de carrusel" class="input-cms carousel-title" value="{{ $carousel->carousel_title }}">
-                        <div class="panel-group text-left" id="accordion-product-info-{{ $count+1 }}">
-
-                            <!-- GOTTA MAKE THE PRODUCTS FOREACH -->
-                            @foreach($carousel->products as $productCount => $product)
-                            <div class="panel panel-default" id="panel-{{ $productCount+1 }}-{{ $count+1 }}" my_id="{{ $product->product_id }}" type="product">
-                                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-product-info-{{ $count+1 }}" href="#collapse{{ $productCount+1 }}-{{ $count+1 }}">
-                                    <h4 class="panel-title">Producto {{ $productCount+1 }}
-                                        <button type="button" class="expand-accordion">
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
-                                        </button>
-                                        <button type="button" class="deletePanel">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                        </button>
-                                    </h4>
-                                </div>
-                                <div id="collapse{{ $productCount+1 }}-{{ $count+1 }}" class="panel-collapse collapse">
-                                    <div class="row row-no-margin">
-                                        <div class="col-lg-4 col-md-5 col-sm-6">
-                                            <label for="product_{{ $productCount+1 }}-{{ $count+1 }}_img" class="img_upload_container">
-                                                <div class="img-preview img-container preview active">
-                                                    <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
-                                                    <img src="{{ asset('public/uploads/pages/' . $page->page_id . '/products/' . $product->product_img . '?=' . rand(1,99999999)) }}" id="preview" class="center-block img-responsive">
-                                                </div>
-                                                Imagen del producto
-                                                <label for="product_{{ $productCount+1 }}-{{ $count+1 }}_img" class="input-file-cms">
-                                                    Elegir imagen
-                                                    <input type="file" name="product_{{ $productCount+1 }}-{{ $count+1 }}_img" id="product_{{ $productCount+1 }}-{{ $count+1 }}_img" accept="image/*" class="input-file-img">
-                                                    <input type="hidden" name="product_{{ $productCount+1 }}-{{ $count+1 }}_img_check" id="product_{{ $productCount+1 }}-{{ $count+1 }}_img_check">
-                                                </label>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-7 col-sm-6">
-                                            <input type="text" name="product_title[]" id="product_title_{{ $productCount+1 }}-{{ $count+1 }}" placeholder="Título del producto" class="input-cms product-title" value="{{ $product->product_title }}">
-                                            <textarea name="product_text[]" id="product_text_{{ $productCount+1 }}-{{ $count+1 }}" cols="30" rows="5" placeholder="Texto del producto" class="input-cms product-text">{{ $product->product_text }}</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-
+            @if(isset($carousels))
+                @foreach($carousels as $count => $carousel)
+                    <div class="panel panel-default" id="{{ $count+1 }}" my_id="{{ $carousel->carousel_id }}" type="carousel">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-products" href="#collapse{{ $count+1 }}">
+                            <h4 class="panel-title">Carrusel {{ $count+1 }}
+                                <button type="button" class="expand-accordion">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="deletePanel">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </h4>
                         </div>
-                        <button type="button" class="add-product" onclick="addProductFunc('accordion-product-info-{{ $count+1 }}','{{ $count+1 }}')">Agregar Producto</button>
+                        <div id="collapse{{ $count+1 }}" class="panel-collapse collapse">
+                            <div class="panel-body text-right">
+                                <input type="text" name="carousel_title_{{ $count+1 }}" id="carousel_title_{{ $count+1 }}" placeholder="Título de carrusel" class="input-cms carousel-title" value="{{ $carousel->carousel_title }}">
+                                <div class="panel-group text-left" id="accordion-product-info-{{ $count+1 }}">
+
+                                    <!-- GOTTA MAKE THE PRODUCTS FOREACH -->
+                                    @foreach($carousel->products as $productCount => $product)
+                                        <div class="panel panel-default" id="panel-{{ $productCount+1 }}-{{ $count+1 }}" my_id="{{ $product->product_id }}" type="product">
+                                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-product-info-{{ $count+1 }}" href="#collapse{{ $productCount+1 }}-{{ $count+1 }}">
+                                                <h4 class="panel-title">Producto {{ $productCount+1 }}
+                                                    <button type="button" class="expand-accordion">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </button>
+                                                    <button type="button" class="deletePanel">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </button>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse{{ $productCount+1 }}-{{ $count+1 }}" class="panel-collapse collapse">
+                                                <div class="row row-no-margin">
+                                                    <div class="col-lg-4 col-md-5 col-sm-6">
+                                                        <label for="product_{{ $productCount+1 }}-{{ $count+1 }}_img" class="img_upload_container">
+                                                            <div class="img-preview img-container preview active">
+                                                                <button type="button" class="remove-img"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
+                                                                <img src="{{ asset('public/uploads/pages/' . $page->page_id . '/products/' . $product->product_img . '?=' . rand(1,99999999)) }}" id="preview" class="center-block img-responsive">
+                                                            </div>
+                                                            Imagen del producto
+                                                            <label for="product_{{ $productCount+1 }}-{{ $count+1 }}_img" class="input-file-cms">
+                                                                Elegir imagen
+                                                                <input type="file" name="product_{{ $productCount+1 }}-{{ $count+1 }}_img" id="product_{{ $productCount+1 }}-{{ $count+1 }}_img" accept="image/*" class="input-file-img">
+                                                                <input type="hidden" name="product_{{ $productCount+1 }}-{{ $count+1 }}_img_check" id="product_{{ $productCount+1 }}-{{ $count+1 }}_img_check">
+                                                            </label>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-7 col-sm-6">
+                                                        <input type="text" name="product_title[]" id="product_title_{{ $productCount+1 }}-{{ $count+1 }}" placeholder="Título del producto" class="input-cms product-title" value="{{ $product->product_title }}">
+                                                        <textarea name="product_text[]" id="product_text_{{ $productCount+1 }}-{{ $count+1 }}" cols="30" rows="5" placeholder="Texto del producto" class="input-cms product-text">{{ $product->product_text }}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                                <button type="button" class="add-product" onclick="addProductFunc('accordion-product-info-{{ $count+1 }}','{{ $count+1 }}')">Agregar Producto</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
         <div class="text-right">
             <button type="button" id="add-carousel">Agregar Carrusel</button>

@@ -186,6 +186,7 @@
         <div class="mision" id="mision">
             <div class="container"></div>
         </div>
+        @isset($page->micro->page_video_iframe)
         <!-- ================================== -->
 
         <!-- ///////////  VIDEO  \\\\\\\\\\\ -->
@@ -203,23 +204,27 @@
                 </div>
             </div>
         </div>
-        <div id="video-modal" class="modal fade video-modal" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        {!! $page->micro->page_video_iframe !!}
+            <div id="video-modal" class="modal fade video-modal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            {!! $page->micro->page_video_iframe !!}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endisset
         @if($page->page_type_id == 2)
             @include('site.common.views.micro.type_2')
         @elseif($page->page_type_id == 4)
             @include('site.common.views.micro.type_4')
+        @elseif($page->page_type_id == 5)
+            @include('site.common.views.micro.type_2')
+            @include('site.common.views.micro.type_5')
         @endif
     </div>
 @stop

@@ -14,11 +14,21 @@
                     @endforeach
                 </select>
                 @include('pages.common.views.form_page')
-                <div class="form-container" id="micro-form" @if(old('page_type') > 2){!! 'style="display: none;"' !!}@endif>
+                <div class="form-container" id="main-micro-form" @if(old('page_type') > 2){!! 'style="display: none;"' !!}@endif>
                     @include('pages.common.views.form_micro')
+                </div>
+                <div class="form-container" id="micro-form" @if(old('page_type') != 2){!! 'style="display: none;"' !!}@endif>
+                    @include('pages.common.views.form_programs')
                 </div>
                 <div class="form-container" id="external-form" @if(old('page_type') != 3){!! 'style="display: none;"' !!}@endif>
                     @include('pages.common.views.form_external')
+                </div>
+                <div class="form-container" id="carousel-form" @if(old('page_type') != 2){!! 'style="display: none;"' !!}@endif>
+                    @include('pages.common.views.form_carousel')
+                </div>
+                <div class="form-container" id="calendar-form" @if(old('page_type') != 2){!! 'style="display: none;"' !!}@endif>
+                    @include('pages.common.views.form_programs')
+                    @include('pages.common.views.form_calendar')
                 </div>
                 <div class="text-center">
                     {!! Form::submit('Guardar',['class'=>'submit-cms big-btn']) !!}

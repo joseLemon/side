@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Month;
+use App\Models\PageMicro;
 use App\Models\Year;
 use Illuminate\Http\Request;
 
@@ -19,5 +21,18 @@ class CalendarController extends Controller {
 
         \Session::flash('alertMessage',$type_text.' eliminado correctamente.');
         \Session::flash('alert-class','alert-success');
+    }
+
+    public function getYearFiles (Request $request) {
+        $year_id = $request->input('year_id');
+
+        $files = Month::select([
+            'month_number',
+            'month_file'
+        ])
+        ->where('year_id',$year_id)
+            ->get();
+
+        return $files;
     }
 }

@@ -33,6 +33,7 @@
                 @if($page->page_type_id == 5)
                 <div class="form-container" id="calendar-form">
                     @include('pages.common.views.form_micro')
+                    @include('pages.common.views.form_programs')
                     @include('pages.common.views.form_calendar')
                 </div>
                 @endif

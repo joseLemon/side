@@ -55,6 +55,6 @@ class Page extends Model {
      * Get the micro page that owns this page
      */
     public function years () {
-        return $this->hasMany('App\Models\PageCalendar','page_id','page_id');
+        return $this->hasMany('App\Models\Year','page_id','page_id');
     }
 }

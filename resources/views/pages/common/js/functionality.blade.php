@@ -40,6 +40,7 @@
 
             switch (selected_option) {
                 case '2':
+                    $('#main-micro-form').fadeIn('fast');
                     $('#micro-form').fadeIn('fast');
                     page_slug_container.fadeIn('fast');
                     page_url_input.prop('disabled',false);
@@ -48,6 +49,19 @@
                     $('#external-form').fadeIn('fast');
                     page_slug_container.fadeOut('fast');
                     page_url_input.prop('disabled',true);
+                    break;
+                case '4':
+                    $('#main-micro-form').fadeIn('fast');
+                    $('#carousel-form').fadeIn('fast');
+                    page_slug_container.fadeIn('fast');
+                    page_url_input.prop('disabled',false);
+                    break;
+                case '5':
+                    $('#main-micro-form').fadeIn('fast');
+                    $('#micro-form').fadeIn('fast');
+                    $('#carousel-form').fadeIn('fast');
+                    page_slug_container.fadeIn('fast');
+                    page_url_input.prop('disabled',false);
                     break;
                 default:
                     break;

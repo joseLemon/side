@@ -67,11 +67,11 @@ class IndexController extends Controller {
         }
 
         if($page->page_type_id == 5) {
-            $page->micro = $page->years()->first();
-            /*$page->slider = $page->sliderInfo()->get();
+            $page->micro = $page->micro()->first();
+            $page->calendar = $page->years()->get();
 
-            foreach($page->slider as $key => $slider){
-                $page->slider[$key]->products;
+            /*foreach($page->calendar as $key => $year){
+                $page->calendar[$key]->months;
             }*/
         }
 

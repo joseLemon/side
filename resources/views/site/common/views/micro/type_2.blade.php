@@ -46,7 +46,9 @@
                                     @else
                                         {!! $page->micro->es_program_1_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_1)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_1/'.$page->micro->file_program_1 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -78,7 +80,9 @@
                                     @else
                                         {!! $page->micro->es_program_2_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_2)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_2/'.$page->micro->file_program_2 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -113,7 +117,9 @@
                                     @else
                                         {!! $page->micro->es_program_3_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_3)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_3/'.$page->micro->file_program_3 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -145,7 +151,9 @@
                                     @else
                                         {!! $page->micro->es_program_4_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_4)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_4/'.$page->micro->file_program_4 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -180,7 +188,9 @@
                                     @else
                                         {!! $page->micro->es_program_5_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_5)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_5/'.$page->micro->file_program_5 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -212,7 +222,9 @@
                                     @else
                                         {!! $page->micro->es_program_6_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_6)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_6/'.$page->micro->file_program_6 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -247,7 +259,9 @@
                                     @else
                                         {!! $page->micro->es_program_7_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_7)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_7/'.$page->micro->file_program_7 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -279,7 +293,9 @@
                                     @else
                                         {!! $page->micro->es_program_8_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_8)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_8/'.$page->micro->file_program_8 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -314,7 +330,9 @@
                                     @else
                                         {!! $page->micro->es_program_9_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_9)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_9/'.$page->micro->file_program_9 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -346,7 +364,9 @@
                                     @else
                                         {!! $page->micro->es_program_10_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_10)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_10/'.$page->micro->file_program_10 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -381,7 +401,9 @@
                                     @else
                                         {!! $page->micro->es_program_11_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_11)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_11/'.$page->micro->file_program_11 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -413,7 +435,9 @@
                                     @else
                                         {!! $page->micro->es_program_12_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_12)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_12/'.$page->micro->file_program_12 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -448,7 +472,9 @@
                                     @else
                                         {!! $page->micro->es_program_13_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_13)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_13/'.$page->micro->file_program_13 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -480,7 +506,9 @@
                                     @else
                                         {!! $page->micro->es_program_14_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_14)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_14/'.$page->micro->file_program_14 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -515,7 +543,9 @@
                                     @else
                                         {!! $page->micro->es_program_15_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_15)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_15/'.$page->micro->file_program_15 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -547,7 +577,9 @@
                                     @else
                                         {!! $page->micro->es_program_16_text !!}
                                     @endif</p>
-                                <a href="">Descargar Solicitud</a>
+                                @isset($page->micro->file_program_16)
+                                    <a href="{{ asset('public/uploads/pages').'/'.$page->page_id.'/file_program_16/'.$page->micro->file_program_16 }}" target="_blank">Descargar Solicitud</a>
+                                @endisset
                             </div>
                         </div>
                     </div>
