@@ -23,6 +23,8 @@ Route::get('posts/getPosts', ['as' => 'posts.get', 'uses' => 'BlogController@get
 Route::get('blog/single/{id}', ['as' => 'blog.single', 'uses' => 'BlogController@single']);
 //  PUBLIC PAGES
 Route::get('page/getPages', ['as' => 'pages.get', 'uses' => 'PagesController@getPages']);
+//  PUBLIC CALENDAR
+Route::get('year/getYearFiles', ['as' => 'calendar.getYearFiles', 'uses' => 'CalendarController@getYearFiles']);
 
 require __DIR__.'/mailer.php';
 
