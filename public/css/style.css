@@ -305,7 +305,7 @@ body {
     background-color: rgb(179,179,179);
 }
 .gray-overlay .banner .diamond + .bg-color:before {
-    border-bottom-color: rgb(220, 209, 49); /* WHAT */
+    border-bottom-color: rgb(152, 152, 152); /* WHAT */
 }
 .gray-overlay .programas .top .text-container h4 {
     color: rgb(208,207,207);
@@ -315,7 +315,7 @@ body {
 .gray-overlay .acerca .info .col-sm-4:nth-of-type(1),
 .gray-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container .vertical-align-abs,
 .gray-overlay .acerca .info .col-sm-4:nth-of-type(1) .text-container {
-    background-color: rgb(220, 209, 49); /* WHAT */
+    background-color: rgb(152, 152, 152); /* WHAT */
 }
 
 .gray-overlay .acerca .info .col-sm-4:nth-of-type(2) .vertical-align-abs,
@@ -2370,8 +2370,8 @@ body {
 .acerca .info .text-container ul,
 .acerca .info .text-container .text {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    /*top: 50%;
+    transform: translateY(-50%);*/
     max-width: 420px;
     margin: 0 auto;
     font-size: 17px;

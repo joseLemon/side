@@ -14,7 +14,7 @@
                     <div class="diamond diamond-2"></div>
                     <div class="bg-color"></div>
                     <div class="diamond diamond-3 featured">
-                        <a href="">
+                        <a href="@isset($page->micro->diamond_1_url){{ $page->micro->diamond_1_url }}@endisset">
                             <div class="title">
                                 <div class="header">
                                     @if(isset($_COOKIE['indexLanguage']))

@@ -1517,7 +1517,7 @@ class PagesController extends Controller {
                             $product->carousel_id = $carousel->carousel_id;
                             $product->product_title = $productItem[0];
                             $product->product_text = $productItem[1];
-                            echo $img_file = 'product_'.($iterationId+1).'-'.($metaId-1).'_img';
+                            $img_file = 'product_'.($iterationId+1).'-'.($metaId-1).'_img';
                             //return;
                             if(isset($_FILES[$img_file])) {
                                 if($_FILES[$img_file]['size'] > 0) {
@@ -1841,7 +1841,7 @@ class PagesController extends Controller {
             $page_external->save();
         }
 
-        \Session::flash('alertMessage','Página creada correctamente.');
+        \Session::flash('alertMessage','Página editada correctamente.');
         \Session::flash('alert-class','alert-success');
 
         return redirect()->route('pages.show');
