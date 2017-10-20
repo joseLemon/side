@@ -24,7 +24,7 @@ class BlogController extends Controller {
         $post->post_date = $post_date;
 
         if($_FILES['post_img']['size'] > 0) {
-            fileUploadController::imgUpload(public_path().'/uploads/blog/'.$post->post_id.'/','post_img');
+            fileUploadController::imgUpload(public_path().'/uploads/blog/'.$post->post_id.'/','post_img',true,true,700,394,false);
         }
 
         $post->post_img = $_FILES['post_img']['name'];
@@ -58,7 +58,7 @@ class BlogController extends Controller {
         $post->save();
 
         if($_FILES['post_img']['size'] > 0) {
-            fileUploadController::imgUpload(public_path().'/uploads/blog/'.$post->post_id.'/','post_img',true);
+            fileUploadController::imgUpload(public_path().'/uploads/blog/'.$post->post_id.'/','post_img',true,true,700,394,false);
 
             $post->post_img = $_FILES['post_img']['name'];
             $post->save();

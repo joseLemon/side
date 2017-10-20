@@ -36,11 +36,11 @@ class fileUploadController extends Controller {
         }
 
         if($thumbnail) {
-            if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . $name . 'temp.tmp')) {
+            if(move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_dir . 'temp.tmp')) {
                 // Resize it
                 self::GenerateThumbnail($target_dir . 'temp.tmp',$target_dir . $name,$max_width,$max_height,1);
                 // Delete full size
-                unlink($target_dir . $name . 'temp.tmp');
+                unlink($target_dir . 'temp.tmp');
                 return 'thumbnail success';
             } else {
                 return 'thumbnail failed';
