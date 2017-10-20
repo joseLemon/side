@@ -154,51 +154,57 @@
         e.stopImmediatePropagation();
 
         var form = $(this);
-        var inputList = $('#carouselInputList');
+        var inputList = $('#carouselInputList'),
+            panels = $('#accordion-products > .panel');
         inputList.empty();
 
-        $('#accordion-products > .panel').each(function () {
-            var panel = $(this),
-                title = panel.find('.carousel-title').val(),
-                metaList = '',
-                carousel_id = panel.attr('my_id'),
-                validation = true;
-            if(carousel_id === 'new') {
-                metaList = title + '_@@_new';
-            } else {
-                metaList = title + '_@@_' + carousel_id;
-            }
-
-            if(title == '') {
-                validation = productsValidation();
-            } else {
-                panel.find('.product-title').each(function () {
-                    var input_title = $(this),
-                        title = input_title.val(),
-                        text = input_title.next().val(),
-                        product_id = input_title.closest('.panel').attr('my_id');
-
-                    if(title == '' || text == '') {
-                        metaList = '';
-                    } else {
-                        if(product_id === 'new') {
-                            metaList += '_@@_' + title + '_%%_' + text + '_%%_new';
-                        } else {
-                            metaList += '_@@_' + title + '_%%_' + text + '_%%_' + product_id;
-                        }
-                    }
-                });
-                if(metaList == '') {
-                    productsValidation();
+        if(($('#page_type').prop('disabled' == true) || $('#page_type').val() == 4) && panels.length > 0) {
+            console.log('enter');
+            panels.each(function () {
+                var panel = $(this),
+                    title = panel.find('.carousel-title').val(),
+                    metaList = '',
+                    carousel_id = panel.attr('my_id'),
+                    validation = true;
+                if(carousel_id === 'new') {
+                    metaList = title + '_@@_new';
                 } else {
-                    inputList.append('<input type="hidden" name="products[]" id="products" value="' + metaList + '">');
+                    metaList = title + '_@@_' + carousel_id;
                 }
-            }
 
-            if(validation) {
-                form[0].submit();
-            }
-        });
+                if(title == '') {
+                    validation = productsValidation();
+                } else {
+                    panel.find('.product-title').each(function () {
+                        var input_title = $(this),
+                            title = input_title.val(),
+                            text = input_title.next().val(),
+                            product_id = input_title.closest('.panel').attr('my_id');
+
+                        if(title == '' || text == '') {
+                            metaList = '';
+                        } else {
+                            if(product_id === 'new') {
+                                metaList += '_@@_' + title + '_%%_' + text + '_%%_new';
+                            } else {
+                                metaList += '_@@_' + title + '_%%_' + text + '_%%_' + product_id;
+                            }
+                        }
+                    });
+                    if(metaList == '') {
+                        productsValidation();
+                    } else {
+                        inputList.append('<input type="hidden" name="products[]" id="products" value="' + metaList + '">');
+                    }
+                }
+
+                if(validation) {
+                    form[0].submit();
+                }
+            });
+        } else {
+            form[0].submit();
+        }
     });
 
     function deletePanel() {

@@ -39,17 +39,20 @@ class PagesController extends Controller {
 
         $this->validateMainPageInfo($request);
 
-        if($page_type_id == 2) {
+        /*if($page_type_id == 2) {
             $this->validatePageMicro($request);
         } else if($page_type_id == 3) {
             $this->validatePageExternal($request);
-        }
+        }*/
+
+        $sequence = Page::where('sequence', '>', 0)->count()+1;
 
         $page = new Page();
         $page->page_title = $request->input('page_title');
         $page->color_id = $request->input('color');
         $page->page_url = $request->input('page_url');
         $page->page_type_id = $page_type_id;
+        $page->sequence = $sequence;
         $page->save();
 
         //  IMAGEN DEL SITIO
@@ -63,7 +66,7 @@ class PagesController extends Controller {
         }
         $page->save();
 
-        if($page_type_id >= 2) {
+        if($page_type_id >= 2 && $page_type_id != 3) {
             $page_id = $page->page_id;
 
             if($page_type_id == 2) {
@@ -503,14 +506,16 @@ class PagesController extends Controller {
                             $product->carousel_id = $carousel->carousel_id;
                             $product->product_title = $productItem[0];
                             $product->product_text = $productItem[1];
-                            $img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
-                            if($_FILES[$img_file]['size'] > 0) {
-                                $delete = false;
-                                if($product->product_img) {
-                                    $delete = true;
+                            $img_file = 'product_'.($iterationId+1).'-'.($metaId-1).'_img';
+                            if(isset($_FILES[$img_file])) {
+                                if($_FILES[$img_file]['size'] > 0) {
+                                    $delete = false;
+                                    if($product->product_img) {
+                                        $delete = true;
+                                    }
+                                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/products/',$img_file,$delete, true,1920,2000,false, false);
+                                    $product->product_img = $_FILES[$img_file]['name'];
                                 }
-                                fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/products/',$img_file,$delete, true,1920,2000,true, false);
-                                $product->product_img = $_FILES[$img_file]['name'];
                             }
                             $product->save();
                         }
@@ -922,11 +927,11 @@ class PagesController extends Controller {
         } else {
             $this->validateMainPageInfo($request);
 
-            if($page->page_type_id == 2) {
+           /* if($page->page_type_id == 2) {
                 $this->validatePageMicro($request);
             } else if($page->page_type_id == 3) {
                 $this->validatePageExternal($request);
-            }
+            }*/
 
             return $this->updateMicro($request, $id, $page);
         }
@@ -946,11 +951,15 @@ class PagesController extends Controller {
             fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page->page_id.'/','page_img',$delete, true,1920,2000,true, false);
             $page->page_img = $_FILES['page_img']['name'];
         }
+        if($request->input('page_img_check') == 'removed') {
+            fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page->page_id.'/','page_img'.strchr($page->page_img,'.'));
+            $page->page_img = \DB::raw('NULL');
+        }
         $page->save();
 
         $page_type_id = $page->page_type_id;
 
-        if($page_type_id >= 2) {
+        if($page_type_id >= 2 && $page_type_id != 3) {
 
             $page_id = $page->page_id;
 
@@ -972,6 +981,10 @@ class PagesController extends Controller {
                 }
                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','banner_1_img',$delete, true,1920,2000,true, false);
                 $page->banner_1_img = $_FILES['banner_1_img']['name'];
+            }
+            if($request->input('banner_1_img_check') == 'removed') {
+                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','banner_1_img'.strchr($page->banner_1_img,'.'));
+                $page->banner_1_img = \DB::raw('NULL');
             }
 
             //  DIAMANTE 1
@@ -1046,6 +1059,10 @@ class PagesController extends Controller {
                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/','banner_2_img',$delete, true,1920,2000,true, false);
                 $page->banner_2_img = $_FILES['banner_2_img']['name'];
             }
+            if($request->input('banner_2_img_check') == 'removed') {
+                fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/','banner_2_img'.strchr($page->banner_2_img,'.'));
+                $page->banner_2_img = \DB::raw('NULL');
+            }
             $page->page_video_iframe = $request->input('page_video_iframe');
 
             if($page_type_id == 2 || $page_type_id == 5) {
@@ -1074,6 +1091,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_1',false,true,true);
                     $page->file_program_1 = $_FILES['file_program_1']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_1_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_1);
+                    $page->file_program_1 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_2_img']['size'] > 0) {
                     $delete = false;
@@ -1094,6 +1116,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_2']['size'] > 0) {
                     fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_2',false,true,true);
                     $page->file_program_2 = $_FILES['file_program_2']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_2_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_2);
+                    $page->file_program_2 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_3_img']['size'] > 0) {
@@ -1116,6 +1143,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path().'/uploads/pages/'.$page_id.'/','file_program_3',false,true,true);
                     $page->file_program_3 = $_FILES['file_program_3']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_3_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_3);
+                    $page->file_program_3 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_4_img']['size'] > 0) {
                     $delete = false;
@@ -1136,6 +1168,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_4']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_4', false, true, true);
                     $page->file_program_4 = $_FILES['file_program_4']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_4_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_4);
+                    $page->file_program_4 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_5_img']['size'] > 0) {
@@ -1158,6 +1195,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_5', false, true, true);
                     $page->file_program_5 = $_FILES['file_program_5']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_5_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_5);
+                    $page->file_program_5 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_6_img']['size'] > 0) {
                     $delete = false;
@@ -1178,6 +1220,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_6']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_6', false, true, true);
                     $page->file_program_6 = $_FILES['file_program_6']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_6_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_6);
+                    $page->file_program_6 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_7_img']['size'] > 0) {
@@ -1200,6 +1247,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_7', false, true, true);
                     $page->file_program_7 = $_FILES['file_program_7']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_7_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_7);
+                    $page->file_program_7 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_8_img']['size'] > 0) {
                     $delete = false;
@@ -1220,6 +1272,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_8']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_8', false, true, true);
                     $page->file_program_8 = $_FILES['file_program_8']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_8_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_8);
+                    $page->file_program_8 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_9_img']['size'] > 0) {
@@ -1242,6 +1299,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_9', false, true, true);
                     $page->file_program_9 = $_FILES['file_program_9']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_9_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_9);
+                    $page->file_program_9 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_10_img']['size'] > 0) {
                     $delete = false;
@@ -1262,6 +1324,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_10']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_10', false, true, true);
                     $page->file_program_10 = $_FILES['file_program_10']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_10_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_10);
+                    $page->file_program_10 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_11_img']['size'] > 0) {
@@ -1284,6 +1351,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_11', false, true, true);
                     $page->file_program_11 = $_FILES['file_program_11']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_11_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_11);
+                    $page->file_program_11 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_12_img']['size'] > 0) {
                     $delete = false;
@@ -1304,6 +1376,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_12']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_12', false, true, true);
                     $page->file_program_12 = $_FILES['file_program_12']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_12_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_12);
+                    $page->file_program_12 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_13_img']['size'] > 0) {
@@ -1326,6 +1403,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_13', false, true, true);
                     $page->file_program_13 = $_FILES['file_program_13']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_13_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_13);
+                    $page->file_program_13 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_14_img']['size'] > 0) {
                     $delete = false;
@@ -1346,6 +1428,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_14']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_14', false, true, true);
                     $page->file_program_14 = $_FILES['file_program_14']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_14_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_14);
+                    $page->file_program_14 = \DB::raw('NULL');
                 }
 
                 if($_FILES['program_15_img']['size'] > 0) {
@@ -1368,6 +1455,11 @@ class PagesController extends Controller {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_15', false, true, true);
                     $page->file_program_15 = $_FILES['file_program_15']['name'];
                 }
+                // DELETE FILE
+                if($request->input('state_file_program_15_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_15);
+                    $page->file_program_15 = \DB::raw('NULL');
+                }
 
                 if($_FILES['program_16_img']['size'] > 0) {
                     $delete = false;
@@ -1388,6 +1480,11 @@ class PagesController extends Controller {
                 if($_FILES['file_program_16']['size'] > 0) {
                     fileUploadController::generalUpload(public_path() . '/uploads/pages/' . $page_id . '/', 'file_program_16', false, true, true);
                     $page->file_program_16 = $_FILES['file_program_16']['name'];
+                }
+                // DELETE FILE
+                if($request->input('state_file_program_16_check') == 'removed') {
+                    fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page_id.'/',$page->file_program_16);
+                    $page->file_program_16 = \DB::raw('NULL');
                 }
             } else if($page_type_id == 4) {
                 $products = $request->input('products');
@@ -1420,14 +1517,15 @@ class PagesController extends Controller {
                             $product->carousel_id = $carousel->carousel_id;
                             $product->product_title = $productItem[0];
                             $product->product_text = $productItem[1];
-                            $img_file = 'product_'.($iterationId+1).'-'.($metaId).'_img';
+                            echo $img_file = 'product_'.($iterationId+1).'-'.($metaId-1).'_img';
+                            //return;
                             if(isset($_FILES[$img_file])) {
                                 if($_FILES[$img_file]['size'] > 0) {
                                     $delete = false;
                                     if($product->product_img) {
                                         $delete = true;
                                     }
-                                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/products/',$img_file,$delete, true,1920,2000,true, false);
+                                    fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page_id.'/products/',$img_file,$delete, true,1920,2000,false, false);
                                     $product->product_img = $_FILES[$img_file]['name'];
                                 }
                             }
@@ -1769,6 +1867,10 @@ class PagesController extends Controller {
                 $page->banner_1_img = $_FILES['banner_1_img']['name'];
             }
         }
+        if($request->input('state_1_check') == 'removed') {
+            fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page->page_id.'/','banner_1_img'.strchr($page->banner_1_img,'.'));
+            $page->banner_1_img = \DB::raw('NULL');
+        }
         $page->es_banner_1_text = $request->input('es_banner_1_text');
         $page->en_banner_1_text = $request->input('en_banner_1_text');
 
@@ -1782,6 +1884,10 @@ class PagesController extends Controller {
                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_2_img',$delete, true,1920,2000,true, false);
                 $page->banner_2_img = $_FILES['banner_2_img']['name'];
             }
+        }
+        if($request->input('state_2_check') == 'removed') {
+            fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page->page_id.'/','banner_2_img'.strchr($page->banner_2_img,'.'));
+            $page->banner_2_img = \DB::raw('NULL');
         }
         $page->es_banner_2_text_1 = $request->input('es_banner_2_text_1');
         $page->es_banner_2_text_2 = $request->input('es_banner_2_text_2');
@@ -1798,6 +1904,10 @@ class PagesController extends Controller {
                 fileUploadController::imgUpload(public_path().'/uploads/pages/'.$page->page_id.'/','banner_3_img',$delete, true,1920,2000,true, false);
                 $page->banner_3_img = $_FILES['banner_3_img']['name'];
             }
+        }
+        if($request->input('state_3_check') == 'removed') {
+            fileUploadController::deleteFile(public_path().'/uploads/pages/'.$page->page_id.'/','banner_3_img'.strchr($page->banner_3_img,'.'));
+            $page->banner_3_img = \DB::raw('NULL');
         }
         $page->es_banner_3_text = $request->input('es_banner_3_text');
         $page->en_banner_3_text = $request->input('en_banner_3_text');

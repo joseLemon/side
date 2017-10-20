@@ -59,7 +59,7 @@
                 case '5':
                     $('#main-micro-form').fadeIn('fast');
                     $('#micro-form').fadeIn('fast');
-                    $('#carousel-form').fadeIn('fast');
+                    $('#calendar-form').fadeIn('fast');
                     page_slug_container.fadeIn('fast');
                     page_url_input.prop('disabled',false);
                     break;

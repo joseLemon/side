@@ -40,6 +40,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_1) ? $page->micro->file_program_1 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_1" id="file_program_1" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_1_check" id="state_file_program_1_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_1)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -68,6 +69,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_2) ? $page->micro->file_program_2 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_2" id="file_program_2" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_2_check" id="state_file_program_2_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_2)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -97,6 +99,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_3) ? $page->micro->file_program_3 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_3" id="file_program_3" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_3_check" id="state_file_program_3_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_3)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -125,6 +128,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_4) ? $page->micro->file_program_4 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_4" id="file_program_4" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_4_check" id="state_file_program_4_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_4)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -154,6 +158,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_5) ? $page->micro->file_program_5 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_5" id="file_program_5" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_5_check" id="state_file_program_5_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_5)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -182,6 +187,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_6) ? $page->micro->file_program_6 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_6" id="file_program_6" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_6_check" id="state_file_program_6_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_6)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -211,6 +217,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_7) ? $page->micro->file_program_7 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_7" id="file_program_7" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_7_check" id="state_file_program_7_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_7)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -239,6 +246,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_8) ? $page->micro->file_program_8 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_8" id="file_program_8" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_8_check" id="state_file_program_8_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_8)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -268,6 +276,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_9) ? $page->micro->file_program_9 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_9" id="file_program_9" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_9_check" id="state_file_program_9_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_9)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -296,6 +305,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_10) ? $page->micro->file_program_10 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_10" id="file_program_10" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_10_check" id="state_file_program_10_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_10)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -325,6 +335,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_11) ? $page->micro->file_program_11 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_11" id="file_program_11" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_11_check" id="state_file_program_11_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_11)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -353,6 +364,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_12) ? $page->micro->file_program_12 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_12" id="file_program_12" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_12_check" id="state_file_program_12_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_12)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -382,6 +394,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_13) ? $page->micro->file_program_13 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_13" id="file_program_13" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_13_check" id="state_file_program_13_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_13)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -410,6 +423,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_14) ? $page->micro->file_program_14 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_14" id="file_program_14" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_14_check" id="state_file_program_14_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_14)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -439,6 +453,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_15) ? $page->micro->file_program_15 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_15" id="file_program_15" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_15_check" id="state_file_program_15_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_15)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>
@@ -467,6 +482,7 @@
                 <span class="label_text">{{ isset($page->micro->file_program_16) ? $page->micro->file_program_16 : 'Elegir documento' }}</span>
                 <input type="file" name="file_program_16" id="file_program_16" class="input-file-doc" accept="application/pdf">
                 <input type="hidden" name="state_file_program_16_check" id="state_file_program_16_check">
+                <button type="button" class="remove-file @if(!isset($page->micro->file_program_16)){{ 'hidden' }}@endif"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
             </label>
         </label>
     </div>

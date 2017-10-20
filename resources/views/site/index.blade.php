@@ -409,7 +409,7 @@
                         if(page.page_type == 3) {
                             page_url = page.page_external_url;
                         }
-                        if((i+1) == arrLength && (i+1)%3 != 0) {
+                        if(((i+1) == arrLength && (i+1)%3 != 0) && (i)%2 != 0) {
                             $('.micro-pages-container').append(
                                 '<div class="col-sm-4 hidden-xs"></div>'
                             );

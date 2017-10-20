@@ -100,7 +100,7 @@
                             Imagen del Banner
                             <label for="banner_2_img" class="input-file-cms">
                                 Elegir imagen
-                                <data-" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->banner_2_img){{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_2_img' . strchr($page->page_index->banner_2_img,'.')) }}@endisset">
+                                <input type="file" name="banner_2_img" id="banner_2_img" accept="image/*" class="input-file-img" data-value="@isset($page->page_index->banner_2_img){{ asset('public/uploads/pages/' . $page->page_index->page_id . '/banner_2_img' . strchr($page->page_index->banner_2_img,'.')) }}@endisset">
                                 <input type="hidden" name="state_2_check" id="state_2_check">
                             </label>
                         </label>

@@ -28,7 +28,7 @@
                 }
             });
 
-            var fixHelperModified = function(e, tr) {
+            /*var fixHelperModified = function(e, tr) {
                     if(tr.index() !== 0) {
                         var $originals = tr.children();
                         var $helper = tr.clone();
@@ -46,7 +46,7 @@
             $("#pagesTable tbody").sortable({
                 helper: fixHelperModified,
                 stop: updateIndex
-            });
+            });*/
         });
 
         function fillPagesTable($get_pages_by,$page,$search) {
