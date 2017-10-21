@@ -1463,6 +1463,7 @@ body {
     overflow: hidden;
     transform: translateZ(0);
     mix-blend-mode: multiply;
+    border-radius: 50%s;
 }
 
 .direcciones .col-sm-4:hover .img-container img {
