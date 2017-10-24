@@ -75,7 +75,11 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('register') }}"><i class="fa fa-user-plus menu-icon" aria-hidden="true"></i> Agregar usuario</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users menu-icon" aria-hidden="true"></i> Usuarios <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('register') }}">Nuevo</a></li>
+                        <li><a href="{{ route('users.show') }}">Ver</a></li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a href="{{ url('/').'/logout' }}"><i class="fa fa-sign-out menu-icon" aria-hidden="true"></i> Cerrar sesión</a>

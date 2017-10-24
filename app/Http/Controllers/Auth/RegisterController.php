@@ -63,7 +63,7 @@ class RegisterController extends Controller
     protected function register(Request $request) {
         $user = new User();
         $user->user_name = $request->input('name');
-        $user->user_last_name = $request->input('name');
+        $user->user_last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->save();
