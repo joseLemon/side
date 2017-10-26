@@ -32,9 +32,11 @@ require __DIR__.'/mailer.php';
 Route::group(['middleware' => '\App\Http\Middleware\AfterLogin'], function() {
     Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-    // Registration Routes...
-    Route::get('register', ['as' => 'register','uses' => 'Auth\RegisterController@registerUser']);
-    Route::post('register', ['as' => '','uses' => 'Auth\RegisterController@register']);
+    Route::group(['middleware' => '\App\Http\Middleware\IsUserAdmin'], function() {
+        // Registration Routes...
+        Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@registerUser']);
+        Route::post('register', ['as' => '', 'uses' => 'Auth\RegisterController@register']);
+    });
 
     //  BLOG SECTION
     require __DIR__.'/blog.php';
@@ -46,6 +48,10 @@ Route::group(['middleware' => '\App\Http\Middleware\AfterLogin'], function() {
     require __DIR__.'/calendar.php';
     //  USERS SECTION
     require __DIR__.'/users.php';
+
+    Route::get('/test/show', function () {
+        return \Auth::user();
+    });
 });
 
 Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {
@@ -61,12 +67,4 @@ Route::group(['middleware' => '\App\Http\Middleware\BeforeLogin'], function() {
     Route::get('password/reset/{token}', ['as' => 'password.reset','uses' => 'Auth\UserResetPasswordController@showResetForm']);
 
     Route::post('/login/post', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
-});
-
-Route::get('/test/type4', function () {
-    return view('site.common.views.micro.type_4');
-});
-
-Route::get('/test/type5', function () {
-    return view('site.common.views.micro.type_5');
 });

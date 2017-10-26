@@ -60,27 +60,33 @@
 
         <div class="collapse navbar-collapse" id="nav-collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil menu-icon" aria-hidden="true"></i> Blog <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('blog.create') }}">Nuevo</a></li>
-                        <li><a href="{{ route('blog.show') }}">Ver</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> Páginas <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('page.create') }}">Nuevo</a></li>
-                        <li><a href="{{ route('pages.show') }}">Ver</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users menu-icon" aria-hidden="true"></i> Usuarios <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('register') }}">Nuevo</a></li>
-                        <li><a href="{{ route('users.show') }}">Ver</a></li>
-                    </ul>
-                </li>
+                @if(\Auth::user()->user_role_id < 3)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil menu-icon" aria-hidden="true"></i> Blog <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('blog.create') }}">Nuevo</a></li>
+                            <li><a href="{{ route('blog.show') }}">Ver</a></li>
+                        </ul>
+                    </li>
+                @endif
+                @if(\Auth::user()->user_role_id == 1)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-o menu-icon" aria-hidden="true"></i> Páginas <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('page.create') }}">Nuevo</a></li>
+                            <li><a href="{{ route('pages.show') }}">Ver</a></li>
+                        </ul>
+                    </li>
+                @endif
+                @if(\Auth::user()->user_role_id == 1)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users menu-icon" aria-hidden="true"></i> Usuarios <i class="fa fa-chevron-right chevron" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('register') }}">Nuevo</a></li>
+                            <li><a href="{{ route('users.show') }}">Ver</a></li>
+                        </ul>
+                    </li>
+                @endif
                 <li class="dropdown">
                     <a href="{{ url('/').'/logout' }}"><i class="fa fa-sign-out menu-icon" aria-hidden="true"></i> Cerrar sesión</a>
                 </li>

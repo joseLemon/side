@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Page;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -43,6 +44,15 @@ class LoginController extends Controller
 
     public static function index() {
         if(\Auth::user()) {
+            if(Auth::user()->user_role_id > 3) {
+                $page_id = Auth::user()->page_id;
+                if($page_id) {
+                    return redirect()->route('page.edit',[$page_id]);
+                } else {
+                    // return custom error page
+                    return abort(403);
+                }
+            }
             return redirect()->route('blog.show');
         }
         return view('auth.login');
@@ -50,6 +60,15 @@ class LoginController extends Controller
 
     public function login(Request $request) {
         if(\Auth::user()) {
+            if(Auth::user()->user_role_id > 3) {
+                $page_id = Auth::user()->page_id;
+                if($page_id) {
+                    return redirect()->route('page.edit',[$page_id]);
+                } else {
+                    // return custom error page
+                    return abort(403);
+                }
+            }
             return redirect()->route('blog.show');
         }
         $data = $request->all();
@@ -68,6 +87,15 @@ class LoginController extends Controller
         $user = User::where('email', 'LIKE', $request->input('email'))->first();
         if($user !== NULL && Hash::check($request->input('password'), $user->password)) {
             if (Auth::loginUsingId($user->user_id)) {
+                if(Auth::user()->user_role_id > 3) {
+                    $page_id = Auth::user()->page_id;
+                    if($page_id) {
+                        return redirect()->route('page.edit',[$page_id]);
+                    } else {
+                        // return custom error page
+                        return abort(403);
+                    }
+                }
                 return redirect()->route('blog.show');
             } else {
                 \Session::flash('alertMessage','El usuario y/o contraseña es incorrecto');

@@ -14,6 +14,7 @@ use App\Models\PageType;
 use App\Models\Product;
 use App\Models\Year;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller {
     public function show() {
@@ -860,6 +861,18 @@ class PagesController extends Controller {
     }
 
     public function edit($id) {
+        if(Auth::user()->user_role_id != 1) {
+            $page_id = Auth::user()->page_id;
+            if($page_id) {
+                if($page_id != $id) {
+                    return redirect()->route('page.edit',[$page_id]);
+                }
+            } else {
+                // return custom error page
+                return abort(403);
+            }
+        }
+
         $page = $this->pageExists($id);
         $page->page_index = $page->join('page_index','page_index.page_id','=','pages.page_id')
             ->first();

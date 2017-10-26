@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
@@ -34,6 +37,7 @@ class UsersController extends Controller {
             DB::raw('CONCAT(user_name, \' \', user_last_name) as user_full_name'),
             'email as user_email',
         ])
+            ->where('user_role_id','!=',1)
             ->orderBy('user_id');
 
         if($request->input('get_users_by') == 'search') {
@@ -57,8 +61,29 @@ class UsersController extends Controller {
     public function edit($id) {
         $user = User::find($id);
 
+        // user exists
+        if(!$user) {
+            return abort(404);
+        }
+
+        // only if super uuser
+        if($user->user_role_id == 1 && Auth::user()->user_id != 1) {
+            return abort(404);
+        }
+
+        $roles = UserRole::get();
+        $pages = Page::select([
+            'page_id',
+            'page_title'
+        ])
+            ->where('page_type_id','!=',1)
+            ->where('page_type_id','!=',3)
+            ->get();
+
         $params = [
-            'user'  => $user
+            'user'  => $user,
+            'roles' => $roles,
+            'pages' => $pages
         ];
 
         return view('users.edit.edit', $params);
@@ -80,7 +105,8 @@ class UsersController extends Controller {
         ],[
             'name'          =>  'nombre',
             'last_name'     =>  'apellido',
-            'email'         =>  'correo electrónico'
+            'email'         =>  'correo electrónico',
+
         ]);
 
         $editPassword = false;
@@ -97,11 +123,15 @@ class UsersController extends Controller {
             $editPassword = true;
         }
 
-
         $user = User::find($id);
         $user->user_name = $request->input('name');
         $user->user_last_name = $request->input('last_name');
         $user->email = $request->input('email');
+        // super user case
+        if($user->user_id != 1) {
+            $user->user_role_id = $request->input('user_role');
+            $user->page_id = $request->input('user_page');
+        }
         if($editPassword) {
             $user->password = bcrypt($password);
         }

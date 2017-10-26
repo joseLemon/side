@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -61,6 +62,15 @@ class RegisterController extends Controller
      * @return User
      */
     protected function register(Request $request) {
+        if(Auth::user()->user_role_id != 1) {
+            $page_id = Auth::user()->page_id;
+            if($page_id) {
+                return redirect()->route('page.edit',[$page_id]);
+            } else {
+                // return custom error page
+                return abort(403);
+            }
+        }
         $user = new User();
         $user->user_name = $request->input('name');
         $user->user_last_name = $request->input('last_name');
@@ -74,7 +84,7 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function registerUser() {
+    public function showRegistraionForm() {
         return view('auth.register');
     }
 }

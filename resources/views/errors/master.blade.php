@@ -51,29 +51,10 @@
     <div class="error-box">
         <div class="error-header text-center">
             <h1>@yield('error_code')</h1>
-            <h2>Página no encontrada</h2>
+            <h2>@yield('error_title')</h2>
         </div>
         <div class="error-body">
-            <p>
-                La página que estás buscando puede haber sido removida, que se haya cambiado
-                su nombre o está temporalmente fuera de servicio.
-            </p>
-            <p>
-                Favor de intentar lo siguiente:
-            </p>
-            <ul>
-                <li>
-                    Si escribiste la dirección de esta página manualmente, asegurate
-                    que esté escrita correctamente.
-                </li>
-                <li>
-                    Presiona el botón de retroceso para regresar a la página anterior.
-                </li>
-                <li>
-                    Si fuiste redirigido a esta página, contacta al administradpr para
-                    hacerles conocer de este problema.
-                </li>
-            </ul>
+            @yield('error_message')
         </div>
     </div>
 </div>

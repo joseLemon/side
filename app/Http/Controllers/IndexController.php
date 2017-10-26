@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Auth\LoginController;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller {
     public function index(Request $request) {
@@ -39,6 +40,15 @@ class IndexController extends Controller {
                 return $this->setLanguage($request);
                 break;
             case 'register':
+                if(Auth::user()->user_role_id != 1) {
+                    $page_id = Auth::user()->page_id;
+                    if($page_id) {
+                        return redirect()->route('page.edit',[$page_id]);
+                    } else {
+                        // return custom error page
+                        return abort(403);
+                    }
+                }
                 return view('auth.register');
                 break;
         }
