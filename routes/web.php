@@ -23,6 +23,7 @@ Route::get('posts/getPosts', ['as' => 'posts.get', 'uses' => 'BlogController@get
 Route::get('blog/single/{id}', ['as' => 'blog.single', 'uses' => 'BlogController@single']);
 //  PUBLIC PAGES
 Route::get('page/getPages', ['as' => 'pages.get', 'uses' => 'PagesController@getPages']);
+Route::get('pages/pagesSearch', ['as' => 'pages.search', 'uses' => 'PagesController@searchPages']);
 //  PUBLIC CALENDAR
 Route::get('year/getYearFiles', ['as' => 'calendar.getYearFiles', 'uses' => 'CalendarController@getYearFiles']);
 

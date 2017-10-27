@@ -8,11 +8,13 @@
     <link rel="icon" href="{{ asset('public/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/js/modules/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/css/style.css') }}">
     <script src="{{ asset('public/js/jquery.min.js') }}"></script>
     <script src="{{ asset('public/js/parallax.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/js/app.js') }}"></script>
+    <script src="{{ asset('public/js/modules/select2/js/select2.min.js') }}"></script>
     @yield('head')
 </head>
 <body>
@@ -51,7 +53,7 @@
                     <a href="https://www.instagram.com/side_chih/?hl=es" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </span>
                 <span class="search-bar">
-                    <input type="text">
+                    <select class="select2-init no-dropdown-icon hidden" id="headerSearch"></select>
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </span>
             </div>
@@ -180,6 +182,40 @@
                     alertBox.append(msg + '<br>');
                 })
             }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.select2-init').select2({
+            placeholder: 'Buscar...',
+            allowClear: true,
+            ajax: {
+                url: '{{ route('pages.search') }}',
+                data: function (params) {
+                    var query = {
+                        search: params.term,
+                        page: params.page || 1,
+                        @isset($_COOKIE['indexLanguage'])
+                        lang: '{{ $_COOKIE['indexLanguage'] }}',
+                        @endisset
+                    };
+
+                    return query;
+                }
+            },
+            processResults: function (data, params) {
+                params.page = params.page || 1;
+
+                return {
+                    results: data.results,
+                    pagination: {
+                        more: (params.page * 10) < data.count_filtered
+                    }
+                };
+            }
+        }).on('select2:select', function (e) {
+            var data = e.params.data;
+            window.location = data.id;
         });
     });
 </script>

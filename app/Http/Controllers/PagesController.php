@@ -843,6 +843,177 @@ class PagesController extends Controller {
         return $query;
     }
 
+    public static function searchPages(Request $request) {
+        $search = $request->input('search','');
+        $paginate = $request->input('paginate',15);
+        $page = $request->input('page',1);
+        $except = $request->input('except',1);
+        $lang = $request->input('lang','es');
+
+        $searchTerms = explode(' ', $search);
+        $searchTermBits = [];
+        foreach ($searchTerms as $term) {
+            $term = trim($term);
+            if (!empty($term)) {
+                if($lang == 'es') {
+                    $searchTermBits[] = "page_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_diamond_1_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_page_about_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_page_about_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_about_1_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_about_1_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_about_2_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_about_2_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_about_3_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_about_3_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_programs_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_1_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_1_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_2_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_2_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_3_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_3_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_4_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_4_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_5_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_5_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_6_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_6_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_7_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_7_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_8_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_8_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_9_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_9_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_10_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_10_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_11_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_11_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_12_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_12_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_13_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_13_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_14_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_14_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_15_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_15_text LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_16_title LIKE \"%$term%\"".
+                        " OR pages_micro.es_program_16_text LIKE \"%$term%\"".
+                        " OR pages_carousel.es_diamond_1_text LIKE \"%$term%\"".
+                        " OR pages_carousel.es_page_about_title LIKE \"%$term%\"".
+                        " OR pages_carousel.es_page_about_text LIKE \"%$term%\"".
+                        " OR pages_carousel.es_about_1_title LIKE \"%$term%\"".
+                        " OR pages_carousel.es_about_1_text LIKE \"%$term%\"".
+                        " OR pages_carousel.es_about_2_title LIKE \"%$term%\"".
+                        " OR pages_carousel.es_about_2_text LIKE \"%$term%\"".
+                        " OR pages_carousel.es_about_3_title LIKE \"%$term%\"".
+                        " OR pages_carousel.es_about_3_text LIKE \"%$term%\"";
+                } else if($lang == 'en') {
+                    $searchTermBits[] = "page_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_diamond_1_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_page_about_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_page_about_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_about_1_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_about_1_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_about_2_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_about_2_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_about_3_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_about_3_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_programs_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_1_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_1_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_2_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_2_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_3_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_3_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_4_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_4_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_5_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_5_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_6_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_6_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_7_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_7_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_8_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_8_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_9_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_9_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_10_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_10_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_11_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_11_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_12_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_12_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_13_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_13_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_14_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_14_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_15_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_15_text LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_16_title LIKE \"%$term%\"".
+                        " OR pages_micro.en_program_16_text LIKE \"%$term%\"".
+                        " OR pages_carousel.en_diamond_1_text LIKE \"%$term%\"".
+                        " OR pages_carousel.en_page_about_title LIKE \"%$term%\"".
+                        " OR pages_carousel.en_page_about_text LIKE \"%$term%\"".
+                        " OR pages_carousel.en_about_1_title LIKE \"%$term%\"".
+                        " OR pages_carousel.en_about_1_text LIKE \"%$term%\"".
+                        " OR pages_carousel.en_about_2_title LIKE \"%$term%\"".
+                        " OR pages_carousel.en_about_2_text LIKE \"%$term%\"".
+                        " OR pages_carousel.en_about_3_title LIKE \"%$term%\"".
+                        " OR pages_carousel.en_about_3_text LIKE \"%$term%\"";
+                }
+            }
+        }
+
+        $pages = Page::select([
+            'page_title',
+            'page_url',
+            'page_external_url'
+        ])
+            ->leftJoin('pages_external','pages_external.page_id','=','pages.page_id')
+            ->leftJoin('pages_micro','pages_micro.page_id','=','pages.page_id')
+            ->leftJoin('pages_carousel','pages_carousel.page_id','=','pages.page_id')
+            ->groupBy('pages.page_id')
+            ->orderBy('pages.sequence');
+
+        if(!empty($searchTermBits)) {
+            $pages->whereRaw("(" . implode(' AND ',$searchTermBits) . ")");
+        }
+
+        if($except != '') {
+            $pages->where('page_type_id','!=',$except);
+        }
+
+        //$query = $pages->get();
+        $query = $pages->offset(($page-1))
+            ->limit($paginate)
+            ->get();
+
+        $data = [];
+        foreach($query as $q) {
+            $url = $q->page_url;
+            if(!$url) {
+                $url = url($q->page_external_url);
+            }
+            $data[] = [
+                'id' => $url,
+                'text' => $q->page_title
+            ];
+        }
+        $dataCount = count($query);
+        $pagination = true;
+        if($dataCount < $paginate) {
+            $pagination = false;
+        }
+
+        $results = [
+            'results' => $data,
+            'pagination' => $pagination
+        ];
+
+        return $results;
+    }
+
     public function delete(Request $request) {
         $page = Page::find($request->input('page_id'));
 
@@ -940,11 +1111,11 @@ class PagesController extends Controller {
         } else {
             $this->validateMainPageInfo($request);
 
-           /* if($page->page_type_id == 2) {
-                $this->validatePageMicro($request);
-            } else if($page->page_type_id == 3) {
-                $this->validatePageExternal($request);
-            }*/
+            /* if($page->page_type_id == 2) {
+                 $this->validatePageMicro($request);
+             } else if($page->page_type_id == 3) {
+                 $this->validatePageExternal($request);
+             }*/
 
             return $this->updateMicro($request, $id, $page);
         }

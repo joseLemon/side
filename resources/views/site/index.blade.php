@@ -156,7 +156,7 @@
                     </h2>
                     <div class="input-group">
                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        <input class="form-control" type="text">
+                        <select name="searchPages" id="searchPages" class="select2-init no-dropdown-icon hidden"></select>
                     </div>
                 </div>
             </div>

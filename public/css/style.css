@@ -891,9 +891,18 @@ body {
 .navbar .top-header .search-bar i {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 6px;
     color: #3159a8;
     font-weight: 100;
+    pointer-events: none;
+}
+
+.select2-init + span {
+    width: 100%!important;
+}
+
+.no-dropdown-icon.select2-init + span .select2-selection__arrow {
+    display: none;
 }
 
 .navbar .top-header .col img {
@@ -1859,6 +1868,49 @@ body {
     color: #fff;
     font-size: 20px;
     padding-right: 45px;
+}
+
+.ayuda .select2-init + span {
+    background-color: transparent;
+    border: 2px solid #fff;
+    width: 100%!important;
+    border-radius: 0;
+    height: 50px;
+    box-shadow: none!important;
+    color: #fff;
+    font-size: 20px;
+    padding-right: 32px;
+}
+
+.ayuda .select2-init + span .select2-selection.select2-selection--single,
+.ayuda .select2-init + span .select2-selection__rendered,
+.ayuda .select2-init + span .select2-selection__placeholder {
+    height: 100%!important;
+}
+
+.ayuda .select2-init + span .select2-selection__rendered {
+    height: auto!important;
+}
+
+.ayuda .select2-init + span .select2-selection.select2-selection--single {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    outline: none!important;
+}
+
+.ayuda .select2-init + span .select2-selection__placeholder,
+.ayuda .select2-init + span .select2-selection__rendered {
+    position: relative;
+    color: #fff!important;
+}
+
+.ayuda .select2-init + span .select2-selection__rendered {
+    top: 8px;
+}
+
+.ayuda .select2-init + span .select2-selection__placeholder {
+    top: 0;
 }
 
 /* INDUSTRIAS */
