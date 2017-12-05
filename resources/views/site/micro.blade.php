@@ -35,15 +35,63 @@
                     <div class="bg-color"></div>
                     <div class="diamond diamond-5"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-6 featured"></div>
+                    <div class="diamond diamond-6 featured">
+                        <a href="@isset($page->micro->diamond_2_url){{ $page->micro->diamond_2_url }}@endisset">
+                            <div class="title">
+                                <div class="header">
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_diamond_2_text))
+                                            {!! $page->micro->en_diamond_2_text !!}
+                                        @else
+                                            {!! $page->micro->es_diamond_2_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_diamond_2_text !!}
+                                    @endif
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     <div class="bg-color"></div>
                     <div class="diamond diamond-7"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-8 featured"></div>
+                    <div class="diamond diamond-8 featured">
+                        <a href="@isset($page->micro->diamond_3_url){{ $page->micro->diamond_3_url }}@endisset">
+                            <div class="title">
+                                <div class="header">
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_diamond_3_text))
+                                            {!! $page->micro->en_diamond_3_text !!}
+                                        @else
+                                            {!! $page->micro->es_diamond_3_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_diamond_3_text !!}
+                                    @endif
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     <div class="bg-color"></div>
                     <div class="diamond diamond-9"></div>
                     <div class="bg-color"></div>
-                    <div class="diamond diamond-10 featured"></div>
+                    <div class="diamond diamond-10 featured">
+                        <a href="@isset($page->micro->diamond_4_url){{ $page->micro->diamond_4_url }}@endisset">
+                            <div class="title">
+                                <div class="header">
+                                    @if(isset($_COOKIE['indexLanguage']))
+                                        @if($_COOKIE['indexLanguage'] == 'en' && isset($page->micro->en_diamond_4_text))
+                                            {!! $page->micro->en_diamond_4_text !!}
+                                        @else
+                                            {!! $page->micro->es_diamond_4_text !!}
+                                        @endif
+                                    @else
+                                        {!! $page->micro->es_diamond_4_text !!}
+                                    @endif
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     <div class="bg-color"></div>
                     <div class="diamond diamond-11"></div>
                     <div class="bg-color"></div>

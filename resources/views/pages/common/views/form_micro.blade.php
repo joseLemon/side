@@ -26,6 +26,32 @@
     </div>
 </div>
 <div class="row no-margin">
+    <div class="col-sm-6 col-md-4">
+        <label for="es_diamond_2_text">
+            Rombo 2
+            <input class="input-cms" type="text" name="es_diamond_2_text" placeholder="Texto" value="{{ isset($page->micro->es_diamond_2_text) ? $page->micro->es_diamond_2_text : old('es_diamond_2_text') }}">
+            <input class="input-cms" type="text" name="en_diamond_2_text" placeholder="Texto inglés" value="{{ isset($page->micro->en_diamond_2_text) ? $page->micro->en_diamond_2_text : old('en_diamond_2_text') }}">
+            <input class="input-cms" type="text" name="diamond_2_url" placeholder="URL" value="{{ isset($page->micro->diamond_2_url) ? $page->micro->diamond_2_url : old('diamond_2_url') }}">
+        </label>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <label for="es_diamond_3_text">
+            Rombo 3
+            <input class="input-cms" type="text" name="es_diamond_3_text" placeholder="Texto" value="{{ isset($page->micro->es_diamond_3_text) ? $page->micro->es_diamond_3_text : old('es_diamond_3_text') }}">
+            <input class="input-cms" type="text" name="en_diamond_3_text" placeholder="Texto inglés" value="{{ isset($page->micro->en_diamond_3_text) ? $page->micro->en_diamond_3_text : old('en_diamond_3_text') }}">
+            <input class="input-cms" type="text" name="diamond_3_url" placeholder="URL" value="{{ isset($page->micro->diamond_3_url) ? $page->micro->diamond_3_url : old('diamond_3_url') }}">
+        </label>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <label for="es_diamond_4_text">
+            Rombo 4
+            <input class="input-cms" type="text" name="es_diamond_4_text" placeholder="Texto" value="{{ isset($page->micro->es_diamond_4_text) ? $page->micro->es_diamond_4_text : old('es_diamond_4_text') }}">
+            <input class="input-cms" type="text" name="en_diamond_4_text" placeholder="Texto inglés" value="{{ isset($page->micro->en_diamond_4_text) ? $page->micro->en_diamond_4_text : old('en_diamond_4_text') }}">
+            <input class="input-cms" type="text" name="diamond_4_url" placeholder="URL" value="{{ isset($page->micro->diamond_4_url) ? $page->micro->diamond_4_url : old('diamond_4_url') }}">
+        </label>
+    </div>
+</div>
+<div class="row no-margin">
     <div class="col-sm-12">
         <h3>Acerca de</h3>
     </div>

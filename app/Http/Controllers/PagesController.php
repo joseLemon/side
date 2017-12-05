@@ -93,6 +93,21 @@ class PagesController extends Controller {
             $page->en_diamond_1_text = $request->input('en_diamond_1_text');
             $page->diamond_1_url = $request->input('diamond_1_url');
 
+            //  DIAMANTE 2
+            $page->es_diamond_2_text = $request->input('es_diamond_2_text');
+            $page->en_diamond_2_text = $request->input('en_diamond_2_text');
+            $page->diamond_2_url = $request->input('diamond_2_url');
+
+            //  DIAMANTE 3
+            $page->es_diamond_3_text = $request->input('es_diamond_3_text');
+            $page->en_diamond_3_text = $request->input('en_diamond_3_text');
+            $page->diamond_3_url = $request->input('diamond_3_url');
+
+            //  DIAMANTE 4
+            $page->es_diamond_4_text = $request->input('es_diamond_4_text');
+            $page->en_diamond_4_text = $request->input('en_diamond_4_text');
+            $page->diamond_4_url = $request->input('diamond_4_url');
+
             //  ACERCA DE
             $page->es_page_about_title = $request->input('es_page_about_title');
             $page->es_page_about_text = $request->input('es_page_about_text');
@@ -1175,6 +1190,21 @@ class PagesController extends Controller {
             $page->es_diamond_1_text = $request->input('es_diamond_1_text');
             $page->en_diamond_1_text = $request->input('en_diamond_1_text');
             $page->diamond_1_url = $request->input('diamond_1_url');
+
+            //  DIAMANTE 2
+            $page->es_diamond_2_text = $request->input('es_diamond_2_text');
+            $page->en_diamond_2_text = $request->input('en_diamond_2_text');
+            $page->diamond_2_url = $request->input('diamond_2_url');
+
+            //  DIAMANTE 3
+            $page->es_diamond_3_text = $request->input('es_diamond_3_text');
+            $page->en_diamond_3_text = $request->input('en_diamond_3_text');
+            $page->diamond_3_url = $request->input('diamond_3_url');
+
+            //  DIAMANTE 4
+            $page->es_diamond_4_text = $request->input('es_diamond_4_text');
+            $page->en_diamond_4_text = $request->input('en_diamond_4_text');
+            $page->diamond_4_url = $request->input('diamond_4_url');
 
             //  ACERCA DE
             $page->es_page_about_title = $request->input('es_page_about_title');
